@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://4wbvj5vswnej"]
+[gd_scene load_steps=4 format=3 uid="uid://4wbvj5vswnej"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_lr84v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5erda"]
 
 [node name="TestScene" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_lr84v")
+
+[node name="BodyCollider" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_gvdvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(14, 14)
+texture = SubResource("PlaceholderTexture2D_5erda")
+
+[node name="LightArea" type="Area2D" parent="Player"]
+
+[node name="LightCollider" type="CollisionPolygon2D" parent="Player/LightArea"]
+polygon = PackedVector2Array(0, 0, 70, 29, 70, -29)
