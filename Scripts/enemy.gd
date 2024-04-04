@@ -3,14 +3,14 @@ extends CharacterBody2D
 var speed = 50 # Enemy speed -R
 var player_in_range = false # If enemy is chasing player -R
 var player = null # Player object -R
-
+var activeLampPlant = false
 # Enemy physics process
 func _physics_process(delta):
 	# Play default animation always -R
 	if !$AnimatedSprite2D.is_playing():
 		$AnimatedSprite2D.play("placeHolderAnim")
 	# Move towards player if in range and light is on -R
-	if (player_in_range && player.light_on):
+	if (player_in_range && (player.light_on || activeLampPlant)):
 		position += position.direction_to(player.position) * speed * delta
 		# Flip sprite horizontally to face player -R
 		if (player.position.x - position.x) < 0:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://4wbvj5vswnej"]
+[gd_scene load_steps=10 format=3 uid="uid://4wbvj5vswnej"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_lr84v"]
 [ext_resource type="Texture2D" uid="uid://duuoip7lu2nb1" path="res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_nv5xd"]
 [ext_resource type="PackedScene" uid="uid://vmauooked5r8" path="res://Scenes/enemy.tscn" id="3_hggjy"]
+[ext_resource type="PackedScene" uid="uid://51alml0rqxy6" path="res://Scenes/lampPlant.tscn" id="4_wf0a1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nqul"]
 resource_name = "Floor"
@@ -262,3 +263,6 @@ zoom = Vector2(2, 2)
 
 [node name="Enemy" parent="." instance=ExtResource("3_hggjy")]
 position = Vector2(441, 290)
+
+[node name="LampPlant" parent="." instance=ExtResource("4_wf0a1")]
+position = Vector2(549, 321)
