@@ -10,8 +10,8 @@ func _physics_process(delta):
 	if !$AnimatedSprite2D.is_playing():
 		$AnimatedSprite2D.play("placeHolderAnim")
 	# Move towards player if in range and light is on -R
-	if (player_in_range && player.light.process_mode != Node.PROCESS_MODE_DISABLED):
-		position += (player.position - position).normalized() * speed * delta
+	if (player_in_range && player.light_on):
+		position += position.direction_to(player.position) * speed * delta
 		# Flip sprite horizontally to face player -R
 		if (player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
@@ -20,10 +20,14 @@ func _physics_process(delta):
 
 # When player enters detection area -R
 func _on_detection_area_body_entered(body):
+	if not is_instance_of(body, Player):
+		return
 	player = body
 	player_in_range = true
 
 # When player leaves detection area -R
-func _on_detection_area_body_exited(_body):
+func _on_detection_area_body_exited(body):
+	if not is_instance_of(body, Player):
+		return
 	player = null
 	player_in_range = false
