@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://4wbvj5vswnej"]
+[gd_scene load_steps=9 format=3 uid="uid://4wbvj5vswnej"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_lr84v"]
 [ext_resource type="Texture2D" uid="uid://duuoip7lu2nb1" path="res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_nv5xd"]
+[ext_resource type="PackedScene" uid="uid://vmauooked5r8" path="res://Scenes/enemy.tscn" id="3_hggjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nqul"]
 resource_name = "Floor"
@@ -236,6 +237,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(549, 279)
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_lr84v")
 
@@ -257,3 +259,6 @@ remote_path = NodePath("../../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(549, 279)
 zoom = Vector2(2, 2)
+
+[node name="Enemy" parent="." instance=ExtResource("3_hggjy")]
+position = Vector2(441, 290)
