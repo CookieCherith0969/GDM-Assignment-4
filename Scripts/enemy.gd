@@ -4,12 +4,18 @@ var speed = 50 # Enemy speed -R
 var player_in_range = false # If enemy is chasing player -R
 var player = null # Player object -R
 var activeLampPlant = false
+var lampPlantsInScene = null
+
+func _ready():
+	# Get all lamp plants in scene
+	lampPlantsInScene = get_tree().get_nodes_in_group("LampPlants")
 # Enemy physics process
 func _physics_process(delta):
+	checkForActivePlants()
 	# Play default animation always -R
 	if !$AnimatedSprite2D.is_playing():
 		$AnimatedSprite2D.play("placeHolderAnim")
-	# Move towards player if in range and light is on -R
+	# Move towards player if in range and the players light is on OR a lamp plant is on -R
 	if (player_in_range && (player.light_on || activeLampPlant)):
 		position += position.direction_to(player.position) * speed * delta
 		# Flip sprite horizontally to face player -R
@@ -31,3 +37,13 @@ func _on_detection_area_body_exited(body):
 		return
 	player = null
 	player_in_range = false
+
+# If a plant in the scene is on, set activeLampPlant to true otherwise, false
+func checkForActivePlants():
+	for x in lampPlantsInScene:
+		if x.lampActive:
+				activeLampPlant = true
+				return
+		else:
+			activeLampPlant = false
+		

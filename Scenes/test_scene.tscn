@@ -264,5 +264,8 @@ zoom = Vector2(2, 2)
 [node name="Enemy" parent="." instance=ExtResource("3_hggjy")]
 position = Vector2(441, 290)
 
-[node name="LampPlant" parent="." instance=ExtResource("4_wf0a1")]
+[node name="LampPlant" parent="." groups=["LampPlants"] instance=ExtResource("4_wf0a1")]
 position = Vector2(549, 321)
+
+[node name="LampPlant2" parent="." groups=["LampPlants"] instance=ExtResource("4_wf0a1")]
+position = Vector2(604, 217)

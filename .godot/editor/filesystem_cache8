@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1712230401
+::res://::1712288257
 icon.svg::CompressedTexture2D::6805694246141095219::1711343608::1711343608::1::::<><>::
 ::res://Art/::1712230089
 ::res://Art/2D Pixel Dungeon Asset Pack/::1712200840
@@ -229,11 +229,11 @@ torch_3.png::CompressedTexture2D::1140502867789519096::1712200783::1712200840::1
 torch_4.png::CompressedTexture2D::5395935384448020684::1712200783::1712200840::1::::<><>::
 ::res://Art/PlaceholderArt/::1712230695
 Lamp.png::CompressedTexture2D::544610307767938887::1712230692::1712230695::1::::<><>::
-::res://Scenes/::1712230391
-enemy.gd::GDScript::-1::1712221198::0::1::::<>CharacterBody2D<>::
-enemy.tscn::PackedScene::1498774722739511923::1712231281::0::1::::<><>::res://Scenes/enemy.gd<>uid://dog68fxas75h7::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png<>uid://1mgmc802kto8::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_2.png<>uid://dp1lkcyo6tl8g::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_3.png<>uid://dx7v5ysfvwsgw::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_4.png
-lampPlant.tscn::PackedScene::2159359422911789467::1712230391::0::1::::<><>::
-test_scene.tscn::PackedScene::2080991514790385077::1712220726::0::1::::<><>::res://Scripts/Player.gd<>uid://duuoip7lu2nb1::::res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png<>uid://vmauooked5r8::::res://Scenes/enemy.tscn
-::res://Scripts/::1712221198
+::res://Scenes/::1712233882
+enemy.tscn::PackedScene::1498774722739511923::1712233726::0::1::::<><>::res://Scripts/enemy.gd<>uid://dog68fxas75h7::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png<>uid://1mgmc802kto8::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_2.png<>uid://dp1lkcyo6tl8g::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_3.png<>uid://dx7v5ysfvwsgw::::res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_4.png
+lampPlant.tscn::PackedScene::2159359422911789467::1712233882::0::1::::<><>::res://Scripts/lampPlant.gd<>uid://h02wf7c3vis2::::res://Art/PlaceholderArt/Lamp.png
+test_scene.tscn::PackedScene::2080991514790385077::1712233726::0::1::::<><>::res://Scripts/Player.gd<>uid://duuoip7lu2nb1::::res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png<>uid://vmauooked5r8::::res://Scenes/enemy.tscn<>uid://51alml0rqxy6::::res://Scenes/lampPlant.tscn
+::res://Scripts/::1712233882
+enemy.gd::GDScript::-1::1712233726::0::1::::<>CharacterBody2D<>::
+lampPlant.gd::GDScript::-1::1712233882::0::1::::<>CharacterBody2D<>::
 Player.gd::GDScript::-1::1712220197::0::1::::Player<>CharacterBody2D<>::
-lampPlant.gd::GDScript::-1::1712231281::0::1::::<>CharacterBody2D<>::
