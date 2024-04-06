@@ -7,9 +7,9 @@ var activeLampPlant = false
 var lampPlantsInScene = null
 
 func _ready():
-	# Get all lamp plants in scene
+	# Get all lamp plants in scene -R
 	lampPlantsInScene = get_tree().get_nodes_in_group("LampPlants")
-# Enemy physics process
+# Enemy physics process -R
 func _physics_process(delta):
 	checkForActivePlants()
 	# Play default animation always -R
@@ -38,7 +38,7 @@ func _on_detection_area_body_exited(body):
 	player = null
 	player_in_range = false
 
-# If a plant in the scene is on, set activeLampPlant to true otherwise, false
+# If a plant in the scene is on, set activeLampPlant to true otherwise, false -R
 func checkForActivePlants():
 	for x in lampPlantsInScene:
 		if x.lampActive:
