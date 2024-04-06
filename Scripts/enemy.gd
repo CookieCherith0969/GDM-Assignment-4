@@ -17,12 +17,13 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("placeHolderAnim")
 	# Move towards player if in range and the players light is on OR a lamp plant is on -R
 	if (player_in_range && (player.light_on || activeLampPlant)):
-		position += position.direction_to(player.position) * speed * delta
+		velocity = position.direction_to(player.position) * speed
 		# Flip sprite horizontally to face player -R
 		if (player.position.x - position.x) < 0:
 			$AnimatedSprite2D.flip_h = true
 		else:
 			$AnimatedSprite2D.flip_h = false
+		move_and_slide()
 
 # When player enters detection area -R
 func _on_detection_area_body_entered(body):
