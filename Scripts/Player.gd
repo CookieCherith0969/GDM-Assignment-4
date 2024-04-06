@@ -38,3 +38,13 @@ func _physics_process(_delta):
 	
 
 	move_and_slide()
+
+
+func _on_light_area_body_entered(body):
+	if body.has_method(&"set_lit"):
+		body.set_lit(true)
+
+
+func _on_light_area_body_exited(body):
+	if body.has_method(&"set_lit"):
+		body.set_lit(false)

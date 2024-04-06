@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1s7en12iiewd"]
+
+[ext_resource type="Texture2D" uid="uid://di0pr7wwdyqo5" path="res://Art/PlaceholderArt/LightGate.png" id="1_k386k"]
+[ext_resource type="Script" path="res://Scripts/gateBlock.gd" id="1_lnyf4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2svja"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0irh"]
+atlas = ExtResource("1_k386k")
+region = Rect2(0, 0, 8, 8)
+
+[node name="GateBlock" type="StaticBody2D"]
+collision_layer = 9
+script = ExtResource("1_lnyf4")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2svja")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_k0irh")
