@@ -9,6 +9,9 @@ const JUMP_VELOCITY = -400.0
 var light = $LightArea
 var light_on = true
 
+var num_lights = 0 : set = set_lights
+var lit = false
+
 func _input(event):
 	if event.is_action_pressed("Light"):
 		if not light_on:
@@ -41,10 +44,23 @@ func _physics_process(_delta):
 
 
 func _on_light_area_body_entered(body):
-	if body.has_method(&"set_lit"):
-		body.set_lit(true)
+	if body.has_method(&"on_lit"):
+		body.on_lit()
 
 
 func _on_light_area_body_exited(body):
-	if body.has_method(&"set_lit"):
-		body.set_lit(false)
+	if body.has_method(&"on_unlit"):
+		body.on_unlit()
+
+func on_lit():
+	num_lights += 1
+	
+func on_unlit():
+	num_lights -= 1
+	
+func set_lights(val : int):
+	num_lights = val
+	if num_lights == 0:
+		lit = false
+	else:
+		lit = true

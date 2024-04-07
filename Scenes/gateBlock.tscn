@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2svja"]
 size = Vector2(8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0irh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppndp"]
 atlas = ExtResource("1_k386k")
 region = Rect2(0, 0, 8, 8)
 
@@ -18,4 +18,4 @@ script = ExtResource("1_lnyf4")
 shape = SubResource("RectangleShape2D_2svja")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_k0irh")
+texture = SubResource("AtlasTexture_ppndp")

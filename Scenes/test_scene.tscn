@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://4wbvj5vswnej"]
+[gd_scene load_steps=9 format=3 uid="uid://4wbvj5vswnej"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_lr84v"]
 [ext_resource type="Texture2D" uid="uid://duuoip7lu2nb1" path="res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_nv5xd"]
+[ext_resource type="PackedScene" uid="uid://d7dfcl5po6ar" path="res://Scenes/player.tscn" id="2_wd4tq"]
 [ext_resource type="PackedScene" uid="uid://vmauooked5r8" path="res://Scenes/enemy.tscn" id="3_hggjy"]
 [ext_resource type="PackedScene" uid="uid://51alml0rqxy6" path="res://Scenes/lampPlant.tscn" id="4_wf0a1"]
 [ext_resource type="PackedScene" uid="uid://gcm8lbssgypr" path="res://Scenes/lightGate.tscn" id="5_fa4bd"]
@@ -220,14 +220,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1nqul")
 sources/1 = SubResource("TileSetAtlasSource_cbhwc")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
-radius = 14.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5erda"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0odh5"]
-radius = 16.0
-
 [node name="TestScene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -241,36 +233,13 @@ layer_1/name = "Walls"
 layer_1/tile_data = PackedInt32Array(1900601, 327681, 1, 1835065, 327681, 2, 1769529, 327681, 3, 1703993, 327681, 1, 1638457, 327681, 3, 1572921, 327681, 1, 1507385, 327681, 2, 1441849, 327681, 3, 1376313, 327681, 1, 1310777, 327681, 1, 1245241, 327681, 1, 1179705, 327681, 3, 1114169, 327681, 3, 1048633, 327681, 1, 983097, 327681, 3, 917561, 327681, 2, 852025, 327681, 2, 786489, 327681, 1, 720953, 327681, 1, 655417, 327681, 2, 589881, 327681, 3, 524345, 327681, 3, 458809, 327681, 3, 393273, 327681, 3, 327737, 327681, 1, 1966136, 65537, 4, 1966135, 131073, 4, 1966134, 65537, 4, 1966133, 131073, 4, 1966132, 262145, 4, 1966131, 131073, 4, 1966130, 262145, 4, 1966129, 65537, 4, 1966128, 196609, 4, 1966127, 65537, 4, 1966126, 262145, 4, 1966125, 65537, 4, 1966124, 196609, 4, 1966123, 262145, 4, 1966122, 196609, 4, 1966121, 262145, 4, 1966120, 196609, 4, 1966119, 131073, 4, 1966118, 65537, 4, 1966117, 131073, 4, 1966116, 196609, 4, 1966115, 262145, 4, 1966114, 262145, 4, 1966113, 262145, 4, 1966112, 196609, 4, 1966111, 196609, 4, 1966110, 131073, 4, 1966109, 262145, 4, 1966108, 131073, 4, 1966107, 262145, 4, 1966106, 65537, 4, 1966105, 262145, 4, 1966104, 196609, 4, 1966103, 131073, 4, 1966102, 65537, 4, 1966101, 65537, 4, 1966100, 196609, 4, 1966099, 262145, 4, 1966098, 131073, 4, 1966097, 65537, 4, 1966096, 65537, 4, 1966095, 262145, 4, 1966094, 65537, 4, 1966093, 65537, 4, 1966092, 131073, 4, 1900555, 1, 3, 1835019, 1, 1, 1769483, 1, 2, 1703947, 1, 2, 1638411, 1, 1, 1572875, 1, 2, 1507339, 1, 3, 1441803, 1, 1, 1376267, 1, 1, 1310731, 1, 3, 1245195, 1, 3, 1179659, 1, 1, 1114123, 1, 2, 1048587, 1, 3, 983051, 1, 1, 917515, 1, 1, 851979, 1, 2, 786443, 1, 2, 720907, 1, 2, 655371, 1, 1, 589835, 1, 2, 524299, 1, 2, 458763, 1, 2, 393227, 1, 1, 327691, 1, 3, 262193, 65537, 0, 262192, 196609, 0, 262191, 262145, 0, 262190, 131073, 0, 262189, 65537, 0, 262188, 131073, 0, 262187, 196609, 0, 262186, 65537, 0, 262185, 262145, 0, 262184, 65537, 0, 262183, 65537, 0, 262182, 262145, 0, 262181, 65537, 0, 262180, 131073, 0, 262179, 196609, 0, 262176, 196609, 0, 262175, 131073, 0, 262174, 262145, 0, 262173, 131073, 0, 262172, 196609, 0, 262171, 131073, 0, 262170, 65537, 0, 262169, 131073, 0, 262168, 131073, 0, 262167, 65537, 0, 262166, 131073, 0, 262165, 65537, 0, 262164, 262145, 0, 262163, 262145, 0, 262162, 131073, 0, 262161, 262145, 0, 262160, 65537, 0, 262159, 262145, 0, 262157, 196609, 0, 262158, 262145, 0, 262156, 65537, 0, 262194, 65537, 0, 262195, 65537, 0, 262196, 262145, 0, 262197, 196609, 0, 262198, 131073, 0, 262199, 196609, 0, 262200, 196609, 0, 1966091, 1, 4, 1966137, 327681, 4, 262201, 327681, 0, 262155, 1, 0, 262177, 131073, 0, 262178, 131073, 0)
 metadata/_edit_lock_ = true
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(549, 279)
-collision_layer = 3
-motion_mode = 1
-script = ExtResource("1_lr84v")
-
-[node name="BodyCollider" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_gvdvt")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(22, 22)
-texture = SubResource("PlaceholderTexture2D_5erda")
-
-[node name="LightArea" type="Area2D" parent="Player"]
-collision_layer = 0
-collision_mask = 12
-
-[node name="LightCollider" type="CollisionPolygon2D" parent="Player/LightArea"]
-polygon = PackedVector2Array(0, 0, 70, 29, 70, -29)
-
-[node name="GlowCollider" type="CollisionShape2D" parent="Player/LightArea"]
-shape = SubResource("CircleShape2D_0odh5")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+[node name="Player" parent="." instance=ExtResource("2_wd4tq")]
+collision_mask = 5
 
 [node name="Enemy" parent="." instance=ExtResource("3_hggjy")]
 position = Vector2(441, 290)
+collision_layer = 4
+collision_mask = 7
 
 [node name="LampPlant" parent="." groups=["LampPlants"] instance=ExtResource("4_wf0a1")]
 position = Vector2(549, 321)
@@ -279,8 +248,8 @@ position = Vector2(549, 321)
 position = Vector2(604, 217)
 
 [node name="LightGate" parent="." instance=ExtResource("5_fa4bd")]
-position = Vector2(703, 249)
+position = Vector2(750, 346)
 rotation = 0.829031
 
-[connection signal="body_entered" from="Player/LightArea" to="Player" method="_on_light_area_body_entered"]
-[connection signal="body_exited" from="Player/LightArea" to="Player" method="_on_light_area_body_exited"]
+[node name="LightGate2" parent="." instance=ExtResource("5_fa4bd")]
+position = Vector2(531, 196)
