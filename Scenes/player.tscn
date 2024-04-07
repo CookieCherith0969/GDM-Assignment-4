@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d7dfcl5po6ar"]
+[gd_scene load_steps=6 format=3 uid="uid://d7dfcl5po6ar"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e58nx"]
+[ext_resource type="Texture2D" uid="uid://ce4p1k3nrxm41" path="res://Art/PlaceholderArt/FlashLight.png" id="2_fphfx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
 radius = 14.0
@@ -32,6 +33,11 @@ polygon = PackedVector2Array(0, 0, 70, 29, 70, -29)
 
 [node name="GlowCollider" type="CollisionShape2D" parent="LightArea"]
 shape = SubResource("CircleShape2D_0odh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="LightArea"]
+modulate = Color(1, 1, 0.454902, 0.247059)
+position = Vector2(27.5, 0)
+texture = ExtResource("2_fphfx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

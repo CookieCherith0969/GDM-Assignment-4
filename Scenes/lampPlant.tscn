@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://51alml0rqxy6"]
+[gd_scene load_steps=11 format=3 uid="uid://51alml0rqxy6"]
 
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_8jvi5"]
 [ext_resource type="Texture2D" uid="uid://h02wf7c3vis2" path="res://Art/PlaceholderArt/Lamp.png" id="2_14hpv"]
+[ext_resource type="Texture2D" uid="uid://crw0peyi8661d" path="res://Art/PlaceholderArt/PlantLight.png" id="3_rhyo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvte4"]
 
@@ -74,6 +75,10 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
 shape = SubResource("CircleShape2D_3cy5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="LightArea"]
+modulate = Color(0.666667, 1, 0.607843, 0.458824)
+texture = ExtResource("3_rhyo2")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

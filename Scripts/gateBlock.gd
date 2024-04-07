@@ -10,6 +10,9 @@ var pos : Vector2 : set = set_pos
 var num_lights = 0 : set = set_lights
 var lit : bool : set = set_lit
 
+var active_colour = Color("#ffffff")
+var inactive_colour = Color("#404040")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.texture = sprite.texture.duplicate()
@@ -44,9 +47,9 @@ func set_lit(val : bool):
 		return
 	lit = val
 	if lit:
-		sprite.hide()
+		modulate = inactive_colour
 		collision_layer -= 1
 	else:
-		sprite.show()
+		modulate = active_colour
 		collision_layer += 1
 	
