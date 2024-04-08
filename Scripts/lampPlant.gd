@@ -7,6 +7,8 @@ var timer = $Timer
 var sprite = $AnimatedSprite2D
 @onready
 var light = $LightArea
+@onready
+var glowlight = $GlowLight
 
 func _ready():
 	sprite.play("off") # Start with lamp off -R
@@ -19,6 +21,7 @@ func _on_detection_area_body_entered(body):
 	lampActive = true
 	light.show()
 	light.monitoring = true
+	glowlight.enabled = true
 	timer.stop()
 
 # When player leaves start timer -R
@@ -33,6 +36,7 @@ func _on_timer_timeout():
 	lampActive = false
 	light.hide()
 	light.monitoring = false
+	glowlight.enabled = false
 
 
 func _on_light_area_body_entered(body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://51alml0rqxy6"]
+[gd_scene load_steps=11 format=3 uid="uid://c042mnm23xyoo"]
 
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_8jvi5"]
 [ext_resource type="Texture2D" uid="uid://h02wf7c3vis2" path="res://Art/PlaceholderArt/Lamp.png" id="2_14hpv"]
@@ -67,6 +67,12 @@ shape = SubResource("CircleShape2D_40tec")
 wait_time = 3.0
 one_shot = true
 
+[node name="GlowLight" type="PointLight2D" parent="."]
+enabled = false
+color = Color(1, 0.635294, 1, 1)
+shadow_enabled = true
+texture = ExtResource("3_rhyo2")
+
 [node name="LightArea" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
@@ -77,6 +83,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_3cy5b")
 
 [node name="Sprite2D" type="Sprite2D" parent="LightArea"]
+visible = false
 modulate = Color(0.666667, 1, 0.607843, 0.458824)
 texture = ExtResource("3_rhyo2")
 

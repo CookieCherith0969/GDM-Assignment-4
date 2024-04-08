@@ -3,6 +3,8 @@ extends StaticBody2D
 
 @onready
 var sprite = $Sprite
+@onready
+var occluder = $LightOccluder2D
 
 @export
 var pos : Vector2 : set = set_pos
@@ -49,7 +51,9 @@ func set_lit(val : bool):
 	if lit:
 		modulate = inactive_colour
 		collision_layer -= 1
+		occluder.hide()
 	else:
 		modulate = active_colour
 		collision_layer += 1
+		occluder.show()
 	

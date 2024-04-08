@@ -7,6 +7,8 @@ var activeLampPlant = false
 var lampPlantsInScene = null
 @onready
 var sprite = $AnimatedSprite2D
+@onready
+var huntlight = $HuntLight
 
 func _ready():
 	pass
@@ -20,6 +22,7 @@ func _physics_process(delta):
 		sprite.play("placeHolderAnim")
 	# Move towards player if in range and the players light is on OR a lamp plant is on -R
 	if (player_in_range && player.lit):
+		huntlight.enabled = true
 		velocity = position.direction_to(player.position) * speed
 		# Flip sprite horizontally to face player -R
 		if (player.position.x - position.x) < 0:
@@ -27,6 +30,8 @@ func _physics_process(delta):
 		else:
 			sprite.flip_h = false
 		move_and_slide()
+	else:
+		huntlight.enabled = false
 
 # When player enters detection area -R
 func _on_detection_area_body_entered(body):

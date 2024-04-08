@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 
 @onready
 var light = $LightArea
+@onready
+var flashlight = $FlashLight
 var light_on = true
 
 var num_lights = 0 : set = set_lights
@@ -17,11 +19,11 @@ func _input(event):
 		if not light_on:
 			light_on = true
 			light.monitoring = true
-			light.show()
+			flashlight.enabled = true
 		else:
 			light_on = false
 			light.monitoring = false
-			light.hide()
+			flashlight.enabled = false
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.

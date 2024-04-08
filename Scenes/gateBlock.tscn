@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1s7en12iiewd"]
+[gd_scene load_steps=6 format=3 uid="uid://s74i0cpdue04"]
 
 [ext_resource type="Texture2D" uid="uid://di0pr7wwdyqo5" path="res://Art/PlaceholderArt/LightGate.png" id="1_k386k"]
 [ext_resource type="Script" path="res://Scripts/gateBlock.gd" id="1_lnyf4"]
@@ -6,9 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2svja"]
 size = Vector2(8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppndp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfgg5"]
 atlas = ExtResource("1_k386k")
 region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jlmre"]
+polygon = PackedVector2Array(4, 4, -4, 4, -4, -4, 4, -4)
 
 [node name="GateBlock" type="StaticBody2D"]
 collision_layer = 9
@@ -18,4 +21,7 @@ script = ExtResource("1_lnyf4")
 shape = SubResource("RectangleShape2D_2svja")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_ppndp")
+texture = SubResource("AtlasTexture_qfgg5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jlmre")
