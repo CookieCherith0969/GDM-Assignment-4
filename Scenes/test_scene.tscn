@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://4wbvj5vswnej"]
+[gd_scene load_steps=12 format=3 uid="uid://4wbvj5vswnej"]
 
 [ext_resource type="Texture2D" uid="uid://duuoip7lu2nb1" path="res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="2_nv5xd"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_wd4tq"]
 [ext_resource type="PackedScene" uid="uid://2du4spxsavli" path="res://Scenes/enemy.tscn" id="3_hggjy"]
 [ext_resource type="PackedScene" uid="uid://c042mnm23xyoo" path="res://Scenes/lampPlant.tscn" id="4_wf0a1"]
 [ext_resource type="PackedScene" path="res://Scenes/lightGate.tscn" id="5_fa4bd"]
+[ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="6_alm1j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nqul"]
 resource_name = "Floor"
@@ -277,7 +278,7 @@ collision_mask = 7
 position = Vector2(549, 321)
 
 [node name="LampPlant2" parent="." groups=["LampPlants"] instance=ExtResource("4_wf0a1")]
-position = Vector2(604, 217)
+position = Vector2(619, 201)
 
 [node name="LightGate" parent="." instance=ExtResource("5_fa4bd")]
 position = Vector2(750, 346)
@@ -291,4 +292,10 @@ visible = false
 occluder = SubResource("OccluderPolygon2D_7caf4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="LightArea" parent="." instance=ExtResource("6_alm1j")]
+position = Vector2(751, 375)
+angle = 192.091
+range = 33.512

@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c042mnm23xyoo"]
+[gd_scene load_steps=10 format=3 uid="uid://c042mnm23xyoo"]
 
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_8jvi5"]
 [ext_resource type="Texture2D" uid="uid://h02wf7c3vis2" path="res://Art/PlaceholderArt/Lamp.png" id="2_14hpv"]
 [ext_resource type="Texture2D" uid="uid://crw0peyi8661d" path="res://Art/PlaceholderArt/PlantLight.png" id="3_rhyo2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvte4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yersf"]
 atlas = ExtResource("2_14hpv")
@@ -45,11 +43,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cy5b"]
 radius = 200.0
 
-[node name="LampPlant" type="CharacterBody2D"]
+[node name="LampPlant" type="Node2D"]
 script = ExtResource("1_8jvi5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fvte4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e7r2r")
