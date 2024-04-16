@@ -6,10 +6,10 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @onready
-var light = $LightArea
+var flasharea = $FlashArea
 @onready
-var flashlight = $FlashLight
-var light_on = true
+var flashlight = $FlashLight 
+var light_on = false : set = set_light_on
 
 var num_lights = 0 : set = set_lights
 var lit = false
@@ -18,12 +18,9 @@ func _input(event):
 	if event.is_action_pressed("Light"):
 		if not light_on:
 			light_on = true
-			light.monitoring = true
-			flashlight.enabled = true
 		else:
 			light_on = false
-			light.monitoring = false
-			flashlight.enabled = false
+			
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -55,9 +52,11 @@ func _on_light_area_body_exited(body):
 		body.on_unlit()
 
 func on_lit():
+	print_debug("Player lit")
 	num_lights += 1
 	
 func on_unlit():
+	print_debug("Player unlit")
 	num_lights -= 1
 	
 func set_lights(val : int):
@@ -66,3 +65,15 @@ func set_lights(val : int):
 		lit = false
 	else:
 		lit = true
+
+func set_light_on(val : bool):
+	if light_on != val:
+		light_on = val
+		if light_on:
+			on_lit()
+			flasharea.active = true
+			flashlight.enabled = true
+		else:
+			on_unlit()
+			flasharea.active = false
+			flashlight.enabled = false

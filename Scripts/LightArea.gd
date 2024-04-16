@@ -81,4 +81,6 @@ func set_active(val : bool):
 	active = val
 	
 	if not active:
+		for target in targets:
+			target.on_unlit()
 		targets.clear()

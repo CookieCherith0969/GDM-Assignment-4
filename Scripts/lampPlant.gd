@@ -1,12 +1,12 @@
 extends Node2D
 
-var lampActive = false
+var lampActive = false : set = set_active
 @onready
 var timer = $Timer
 @onready
 var sprite = $AnimatedSprite2D
 @onready
-var light = $LightArea
+var glowarea = $GlowArea
 @onready
 var glowlight = $GlowLight
 
@@ -19,9 +19,7 @@ func _on_detection_area_body_entered(body):
 		return
 	sprite.play("on")
 	lampActive = true
-	light.show()
-	light.monitoring = true
-	glowlight.enabled = true
+	
 	timer.stop()
 
 # When player leaves start timer -R
@@ -34,9 +32,7 @@ func _on_detection_area_body_exited(body):
 func _on_timer_timeout():
 	sprite.play("off")
 	lampActive = false
-	light.hide()
-	light.monitoring = false
-	glowlight.enabled = false
+	
 
 
 func _on_light_area_body_entered(body):
@@ -47,3 +43,14 @@ func _on_light_area_body_entered(body):
 func _on_light_area_body_exited(body):
 	if body.has_method(&"on_unlit"):
 		body.on_unlit()
+
+func set_active(val : bool):
+	if lampActive != val:
+		lampActive = val
+		if lampActive:
+			glowarea.active = true
+			glowlight.enabled = true
+		else:
+			glowarea.active = false
+			glowlight.enabled = false
+	
