@@ -49,10 +49,12 @@ func set_lit(val : bool):
 		return
 	lit = val
 	if lit:
+		print_debug("Block lit")
 		modulate = inactive_colour
 		collision_layer -= 1
 		occluder.hide()
 	else:
+		print_debug("Block unlit")
 		modulate = active_colour
 		collision_layer += 1
 		occluder.show()

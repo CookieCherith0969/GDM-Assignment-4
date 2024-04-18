@@ -9,9 +9,12 @@ var num_rays : int = 5 : set = set_rays
 var range : float = 20 : set = set_range
 @export
 var active = true : set = set_active
+@export
+var hit_from_inside = false : set = set_inside
 
 var rays : Array
 var targets : Array
+var prev_targets : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,8 +29,7 @@ func _physics_process(delta):
 	if not active:
 		return
 
-	for target in targets:
-		target.on_unlit()
+	prev_targets = targets.duplicate()
 	targets.clear()
 	
 	for ray in rays:
@@ -39,12 +41,17 @@ func _physics_process(delta):
 				break
 			if (not target in targets) and (target.has_method(&"on_lit")):
 				targets.append(target)
-				target.on_lit()
+				if not target in prev_targets:
+					target.on_lit()
 			if target.get_collision_layer_value(1):
 				break
 			else:
 				ray.add_exception(target)
 			ray.force_raycast_update()
+	
+	for target in prev_targets:
+		if not target in targets:
+			target.on_unlit()
 
 func set_angle(val : float):
 	angle = val
@@ -68,6 +75,7 @@ func set_rays(val : int):
 		new_ray.set_collision_mask_value(4, true)
 		new_ray.target_position.y = -range
 		new_ray.rotation_degrees = ((float(i)/(num_rays-1)) * angle)-(angle/2)
+		new_ray.hit_from_inside = hit_from_inside
 		rays.append(new_ray)
 		add_child(new_ray)
 	
@@ -84,3 +92,9 @@ func set_active(val : bool):
 		for target in targets:
 			target.on_unlit()
 		targets.clear()
+
+func set_inside(val : bool):
+	hit_from_inside = val
+	
+	for ray in rays:
+		ray.hit_from_inside = hit_from_inside

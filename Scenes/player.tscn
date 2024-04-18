@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dkvndtf18151r" path="res://Art/PlaceholderArt/PlaceholderPlayer.png" id="2_1b5np"]
 [ext_resource type="Texture2D" uid="uid://ce4p1k3nrxm41" path="res://Art/PlaceholderArt/FlashLight.png" id="2_fphfx"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_i58oj"]
-[ext_resource type="PackedScene" path="res://Scenes/light_area.tscn" id="4_bf3oi"]
+[ext_resource type="PackedScene" uid="uid://dlh1negh16d0d" path="res://Scenes/light_area.tscn" id="4_bf3oi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
 radius = 14.0
@@ -29,6 +29,11 @@ shadow_item_cull_mask = 0
 texture = ExtResource("3_i58oj")
 texture_scale = 0.8
 
+[node name="GlowArea" parent="." instance=ExtResource("4_bf3oi")]
+num_rays = 25
+range = 14.0
+hit_from_inside = true
+
 [node name="Rotator" type="Node2D" parent="."]
 
 [node name="FlashLight" type="PointLight2D" parent="Rotator"]
@@ -47,4 +52,11 @@ scale = Vector2(1.8, 1.8)
 angle = 33.48
 num_rays = 15
 range = 72.0
+active = false
+
+[node name="EdgeArea" parent="Rotator" instance=ExtResource("4_bf3oi")]
+rotation = 1.5708
+angle = 200.0
+num_rays = 25
+range = 16.0
 active = false
