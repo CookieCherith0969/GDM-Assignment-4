@@ -1,66 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6gqgh11is37s"]
+[gd_scene load_steps=2 format=3 uid="uid://dlh1negh16d0d"]
 
 [ext_resource type="Script" path="res://Scripts/LightArea.gd" id="1_l1l7l"]
 
 [node name="LightArea" type="Node2D"]
 script = ExtResource("1_l1l7l")
 
-[node name="_RayCast2D_35637" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="_RayCast2D_35638" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="_RayCast2D_35639" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="_RayCast2D_35640" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="_RayCast2D_35641" type="RayCast2D" parent="."]
-rotation = 3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="@RayCast2D@37149" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="@RayCast2D@37150" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="@RayCast2D@37151" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="@RayCast2D@37152" type="RayCast2D" parent="."]
-rotation = -3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
-
-[node name="@RayCast2D@37153" type="RayCast2D" parent="."]
-rotation = 3.14159
-enabled = false
-target_position = Vector2(0, -20)
-collision_mask = 8
+[node name="RayCast2D" type="RayCast2D" parent="."]

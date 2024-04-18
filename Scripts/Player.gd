@@ -8,6 +8,9 @@ const JUMP_VELOCITY = -400.0
 @onready
 var flasharea = $Rotator/FlashArea
 @onready
+var edgearea = $Rotator/EdgeArea
+
+@onready
 var flashlight = $Rotator/FlashLight 
 var light_on = false : set = set_light_on
 
@@ -87,8 +90,10 @@ func set_light_on(val : bool):
 		if light_on:
 			on_lit()
 			flasharea.active = true
+			edgearea.active = true
 			flashlight.enabled = true
 		else:
 			on_unlit()
 			flasharea.active = false
+			edgearea.active = false
 			flashlight.enabled = false
