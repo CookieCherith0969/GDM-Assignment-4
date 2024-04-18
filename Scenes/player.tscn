@@ -31,7 +31,7 @@ texture_scale = 0.8
 
 [node name="GlowArea" parent="." instance=ExtResource("4_bf3oi")]
 num_rays = 25
-range = 14.0
+light_range = 14.0
 hit_from_inside = true
 
 [node name="Rotator" type="Node2D" parent="."]
@@ -51,12 +51,13 @@ rotation = 1.5708
 scale = Vector2(1.8, 1.8)
 angle = 33.48
 num_rays = 15
-range = 72.0
+light_range = 75.0
 active = false
 
 [node name="EdgeArea" parent="Rotator" instance=ExtResource("4_bf3oi")]
 rotation = 1.5708
 angle = 200.0
 num_rays = 25
-range = 16.0
+light_range = 16.0
 active = false
+hit_from_inside = true

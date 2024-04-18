@@ -6,7 +6,7 @@ var angle : float = 360 : set = set_angle
 @export_range(2,200)
 var num_rays : int = 5 : set = set_rays
 @export_range(0.05, 500)
-var range : float = 20 : set = set_range
+var light_range : float = 20 : set = set_range
 @export
 var active = true : set = set_active
 @export
@@ -18,17 +18,19 @@ var prev_targets : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	active = active
 	angle = angle
 	num_rays = num_rays
-	range = range
-	active = active
+	light_range = light_range
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if rays.size() == 0:
+		return
 	if not active:
 		return
-
 	prev_targets = targets.duplicate()
 	targets.clear()
 	
@@ -73,17 +75,17 @@ func set_rays(val : int):
 		var new_ray := RayCast2D.new()
 		new_ray.enabled = false
 		new_ray.set_collision_mask_value(4, true)
-		new_ray.target_position.y = -range
+		new_ray.target_position.y = -light_range
 		new_ray.rotation_degrees = ((float(i)/(num_rays-1)) * angle)-(angle/2)
 		new_ray.hit_from_inside = hit_from_inside
 		rays.append(new_ray)
 		add_child(new_ray)
 	
 func set_range(val : float):
-	range = val
+	light_range = val
 	
 	for ray in rays:
-		ray.target_position.y = -range
+		ray.target_position.y = -light_range
 
 func set_active(val : bool):
 	active = val

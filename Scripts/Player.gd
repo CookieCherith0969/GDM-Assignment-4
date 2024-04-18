@@ -26,7 +26,7 @@ var period = 2*PI/glow_speed
 @onready
 var rotator = $Rotator
 
-var num_lights = 0 : set = set_lights
+var num_lights = -1 : set = set_lights
 var lit = false
 
 
@@ -61,20 +61,12 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
-func _on_light_area_body_entered(body):
-	if body.has_method(&"on_lit"):
-		body.on_lit()
-
-
-func _on_light_area_body_exited(body):
-	if body.has_method(&"on_unlit"):
-		body.on_unlit()
-
 func on_lit():
+	print_debug("player lit")
 	num_lights += 1
 	
 func on_unlit():
+	print_debug("player unlit")
 	num_lights -= 1
 	
 func set_lights(val : int):
@@ -88,12 +80,12 @@ func set_light_on(val : bool):
 	if light_on != val:
 		light_on = val
 		if light_on:
-			on_lit()
+			#on_lit()
 			flasharea.active = true
 			edgearea.active = true
 			flashlight.enabled = true
 		else:
-			on_unlit()
+			#on_unlit()
 			flasharea.active = false
 			edgearea.active = false
 			flashlight.enabled = false

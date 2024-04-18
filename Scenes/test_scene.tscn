@@ -263,7 +263,7 @@ layer_1/tile_data = PackedInt32Array(1900601, 327681, 1, 1835065, 327681, 2, 176
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_wd4tq")]
-position = Vector2(613, 283)
+position = Vector2(816, 321)
 collision_mask = 5
 
 [node name="Enemy" parent="." instance=ExtResource("3_hggjy")]
@@ -275,7 +275,7 @@ collision_mask = 7
 position = Vector2(549, 321)
 
 [node name="LampPlant2" parent="." groups=["LampPlants"] instance=ExtResource("4_wf0a1")]
-position = Vector2(619, 201)
+position = Vector2(630, 198)
 
 [node name="LightGate" parent="." instance=ExtResource("5_fa4bd")]
 position = Vector2(755, 343)
