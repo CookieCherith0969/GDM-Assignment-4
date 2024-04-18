@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_8jvi5"]
 [ext_resource type="Texture2D" uid="uid://h02wf7c3vis2" path="res://Art/PlaceholderArt/Lamp.png" id="2_14hpv"]
-[ext_resource type="Texture2D" uid="uid://crw0peyi8661d" path="res://Art/PlaceholderArt/PlantLight.png" id="3_rhyo2"]
-[ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_xqyf7"]
+[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_u1hhc"]
+[ext_resource type="PackedScene" path="res://Scenes/light_area.tscn" id="4_xqyf7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yersf"]
 atlas = ExtResource("2_14hpv")
@@ -64,11 +64,14 @@ one_shot = true
 enabled = false
 color = Color(1, 0.635294, 1, 1)
 shadow_enabled = true
-texture = ExtResource("3_rhyo2")
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = ExtResource("3_u1hhc")
+texture_scale = 4.0
 
 [node name="GlowArea" parent="." instance=ExtResource("4_xqyf7")]
 num_rays = 100
-range = 200.0
+range = 182.0
 active = false
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
