@@ -1,6 +1,9 @@
 @tool
 extends Node2D
 
+@export var gateX = 6
+@export var gateY = 4
+
 @onready
 var block_scene = preload("res://Scenes/gateBlock.tscn")
 
@@ -8,8 +11,8 @@ var block_scene = preload("res://Scenes/gateBlock.tscn")
 func _ready():
 	for child in get_children():
 		remove_child(child)
-	for x in range(6):
-		for y in range(4):
+	for x in range(gateX):
+		for y in range(gateY):
 			var block = block_scene.instantiate()
 			add_child(block)
 			block.pos = Vector2(x,y)
