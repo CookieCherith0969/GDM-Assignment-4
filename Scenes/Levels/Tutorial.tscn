@@ -430,7 +430,6 @@ scale = Vector2(0.948452, 0.48)
 [node name="Objects" type="Node" parent="."]
 
 [node name="LampPlant" parent="Objects" instance=ExtResource("4_pwxd5")]
-visible = false
 position = Vector2(263, 58)
 
 [node name="Key" parent="Objects" instance=ExtResource("5_ct3nx")]
