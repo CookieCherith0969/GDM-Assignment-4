@@ -1,7 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -23,6 +22,7 @@ var rotator = $Rotator
 var num_lights = 0 : set = set_lights
 var lit = false
 
+var has_key = false
 
 func _input(event):
 	if event.is_action_pressed("Light"):
@@ -46,10 +46,14 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
 	rotator.rotation = get_angle_to(get_global_mouse_position())
-	
-	
-
 	move_and_slide()
+
+func _on_InteractArea_body_entered(body): # Colliding with objects
+	if body.is_in_group("Keys") and not has_key:
+		body.queue_free()
+		has_key = true
+	elif body.is_in_group("Doors") and has_key:
+		body.get_node("CollisionShape2D").disabled = true
 
 func on_lit():
 	num_lights += 1
