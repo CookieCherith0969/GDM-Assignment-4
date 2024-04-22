@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlh1negh16d0d"]
+[gd_scene load_steps=3 format=3 uid="uid://c6gqgh11is37s"]
 
 [ext_resource type="Script" path="res://Scripts/LightArea.gd" id="1_l1l7l"]
+[ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="2_e4h8p"]
 
 [node name="LightArea" type="Node2D"]
 script = ExtResource("1_l1l7l")
+ray_range = null
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="BlockableArea" parent="." instance=ExtResource("2_e4h8p")]
+ray_range = null
+ray_mask = 8
+
+[connection signal="target_entered" from="BlockableArea" to="." method="_on_blockable_area_target_entered"]
+[connection signal="target_exited" from="BlockableArea" to="." method="_on_blockable_area_target_exited"]

@@ -16,17 +16,11 @@ var light_on = false : set = set_light_on
 
 @onready
 var glowlight = $GlowLight
-@onready
-var glow_max_radius = glowlight.texture_scale/2
-var glow_timer = 0
-const glow_speed = 1.8
-var glow_min_radius = 0.32
-var period = 2*PI/glow_speed
 
 @onready
 var rotator = $Rotator
 
-var num_lights = -1 : set = set_lights
+var num_lights = 0 : set = set_lights
 var lit = false
 
 
@@ -39,10 +33,6 @@ func _input(event):
 			
 
 func _physics_process(delta):
-	glow_timer += delta
-	glow_timer = fmod(glow_timer, period)
-	glowlight.texture_scale = max(cos(glow_timer*glow_speed)*glow_max_radius+glow_max_radius, glow_min_radius)
-	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var horizontal = Input.get_axis("Left", "Right")
@@ -62,11 +52,9 @@ func _physics_process(delta):
 	move_and_slide()
 
 func on_lit():
-	print_debug("player lit")
 	num_lights += 1
 	
 func on_unlit():
-	print_debug("player unlit")
 	num_lights -= 1
 	
 func set_lights(val : int):
@@ -75,17 +63,18 @@ func set_lights(val : int):
 		lit = false
 	else:
 		lit = true
+	print_debug(num_lights)
 
 func set_light_on(val : bool):
 	if light_on != val:
 		light_on = val
 		if light_on:
-			#on_lit()
+			on_lit()
 			flasharea.active = true
 			edgearea.active = true
 			flashlight.enabled = true
 		else:
-			#on_unlit()
+			on_unlit()
 			flasharea.active = false
 			edgearea.active = false
 			flashlight.enabled = false

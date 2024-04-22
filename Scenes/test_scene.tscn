@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_wd4tq"]
 [ext_resource type="PackedScene" uid="uid://2du4spxsavli" path="res://Scenes/enemy.tscn" id="3_hggjy"]
 [ext_resource type="PackedScene" uid="uid://c042mnm23xyoo" path="res://Scenes/lampPlant.tscn" id="4_wf0a1"]
-[ext_resource type="PackedScene" uid="uid://gcm8lbssgypr" path="res://Scenes/lightGate.tscn" id="5_fa4bd"]
+[ext_resource type="PackedScene" path="res://Scenes/lightGate.tscn" id="5_fa4bd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nqul"]
 resource_name = "Floor"
@@ -263,8 +263,7 @@ layer_1/tile_data = PackedInt32Array(1900601, 327681, 1, 1835065, 327681, 2, 176
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_wd4tq")]
-position = Vector2(816, 321)
-collision_mask = 5
+position = Vector2(814, 316)
 
 [node name="Enemy" parent="." instance=ExtResource("3_hggjy")]
 position = Vector2(414, 280)
@@ -285,5 +284,4 @@ rotation = 0.829031
 position = Vector2(531, 196)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_8jvi5"]
 [ext_resource type="Texture2D" uid="uid://h02wf7c3vis2" path="res://Art/PlaceholderArt/Lamp.png" id="2_14hpv"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_u1hhc"]
-[ext_resource type="PackedScene" uid="uid://dlh1negh16d0d" path="res://Scenes/light_area.tscn" id="4_xqyf7"]
+[ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_xqyf7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yersf"]
 atlas = ExtResource("2_14hpv")
@@ -71,7 +71,7 @@ texture_scale = 4.0
 
 [node name="GlowArea" parent="." instance=ExtResource("4_xqyf7")]
 num_rays = 101
-light_range = 180.0
+ray_range = 180.0
 active = false
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
