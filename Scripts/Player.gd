@@ -49,6 +49,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_InteractArea_body_entered(body): # Colliding with objects
+	print_debug("Player Area")
 	if body.is_in_group("Keys") and not has_key:
 		body.queue_free()
 		has_key = true
@@ -67,7 +68,6 @@ func set_lights(val : int):
 		lit = false
 	else:
 		lit = true
-	print_debug(num_lights)
 
 func set_light_on(val : bool):
 	if light_on != val:
