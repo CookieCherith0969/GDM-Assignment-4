@@ -19,7 +19,7 @@ var glowlight = $GlowLight
 @onready
 var rotator = $Rotator
 
-var num_lights = 0 : set = set_lights
+var num_lights = -1 : set = set_lights
 var lit = false
 
 var has_key = false
