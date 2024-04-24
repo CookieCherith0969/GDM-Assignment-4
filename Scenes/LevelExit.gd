@@ -9,4 +9,4 @@ func _on_area_2d_body_entered(body):
 
 func load_next_level():
 	print("Load Level Called")
-	# To implement
+	get_tree().change_scene_to_file(next_level_path)
