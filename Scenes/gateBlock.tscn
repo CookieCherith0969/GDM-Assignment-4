@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2svja"]
 size = Vector2(8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o3iha"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb2dh"]
 atlas = ExtResource("1_k386k")
 region = Rect2(0, 0, 8, 8)
 
@@ -21,7 +21,7 @@ script = ExtResource("1_lnyf4")
 shape = SubResource("RectangleShape2D_2svja")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_o3iha")
+texture = SubResource("AtlasTexture_vb2dh")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jlmre")

@@ -12,15 +12,15 @@ radius = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr4v1"]
 size = Vector2(21.1325, 17.4419)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 10
 motion_mode = 1
 script = ExtResource("1_e58nx")
 
-[node name="BodyCollider" type="CollisionShape2D" parent="."]
+[node name="BodyCollider" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("CircleShape2D_gvdvt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
 texture = ExtResource("2_1b5np")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -53,8 +53,8 @@ func _on_InteractArea_body_entered(body): # Colliding with objects
 	if body.is_in_group("Keys") and not has_key:
 		body.queue_free()
 		has_key = true
-	elif body.is_in_group("Doors") and has_key:
-		body.get_node("CollisionShape2D").disabled = true
+	#elif body.is_in_group("Doors") and has_key:
+	#	body.get_node("CollisionShape2D").disabled = true
 
 func on_lit():
 	num_lights += 1
@@ -82,3 +82,10 @@ func set_light_on(val : bool):
 			flasharea.active = false
 			edgearea.active = false
 			flashlight.enabled = false
+
+func check_has_key() -> bool:
+	return has_key
+
+func set_key(value: bool):
+	has_key = value
+

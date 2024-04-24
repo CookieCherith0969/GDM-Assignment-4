@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn7jrpbynkh63"]
+
+[ext_resource type="Script" path="res://Scenes/lockedDoor.gd" id="1_bndld"]
+[ext_resource type="Texture2D" uid="uid://dwirruu41arxc" path="res://Art/elevator.png" id="2_txjhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d83x8"]
+size = Vector2(29, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irk8r"]
+
+[node name="LockedDoor" type="Node2D"]
+script = ExtResource("1_bndld")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_d83x8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_irk8r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_txjhk")
