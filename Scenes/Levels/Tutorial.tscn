@@ -457,7 +457,7 @@ scale = Vector2(0.948452, 0.48)
 position = Vector2(263, 58)
 
 [node name="Key" parent="Objects" instance=ExtResource("5_ct3nx")]
-position = Vector2(277, -18)
+position = Vector2(281, 38)
 
 [node name="LockedDoor" parent="Objects" instance=ExtResource("6_wdsr3")]
 position = Vector2(416, 64)
