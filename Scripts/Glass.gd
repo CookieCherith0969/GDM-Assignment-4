@@ -5,7 +5,7 @@ extends Node2D
 var size : Vector2i = Vector2i(16,16) : set = set_size
 
 @onready
-var collider = $StaticBody2D/CollisionShape2D
+var collider = $CollisionShape2D
 @onready
 var sprite = $SpriteRect
 
@@ -16,10 +16,10 @@ func _ready():
 	size = size
 
 func set_size(val : Vector2i):
+	size = val
+	
 	if not is_instance_valid(sprite):
 		return
-	
-	size = val
 	
 	if size.x < 2:
 		size.x = 2

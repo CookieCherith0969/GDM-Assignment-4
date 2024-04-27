@@ -6,7 +6,7 @@ signal target_exited(target)
 
 @export_range(0,360)
 var angle : float = 360 : set = set_angle
-@export_range(2,200)
+@export_range(2,500)
 var num_rays : int = 5 : set = set_rays
 @export_range(0.05, 500)
 var ray_range : float = 20 : set = set_range

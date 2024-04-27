@@ -3,23 +3,19 @@
 [ext_resource type="Script" path="res://Scripts/Glass.gd" id="1_8nj5b"]
 [ext_resource type="Texture2D" uid="uid://d1h5w1nm1mri" path="res://Art/PlaceholderArt/GlassRect.png" id="1_sa8e7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gkt1"]
-size = Vector2(16, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsodc"]
+size = Vector2(16, 16)
 
-[node name="Glass" type="Node2D"]
+[node name="Glass" type="StaticBody2D"]
 script = ExtResource("1_8nj5b")
-size = Vector2i(16, 10)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8, 5)
-shape = SubResource("RectangleShape2D_5gkt1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_bsodc")
 
 [node name="SpriteRect" type="NinePatchRect" parent="."]
 offset_right = 16.0
-offset_bottom = 10.0
+offset_bottom = 16.0
 texture = ExtResource("1_sa8e7")
 region_rect = Rect2(0, 0, 3, 3)
 patch_margin_left = 1

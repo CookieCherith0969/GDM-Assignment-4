@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://2du4spxsavli"]
+[gd_scene load_steps=10 format=3 uid="uid://2du4spxsavli"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_j1bsw"]
 [ext_resource type="Texture2D" uid="uid://dog68fxas75h7" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="1_tbcp7"]
 [ext_resource type="Texture2D" uid="uid://1mgmc802kto8" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_2.png" id="2_n84ru"]
 [ext_resource type="Texture2D" uid="uid://dp1lkcyo6tl8g" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_3.png" id="3_vu1tf"]
 [ext_resource type="Texture2D" uid="uid://dx7v5ysfvwsgw" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_4.png" id="4_k8evh"]
-[ext_resource type="Texture2D" uid="uid://dstgq7jirpwl0" path="res://Art/PlaceholderArt/DetectRing.png" id="6_04pvj"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="7_oqs67"]
+[ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="7_skyqf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rghix"]
 animations = [{
@@ -28,13 +28,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_42tn1"]
-radius = 100.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_714ps"]
 radius = 9.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 12
+motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_j1bsw")
 
@@ -43,17 +42,6 @@ sprite_frames = SubResource("SpriteFrames_rghix")
 animation = &"placeHolderAnim"
 frame = 1
 frame_progress = 0.510898
-
-[node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-shape = SubResource("CircleShape2D_42tn1")
-
-[node name="Sprite2D" type="Sprite2D" parent="DetectionArea"]
-modulate = Color(0.745098, 0, 0, 1)
-texture = ExtResource("6_04pvj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_714ps")
@@ -64,5 +52,15 @@ color = Color(0.94902, 0, 0.270588, 1)
 texture = ExtResource("7_oqs67")
 texture_scale = 0.4
 
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+debug_enabled = true
+
+[node name="DetectionArea" parent="." instance=ExtResource("7_skyqf")]
+num_rays = 201
+ray_range = 100.0
+ray_mask = 2
+
+[connection signal="target_entered" from="DetectionArea" to="." method="_on_detection_area_target_entered"]
+[connection signal="target_exited" from="DetectionArea" to="." method="_on_detection_area_target_exited"]
