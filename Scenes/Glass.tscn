@@ -1,17 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc7xt6wtf814m"]
+[gd_scene load_steps=4 format=3 uid="uid://dudk7d7ss8mki"]
 
-[ext_resource type="Texture2D" uid="uid://1y8pfj1bmkjf" path="res://Art/PlaceholderArt/glass.png" id="1_ww2f7"]
+[ext_resource type="Script" path="res://Scripts/Glass.gd" id="1_8nj5b"]
+[ext_resource type="Texture2D" uid="uid://d1h5w1nm1mri" path="res://Art/PlaceholderArt/GlassRect.png" id="1_sa8e7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sbjp"]
-size = Vector2(16, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gkt1"]
+size = Vector2(16, 10)
 
 [node name="Glass" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ww2f7")
+script = ExtResource("1_8nj5b")
+size = Vector2i(16, 10)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_4sbjp")
+position = Vector2(8, 5)
+shape = SubResource("RectangleShape2D_5gkt1")
+
+[node name="SpriteRect" type="NinePatchRect" parent="."]
+offset_right = 16.0
+offset_bottom = 10.0
+texture = ExtResource("1_sa8e7")
+region_rect = Rect2(0, 0, 3, 3)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1

@@ -31,10 +31,10 @@ func set_pos(new_pos : Vector2):
 	position = pos*8
 	sprite.texture.region.position = pos*8
 
-func on_lit():
+func on_lit(_lighter):
 	num_lights += 1
 	
-func on_unlit():
+func on_unlit(_lighter):
 	num_lights -= 1
 
 func set_lights(val : int):

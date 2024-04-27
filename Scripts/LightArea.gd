@@ -12,6 +12,9 @@ var active = true : set = set_active
 @export
 var hit_from_inside = false : set = set_inside
 
+@export
+var lighter : Node
+
 @onready
 var blockable_area = $BlockableArea
 
@@ -67,7 +70,13 @@ func set_inside(val : bool):
 	blockable_area.hit_from_inside = val
 
 func _on_blockable_area_target_entered(target):
-	target.on_lit()
+	if not lighter:
+		target.on_lit(self)
+	else:
+		target.on_lit(lighter)
 
 func _on_blockable_area_target_exited(target):
-	target.on_unlit()
+	if not lighter:
+		target.on_unlit(self)
+	else:
+		target.on_unlit(lighter)

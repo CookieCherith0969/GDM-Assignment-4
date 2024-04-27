@@ -56,10 +56,10 @@ func _on_InteractArea_body_entered(body): # Colliding with objects
 	#elif body.is_in_group("Doors") and has_key:
 	#	body.get_node("CollisionShape2D").disabled = true
 
-func on_lit():
+func on_lit(_lighter):
 	num_lights += 1
 	
-func on_unlit():
+func on_unlit(_lighter):
 	num_lights -= 1
 	
 func set_lights(val : int):
@@ -73,12 +73,12 @@ func set_light_on(val : bool):
 	if light_on != val:
 		light_on = val
 		if light_on:
-			on_lit()
+			on_lit(self)
 			flasharea.active = true
 			edgearea.active = true
 			flashlight.enabled = true
 		else:
-			on_unlit()
+			on_unlit(self)
 			flasharea.active = false
 			edgearea.active = false
 			flashlight.enabled = false

@@ -32,17 +32,6 @@ func _on_detection_area_body_exited(body):
 func _on_timer_timeout():
 	sprite.play("off")
 	lampActive = false
-	
-
-
-func _on_light_area_body_entered(body):
-	if body.has_method(&"on_lit"):
-		body.on_lit()
-
-
-func _on_light_area_body_exited(body):
-	if body.has_method(&"on_unlit"):
-		body.on_unlit()
 
 func set_active(val : bool):
 	if lampActive != val:

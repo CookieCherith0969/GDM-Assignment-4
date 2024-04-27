@@ -69,10 +69,11 @@ shadow_filter_smooth = 1.0
 texture = ExtResource("3_u1hhc")
 texture_scale = 4.0
 
-[node name="GlowArea" parent="." instance=ExtResource("4_xqyf7")]
+[node name="GlowArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_xqyf7")]
 num_rays = 200
 ray_range = 180.0
 active = false
+lighter = NodePath("..")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

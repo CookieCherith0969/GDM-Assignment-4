@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://duuoip7lu2nb1" path="res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_s3tmt"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_x46j0"]
 [ext_resource type="PackedScene" uid="uid://2du4spxsavli" path="res://Scenes/enemy.tscn" id="3_suic4"]
-[ext_resource type="PackedScene" uid="uid://gcm8lbssgypr" path="res://Scenes/lightGate.tscn" id="3_ysgnm"]
+[ext_resource type="PackedScene" path="res://Scenes/lightGate.tscn" id="3_ysgnm"]
 [ext_resource type="PackedScene" uid="uid://c042mnm23xyoo" path="res://Scenes/lampPlant.tscn" id="4_pwxd5"]
 [ext_resource type="PackedScene" uid="uid://tqdff6nllier" path="res://Scenes/Key.tscn" id="5_ct3nx"]
-[ext_resource type="PackedScene" uid="uid://bn7jrpbynkh63" path="res://Scenes/lockedDoor.tscn" id="6_wdsr3"]
-[ext_resource type="PackedScene" uid="uid://dc7xt6wtf814m" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
-[ext_resource type="PackedScene" uid="uid://b2suve1qcxwg0" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
+[ext_resource type="PackedScene" path="res://Scenes/lockedDoor.tscn" id="6_wdsr3"]
+[ext_resource type="PackedScene" uid="uid://dudk7d7ss8mki" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
+[ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nqul"]
 resource_name = "Floor"
@@ -463,38 +463,9 @@ position = Vector2(281, 38)
 position = Vector2(416, 64)
 scale = Vector2(1.60566, 1.67794)
 
-[node name="Glass" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(600, 39)
-
-[node name="Glass2" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(584, 39)
-
-[node name="Glass3" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(568, 39)
-
-[node name="Glass4" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(552, 39)
-
-[node name="Glass5" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(536, 39)
-
-[node name="Glass6" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(520, 39)
-
-[node name="Glass7" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(504, 39)
-
-[node name="Glass8" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(488, 39)
-
-[node name="Glass9" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(472, 39)
-
-[node name="Glass10" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(456, 39)
-
 [node name="Glass11" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(440, 39)
+position = Vector2(432, 31)
+size = Vector2i(176, 16)
 
 [node name="LevelExit" parent="." instance=ExtResource("9_k4sq3")]
 position = Vector2(903, 57)
