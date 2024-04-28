@@ -13,6 +13,10 @@ var edgearea = $Rotator/EdgeArea
 var flashlight = $Rotator/FlashLight 
 var light_on = false : set = set_light_on
 
+@onready var light_turnOn = $"../lightOn"
+@onready var light_turnOff = $"../lightOff"
+
+
 @onready
 var glowlight = $GlowLight
 
@@ -48,9 +52,11 @@ func _physics_process(delta):
 
 func on_lit(_lighter):
 	num_lights += 1
+	light_turnOn.play()
 	
 func on_unlit(_lighter):
 	num_lights -= 1
+	light_turnOff.play()
 	
 func set_lights(val : int):
 	num_lights = val
