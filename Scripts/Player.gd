@@ -32,7 +32,8 @@ func _input(event):
 			light_on = true
 		else:
 			light_on = false
-			
+	if event.is_action_pressed("Reset"):
+		LevelManager.reload_level()
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
