@@ -35,9 +35,7 @@ func _input(event):
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var horizontal = Input.get_axis("Left", "Right")
-	var vertical = Input.get_axis("Up", "Down")
-	var direction = Vector2(horizontal, vertical).normalized()
+	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	
 	if direction:
 		velocity = direction * SPEED
@@ -47,14 +45,6 @@ func _physics_process(delta):
 	
 	rotator.rotation = get_angle_to(get_global_mouse_position())
 	move_and_slide()
-
-func _on_InteractArea_body_entered(body): # Colliding with objects
-	print_debug("Player Area")
-	if body.is_in_group("Keys") and not has_key:
-		body.queue_free()
-		has_key = true
-	#elif body.is_in_group("Doors") and has_key:
-	#	body.get_node("CollisionShape2D").disabled = true
 
 func on_lit(_lighter):
 	num_lights += 1
@@ -89,3 +79,12 @@ func check_has_key() -> bool:
 func set_key(value: bool):
 	has_key = value
 
+
+func _on_glow_area_target_entered(target):
+	if target.has_method("on_lit"):
+		target.on_lit(self)
+
+
+func _on_glow_area_target_exited(target):
+	if target.has_method("on_unlit"):
+		target.on_unlit(self)

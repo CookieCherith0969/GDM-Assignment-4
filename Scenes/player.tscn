@@ -4,13 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dkvndtf18151r" path="res://Art/PlaceholderArt/PlaceholderPlayer.png" id="2_1b5np"]
 [ext_resource type="Texture2D" uid="uid://ce4p1k3nrxm41" path="res://Art/PlaceholderArt/FlashLight.png" id="2_fphfx"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_i58oj"]
+[ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="4_65slt"]
 [ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_bf3oi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
 radius = 14.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr4v1"]
-size = Vector2(21.1325, 17.4419)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 10
@@ -32,7 +30,12 @@ shadow_item_cull_mask = 0
 texture = ExtResource("3_i58oj")
 texture_scale = 0.7
 
-[node name="GlowArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
+[node name="GlowArea" parent="." instance=ExtResource("4_65slt")]
+num_rays = 33
+ray_range = 20.0
+ray_mask = 20
+
+[node name="SelfArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
 num_rays = 25
 ray_range = 14.0
 hit_from_inside = true
@@ -68,11 +71,5 @@ active = false
 hit_from_inside = true
 lighter = NodePath("../..")
 
-[node name="InteractArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(3.57628e-07, 1)
-scale = Vector2(1.32497, 1.72)
-shape = SubResource("RectangleShape2D_qr4v1")
-
-[connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_body_entered"]
+[connection signal="target_entered" from="GlowArea" to="." method="_on_glow_area_target_entered"]
+[connection signal="target_exited" from="GlowArea" to="." method="_on_glow_area_target_exited"]
