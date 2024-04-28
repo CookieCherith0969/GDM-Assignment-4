@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbp3qyhu70jd6"
+path="res://.godot/imported/Light On.mp3-752cb4d7c2390af8a8203ea4cf163aac.mp3str"
+
+[deps]
+
+source_file="res://audio/Light On.mp3"
+dest_files=["res://.godot/imported/Light On.mp3-752cb4d7c2390af8a8203ea4cf163aac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
