@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4rc7u7dy5bjc"]
+[gd_scene load_steps=11 format=3 uid="uid://4rc7u7dy5bjc"]
 
 [ext_resource type="PackedScene" uid="uid://chxw7r1u5t46v" path="res://Scenes/tile_map.tscn" id="2_uqaca"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_x46j0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ow70hbsvy5xi" path="res://Scenes/lockedDoor.tscn" id="6_wdsr3"]
 [ext_resource type="PackedScene" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
 [ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
+[ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="10_6yq8q"]
 
 [node name="Level1" type="Node2D"]
 
@@ -20,18 +21,19 @@ position = Vector2(35, 58)
 collision_mask = 5
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("3_suic4")]
-position = Vector2(457, 0)
+position = Vector2(461, -57)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("3_suic4")]
-position = Vector2(500, 0)
+position = Vector2(505, -55)
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("3_suic4")]
-position = Vector2(552, 0)
+position = Vector2(553, -59)
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("3_suic4")]
 position = Vector2(836, 0)
@@ -87,3 +89,7 @@ size = Vector2i(176, 16)
 [node name="LevelExit" parent="." instance=ExtResource("9_k4sq3")]
 position = Vector2(903, 57)
 next_level_path = "res://Scenes/Levels/Level1.tscn"
+
+[node name="Hive" parent="." instance=ExtResource("10_6yq8q")]
+position = Vector2(517, 4)
+scout_num = 3

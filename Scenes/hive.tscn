@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct4mbup2rhftj"]
+
+[ext_resource type="Texture2D" uid="uid://b4id0olv2rhdn" path="res://Art/PlaceholderArt/Hive.png" id="1_ge15g"]
+[ext_resource type="Script" path="res://Scripts/Hive.gd" id="2_6r2eu"]
+
+[node name="Hive" type="Sprite2D"]
+texture = ExtResource("1_ge15g")
+script = ExtResource("2_6r2eu")

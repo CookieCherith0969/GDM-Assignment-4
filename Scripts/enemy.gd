@@ -13,6 +13,11 @@ var home_hive : Node2D = null
 @onready
 var nav_agent = $NavigationAgent2D
 var nav_ready = false
+var at_home = true
+
+var shuffle_timer = 0
+var shuffle_frequency = 2
+var current_shuffle_frequency = 0
 #var target_position = global_position
 #const desired_distance = 5
 
@@ -29,9 +34,13 @@ func _physics_process(delta):
 		return
 	# Move towards player if in range and the players light is on OR a lamp plant is on -R
 	if (player_in_range && player.lit):
+		at_home = false
+		current_shuffle_frequency = 0
 		huntlight.enabled = true
 		nav_agent.target_position = player.global_position
 	elif lighters.size() > 0:
+		at_home = false
+		current_shuffle_frequency = 0
 		huntlight.enabled = true
 		
 		var closest_lighter = lighters[0]
@@ -43,17 +52,26 @@ func _physics_process(delta):
 				shortest_distance = distance
 		
 		nav_agent.target_position = closest_lighter.global_position
-	else:
+	elif not at_home:
 		huntlight.enabled = false
 		if home_hive:
 			nav_agent.target_position = home_hive.global_position
 		else:
 			nav_agent.target_position = global_position
+	elif home_hive:
+		shuffle_timer += delta
+		if shuffle_timer > current_shuffle_frequency:
+			shuffle_timer -= current_shuffle_frequency
+			current_shuffle_frequency = randfn(shuffle_frequency, 0.5)
+			nav_agent.target_position = home_hive.global_position + Vector2.from_angle(randf_range(0,2*PI))*randfn(15,5)
 	
 	if nav_agent.is_navigation_finished():
+		if home_hive and nav_agent.target_position == home_hive.global_position:
+			at_home = true
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
+	
 	
 	#if global_position.distance_to(target_position) < desired_distance:
 	#	return
