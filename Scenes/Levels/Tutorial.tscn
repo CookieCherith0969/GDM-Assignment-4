@@ -124,15 +124,15 @@ texture_scale = 1.00531
 lights_lightables = false
 lights_player = false
 radius = 45.239
-start_powered = null
+start_powered = true
 
 [node name="CeilingLight2" parent="." instance=ExtResource("10_31b4y")]
-position = Vector2(519, 0)
-color = Color(0.247059, 0.619608, 0.345098, 1)
-texture_scale = 1.32273
+position = Vector2(519, 7)
+color = Color(0.847059, 0, 0.0470588, 0.713726)
+texture_scale = 0.793667
 lights_lightables = false
 lights_player = false
-radius = 59.523
-start_powered = null
+radius = 35.715
+start_powered = true
 
 [connection signal="failed_open" from="Objects/LockedDoor" to="Label2" method="reveal"]

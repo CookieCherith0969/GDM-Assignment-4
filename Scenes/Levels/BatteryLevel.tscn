@@ -111,28 +111,28 @@ position = Vector2(1, -394)
 texture_scale = 1.42853
 lights_lightables = false
 radius = 64.284
-start_powered = null
+start_powered = true
 
 [node name="CeilingLight2" parent="Map" instance=ExtResource("4_ftjt1")]
 position = Vector2(0, -254)
 color = Color(0.109804, 0.470588, 0.921569, 0.741176)
 lights_lightables = false
 lights_player = false
-start_powered = null
+start_powered = true
 
 [node name="CeilingLight3" parent="Map" instance=ExtResource("4_ftjt1")]
 position = Vector2(0, -481)
 color = Color(0.109804, 0.470588, 0.921569, 0.741176)
 lights_lightables = false
 lights_player = false
-start_powered = null
+start_powered = true
 
 [node name="CeilingLight4" parent="Map" instance=ExtResource("4_ftjt1")]
 position = Vector2(-241, -855)
 color = Color(0.109804, 0.470588, 0.921569, 0.741176)
 lights_lightables = false
 lights_player = false
-start_powered = null
+start_powered = true
 
 [node name="Player" parent="." instance=ExtResource("3_2u5ik")]
 
@@ -207,7 +207,7 @@ texture_scale = 0.476244
 lights_lightables = false
 lights_player = false
 radius = 21.431
-start_powered = null
+start_powered = true
 
 [node name="CeilingLight2" parent="." instance=ExtResource("4_ftjt1")]
 position = Vector2(-31, -641)
@@ -216,7 +216,7 @@ texture_scale = 0.476244
 lights_lightables = false
 lights_player = false
 radius = 21.431
-start_powered = null
+start_powered = true
 
 [node name="CeilingLight3" parent="." instance=ExtResource("4_ftjt1")]
 position = Vector2(17, -818)
@@ -225,7 +225,7 @@ texture_scale = 0.476244
 lights_lightables = false
 lights_player = false
 radius = 21.431
-start_powered = null
+start_powered = true
 
 [node name="CeilingLight4" parent="." instance=ExtResource("4_ftjt1")]
 position = Vector2(-161, -706)
@@ -234,7 +234,7 @@ texture_scale = 1.64016
 lights_lightables = false
 radius = 73.807
 power_id = 3
-start_powered = null
+start_powered = false
 
 [node name="CeilingLight5" parent="." instance=ExtResource("4_ftjt1")]
 position = Vector2(-17, -814)
@@ -244,6 +244,14 @@ lights_lightables = false
 radius = 73.807
 power_id = 3
 start_powered = false
+
+[node name="PowerGate5" parent="." instance=ExtResource("7_dvlgi")]
+position = Vector2(-232, -824)
+power_id = 3
+
+[node name="PowerGate6" parent="." instance=ExtResource("7_dvlgi")]
+position = Vector2(-248, -824)
+power_id = 3
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]
