@@ -12,13 +12,21 @@ var huntlight = $HuntLight
 var home_hive : Node2D = null
 @onready
 var nav_agent = $NavigationAgent2D
+var nav_ready = false
 #var target_position = global_position
 #const desired_distance = 5
 
 func _ready():
 	sprite.play("placeHolderAnim")
+	call_deferred("nav_setup")
+	
+func nav_setup():
+	await get_tree().physics_frame
+	nav_ready = true
 	
 func _physics_process(delta):
+	if not nav_ready:
+		return
 	# Move towards player if in range and the players light is on OR a lamp plant is on -R
 	if (player_in_range && player.lit):
 		huntlight.enabled = true
@@ -43,6 +51,8 @@ func _physics_process(delta):
 			nav_agent.target_position = global_position
 	
 	if nav_agent.is_navigation_finished():
+		velocity = Vector2.ZERO
+		move_and_slide()
 		return
 	
 	#if global_position.distance_to(target_position) < desired_distance:
