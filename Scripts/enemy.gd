@@ -18,6 +18,8 @@ var at_home = true
 var shuffle_timer = 0
 var shuffle_frequency = 2
 var current_shuffle_frequency = 0
+var reaction_time = 0.75
+var reaction_timer = 0
 #var target_position = global_position
 #const desired_distance = 5
 
@@ -68,6 +70,7 @@ func _physics_process(delta):
 	if nav_agent.is_navigation_finished():
 		if home_hive and nav_agent.target_position == home_hive.global_position:
 			at_home = true
+			reaction_timer = 0
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -75,6 +78,10 @@ func _physics_process(delta):
 	
 	#if global_position.distance_to(target_position) < desired_distance:
 	#	return
+	if not at_home:
+		reaction_timer += delta
+		if reaction_timer < reaction_time:
+			return
 	
 	velocity = global_position.direction_to(nav_agent.get_next_path_position())*speed
 	#velocity = global_position.direction_to(target_position)*speed
@@ -114,3 +121,7 @@ func on_lit(lighter):
 
 func on_unlit(lighter):
 	lighters.erase(lighter)
+
+func _on_kill_area_body_entered(body):
+	if is_instance_of(body, Player):
+		LevelManager.reload_level()
