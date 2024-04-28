@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4rc7u7dy5bjc"]
+[gd_scene load_steps=13 format=3 uid="uid://4rc7u7dy5bjc"]
 
 [ext_resource type="PackedScene" uid="uid://chxw7r1u5t46v" path="res://Scenes/tile_map.tscn" id="2_uqaca"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_x46j0"]
@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c042mnm23xyoo" path="res://Scenes/lampPlant.tscn" id="4_pwxd5"]
 [ext_resource type="PackedScene" uid="uid://tqdff6nllier" path="res://Scenes/Key.tscn" id="5_ct3nx"]
 [ext_resource type="PackedScene" uid="uid://ow70hbsvy5xi" path="res://Scenes/lockedDoor.tscn" id="6_wdsr3"]
-[ext_resource type="PackedScene" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
-[ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
+[ext_resource type="PackedScene" uid="uid://dudk7d7ss8mki" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
+[ext_resource type="PackedScene" uid="uid://b2suve1qcxwg0" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="10_6yq8q"]
+[ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="11_r32bg"]
+[ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="12_p02px"]
 
 [node name="Level1" type="Node2D"]
 
@@ -93,3 +95,12 @@ next_level_path = "res://Scenes/Levels/Level1.tscn"
 [node name="Hive" parent="." instance=ExtResource("10_6yq8q")]
 position = Vector2(517, 4)
 scout_num = 3
+
+[node name="lightOn" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 1)
+stream = ExtResource("11_r32bg")
+pitch_scale = 1.54
+
+[node name="lightOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_p02px")
+pitch_scale = 1.5
