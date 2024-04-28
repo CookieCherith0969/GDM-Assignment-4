@@ -3,10 +3,10 @@ extends Node2D
 
 @export_range(0,360)
 var angle : float = 360 : set = set_angle
-@export_range(2,200)
-var num_rays : int = 5 : set = set_rays
 @export_range(0.05, 500)
 var ray_range : float = 20 : set = set_range
+@export_range(1,16)
+var max_gap : float = 6.0 : set = set_gap
 @export
 var active = true : set = set_active
 @export
@@ -22,9 +22,9 @@ var blockable_area = $BlockableArea
 func _ready():
 	active = active
 	angle = angle
-	num_rays = num_rays
 	ray_range = ray_range
 	hit_from_inside = hit_from_inside
+	max_gap = max_gap
 	
 	blockable_area.ray_mask = 24
 
@@ -35,15 +35,6 @@ func set_angle(val : float):
 		return
 	
 	blockable_area.angle = val
-	
-
-func set_rays(val : int):
-	num_rays = val
-	
-	if not is_instance_valid(blockable_area):
-		return
-		
-	blockable_area.num_rays = val
 	
 func set_range(val : float):
 	ray_range = val
@@ -68,6 +59,14 @@ func set_inside(val : bool):
 		return
 	
 	blockable_area.hit_from_inside = val
+
+func set_gap(val : float):
+	max_gap = val
+	
+	if not is_instance_valid(blockable_area):
+		return
+	
+	blockable_area.max_gap = max_gap
 
 func _on_blockable_area_target_entered(target):
 	if not lighter:

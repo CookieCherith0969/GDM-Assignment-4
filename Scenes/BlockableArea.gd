@@ -6,7 +6,9 @@ signal target_exited(target)
 
 @export_range(0,360)
 var angle : float = 360 : set = set_angle
-@export_range(2,500)
+@export_range(1,16)
+var max_gap : float = 6 : set = set_gap
+#@export_range(2,1000)
 var num_rays : int = 5 : set = set_rays
 @export_range(0.05, 500)
 var ray_range : float = 20 : set = set_range
@@ -30,7 +32,8 @@ func get_targets():
 func _ready():
 	active = active
 	angle = angle
-	num_rays = num_rays
+	max_gap = max_gap
+	#num_rays = num_rays
 	ray_range = ray_range
 	hit_from_inside = hit_from_inside
 	ray_mask = ray_mask
@@ -72,6 +75,8 @@ func _physics_process(delta):
 
 func set_angle(val : float):
 	angle = val
+	
+	max_gap = max_gap
 
 	var i : float = 0
 	for ray in rays:
@@ -99,6 +104,8 @@ func set_rays(val : int):
 func set_range(val : float):
 	ray_range = val
 	
+	max_gap = max_gap
+	
 	for ray in rays:
 		ray.target_position.y = -ray_range
 
@@ -123,3 +130,14 @@ func set_mask(val : int):
 	
 	for ray in rays:
 		ray.collision_mask = ray_mask
+
+func set_gap(val : float):
+	max_gap = val
+	
+	var circumference = 2*PI*ray_range * angle/360
+	var min_rays = ceili(circumference/max_gap)
+	if(min_rays < 2):
+		min_rays = 2
+	
+	num_rays = min_rays
+	

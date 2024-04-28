@@ -5,10 +5,10 @@
 
 [node name="LightArea" type="Node2D"]
 script = ExtResource("1_l1l7l")
+max_gap = null
 
 [node name="BlockableArea" parent="." instance=ExtResource("2_e4h8p")]
-ray_range = 20.0
-ray_mask = 9
+ray_mask = 24
 
 [connection signal="target_entered" from="BlockableArea" to="." method="_on_blockable_area_target_entered"]
 [connection signal="target_exited" from="BlockableArea" to="." method="_on_blockable_area_target_exited"]

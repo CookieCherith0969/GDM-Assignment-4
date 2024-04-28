@@ -26,18 +26,18 @@ zoom = Vector2(2, 2)
 
 [node name="GlowLight" type="PointLight2D" parent="."]
 color = Color(1, 0.721569, 0.470588, 1)
-shadow_item_cull_mask = 0
+shadow_enabled = true
+shadow_filter = 1
 texture = ExtResource("3_i58oj")
 texture_scale = 0.7
 
 [node name="GlowArea" parent="." instance=ExtResource("4_65slt")]
-num_rays = 33
-ray_range = 20.0
+max_gap = 2.486
 ray_mask = 20
 
 [node name="SelfArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
-num_rays = 25
 ray_range = 14.0
+max_gap = 1.405
 hit_from_inside = true
 lighter = NodePath("..")
 
@@ -57,16 +57,16 @@ texture_scale = 0.5
 rotation = 1.5708
 scale = Vector2(1.8, 1.8)
 angle = 33.48
-num_rays = 15
 ray_range = 75.0
+max_gap = 2.106
 active = false
 lighter = NodePath("../..")
 
 [node name="EdgeArea" parent="Rotator" node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
 rotation = 1.5708
 angle = 200.0
-num_rays = 25
 ray_range = 16.0
+max_gap = 2.216
 active = false
 hit_from_inside = true
 lighter = NodePath("../..")

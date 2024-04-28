@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://chxw7r1u5t46v"]
+[gd_scene load_steps=47 format=3 uid="uid://chxw7r1u5t46v"]
 
 [ext_resource type="Texture2D" uid="uid://duuoip7lu2nb1" path="res://Art/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_kl557"]
 
@@ -292,6 +292,32 @@ polygon = PackedVector2Array(-1, -8, 8, -8, 8, 8, -8, 8, -8, -1, -1, -1)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7cdtq"]
 polygon = PackedVector2Array(-8, -1, 1, -1, 1, 8, -8, 8)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_p8q63"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4bsxl"]
+polygon = PackedVector2Array(-8, -5, 8, -5, 8, -4, -8, -4)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4png6"]
+polygon = PackedVector2Array(-0.5, -8, -0.5, 8, 0.5, 8, 0.5, -8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_68r85"]
+polygon = PackedVector2Array(-0.5, -8, -0.5, 8, 0.5, 8, 0.5, -8)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ev1o4"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xaah4"]
+polygon = PackedVector2Array(8, -5, -8, -5, -8, -4, 8, -4)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbhwc"]
 resource_name = "Walls"
 texture = ExtResource("1_kl557")
@@ -411,6 +437,28 @@ texture = ExtResource("1_kl557")
 5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:5/0/physics_layer_0/angular_velocity = 0.0
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4bsxl")
+6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:3/0/physics_layer_0/angular_velocity = 0.0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_p8q63")
+7:3/0 = 0
+7:3/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xaah4")
+7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:3/0/physics_layer_0/angular_velocity = 0.0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ev1o4")
+6:4/0 = 0
+6:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_4png6")
+6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:4/0/physics_layer_0/angular_velocity = 0.0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, 3, -8, 3, 8, -3, 8)
+6:5/0 = 0
+6:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_68r85")
+6:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:5/0/physics_layer_0/angular_velocity = 0.0
+6:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, -3, 8, 3, 8, 3, -8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj16b"]
 resource_name = "Objects"

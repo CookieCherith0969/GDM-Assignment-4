@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2svja"]
 size = Vector2(8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vmnb4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_60sg0"]
 atlas = ExtResource("1_k386k")
 region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jlmre"]
-polygon = PackedVector2Array(4, 4, -4, 4, -4, -4, 4, -4)
+polygon = PackedVector2Array(3, 3, -3, 3, -3, -3, 3, -3)
 
 [node name="GateBlock" type="StaticBody2D"]
 collision_layer = 9
@@ -21,7 +21,7 @@ script = ExtResource("1_lnyf4")
 shape = SubResource("RectangleShape2D_2svja")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_vmnb4")
+texture = SubResource("AtlasTexture_60sg0")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jlmre")

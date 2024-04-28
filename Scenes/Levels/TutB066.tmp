@@ -82,12 +82,8 @@ position = Vector2(432, 31)
 size = Vector2i(176, 16)
 
 [node name="LevelExit" parent="." instance=ExtResource("9_k4sq3")]
-position = Vector2(912.031, 63.9273)
-next_level_path = "res://Scenes/Levels/Tutorial.tscn"
+position = Vector2(903, 57)
+next_level_path = "res://Scenes/Levels/Level1.tscn"
 
 [node name="CeilingLight" parent="." instance=ExtResource("10_31b4y")]
 position = Vector2(517, 22)
-color = Color(1, 1, 1, 0.709804)
-texture_scale = 2.22222
-lights_lightables = false
-radius = 100.0

@@ -57,7 +57,6 @@ path_desired_distance = 5.0
 target_desired_distance = 5.0
 
 [node name="DetectionArea" parent="." instance=ExtResource("7_skyqf")]
-num_rays = 201
 ray_range = 100.0
 ray_mask = 18
 

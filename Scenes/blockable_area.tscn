@@ -4,4 +4,3 @@
 
 [node name="BlockableArea" type="Node2D"]
 script = ExtResource("1_bjmq3")
-ray_range = null
