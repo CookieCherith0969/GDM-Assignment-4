@@ -16,10 +16,6 @@ func _ready():
 	timer.autostart = true
 	add_child(timer)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func reveal():
 	show()
 	timer.start()

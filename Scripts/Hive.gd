@@ -10,10 +10,6 @@ var scouts : Array = []
 func _ready():
 	scout_num = scout_num
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func set_scout_num(val : int):
 	scout_num = val
 	

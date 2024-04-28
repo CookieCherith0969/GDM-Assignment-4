@@ -19,11 +19,6 @@ var inactive_colour = Color("#404040")
 func _ready():
 	sprite.texture = sprite.texture.duplicate()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func set_pos(new_pos : Vector2):
 	if not is_instance_valid(sprite):
 		return

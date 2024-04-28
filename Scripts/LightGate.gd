@@ -17,8 +17,3 @@ func _ready():
 			add_child(block)
 			block.pos = Vector2(x,y)
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

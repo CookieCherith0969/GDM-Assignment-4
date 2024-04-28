@@ -39,7 +39,7 @@ func _ready():
 	ray_mask = ray_mask
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Engine.is_editor_hint():
 		return
 	
