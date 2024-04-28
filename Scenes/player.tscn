@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btdesxnsuaggv"]
+[gd_scene load_steps=10 format=3 uid="uid://btdesxnsuaggv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e58nx"]
 [ext_resource type="Texture2D" uid="uid://dkvndtf18151r" path="res://Art/PlaceholderArt/PlaceholderPlayer.png" id="2_1b5np"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_i58oj"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="4_65slt"]
 [ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_bf3oi"]
+[ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="7_ygosa"]
+[ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="8_haiom"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
 radius = 14.0
@@ -70,6 +72,15 @@ max_gap = 2.216
 active = false
 hit_from_inside = true
 lighter = NodePath("../..")
+
+[node name="LightOn" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 1)
+stream = ExtResource("7_ygosa")
+pitch_scale = 1.54
+
+[node name="LightOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_haiom")
+pitch_scale = 1.5
 
 [connection signal="target_entered" from="GlowArea" to="." method="_on_glow_area_target_entered"]
 [connection signal="target_exited" from="GlowArea" to="." method="_on_glow_area_target_exited"]

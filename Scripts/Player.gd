@@ -13,8 +13,8 @@ var edgearea = $Rotator/EdgeArea
 var flashlight = $Rotator/FlashLight 
 var light_on = false : set = set_light_on
 
-@onready var light_turnOn = $"../lightOn"
-@onready var light_turnOff = $"../lightOff"
+@onready var light_on_audio = $LightOn
+@onready var light_off_audio = $LightOff
 
 
 @onready
@@ -52,16 +52,16 @@ func _physics_process(delta):
 
 func on_lit(_lighter):
 	num_lights += 1
-	light_turnOn.play()
+	
 	
 func on_unlit(_lighter):
 	num_lights -= 1
-	light_turnOff.play()
 	
 func set_lights(val : int):
 	num_lights = val
 	if num_lights == 0:
 		lit = false
+		
 	else:
 		lit = true
 
@@ -69,11 +69,13 @@ func set_light_on(val : bool):
 	if light_on != val:
 		light_on = val
 		if light_on:
+			light_on_audio.play()
 			on_lit(self)
 			flasharea.active = true
 			edgearea.active = true
 			flashlight.enabled = true
 		else:
+			light_off_audio.play()
 			on_unlit(self)
 			flasharea.active = false
 			edgearea.active = false
