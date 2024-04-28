@@ -8,7 +8,8 @@ var lights_player = true : set = set_player
 @export_range(0.05, 500)
 var radius : float = 50 : set = set_radius
 @export
-var power_id : int = 0 : set = set_id
+var power_id : int = 0
+var id : int = 0 : set = set_id
 @export
 var powered = true : set = set_powered
 
@@ -19,11 +20,15 @@ var light_area = $LightArea
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	radius = radius
-	lights_lightables = lights_lightables
-	lights_player = lights_player
-	power_id = power_id
-	powered = powered
+	if Engine.is_editor_hint():
+		radius = radius
+		lights_lightables = lights_lightables
+		lights_player = lights_player
+		powered = powered
+		power_id = power_id
+	else:
+		id = power_id
+		update_mask()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,18 +75,15 @@ func _on_light_area_target_exited(target):
 		target.on_unlit(self)
 
 func set_id(val : int):
-	if Engine.is_editor_hint():
-		return
-	
 	if not registered:
-		power_id = val
-		PowerManager.register_powerable(self, power_id)
+		id = val
+		PowerManager.register_powerable(self, id)
 		registered = true
 		return
 	
-	PowerManager.deregister_powerable(self, power_id)
-	power_id = val
-	PowerManager.register_powerable(self, power_id)
+	PowerManager.deregister_powerable(self, id)
+	id = val
+	PowerManager.register_powerable(self, id)
 
 func set_powered(val : bool):
 	var prev_val = powered

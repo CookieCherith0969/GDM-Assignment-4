@@ -10,6 +10,7 @@ func _ready():
 	current_name = "Tutorial"
 
 func load_level(level_name : String):
+	PowerManager.clear_all()
 	get_tree().change_scene_to_file("res://Scenes/Levels/"+level_name+".tscn")
 	current_name = level_name
 
