@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btdesxnsuaggv"]
+[gd_scene load_steps=10 format=3 uid="uid://btdesxnsuaggv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e58nx"]
 [ext_resource type="Texture2D" uid="uid://dkvndtf18151r" path="res://Art/PlaceholderArt/PlaceholderPlayer.png" id="2_1b5np"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_bf3oi"]
 [ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="7_ygosa"]
 [ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="8_haiom"]
+[ext_resource type="AudioStream" uid="uid://bfl1wrdx1p83d" path="res://audio/Walking.mp3" id="8_y4dbu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
 radius = 14.0
@@ -62,11 +63,19 @@ lighter = NodePath("../..")
 [node name="LightOn" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 1)
 stream = ExtResource("7_ygosa")
-pitch_scale = 1.54
+volume_db = 8.0
+pitch_scale = 1.1
 
 [node name="LightOff" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_haiom")
-pitch_scale = 1.5
+volume_db = 8.0
+pitch_scale = 1.1
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_y4dbu")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="target_entered" from="GlowArea" to="." method="_on_glow_area_target_entered"]
 [connection signal="target_exited" from="GlowArea" to="." method="_on_glow_area_target_exited"]
