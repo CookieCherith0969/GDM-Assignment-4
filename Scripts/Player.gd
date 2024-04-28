@@ -13,6 +13,8 @@ var light_on = false : set = set_light_on
 
 @onready var light_on_audio = $LightOn
 @onready var light_off_audio = $LightOff
+@onready var walking = $Walking
+@onready var timer = $Timer
 
 
 @onready
@@ -42,6 +44,11 @@ func _physics_process(delta):
 	
 	if direction:
 		velocity = direction * SPEED
+		if timer.time_left <= 0:
+			walking.pitch_scale = randf_range(0.7, 1.2)
+			walking.play()
+			timer.start(0.3)
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
