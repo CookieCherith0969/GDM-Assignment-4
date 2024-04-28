@@ -27,6 +27,7 @@ var num_lights = -1 : set = set_lights
 var lit = false
 
 var has_key = false
+var has_battery = false
 
 func _input(event):
 	if event.is_action_pressed("Light"):
@@ -47,7 +48,7 @@ func _physics_process(delta):
 		if timer.time_left <= 0:
 			walking.pitch_scale = randf_range(0.7, 1.2)
 			walking.play()
-			timer.start(0.3)
+			timer.start(0.5)
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

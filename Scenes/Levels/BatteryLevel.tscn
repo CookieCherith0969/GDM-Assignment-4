@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvxx32dy6kxtn"]
+[gd_scene load_steps=6 format=3 uid="uid://bvxx32dy6kxtn"]
 
 [ext_resource type="PackedScene" uid="uid://chxw7r1u5t46v" path="res://Scenes/tile_map.tscn" id="1_hgajm"]
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="2_grq21"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="3_2u5ik"]
+[ext_resource type="PackedScene" uid="uid://xs0r1byb1prb" path="res://Scenes/ceiling_light.tscn" id="4_ftjt1"]
+[ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="5_g76yd"]
 
 [node name="BatteryLevel" type="Node2D"]
 
@@ -23,3 +25,11 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("3_2u5ik")]
+
+[node name="CeilingLight" parent="." instance=ExtResource("4_ftjt1")]
+position = Vector2(-30, -181)
+enabled = false
+powered = false
+
+[node name="Battery" parent="." instance=ExtResource("5_g76yd")]
+position = Vector2(129, -111)

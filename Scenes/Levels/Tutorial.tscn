@@ -90,3 +90,5 @@ color = Color(1, 1, 1, 0.709804)
 texture_scale = 2.22222
 lights_lightables = false
 radius = 100.0
+power_id = null
+powered = null
