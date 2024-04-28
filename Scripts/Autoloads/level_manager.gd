@@ -11,11 +11,11 @@ func _ready():
 
 func load_level(level_name : String):
 	PowerManager.clear_all()
-	get_tree().change_scene_to_file("res://Scenes/Levels/"+level_name+".tscn")
 	current_name = level_name
+	call_deferred("_deferred_load_level", level_name)
+
+func _deferred_load_level(level_name : String):
+	get_tree().change_scene_to_file("res://Scenes/Levels/"+level_name+".tscn")
 
 func reload_level():
 	load_level(current_name)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

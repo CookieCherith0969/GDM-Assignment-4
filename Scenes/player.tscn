@@ -56,7 +56,7 @@ texture_scale = 1.5
 
 [node name="FlashArea" parent="Rotator" node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
 rotation = 1.5708
-ray_range = 67.5
+ray_range = 65.0
 max_gap = 4.0
 active = false
 lighter = NodePath("../..")

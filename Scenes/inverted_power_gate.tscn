@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl06qjen3kmub"]
+
+[ext_resource type="Script" path="res://Scripts/InvertedPowerGate.gd" id="1_k258l"]
+[ext_resource type="Texture2D" uid="uid://i41v2sqdwked" path="res://Art/lab tileset.png" id="2_ktk8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecso"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uakde"]
+atlas = ExtResource("2_ktk8t")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3bqn1"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, -4, -8, -4)
+
+[node name="InvertedPowerGate" type="StaticBody2D"]
+collision_layer = 17
+script = ExtResource("1_k258l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ecso")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_uakde")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_3bqn1")
