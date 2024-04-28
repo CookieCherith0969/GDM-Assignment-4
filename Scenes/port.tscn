@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d158e8mjutn7v"]
+
+[ext_resource type="Script" path="res://Scripts/port.gd" id="1_bvd6a"]
+[ext_resource type="Texture2D" uid="uid://eifp3r87hcic" path="res://Art/PlaceholderArt/Port.png" id="1_i7p0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0x3lg"]
+size = Vector2(16, 8)
+
+[node name="Port" type="Area2D"]
+script = ExtResource("1_bvd6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i7p0h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0x3lg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
