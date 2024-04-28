@@ -8,6 +8,8 @@
 size = Vector2(16, 8)
 
 [node name="Port" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_bvd6a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
