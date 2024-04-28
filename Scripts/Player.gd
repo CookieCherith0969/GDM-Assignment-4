@@ -6,8 +6,6 @@ const JUMP_VELOCITY = -400.0
 
 @onready
 var flasharea = $Rotator/FlashArea
-@onready
-var edgearea = $Rotator/EdgeArea
 
 @onready
 var flashlight = $Rotator/FlashLight 
@@ -47,7 +45,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
-	rotator.rotation = get_angle_to(get_global_mouse_position())
+	#rotator.rotation = get_angle_to(get_global_mouse_position())
 	move_and_slide()
 
 func on_lit(_lighter):
@@ -72,13 +70,11 @@ func set_light_on(val : bool):
 			light_on_audio.play()
 			on_lit(self)
 			flasharea.active = true
-			edgearea.active = true
 			flashlight.enabled = true
 		else:
 			light_off_audio.play()
 			on_unlit(self)
 			flasharea.active = false
-			edgearea.active = false
 			flashlight.enabled = false
 
 func check_has_key() -> bool:

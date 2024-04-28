@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://btdesxnsuaggv"]
+[gd_scene load_steps=9 format=3 uid="uid://btdesxnsuaggv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e58nx"]
 [ext_resource type="Texture2D" uid="uid://dkvndtf18151r" path="res://Art/PlaceholderArt/PlaceholderPlayer.png" id="2_1b5np"]
-[ext_resource type="Texture2D" uid="uid://ce4p1k3nrxm41" path="res://Art/PlaceholderArt/FlashLight.png" id="2_fphfx"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_i58oj"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="4_65slt"]
 [ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_bf3oi"]
@@ -46,31 +45,18 @@ lighter = NodePath("..")
 [node name="Rotator" type="Node2D" parent="."]
 
 [node name="FlashLight" type="PointLight2D" parent="Rotator"]
-scale = Vector2(1.8, 1.8)
 enabled = false
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 1.0
-texture = ExtResource("2_fphfx")
-offset = Vector2(50, 0)
-texture_scale = 0.5
+texture = ExtResource("3_i58oj")
+texture_scale = 1.5
 
 [node name="FlashArea" parent="Rotator" node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
 rotation = 1.5708
-scale = Vector2(1.8, 1.8)
-angle = 33.48
-ray_range = 75.0
-max_gap = 2.106
+ray_range = 67.5
+max_gap = 3.322
 active = false
-lighter = NodePath("../..")
-
-[node name="EdgeArea" parent="Rotator" node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
-rotation = 1.5708
-angle = 200.0
-ray_range = 16.0
-max_gap = 2.216
-active = false
-hit_from_inside = true
 lighter = NodePath("../..")
 
 [node name="LightOn" type="AudioStreamPlayer2D" parent="."]
