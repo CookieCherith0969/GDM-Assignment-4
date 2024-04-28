@@ -81,6 +81,7 @@ Light={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Entity"
 2d_physics/layer_4="Lightable"
+2d_physics/layer_5="Light Blocker"
 
 [rendering]
 

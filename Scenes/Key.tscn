@@ -30,6 +30,7 @@ animations = [{
 }]
 
 [node name="Key" type="Area2D" groups=["Keys"]]
+collision_mask = 2
 script = ExtResource("1_4t7mo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -40,3 +41,5 @@ shape = SubResource("RectangleShape2D_eg1pj")
 sprite_frames = SubResource("SpriteFrames_5xb7v")
 animation = &"KeyIdle"
 frame_progress = 0.460761
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

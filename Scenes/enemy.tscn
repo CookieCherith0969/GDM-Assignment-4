@@ -55,12 +55,11 @@ texture_scale = 0.4
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 5.0
-debug_enabled = true
 
 [node name="DetectionArea" parent="." instance=ExtResource("7_skyqf")]
 num_rays = 201
 ray_range = 100.0
-ray_mask = 2
+ray_mask = 18
 
 [connection signal="target_entered" from="DetectionArea" to="." method="_on_detection_area_target_entered"]
 [connection signal="target_exited" from="DetectionArea" to="." method="_on_detection_area_target_exited"]
