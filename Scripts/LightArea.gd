@@ -26,7 +26,7 @@ func _ready():
 	ray_range = ray_range
 	hit_from_inside = hit_from_inside
 	
-	blockable_area.ray_mask = 8
+	blockable_area.ray_mask = 24
 
 func set_angle(val : float):
 	angle = val
