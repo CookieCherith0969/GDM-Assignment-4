@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c042mnm23xyoo" path="res://Scenes/lampPlant.tscn" id="4_pwxd5"]
 [ext_resource type="PackedScene" uid="uid://tqdff6nllier" path="res://Scenes/Key.tscn" id="5_ct3nx"]
 [ext_resource type="PackedScene" uid="uid://ow70hbsvy5xi" path="res://Scenes/lockedDoor.tscn" id="6_wdsr3"]
-[ext_resource type="PackedScene" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
-[ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
+[ext_resource type="PackedScene" uid="uid://dudk7d7ss8mki" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
+[ext_resource type="PackedScene" uid="uid://b2suve1qcxwg0" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="10_6yq8q"]
 [ext_resource type="PackedScene" uid="uid://xs0r1byb1prb" path="res://Scenes/ceiling_light.tscn" id="10_31b4y"]
 
