@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://kgh665ni5kcx"]
+
+[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="1_w8ha3"]
+[ext_resource type="Script" path="res://Scripts/InvertedDecoLight.gd" id="2_14pcc"]
+[ext_resource type="Texture2D" uid="uid://ci43jde51dx1e" path="res://Art/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_4.png" id="3_c6noc"]
+
+[node name="InvertedDecoLight" type="PointLight2D"]
+color = Color(0.847059, 0, 0.0470588, 0.713726)
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("1_w8ha3")
+texture_scale = 0.777778
+script = ExtResource("2_14pcc")
+radius = 35.0
+
+[node name="Torch4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.219608)
+texture = ExtResource("3_c6noc")
