@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://04y4bflc7pt2"]
+
+[ext_resource type="Script" path="res://Scenes/MenuScript.gd" id="1_1lehp"]
+[ext_resource type="FontFile" uid="uid://c8xrb5c2j45h2" path="res://Art/Fonts/StaticBuzz.ttf" id="2_8ap04"]
+[ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_kagrh"]
+[ext_resource type="AudioStream" uid="uid://dr2t8yxsbkngm" path="res://audio/BGM.mp3" id="4_c6ffw"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1lehp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 30.0
+offset_top = 161.0
+offset_right = 626.0
+offset_bottom = 233.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_8ap04")
+theme_override_font_sizes/font_size = 64
+text = "LOST IN THE DARK"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 250.0
+offset_top = 348.0
+offset_right = 371.0
+offset_bottom = 412.0
+theme_override_fonts/font = ExtResource("3_kagrh")
+theme_override_font_sizes/font_size = 48
+text = "PLAY"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 233.0
+offset_top = 418.0
+offset_right = 393.0
+offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("3_kagrh")
+theme_override_font_sizes/font_size = 36
+text = "CREDITS"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c6ffw")
+volume_db = -5.0
+pitch_scale = 0.75
+autoplay = true
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
