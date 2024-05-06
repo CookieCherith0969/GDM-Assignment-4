@@ -29,6 +29,8 @@ var lit = false
 var has_key = false
 var has_battery = false
 
+var corrupted = false
+
 func _input(event):
 	if event.is_action_pressed("Light"):
 		if not light_on:
@@ -37,6 +39,8 @@ func _input(event):
 			light_on = false
 	if event.is_action_pressed("Reset"):
 		LevelManager.reload_level()
+	if event.is_action_pressed("TempCorrupt"):
+		corrupted = !corrupted
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -101,3 +105,6 @@ func _on_glow_area_target_entered(target):
 func _on_glow_area_target_exited(target):
 	if target.has_method("on_unlit"):
 		target.on_unlit(self)
+
+func is_corrupted():
+	return corrupted

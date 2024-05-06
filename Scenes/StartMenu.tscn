@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://04y4bflc7pt2"]
+[gd_scene load_steps=4 format=3 uid="uid://bfkiuymyo53nc"]
 
 [ext_resource type="Script" path="res://Scenes/MenuScript.gd" id="1_5uf7y"]
 [ext_resource type="FontFile" uid="uid://xet4chtrbm4u" path="res://Art/Fonts/ka1.ttf" id="1_kbwj4"]

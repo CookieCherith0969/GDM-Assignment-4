@@ -35,7 +35,7 @@ func _physics_process(delta):
 	if not nav_ready:
 		return
 	# Move towards player if in range and the players light is on OR a lamp plant is on -R
-	if (player_in_range && player.lit):
+	if (player_in_range && player.lit && !player.is_corrupted):
 		at_home = false
 		current_shuffle_frequency = 0
 		huntlight.enabled = true
@@ -117,9 +117,13 @@ func _on_detection_area_target_exited(target):
 	player_in_range = false
 
 func on_lit(lighter):
+	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
+		return
 	lighters.push_back(lighter)
 
 func on_unlit(lighter):
+	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
+		return
 	lighters.erase(lighter)
 
 func _on_kill_area_body_entered(body):
