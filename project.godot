@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GDM Assignment 4"
-run/main_scene="res://Scenes/StartMenu.tscn"
+run/main_scene="res://Scenes/Levels/StartMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
