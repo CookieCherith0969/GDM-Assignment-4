@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Glass.gd" id="1_8nj5b"]
 [ext_resource type="Texture2D" uid="uid://d1h5w1nm1mri" path="res://Art/PlaceholderArt/GlassRect.png" id="1_sa8e7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsodc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri3dx"]
 size = Vector2(16, 16)
 
 [node name="Glass" type="StaticBody2D"]
@@ -11,7 +11,7 @@ script = ExtResource("1_8nj5b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_bsodc")
+shape = SubResource("RectangleShape2D_ri3dx")
 
 [node name="SpriteRect" type="NinePatchRect" parent="."]
 offset_right = 16.0
