@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2du4spxsavli"]
+[gd_scene load_steps=13 format=3 uid="uid://2du4spxsavli"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_j1bsw"]
 [ext_resource type="Texture2D" uid="uid://dog68fxas75h7" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="1_tbcp7"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dx7v5ysfvwsgw" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_4.png" id="4_k8evh"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="7_oqs67"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="7_skyqf"]
+[ext_resource type="AudioStream" uid="uid://cs53dnynbgtep" path="res://audio/damage.wav" id="8_h8tt1"]
+[ext_resource type="AudioStream" uid="uid://c4jt50lgmrwjy" path="res://audio/buzzing.wav" id="9_xwuan"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rghix"]
 animations = [{
@@ -70,6 +72,16 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
 shape = SubResource("CircleShape2D_s4tsd")
+
+[node name="damage" type="AudioStreamPlayer" parent="KillArea"]
+stream = ExtResource("8_h8tt1")
+volume_db = -5.937
+pitch_scale = 0.82
+
+[node name="buzzing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_xwuan")
+volume_db = -21.551
+pitch_scale = 1.23
 
 [connection signal="target_entered" from="DetectionArea" to="." method="_on_detection_area_target_entered"]
 [connection signal="target_exited" from="DetectionArea" to="." method="_on_detection_area_target_exited"]

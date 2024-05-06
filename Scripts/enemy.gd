@@ -14,6 +14,8 @@ var home_hive : Node2D = null
 var nav_agent = $NavigationAgent2D
 var nav_ready = false
 var at_home = true
+@onready var damage = $KillArea/damage
+@onready var buzzing = $buzzing
 
 var shuffle_timer = 0
 var shuffle_frequency = 2
@@ -108,6 +110,7 @@ func _on_detection_area_target_entered(target):
 		return
 	player = target
 	player_in_range = true
+	
 
 
 func _on_detection_area_target_exited(target):
@@ -120,6 +123,7 @@ func on_lit(lighter):
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 		return
 	lighters.push_back(lighter)
+	buzzing.play()
 
 func on_unlit(lighter):
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
@@ -128,4 +132,6 @@ func on_unlit(lighter):
 
 func _on_kill_area_body_entered(body):
 	if is_instance_of(body, Player):
+		damage.play()
+		await get_tree().create_timer(0.05).timeout
 		LevelManager.reload_level()

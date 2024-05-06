@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://tqdff6nllier"]
+[gd_scene load_steps=9 format=3 uid="uid://tqdff6nllier"]
 
 [ext_resource type="Texture2D" uid="uid://dod773qsdd2am" path="res://Art/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_1.png" id="1_2oikg"]
 [ext_resource type="Script" path="res://Scenes/Key.gd" id="1_4t7mo"]
 [ext_resource type="Texture2D" uid="uid://dior1q661hgbr" path="res://Art/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_2.png" id="2_pjh3q"]
 [ext_resource type="Texture2D" uid="uid://c3mud3lbmdg1k" path="res://Art/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_3.png" id="3_xs1wp"]
 [ext_resource type="Texture2D" uid="uid://dsdqadw0osoi6" path="res://Art/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_4.png" id="4_mk8qs"]
+[ext_resource type="AudioStream" uid="uid://cm32y45rs72qv" path="res://audio/pickUp.mp3" id="6_hmy35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eg1pj"]
 size = Vector2(1, 1)
@@ -41,5 +42,8 @@ shape = SubResource("RectangleShape2D_eg1pj")
 sprite_frames = SubResource("SpriteFrames_5xb7v")
 animation = &"KeyIdle"
 frame_progress = 0.460761
+
+[node name="pickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_hmy35")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
