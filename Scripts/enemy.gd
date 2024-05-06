@@ -65,7 +65,7 @@ func _physics_process(delta):
 		if shuffle_timer > current_shuffle_frequency:
 			shuffle_timer -= current_shuffle_frequency
 			current_shuffle_frequency = randfn(shuffle_frequency, 0.5)
-			nav_agent.target_position = home_hive.global_position + Vector2.from_angle(randf_range(0,2*PI))*randfn(15,5)
+			nav_agent.target_position = home_hive.global_position + Vector2.from_angle(randf_range(0,2*PI))*randfn(13,5)
 	
 	if nav_agent.is_navigation_finished():
 		if home_hive and nav_agent.target_position == home_hive.global_position:
