@@ -27,14 +27,15 @@ var reaction_timer = 0
 
 func _ready():
 	sprite.play("placeHolderAnim")
-	call_deferred("nav_setup")
+#	call_deferred("nav_setup")
 	
-func nav_setup():
-	await get_tree().physics_frame
-	nav_ready = true
+#func nav_setup():
+#	await get_tree().physics_frame
+#	nav_ready = true
 	
 func _physics_process(delta):
 	if not nav_ready:
+		nav_ready = true
 		return
 	# Move towards player if in range and the players light is on OR a lamp plant is on -R
 	if (player_in_range && player.lit && !player.is_corrupted):
@@ -68,6 +69,8 @@ func _physics_process(delta):
 			shuffle_timer -= current_shuffle_frequency
 			current_shuffle_frequency = randfn(shuffle_frequency, 0.5)
 			nav_agent.target_position = home_hive.global_position + Vector2.from_angle(randf_range(0,2*PI))*randfn(13,5)
+			while !nav_agent.is_target_reachable():
+				nav_agent.target_position = home_hive.global_position + Vector2.from_angle(randf_range(0,2*PI))*randfn(13,5)
 	
 	if nav_agent.is_navigation_finished():
 		if home_hive and nav_agent.target_position == home_hive.global_position:
