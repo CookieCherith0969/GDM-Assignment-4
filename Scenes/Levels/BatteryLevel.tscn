@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://das8ihaevwwm6"]
+[gd_scene load_steps=17 format=3 uid="uid://das8ihaevwwm6"]
 
 [ext_resource type="PackedScene" uid="uid://chxw7r1u5t46v" path="res://Scenes/tile_map.tscn" id="1_hgajm"]
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="2_grq21"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="12_nt2eq"]
 [ext_resource type="PackedScene" uid="uid://bl06qjen3kmub" path="res://Scenes/inverted_power_gate.tscn" id="13_1tg8b"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="15_3jseq"]
+[ext_resource type="AudioStream" uid="uid://dj4u0wxevhw2r" path="res://audio/ambient.mp3" id="15_ew3hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4faw"]
 size = Vector2(64, 5)
@@ -225,6 +226,11 @@ position = Vector2(-241, -851)
 color = Color(0.239216, 0.541176, 0.87451, 0.788235)
 texture_scale = 1.0
 radius = 45.0
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ew3hk")
+volume_db = -7.5
+autoplay = true
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]
