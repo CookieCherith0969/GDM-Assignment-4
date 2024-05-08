@@ -21,6 +21,8 @@ var light_on = false : set = set_light_on
 var glowlight = $GlowLight
 @onready
 var battery_sprite = $BatterySprite
+@onready
+var corruption_sprite = $CorruptionSprite
 
 @onready
 var rotator = $Rotator
@@ -31,7 +33,7 @@ var lit = false
 var has_key = false
 var has_battery = false : set = set_battery
 
-var corrupted = false
+var corrupted = false : set = set_corrupted
 
 func _input(event):
 	if event.is_action_pressed("Light"):
@@ -115,3 +117,8 @@ func set_battery(val : bool):
 	has_battery = val
 	
 	battery_sprite.visible = has_battery
+
+func set_corrupted(val : bool):
+	corrupted = val
+	
+	corruption_sprite.visible = corrupted
