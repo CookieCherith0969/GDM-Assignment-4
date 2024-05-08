@@ -19,6 +19,8 @@ var light_on = false : set = set_light_on
 
 @onready
 var glowlight = $GlowLight
+@onready
+var battery_sprite = $BatterySprite
 
 @onready
 var rotator = $Rotator
@@ -27,7 +29,7 @@ var num_lights = -1 : set = set_lights
 var lit = false
 
 var has_key = false
-var has_battery = false
+var has_battery = false : set = set_battery
 
 var corrupted = false
 
@@ -108,3 +110,8 @@ func _on_glow_area_target_exited(target):
 
 func is_corrupted():
 	return corrupted
+
+func set_battery(val : bool):
+	has_battery = val
+	
+	battery_sprite.visible = has_battery
