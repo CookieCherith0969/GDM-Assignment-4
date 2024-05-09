@@ -13,7 +13,7 @@ var home_hive : Node2D = null
 @onready
 var nav_agent = $NavigationAgent2D
 var nav_ready = false
-var at_home = true
+var at_home = true : set = set_at_home
 @onready var damage = $KillArea/damage
 @onready var buzzing = $buzzing
 
@@ -107,6 +107,12 @@ func _physics_process(delta):
 			activeLampPlant = false"""
 		
 
+func set_at_home(val : bool):
+	at_home = val
+	if not at_home and not buzzing.playing:
+		buzzing.play()
+	elif at_home and buzzing.playing:
+		buzzing.stop()
 
 func _on_detection_area_target_entered(target):
 	if not is_instance_of(target, Player):
@@ -126,7 +132,6 @@ func on_lit(lighter):
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 		return
 	lighters.push_back(lighter)
-	buzzing.play()
 
 func on_unlit(lighter):
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
@@ -137,6 +142,6 @@ func _on_kill_area_body_entered(body):
 	if is_instance_of(body, Player):
 		if body.is_corrupted():
 			return
-		damage.play()
+		SoundManager.play_death()
 		await get_tree().create_timer(0.05).timeout
 		LevelManager.reload_level()

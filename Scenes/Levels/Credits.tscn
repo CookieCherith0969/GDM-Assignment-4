@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://87ekx1sn7glf"]
+[gd_scene load_steps=5 format=3 uid="uid://87ekx1sn7glf"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/CreditsScript.gd" id="1_it5xr"]
 [ext_resource type="FontFile" uid="uid://dtswh15p1k3le" path="res://Art/Fonts/' Mono Regular.ttf" id="2_phj0r"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_umvvx"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_754no"]
-[ext_resource type="AudioStream" uid="uid://dr2t8yxsbkngm" path="res://audio/BGM.mp3" id="3_undx6"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -59,11 +58,5 @@ size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("3_754no")
 theme_override_font_sizes/font_size = 28
 text = "BACK TO MENU"
-
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_undx6")
-volume_db = -5.0
-pitch_scale = 0.75
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

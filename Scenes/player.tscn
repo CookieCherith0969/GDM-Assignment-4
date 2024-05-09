@@ -74,16 +74,15 @@ max_gap = 4.0
 active = false
 lighter = NodePath("../..")
 
-[node name="LightOn" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(0, 1)
+[node name="LightOn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ygosa")
 pitch_scale = 1.1
 
-[node name="LightOff" type="AudioStreamPlayer2D" parent="."]
+[node name="LightOff" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_haiom")
 pitch_scale = 1.1
 
-[node name="Walking" type="AudioStreamPlayer2D" parent="."]
+[node name="Walking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_y4dbu")
 volume_db = -10.895
 

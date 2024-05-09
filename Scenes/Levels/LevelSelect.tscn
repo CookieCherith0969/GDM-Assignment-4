@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp81rkrifkbmn"]
+[gd_scene load_steps=4 format=3 uid="uid://dqtq35mmlmsky"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelSelect.gd" id="1_3mcah"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_26q07"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_qb1js"]
-[ext_resource type="AudioStream" uid="uid://dr2t8yxsbkngm" path="res://audio/BGM.mp3" id="4_0ovpo"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -24,12 +23,6 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_26q07")
 theme_override_font_sizes/font_size = 58
 text = "LEVEL SELECT"
-
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_0ovpo")
-volume_db = -5.0
-pitch_scale = 0.75
-autoplay = true
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
