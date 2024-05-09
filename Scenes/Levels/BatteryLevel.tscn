@@ -114,6 +114,7 @@ position = Vector2(1, -394)
 texture_scale = 1.42853
 lights_lightables = false
 radius = 64.284
+power_id = 2
 
 [node name="Player" parent="." instance=ExtResource("3_2u5ik")]
 
@@ -124,6 +125,7 @@ next_level_name = "Tutorial"
 [node name="Label2" type="Label" parent="."]
 visible = false
 light_mask = 2
+z_index = 3
 offset_left = 14.0
 offset_top = -213.0
 offset_right = 107.0
