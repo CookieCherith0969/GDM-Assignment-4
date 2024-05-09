@@ -59,24 +59,6 @@ power_id = 1
 position = Vector2(24, -216)
 power_id = 1
 
-[node name="PowerGate5" parent="Objects" instance=ExtResource("7_dvlgi")]
-position = Vector2(40, -424)
-rotation = 1.5708
-power_id = 2
-start_powered = true
-
-[node name="PowerGate6" parent="Objects" instance=ExtResource("7_dvlgi")]
-position = Vector2(40, -408)
-rotation = 1.5708
-power_id = 2
-start_powered = true
-
-[node name="PowerGate7" parent="Objects" instance=ExtResource("7_dvlgi")]
-position = Vector2(40, -392)
-rotation = 1.5708
-power_id = 2
-start_powered = true
-
 [node name="Battery" parent="Objects" instance=ExtResource("5_g76yd")]
 position = Vector2(129, -111)
 
