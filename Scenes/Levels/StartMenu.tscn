@@ -38,12 +38,22 @@ text = "PLAY"
 [node name="CreditsButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 233.0
+offset_top = 478.0
+offset_right = 393.0
+offset_bottom = 529.0
+theme_override_fonts/font = ExtResource("3_kagrh")
+theme_override_font_sizes/font_size = 36
+text = "CREDITS"
+
+[node name="LevelButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 233.0
 offset_top = 418.0
 offset_right = 393.0
 offset_bottom = 469.0
 theme_override_fonts/font = ExtResource("3_kagrh")
 theme_override_font_sizes/font_size = 36
-text = "CREDITS"
+text = "LEVELS"
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c6ffw")
@@ -53,3 +63,4 @@ autoplay = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="LevelButton" to="." method="_on_level_button_pressed"]

@@ -42,7 +42,7 @@ func _input(event):
 		else:
 			light_on = false
 	if event.is_action_pressed("Reset"):
-		LevelManager.reload_level()
+		get_tree().change_scene_to_file("res://Scenes/Levels/StartMenu.tscn")
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
 
