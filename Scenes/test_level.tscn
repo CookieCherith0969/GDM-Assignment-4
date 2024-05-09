@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpjavyrqxcx6"]
+[gd_scene load_steps=7 format=3 uid="uid://dpjavyrqxcx6"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_5cprl"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_fphv1"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="3_p24ri"]
+[ext_resource type="Texture2D" uid="uid://ca54t4d1ei68t" path="res://Art/tilemap1.png" id="4_dbil2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysfbw"]
+atlas = ExtResource("4_dbil2")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a60nm"]
+size = Vector2(16, 16)
 
 [node name="TestLevel" type="Node2D"]
 
@@ -19,3 +27,11 @@ scout_num = 3
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="Vent" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Vent"]
+texture = SubResource("AtlasTexture_ysfbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent"]
+shape = SubResource("RectangleShape2D_a60nm")
