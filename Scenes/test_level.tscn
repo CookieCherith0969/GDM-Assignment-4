@@ -1,18 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpjavyrqxcx6"]
+[gd_scene load_steps=5 format=3 uid="uid://dpjavyrqxcx6"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_5cprl"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_fphv1"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="3_p24ri"]
-[ext_resource type="Texture2D" uid="uid://ca54t4d1ei68t" path="res://Art/tilemap1.png" id="4_dbil2"]
-[ext_resource type="Script" path="res://Scripts/Vent.gd" id="4_ux1uv"]
-[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="6_4m11n"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ysfbw"]
-atlas = ExtResource("4_dbil2")
-region = Rect2(80, 16, 16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a60nm"]
-size = Vector2(16, 16)
+[ext_resource type="PackedScene" uid="uid://cyi115ywj3ahm" path="res://Scenes/vent.tscn" id="4_lk8x5"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -30,33 +21,10 @@ scout_num = 3
 visible = false
 color = Color(0, 0, 0, 1)
 
-[node name="Vent" type="Area2D" parent="."]
-script = ExtResource("4_ux1uv")
+[node name="Vent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_lk8x5")]
+position = Vector2(-13, -32)
+target = NodePath("../Vent2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Vent"]
-texture = SubResource("AtlasTexture_ysfbw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vent"]
-shape = SubResource("RectangleShape2D_a60nm")
-
-[node name="Popup" type="Label" parent="Vent"]
-visible = false
-light_mask = 2
-z_index = 3
-offset_left = 335.0
-offset_top = 21.0
-offset_right = 428.0
-offset_bottom = 56.0
-theme_override_font_sizes/font_size = 11
-text = "E/X"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PointLight2D" type="PointLight2D" parent="Vent/Popup"]
-position = Vector2(47, 17)
-scale = Vector2(0.92, 0.27)
-range_item_cull_mask = 2
-texture = ExtResource("6_4m11n")
-
-[connection signal="body_entered" from="Vent" to="Vent" method="_on_body_entered"]
-[connection signal="body_exited" from="Vent" to="Vent" method="_on_body_exited"]
+[node name="Vent2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_lk8x5")]
+position = Vector2(20, -93)
+target = NodePath("../Vent")

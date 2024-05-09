@@ -19,9 +19,16 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if is_instance_of(body, Player):
+		print_debug("in")
 		popup.show()
+		body.interacted.connect(on_interact)
 
 
 func _on_body_exited(body):
 	if is_instance_of(body, Player):
 		popup.hide()
+		body.interacted.disconnect(on_interact)
+
+func on_interact(player):
+	if is_instance_valid(target):
+		player.position = target.position

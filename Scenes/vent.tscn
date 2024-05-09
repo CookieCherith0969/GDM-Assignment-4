@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyi115ywj3ahm"]
+
+[ext_resource type="Script" path="res://Scripts/Vent.gd" id="1_pjk81"]
+[ext_resource type="Texture2D" uid="uid://ca54t4d1ei68t" path="res://Art/tilemap1.png" id="2_tc2we"]
+[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_n7puw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysfbw"]
+atlas = ExtResource("2_tc2we")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a60nm"]
+size = Vector2(16, 16)
+
+[node name="Vent" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_pjk81")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ysfbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a60nm")
+
+[node name="Popup" type="Label" parent="."]
+visible = false
+light_mask = 2
+z_index = 3
+offset_left = -9.0
+offset_top = -22.0
+offset_right = 9.0
+offset_bottom = -6.0
+theme_override_font_sizes/font_size = 11
+text = "E/X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="Popup"]
+position = Vector2(47, 17)
+scale = Vector2(0.92, 0.27)
+range_item_cull_mask = 2
+texture = ExtResource("3_n7puw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

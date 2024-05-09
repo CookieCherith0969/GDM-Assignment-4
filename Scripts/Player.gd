@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
+signal interacted(player)
+
 @onready
 var flasharea = $Rotator/FlashArea
 
@@ -45,6 +47,8 @@ func _input(event):
 		get_tree().change_scene_to_file("res://Scenes/Levels/StartMenu.tscn")
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
+	if event.is_action_pressed("Interact"):
+		interacted.emit(self)
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
