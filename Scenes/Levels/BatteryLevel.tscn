@@ -30,6 +30,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="Enemies" type="Node2D" parent="."]
 
+[node name="Hive4" parent="Enemies" instance=ExtResource("12_nt2eq")]
+position = Vector2(65, -816)
+
 [node name="Hive" parent="Enemies" instance=ExtResource("12_nt2eq")]
 position = Vector2(70, -407)
 scout_num = 3
@@ -39,9 +42,33 @@ position = Vector2(16, -642)
 scout_num = 2
 
 [node name="Hive3" parent="Enemies" instance=ExtResource("12_nt2eq")]
-position = Vector2(-160, -753)
+position = Vector2(-160, -742)
 
 [node name="Objects" type="Node2D" parent="."]
+
+[node name="Port3" parent="Objects" instance=ExtResource("2_grq21")]
+position = Vector2(17, -714)
+id = 3
+
+[node name="PowerGate5" parent="Objects" instance=ExtResource("7_dvlgi")]
+position = Vector2(-104, -808)
+rotation = -1.5708
+power_id = 3
+
+[node name="PowerGate6" parent="Objects" instance=ExtResource("7_dvlgi")]
+position = Vector2(-216, -808)
+rotation = 1.5708
+power_id = 3
+
+[node name="PowerGate7" parent="Objects" instance=ExtResource("7_dvlgi")]
+position = Vector2(-216, -792)
+rotation = 1.5708
+power_id = 3
+
+[node name="PowerGate8" parent="Objects" instance=ExtResource("7_dvlgi")]
+position = Vector2(-104, -792)
+rotation = -1.5708
+power_id = 3
 
 [node name="PowerGate" parent="Objects" instance=ExtResource("7_dvlgi")]
 position = Vector2(-24, -216)
@@ -81,6 +108,14 @@ position = Vector2(-72, -664)
 rotation = -3.14159
 power_id = 3
 
+[node name="PowerGate9" parent="Objects" instance=ExtResource("7_dvlgi")]
+position = Vector2(-232, -824)
+power_id = 3
+
+[node name="PowerGate10" parent="Objects" instance=ExtResource("7_dvlgi")]
+position = Vector2(-248, -824)
+power_id = 3
+
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Glass" parent="Map" instance=ExtResource("11_egktx")]
@@ -92,11 +127,53 @@ position = Vector2(-32, -624)
 size = Vector2i(64, 16)
 
 [node name="CeilingLight" parent="Map" instance=ExtResource("4_ftjt1")]
-position = Vector2(1, -409)
-texture_scale = 1.48889
+position = Vector2(0, -426)
+texture_scale = 1.55556
 lights_lightables = false
-radius = 67.0
+radius = 70.0
 power_id = 2
+
+[node name="Glass3" parent="Map" instance=ExtResource("11_egktx")]
+position = Vector2(-208, -848)
+size = Vector2i(96, 16)
+
+[node name="CeilingLight4" parent="Map" instance=ExtResource("4_ftjt1")]
+position = Vector2(-161, -706)
+enabled = false
+texture_scale = 1.64016
+lights_lightables = false
+radius = 73.807
+power_id = 3
+start_powered = false
+
+[node name="CeilingLight5" parent="Map" instance=ExtResource("4_ftjt1")]
+position = Vector2(0, -816)
+enabled = false
+texture_scale = 1.64016
+lights_lightables = false
+radius = 73.807
+power_id = 3
+start_powered = false
+
+[node name="InvertedDecoLight" parent="Map" instance=ExtResource("15_3jseq")]
+position = Vector2(-1, -234)
+
+[node name="InvertedDecoLight2" parent="Map" instance=ExtResource("15_3jseq")]
+position = Vector2(-50, -636)
+
+[node name="InvertedDecoLight3" parent="Map" instance=ExtResource("15_3jseq")]
+position = Vector2(-161, -706)
+power_id = 3
+
+[node name="InvertedDecoLight4" parent="Map" instance=ExtResource("15_3jseq")]
+position = Vector2(0, -816)
+power_id = 3
+
+[node name="InvertedDecoLight5" parent="Map" instance=ExtResource("15_3jseq")]
+position = Vector2(-241, -851)
+color = Color(0.239216, 0.541176, 0.87451, 0.788235)
+texture_scale = 1.0
+radius = 45.0
 
 [node name="Player" parent="." instance=ExtResource("3_2u5ik")]
 
@@ -133,83 +210,6 @@ script = ExtResource("10_bwju5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PowerTrigger"]
 position = Vector2(17.5533, -4.80328)
 shape = SubResource("RectangleShape2D_w4faw")
-
-[node name="Port" parent="." instance=ExtResource("2_grq21")]
-position = Vector2(17, -714)
-id = 3
-
-[node name="PowerGate" parent="." instance=ExtResource("7_dvlgi")]
-position = Vector2(-104, -808)
-rotation = -1.5708
-power_id = 3
-
-[node name="PowerGate3" parent="." instance=ExtResource("7_dvlgi")]
-position = Vector2(-216, -808)
-rotation = 1.5708
-power_id = 3
-
-[node name="PowerGate4" parent="." instance=ExtResource("7_dvlgi")]
-position = Vector2(-216, -792)
-rotation = 1.5708
-power_id = 3
-
-[node name="PowerGate2" parent="." instance=ExtResource("7_dvlgi")]
-position = Vector2(-104, -792)
-rotation = -1.5708
-power_id = 3
-
-[node name="Glass" parent="." instance=ExtResource("11_egktx")]
-position = Vector2(-208, -848)
-size = Vector2i(96, 16)
-
-[node name="Hive" parent="." instance=ExtResource("12_nt2eq")]
-position = Vector2(65, -816)
-
-[node name="CeilingLight4" parent="." instance=ExtResource("4_ftjt1")]
-position = Vector2(-161, -706)
-enabled = false
-texture_scale = 1.64016
-lights_lightables = false
-radius = 73.807
-power_id = 3
-start_powered = false
-
-[node name="CeilingLight5" parent="." instance=ExtResource("4_ftjt1")]
-position = Vector2(0, -816)
-enabled = false
-texture_scale = 1.64016
-lights_lightables = false
-radius = 73.807
-power_id = 3
-start_powered = false
-
-[node name="PowerGate5" parent="." instance=ExtResource("7_dvlgi")]
-position = Vector2(-232, -824)
-power_id = 3
-
-[node name="PowerGate6" parent="." instance=ExtResource("7_dvlgi")]
-position = Vector2(-248, -824)
-power_id = 3
-
-[node name="InvertedDecoLight" parent="." instance=ExtResource("15_3jseq")]
-position = Vector2(-1, -234)
-
-[node name="InvertedDecoLight2" parent="." instance=ExtResource("15_3jseq")]
-position = Vector2(-50, -636)
-
-[node name="InvertedDecoLight3" parent="." instance=ExtResource("15_3jseq")]
-position = Vector2(-161, -706)
-power_id = 3
-
-[node name="InvertedDecoLight4" parent="." instance=ExtResource("15_3jseq")]
-position = Vector2(0, -816)
-power_id = 3
-
-[node name="InvertedDecoLight5" parent="." instance=ExtResource("15_3jseq")]
-position = Vector2(-241, -851)
-color = Color(0.239216, 0.541176, 0.87451, 0.788235)
-texture_scale = 1.0
-radius = 45.0
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_ew3hk")

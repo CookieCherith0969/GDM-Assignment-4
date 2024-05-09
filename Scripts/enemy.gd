@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 110 # Enemy speed -R
+var speed = 150 # Enemy speed -R
 var player_in_range = false # If enemy is chasing player -R
 var player = null # Player object -R
 var lighters : Array = []
