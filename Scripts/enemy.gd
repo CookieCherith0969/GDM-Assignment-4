@@ -14,7 +14,6 @@ var home_hive : Node2D = null
 var nav_agent = $NavigationAgent2D
 var nav_ready = false
 var at_home = true : set = set_at_home
-@onready var damage = $KillArea/damage
 @onready var buzzing = $buzzing
 
 var shuffle_timer = 0

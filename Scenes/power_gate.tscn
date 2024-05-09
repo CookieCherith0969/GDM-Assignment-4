@@ -27,7 +27,7 @@ texture = SubResource("AtlasTexture_uakde")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_3bqn1")
 
-[node name="gateOpen" type="AudioStreamPlayer" parent="."]
+[node name="gateOpen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ar76w")
 volume_db = -20.0
 pitch_scale = 1.39

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://4rc7u7dy5bjc"]
+[gd_scene load_steps=13 format=3 uid="uid://4rc7u7dy5bjc"]
 
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="1_qymnq"]
 [ext_resource type="Script" path="res://Scripts/HidingText.gd" id="2_12hn7"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="10_6yq8q"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="13_1tqma"]
-[ext_resource type="AudioStream" uid="uid://dj4u0wxevhw2r" path="res://audio/ambient.mp3" id="13_mb2q2"]
 
 [node name="TutorialLevel" type="Node2D"]
 
@@ -128,10 +127,5 @@ position = Vector2(455, -83)
 color = Color(0.239216, 0.541176, 0.87451, 0.788235)
 texture_scale = 1.0
 radius = 45.0
-
-[node name="Ambient" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_mb2q2")
-volume_db = -7.5
-autoplay = true
 
 [connection signal="failed_open" from="Objects/LockedDoor" to="Label2" method="reveal"]
