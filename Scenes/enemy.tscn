@@ -54,6 +54,7 @@ shape = SubResource("CircleShape2D_714ps")
 [node name="HuntLight" type="PointLight2D" parent="."]
 enabled = false
 color = Color(0.94902, 0, 0.270588, 1)
+shadow_enabled = true
 texture = ExtResource("7_oqs67")
 texture_scale = 0.4
 

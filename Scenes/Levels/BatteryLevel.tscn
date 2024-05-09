@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://das8ihaevwwm6"]
 
-[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="1_hgajm"]
-[ext_resource type="PackedScene" path="res://Scenes/port.tscn" id="2_grq21"]
+[ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_hgajm"]
+[ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="2_grq21"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="3_2u5ik"]
-[ext_resource type="PackedScene" path="res://Scenes/ceiling_light.tscn" id="4_ftjt1"]
+[ext_resource type="PackedScene" uid="uid://xs0r1byb1prb" path="res://Scenes/ceiling_light.tscn" id="4_ftjt1"]
 [ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="5_g76yd"]
 [ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="6_eic8u"]
 [ext_resource type="PackedScene" uid="uid://fat1dmyvuygs" path="res://Scenes/power_gate.tscn" id="7_dvlgi"]
@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="9_jfuls"]
 [ext_resource type="Script" path="res://Scripts/PowerTrigger.gd" id="10_bwju5"]
 [ext_resource type="PackedScene" uid="uid://dudk7d7ss8mki" path="res://Scenes/Glass.tscn" id="11_egktx"]
-[ext_resource type="PackedScene" path="res://Scenes/hive.tscn" id="12_nt2eq"]
-[ext_resource type="PackedScene" path="res://Scenes/inverted_power_gate.tscn" id="13_1tg8b"]
+[ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="12_nt2eq"]
+[ext_resource type="PackedScene" uid="uid://bl06qjen3kmub" path="res://Scenes/inverted_power_gate.tscn" id="13_1tg8b"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="15_3jseq"]
 [ext_resource type="AudioStream" uid="uid://dj4u0wxevhw2r" path="res://audio/ambient.mp3" id="15_ew3hk"]
 
@@ -114,7 +114,6 @@ position = Vector2(1, -394)
 texture_scale = 1.42853
 lights_lightables = false
 radius = 64.284
-start_powered = true
 
 [node name="Player" parent="." instance=ExtResource("3_2u5ik")]
 
