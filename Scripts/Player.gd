@@ -80,7 +80,6 @@ func set_lights(val : int):
 	num_lights = val
 	if num_lights == 0:
 		lit = false
-		
 	else:
 		lit = true
 

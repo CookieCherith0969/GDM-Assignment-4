@@ -19,7 +19,6 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if is_instance_of(body, Player):
-		print_debug("in")
 		popup.show()
 		body.interacted.connect(on_interact)
 

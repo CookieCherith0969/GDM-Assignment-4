@@ -38,7 +38,7 @@ func _physics_process(delta):
 		nav_ready = true
 		return
 	# Move towards player if in range and the players light is on OR a lamp plant is on -R
-	if (player_in_range && player.lit && !player.is_corrupted):
+	if player_in_range && player.lit && !player.is_corrupted():
 		at_home = false
 		current_shuffle_frequency = 0
 		huntlight.enabled = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpjavyrqxcx6"]
+[gd_scene load_steps=6 format=3 uid="uid://dpjavyrqxcx6"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_5cprl"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="2_fphv1"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="3_p24ri"]
 [ext_resource type="PackedScene" uid="uid://cyi115ywj3ahm" path="res://Scenes/vent.tscn" id="4_lk8x5"]
+[ext_resource type="PackedScene" uid="uid://di82cfdtynvqu" path="res://Scenes/inverted_light.tscn" id="5_6uprd"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -22,9 +23,13 @@ visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Vent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_lk8x5")]
-position = Vector2(-13, -32)
+position = Vector2(152, -133)
 target = NodePath("../Vent2")
 
 [node name="Vent2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_lk8x5")]
-position = Vector2(20, -93)
+position = Vector2(5, -46)
 target = NodePath("../Vent")
+
+[node name="InvertedLight" parent="." instance=ExtResource("5_6uprd")]
+position = Vector2(83, -63)
+lights_lightables = false
