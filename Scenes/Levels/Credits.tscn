@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://87ekx1sn7glf"]
 
-[ext_resource type="FontFile" uid="uid://c8xrb5c2j45h2" path="res://Art/Fonts/StaticBuzz.ttf" id="1_gblo6"]
 [ext_resource type="Script" path="res://Scenes/Levels/CreditsScript.gd" id="1_it5xr"]
 [ext_resource type="FontFile" uid="uid://dtswh15p1k3le" path="res://Art/Fonts/' Mono Regular.ttf" id="2_phj0r"]
+[ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_umvvx"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_754no"]
 [ext_resource type="AudioStream" uid="uid://dr2t8yxsbkngm" path="res://audio/BGM.mp3" id="3_undx6"]
 
@@ -20,14 +20,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 14.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.973166)
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_gblo6")
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_umvvx")
+theme_override_font_sizes/font_size = 56
 text = "LOST IN THE DARK"
 
 [node name="Credits" type="Label" parent="VBoxContainer"]

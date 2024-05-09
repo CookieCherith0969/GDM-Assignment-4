@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://04y4bflc7pt2"]
 
 [ext_resource type="Script" path="res://Scenes/MenuScript.gd" id="1_1lehp"]
-[ext_resource type="FontFile" uid="uid://c8xrb5c2j45h2" path="res://Art/Fonts/StaticBuzz.ttf" id="2_8ap04"]
+[ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_t0hf1"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_kagrh"]
 [ext_resource type="AudioStream" uid="uid://dr2t8yxsbkngm" path="res://audio/BGM.mp3" id="4_c6ffw"]
 
@@ -16,13 +16,13 @@ script = ExtResource("1_1lehp")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 30.0
-offset_top = 161.0
-offset_right = 626.0
-offset_bottom = 233.0
+offset_left = 34.0
+offset_top = 179.0
+offset_right = 691.0
+offset_bottom = 251.0
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_8ap04")
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_t0hf1")
+theme_override_font_sizes/font_size = 58
 text = "LOST IN THE DARK"
 
 [node name="PlayButton" type="Button" parent="."]
