@@ -92,10 +92,10 @@ position = Vector2(-32, -624)
 size = Vector2i(64, 16)
 
 [node name="CeilingLight" parent="Map" instance=ExtResource("4_ftjt1")]
-position = Vector2(1, -394)
-texture_scale = 1.42853
+position = Vector2(1, -409)
+texture_scale = 1.48889
 lights_lightables = false
-radius = 64.284
+radius = 67.0
 power_id = 2
 
 [node name="Player" parent="." instance=ExtResource("3_2u5ik")]
