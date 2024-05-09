@@ -135,6 +135,8 @@ func on_unlit(lighter):
 
 func _on_kill_area_body_entered(body):
 	if is_instance_of(body, Player):
+		if body.is_corrupted():
+			return
 		damage.play()
 		await get_tree().create_timer(0.05).timeout
 		LevelManager.reload_level()

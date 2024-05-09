@@ -15,7 +15,7 @@ layer_0/tile_data = PackedInt32Array(0, 65540, 8, 1, 65540, 8, 2, 65540, 8, 3, 6
 position = Vector2(26, -15)
 
 [node name="Hive" parent="." instance=ExtResource("3_p24ri")]
-position = Vector2(137, -87)
+position = Vector2(131, -83)
 scout_num = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
