@@ -18,7 +18,8 @@ var light_on = false : set = set_light_on
 @onready var walking = $Walking
 @onready var timer = $Timer
 
-
+@onready
+var robot_sprite = $RobotSprite
 @onready
 var glowlight = $GlowLight
 @onready
@@ -36,6 +37,9 @@ var has_key = false
 var has_battery = false : set = set_battery
 
 var corrupted = false : set = set_corrupted
+
+var moving_up : bool = false
+var moving_left : bool = false
 
 func _input(event):
 	if event.is_action_pressed("Light"):
@@ -61,13 +65,33 @@ func _physics_process(_delta):
 			walking.pitch_scale = randf_range(0.7, 1.2)
 			walking.play()
 			timer.start(0.5)
+		moving_left = velocity.x < 0
+		moving_up = velocity.y < 0
+		update_animation(true)
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		update_animation(false)
 	
 	#rotator.rotation = get_angle_to(get_global_mouse_position())
 	move_and_slide()
+
+func update_animation(moving : bool):
+	if moving_left:
+			robot_sprite.scale.x = -1
+	else:
+		robot_sprite.scale.x = 1
+	if moving_up:
+		if moving:
+			robot_sprite.play("MoveUp")
+		else:
+			robot_sprite.play("IdleUp")
+	else:
+		if moving:
+			robot_sprite.play("MoveDown")
+		else:
+			robot_sprite.play("IdleDown")
 
 func on_lit(_lighter):
 	num_lights += 1

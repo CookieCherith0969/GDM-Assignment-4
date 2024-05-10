@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c042mnm23xyoo" path="res://Scenes/lampPlant.tscn" id="4_pwxd5"]
 [ext_resource type="PackedScene" uid="uid://dudk7d7ss8mki" path="res://Scenes/Glass.tscn" id="7_0eb6t"]
 [ext_resource type="PackedScene" uid="uid://fat1dmyvuygs" path="res://Scenes/power_gate.tscn" id="9_2jlnf"]
-[ext_resource type="PackedScene" uid="uid://b2suve1qcxwg0" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
+[ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="9_k4sq3"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="10_6yq8q"]
 [ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="10_tbqis"]
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="11_kqkg3"]
