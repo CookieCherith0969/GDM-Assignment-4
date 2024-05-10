@@ -16,6 +16,10 @@ func load_level(level_name : String):
 
 func _deferred_load_level(level_name : String):
 	get_tree().change_scene_to_file("res://Scenes/Levels/"+level_name+".tscn")
+	if level_name in ["StartMenu", "Credits", "LevelSelect"]:
+		SoundManager.start_music()
+	else:
+		SoundManager.start_ambient()
 
 func reload_level():
 	load_level(current_name)
