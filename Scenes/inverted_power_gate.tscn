@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bl06qjen3kmub"]
 
 [ext_resource type="Script" path="res://Scripts/InvertedPowerGate.gd" id="1_k258l"]
-[ext_resource type="Texture2D" uid="uid://i41v2sqdwked" path="res://Art/lab tileset.png" id="2_ktk8t"]
+[ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_3mqin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecso"]
 size = Vector2(16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uakde"]
-atlas = ExtResource("2_ktk8t")
-region = Rect2(32, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsvqv"]
+atlas = ExtResource("2_3mqin")
+region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3bqn1"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, -4, -8, -4)
@@ -23,8 +23,9 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = SubResource("AtlasTexture_uakde")
+texture = SubResource("AtlasTexture_dsvqv")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false
+position = Vector2(0, 6)
 occluder = SubResource("OccluderPolygon2D_3bqn1")

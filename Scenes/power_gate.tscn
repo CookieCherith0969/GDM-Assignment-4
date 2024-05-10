@@ -1,15 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://fat1dmyvuygs"]
 
-[ext_resource type="Texture2D" uid="uid://i41v2sqdwked" path="res://Art/lab tileset.png" id="1_6evju"]
 [ext_resource type="Script" path="res://Scripts/power_gate.gd" id="1_07x5r"]
+[ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_42jq6"]
 [ext_resource type="AudioStream" uid="uid://powbloty6sld" path="res://audio/doorOpen.wav" id="3_ar76w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecso"]
 size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uakde"]
-atlas = ExtResource("1_6evju")
-region = Rect2(32, 16, 16, 16)
+atlas = ExtResource("2_42jq6")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3bqn1"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, -4, -8, -4)
@@ -25,6 +25,7 @@ shape = SubResource("RectangleShape2D_7ecso")
 texture = SubResource("AtlasTexture_uakde")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, 6)
 occluder = SubResource("OccluderPolygon2D_3bqn1")
 
 [node name="gateOpen" type="AudioStreamPlayer2D" parent="."]
