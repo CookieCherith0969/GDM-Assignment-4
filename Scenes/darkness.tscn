@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5vdoogs4nd0r"]
+
+[ext_resource type="Script" path="res://Scripts/Darkness.gd" id="1_o0svy"]
+
+[node name="Darkness" type="CanvasModulate"]
+visible = false
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_o0svy")
