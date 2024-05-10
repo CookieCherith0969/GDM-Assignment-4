@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ow70hbsvy5xi"]
 
-[ext_resource type="Script" path="res://Scenes/lockedDoor.gd" id="1_bndld"]
+[ext_resource type="Script" path="res://Scripts/lockedDoor.gd" id="1_bndld"]
 [ext_resource type="Texture2D" uid="uid://dwirruu41arxc" path="res://Art/elevator.png" id="2_txjhk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irk8r"]

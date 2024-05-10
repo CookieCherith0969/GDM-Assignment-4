@@ -106,7 +106,7 @@ shape = SubResource("CircleShape2D_gvdvt")
 [node name="RobotSprite" type="AnimatedSprite2D" parent="." groups=["Player"]]
 sprite_frames = SubResource("SpriteFrames_jd8a3")
 animation = &"MoveUp"
-frame_progress = 0.756788
+frame_progress = 0.693255
 
 [node name="BatterySprite" type="Sprite2D" parent="."]
 visible = false
@@ -147,7 +147,7 @@ shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("3_i58oj")
-texture_scale = 1.5
+texture_scale = 1.6
 
 [node name="FlashArea" parent="Rotator" node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
 rotation = 1.5708

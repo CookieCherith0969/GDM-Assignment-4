@@ -108,9 +108,11 @@ size = Vector2i(199, 16)
 
 [node name="PowerGate" parent="Objects" instance=ExtResource("9_2jlnf")]
 position = Vector2(416, 72)
+rotation = 1.57079
 
 [node name="PowerGate2" parent="Objects" instance=ExtResource("9_2jlnf")]
 position = Vector2(416, 56)
+rotation = 1.57079
 
 [node name="Battery" parent="Objects" instance=ExtResource("10_tbqis")]
 position = Vector2(279, 43)
