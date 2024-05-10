@@ -229,5 +229,17 @@ script = ExtResource("10_bwju5")
 position = Vector2(17.5533, -4.80328)
 shape = SubResource("RectangleShape2D_w4faw")
 
+[node name="InvertedDecoLight" parent="." instance=ExtResource("15_3jseq")]
+position = Vector2(-159, -803)
+
+[node name="CeilingLight" parent="." instance=ExtResource("4_ftjt1")]
+position = Vector2(-159, -803)
+enabled = false
+texture_scale = 1.74598
+lights_lightables = false
+radius = 78.569
+power_id = 3
+start_powered = false
+
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]
