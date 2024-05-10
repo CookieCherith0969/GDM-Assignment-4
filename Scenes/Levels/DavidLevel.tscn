@@ -124,11 +124,6 @@ position = Vector2(-181, -111)
 texture_scale = 1.79611
 radius = 80.825
 
-[node name="CeilingLight3" parent="Map" instance=ExtResource("9_jt1oc")]
-position = Vector2(96, -256)
-texture_scale = 0.875067
-radius = 39.378
-
 [node name="Player" parent="." instance=ExtResource("10_mpqw3")]
 
 [node name="LevelExit" parent="." instance=ExtResource("11_x3qcp")]
@@ -137,3 +132,9 @@ next_level_name = "KynanLevel"
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("12_6514t")]
 position = Vector2(-70, -151)
+
+[node name="CeilingLight4" parent="." instance=ExtResource("9_jt1oc")]
+position = Vector2(96, -256)
+color = Color(0.109804, 0.470588, 0.921569, 0.741176)
+lights_lightables = false
+lights_player = false

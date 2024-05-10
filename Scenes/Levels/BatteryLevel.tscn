@@ -145,7 +145,7 @@ position = Vector2(-16, -652)
 size = Vector2i(16, 12)
 
 [node name="CeilingLight" parent="Map" instance=ExtResource("4_ftjt1")]
-position = Vector2(0, -426)
+position = Vector2(5, -409)
 texture_scale = 1.55556
 lights_lightables = false
 radius = 70.0
@@ -234,6 +234,7 @@ shape = SubResource("RectangleShape2D_w4faw")
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("15_3jseq")]
 position = Vector2(-159, -786)
+power_id = 3
 
 [node name="CeilingLight" parent="." instance=ExtResource("4_ftjt1")]
 position = Vector2(-159, -786)
@@ -255,6 +256,7 @@ id = 4
 
 [node name="CeilingLight2" parent="." instance=ExtResource("4_ftjt1")]
 position = Vector2(-146, -919)
+lights_lightables = false
 power_id = 4
 
 [node name="BlockerVines" parent="." instance=ExtResource("16_n3qba")]

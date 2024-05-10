@@ -164,7 +164,7 @@ lights_player = false
 
 [node name="LevelExit" parent="." instance=ExtResource("9_nvn36")]
 position = Vector2(0, -672)
-next_level_name = "KynanLevel"
+next_level_name = "DavidLevel"
 
 [node name="PowerTrigger" type="Area2D" parent="."]
 visible = false
