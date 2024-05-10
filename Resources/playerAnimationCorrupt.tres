@@ -1,0 +1,83 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://g7c713lc0v0w"]
+
+[ext_resource type="Texture2D" uid="uid://b3vfpdtqtvcl7" path="res://Art/playerFrontCorrupt.png" id="1_4ml5s"]
+[ext_resource type="Texture2D" uid="uid://bdwjfimkme7g5" path="res://Art/playerBackCorrupt.png" id="2_o4yed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_608jj"]
+atlas = ExtResource("1_4ml5s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t8aa"]
+atlas = ExtResource("1_4ml5s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj67r"]
+atlas = ExtResource("2_o4yed")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vchej"]
+atlas = ExtResource("2_o4yed")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6fff"]
+atlas = ExtResource("1_4ml5s")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7o4k"]
+atlas = ExtResource("1_4ml5s")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_757yp"]
+atlas = ExtResource("2_o4yed")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdaj6"]
+atlas = ExtResource("2_o4yed")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_608jj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t8aa")
+}],
+"loop": true,
+"name": &"IdleDown",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj67r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vchej")
+}],
+"loop": true,
+"name": &"IdleUp",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6fff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7o4k")
+}],
+"loop": true,
+"name": &"MoveDown",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_757yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdaj6")
+}],
+"loop": true,
+"name": &"MoveUp",
+"speed": 2.0
+}]

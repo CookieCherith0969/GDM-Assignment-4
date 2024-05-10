@@ -28,6 +28,11 @@ var battery_sprite = $BatterySprite
 var corruption_sprite = $CorruptionSprite
 
 @onready
+var normal_spriteframes = preload("res://Resources/playerAnimation.tres")
+@onready
+var corrupted_spriteframes = preload("res://Resources/playerAnimationCorrupt.tres")
+
+@onready
 var rotator = $Rotator
 
 var num_lights = -1 : set = set_lights
@@ -150,4 +155,8 @@ func set_battery(val : bool):
 func set_corrupted(val : bool):
 	corrupted = val
 	
-	corruption_sprite.visible = corrupted
+	if corrupted:
+		robot_sprite.sprite_frames = corrupted_spriteframes
+	else:
+		robot_sprite.sprite_frames = normal_spriteframes
+	update_animation(false)

@@ -1,0 +1,83 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dv0xmmvbncr3l"]
+
+[ext_resource type="Texture2D" uid="uid://bkvk6oq0ead0v" path="res://Art/playerFront.png" id="1_ww80s"]
+[ext_resource type="Texture2D" uid="uid://cnhpkgecqbhbt" path="res://Art/playerBack.png" id="2_colah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bllpw"]
+atlas = ExtResource("1_ww80s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di8ad"]
+atlas = ExtResource("1_ww80s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iodd2"]
+atlas = ExtResource("2_colah")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we5q1"]
+atlas = ExtResource("2_colah")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trmp3"]
+atlas = ExtResource("1_ww80s")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tltlj"]
+atlas = ExtResource("1_ww80s")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa62b"]
+atlas = ExtResource("2_colah")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymm1q"]
+atlas = ExtResource("2_colah")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bllpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di8ad")
+}],
+"loop": true,
+"name": &"IdleDown",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iodd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we5q1")
+}],
+"loop": true,
+"name": &"IdleUp",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trmp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tltlj")
+}],
+"loop": true,
+"name": &"MoveDown",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa62b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymm1q")
+}],
+"loop": true,
+"name": &"MoveUp",
+"speed": 4.0
+}]

@@ -1,98 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://btdesxnsuaggv"]
+[gd_scene load_steps=12 format=3 uid="uid://btdesxnsuaggv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e58nx"]
-[ext_resource type="Texture2D" uid="uid://bkvk6oq0ead0v" path="res://Art/playerFront.png" id="2_fiy84"]
-[ext_resource type="Texture2D" uid="uid://cnhpkgecqbhbt" path="res://Art/playerBack.png" id="3_2cc5k"]
+[ext_resource type="SpriteFrames" uid="uid://dv0xmmvbncr3l" path="res://Resources/playerAnimation.tres" id="2_c3d4i"]
 [ext_resource type="Texture2D" uid="uid://nssooic717td" path="res://Art/PlaceholderArt/Battery.png" id="3_bil8g"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_i58oj"]
-[ext_resource type="Texture2D" uid="uid://cvr16s7xng52m" path="res://Art/PlaceholderArt/PlaceholderCorruption.png" id="4_2sujp"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="4_65slt"]
 [ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_bf3oi"]
+[ext_resource type="Texture2D" uid="uid://mdj1ys0eppq7" path="res://Art/Corruption.png" id="5_ux4nk"]
 [ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="7_ygosa"]
 [ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="8_haiom"]
 [ext_resource type="AudioStream" uid="uid://d2rt3cpks44l5" path="res://audio/Walking.mp3" id="8_y4dbu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
 radius = 14.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bllpw"]
-atlas = ExtResource("2_fiy84")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_di8ad"]
-atlas = ExtResource("2_fiy84")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iodd2"]
-atlas = ExtResource("3_2cc5k")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_we5q1"]
-atlas = ExtResource("3_2cc5k")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trmp3"]
-atlas = ExtResource("2_fiy84")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tltlj"]
-atlas = ExtResource("2_fiy84")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qa62b"]
-atlas = ExtResource("3_2cc5k")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ymm1q"]
-atlas = ExtResource("3_2cc5k")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jd8a3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bllpw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_di8ad")
-}],
-"loop": true,
-"name": &"IdleDown",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iodd2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_we5q1")
-}],
-"loop": true,
-"name": &"IdleUp",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trmp3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tltlj")
-}],
-"loop": true,
-"name": &"MoveDown",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qa62b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ymm1q")
-}],
-"loop": true,
-"name": &"MoveUp",
-"speed": 4.0
-}]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 2
@@ -104,9 +24,9 @@ script = ExtResource("1_e58nx")
 shape = SubResource("CircleShape2D_gvdvt")
 
 [node name="RobotSprite" type="AnimatedSprite2D" parent="." groups=["Player"]]
-sprite_frames = SubResource("SpriteFrames_jd8a3")
-animation = &"MoveUp"
-frame_progress = 0.693255
+sprite_frames = ExtResource("2_c3d4i")
+animation = &"IdleDown"
+frame_progress = 0.151636
 
 [node name="BatterySprite" type="Sprite2D" parent="."]
 visible = false
@@ -116,7 +36,7 @@ texture = ExtResource("3_bil8g")
 
 [node name="CorruptionSprite" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("4_2sujp")
+texture = ExtResource("5_ux4nk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
