@@ -102,90 +102,108 @@ position = Vector2(363, 16)
 size = Vector2i(4, 80)
 
 [node name="LightGate5" parent="Objects" instance=ExtResource("6_yaysv")]
-position = Vector2(72, 100)
+position = Vector2(70, 100)
 gateX = 17
 gateY = 2
+gateSize = Vector2i(18, 2)
 
 [node name="LightGate7" parent="Objects" instance=ExtResource("6_yaysv")]
-position = Vector2(220, 99)
+position = Vector2(216, 100)
 gateX = 18
 gateY = 2
+gateSize = Vector2i(19, 2)
 
 [node name="LightGate11" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(1122, 407)
 gateX = 12
 gateY = 2
+gateSize = Vector2i(12, 2)
 
 [node name="LightGate22" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(132, 197)
 gateX = 10
 gateY = 2
+gateSize = Vector2i(10, 2)
 
 [node name="LightGate25" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(420, 197)
 gateX = 8
 gateY = 2
+gateSize = Vector2i(8, 2)
 
 [node name="LightGate27" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(996, 14)
 gateY = 2
+gateSize = Vector2i(6, 2)
 
 [node name="LightGate29" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(772, 139)
 gateX = 4
 gateY = 2
+gateSize = Vector2i(4, 2)
 
 [node name="LightGate10" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(244, 275)
 gateX = 2
 gateY = 10
+gateSize = Vector2i(2, 10)
 
 [node name="LightGate12" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(1045, -59)
 gateX = 2
 gateY = 10
+gateSize = Vector2i(2, 10)
 
 [node name="LightGate13" parent="Objects" instance=ExtResource("6_yaysv")]
-position = Vector2(771, 401)
+position = Vector2(778, 401)
 gateX = 2
 gateY = 5
+gateSize = Vector2i(2, 5)
 
 [node name="LightGate15" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(828, -32)
 gateX = 2
 gateY = 5
+gateSize = Vector2i(2, 5)
 
 [node name="LightGate17" parent="Objects" instance=ExtResource("6_yaysv")]
-position = Vector2(963, 393)
+position = Vector2(963, 392)
 gateX = 2
 gateY = 5
+gateSize = Vector2i(2, 5)
 
 [node name="LightGate23" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(815, 341)
 gateX = 2
+gateSize = Vector2i(2, 4)
 
 [node name="LightGate19" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(1066, 196)
 gateX = 2
+gateSize = Vector2i(2, 4)
 
 [node name="LightGate20" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(1066, 148)
 gateX = 2
+gateSize = Vector2i(2, 4)
 
 [node name="LightGate16" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(902, 425)
 gateX = 5
 gateY = 2
+gateSize = Vector2i(5, 2)
 
 [node name="LightGate18" parent="Objects" instance=ExtResource("6_yaysv")]
 position = Vector2(826, 413)
 gateX = 7
 gateY = 2
+gateSize = Vector2i(7, 2)
 
 [node name="LightGate14" parent="Objects" instance=ExtResource("6_yaysv")]
-position = Vector2(1159, 328)
+position = Vector2(1162, 327)
 gateX = 2
 gateY = 19
+gateSize = Vector2i(2, 19)
 
 [node name="LampPlant" parent="Objects" instance=ExtResource("7_3vj4v")]
 position = Vector2(284, 184)

@@ -117,16 +117,19 @@ position = Vector2(-44, -68)
 rotation = -1.5708
 gateX = 58
 gateY = 2
+gateSize = Vector2i(60, 2)
 
 [node name="LightGateLongR" parent="Objects" instance=ExtResource("7_w4vd4")]
 position = Vector2(36, -68)
 rotation = -1.5708
 gateX = 58
 gateY = 2
+gateSize = Vector2i(60, 2)
 
 [node name="LightGateMain" parent="Objects" instance=ExtResource("7_w4vd4")]
-position = Vector2(-28, -556)
+position = Vector2(-28, -545)
 gateX = 8
+gateSize = Vector2i(8, 1)
 
 [node name="LampPlant" parent="Objects" instance=ExtResource("7_hlnl8")]
 position = Vector2(16, -103)

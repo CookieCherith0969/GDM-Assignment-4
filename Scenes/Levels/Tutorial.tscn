@@ -18,6 +18,7 @@
 [node name="TutorialLevel" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -79,26 +80,31 @@ position = Vector2(116, 52)
 rotation = 1.5708
 gateX = 4
 gateY = 2
+gateSize = Vector2i(4, 2)
 
 [node name="LightGate2" parent="Gates" instance=ExtResource("3_ysgnm")]
 position = Vector2(228, 20)
 gateX = 10
 gateY = 2
+gateSize = Vector2i(10, 2)
 
 [node name="LightGate3" parent="Gates" instance=ExtResource("3_ysgnm")]
 position = Vector2(228, 83)
 gateX = 10
 gateY = 2
+gateSize = Vector2i(10, 2)
 
 [node name="LightGate4" parent="Gates" instance=ExtResource("3_ysgnm")]
 position = Vector2(228, 76)
 rotation = -1.5708
 gateY = 2
+gateSize = Vector2i(6, 2)
 
 [node name="LightGate5" parent="Gates" instance=ExtResource("3_ysgnm")]
 position = Vector2(292, 76)
 rotation = -1.5708
 gateY = 2
+gateSize = Vector2i(6, 2)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -132,6 +138,7 @@ position = Vector2(532, 51)
 rotation = 1.5708
 gateX = 14
 gateY = 8
+gateSize = Vector2i(14, 8)
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("13_1tqma")]
 position = Vector2(537, 9)

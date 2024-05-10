@@ -46,6 +46,8 @@ func set_battery(val : bool):
 			PowerManager.decrease_power(id)
 
 func set_id(val : int):
+	if val < 1:
+		return
 	if has_battery:
 		PowerManager.decrease_power(id)
 		id = val

@@ -76,11 +76,13 @@ rotation = 1.5708
 position = Vector2(0, -300)
 gateX = 2
 gateY = 6
+gateSize = Vector2i(2, 6)
 
 [node name="LightGate4" parent="Objects" instance=ExtResource("4_rj3fi")]
-position = Vector2(135, -362)
+position = Vector2(132, -362)
 gateX = 2
 gateY = 6
+gateSize = Vector2i(2, 6)
 
 [node name="Vent" parent="Objects" node_paths=PackedStringArray("target") instance=ExtResource("8_rtkvb")]
 position = Vector2(-104, -88)
