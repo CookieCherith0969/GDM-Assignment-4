@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4rc7u7dy5bjc"]
+[gd_scene load_steps=14 format=3 uid="uid://4rc7u7dy5bjc"]
 
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="1_qymnq"]
 [ext_resource type="Script" path="res://Scripts/HidingText.gd" id="2_12hn7"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="10_tbqis"]
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="11_kqkg3"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="13_1tqma"]
-[ext_resource type="PackedScene" uid="uid://24gtspt7nbjk" path="res://Scenes/deco_light.tscn" id="14_hi7nw"]
 
 [node name="TutorialLevel" type="Node2D"]
 
@@ -140,18 +139,11 @@ color = Color(0.239216, 0.541176, 0.87451, 0.788235)
 texture_scale = 1.0
 radius = 45.0
 
-[node name="DecoLight" parent="." instance=ExtResource("14_hi7nw")]
-position = Vector2(192, 63)
-enabled = true
+[node name="InvertedDecoLight3" parent="." instance=ExtResource("13_1tqma")]
+position = Vector2(430, 64)
 
-[node name="DecoLight2" parent="." instance=ExtResource("14_hi7nw")]
-position = Vector2(324, 63)
-enabled = true
+[node name="InvertedDecoLight4" parent="." instance=ExtResource("13_1tqma")]
+position = Vector2(255, 43)
 
-[node name="DecoLight3" parent="." instance=ExtResource("14_hi7nw")]
-position = Vector2(263, -1)
-enabled = true
-
-[node name="DecoLight4" parent="." instance=ExtResource("14_hi7nw")]
-position = Vector2(263, 112)
-enabled = true
+[node name="InvertedDecoLight5" parent="." instance=ExtResource("13_1tqma")]
+position = Vector2(358, -13)

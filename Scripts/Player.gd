@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 100.0
-const JUMP_VELOCITY = -400.0
+const CORRUPT_SPEED = 60.0
 
 signal interacted(player)
 
@@ -65,9 +65,11 @@ func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	
+	var actual_speed = SPEED
+	if corrupted:
+		actual_speed = CORRUPT_SPEED
 	if direction:
-		velocity = direction * SPEED
+		velocity = direction * actual_speed
 		if timer.time_left <= 0:
 			walking.pitch_scale = randf_range(0.7, 1.2)
 			walking.play()
@@ -77,8 +79,8 @@ func _physics_process(_delta):
 		update_animation(true)
 		
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, actual_speed)
+		velocity.y = move_toward(velocity.y, 0, actual_speed)
 		update_animation(false)
 	
 	#rotator.rotation = get_angle_to(get_global_mouse_position())

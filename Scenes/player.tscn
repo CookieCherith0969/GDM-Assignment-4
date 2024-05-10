@@ -26,7 +26,7 @@ shape = SubResource("CircleShape2D_gvdvt")
 [node name="RobotSprite" type="AnimatedSprite2D" parent="." groups=["Player"]]
 sprite_frames = ExtResource("2_c3d4i")
 animation = &"IdleDown"
-frame_progress = 0.151636
+frame_progress = 0.392429
 
 [node name="BatterySprite" type="Sprite2D" parent="."]
 visible = false
