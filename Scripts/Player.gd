@@ -42,6 +42,8 @@ var moving_up : bool = false
 var moving_left : bool = false
 
 func _input(event):
+	if event.is_action_pressed("Menu"):
+		LevelManager.load_level("StartMenu")
 	if event.is_action_pressed("Light"):
 		if not light_on:
 			light_on = true
