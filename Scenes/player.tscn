@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://d2rt3cpks44l5" path="res://audio/Walking.mp3" id="8_y4dbu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
-radius = 14.0
+radius = 9.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 2
@@ -54,7 +54,7 @@ hit_from_inside = true
 ray_mask = 20
 
 [node name="SelfArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_bf3oi")]
-ray_range = 14.0
+ray_range = 9.0
 max_gap = 2.0
 hit_from_inside = true
 lighter = NodePath("..")

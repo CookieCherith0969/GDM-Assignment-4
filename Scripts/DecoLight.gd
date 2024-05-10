@@ -9,6 +9,9 @@ var id : int = 0 : set = set_id
 
 var registered = false
 
+@onready
+var sprite = $Torch4
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Engine.is_editor_hint():
@@ -16,6 +19,7 @@ func _ready():
 		power_id = power_id
 	else:
 		id = power_id
+		sprite.hide()
 
 func set_radius(val : float):
 	radius = val

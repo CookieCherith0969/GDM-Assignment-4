@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://nbrtq6ou3a05"]
+[gd_scene load_steps=13 format=3 uid="uid://nbrtq6ou3a05"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_ngyng"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="2_khpeu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://xs0r1byb1prb" path="res://Scenes/ceiling_light.tscn" id="9_jt1oc"]
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="10_mpqw3"]
 [ext_resource type="PackedScene" uid="uid://brq1akj3557e0" path="res://Scenes/LevelExit.tscn" id="11_x3qcp"]
+[ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="12_6514t"]
 
 [node name="BatteryLevel" type="Node2D"]
 
@@ -66,10 +67,12 @@ position = Vector2(40, -224)
 [node name="PowerGate" parent="Objects" instance=ExtResource("6_n10vy")]
 position = Vector2(-126, -184)
 rotation = 1.5708
+power_id = 1
 
 [node name="PowerGate2" parent="Objects" instance=ExtResource("6_n10vy")]
 position = Vector2(-126, -200)
 rotation = 1.5708
+power_id = 1
 
 [node name="LightGate3" parent="Objects" instance=ExtResource("4_rj3fi")]
 position = Vector2(0, -300)
@@ -131,3 +134,6 @@ radius = 39.378
 [node name="LevelExit" parent="." instance=ExtResource("11_x3qcp")]
 position = Vector2(96, -256)
 next_level_name = "KynanLevel"
+
+[node name="InvertedDecoLight" parent="." instance=ExtResource("12_6514t")]
+position = Vector2(-70, -151)

@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://xs0r1byb1prb"]
+[gd_scene load_steps=7 format=3 uid="uid://xs0r1byb1prb"]
 
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="1_cu2ko"]
 [ext_resource type="Script" path="res://Scripts/ceiling_light.gd" id="2_5ohll"]
 [ext_resource type="Texture2D" uid="uid://ci43jde51dx1e" path="res://Art/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_4.png" id="2_tpyeg"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="3_qft3s"]
+[ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="5_rrvic"]
+[ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="6_nel3q"]
 
 [node name="CeilingLight" type="PointLight2D"]
+color = Color(0.980392, 0.713726, 0.341176, 1)
 shadow_enabled = true
 shadow_filter = 1
 texture = ExtResource("1_cu2ko")
@@ -20,6 +23,12 @@ ray_mask = 26
 [node name="Torch4" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.219608)
 texture = ExtResource("2_tpyeg")
+
+[node name="LightOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rrvic")
+
+[node name="LightOn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nel3q")
 
 [connection signal="target_entered" from="LightArea" to="." method="_on_light_area_target_entered"]
 [connection signal="target_exited" from="LightArea" to="." method="_on_light_area_target_exited"]

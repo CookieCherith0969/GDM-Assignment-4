@@ -18,6 +18,12 @@ var registered = false
 
 @onready
 var light_area = $LightArea
+@onready
+var sprite = $Torch4
+@onready
+var light_on = $LightOn
+@onready
+var light_off = $LightOff
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +38,7 @@ func _ready():
 		update_mask()
 		if not start_powered:
 			on_depower()
+		sprite.hide()
 
 func set_lightables(val : bool):
 	lights_lightables = val
@@ -91,7 +98,9 @@ func set_start_powered(val : bool):
 func on_power():
 	light_area.active = true
 	enabled = true
+	light_on.play()
 
 func on_depower():
 	light_area.active = false
 	enabled = false
+	light_off.play()
