@@ -22,8 +22,8 @@ func _on_lvl_2_pressed():
 
 
 func _on_lvl_3_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/Levels/DavidLevel.tscn")
 
 
 func _on_lvl_4_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/Levels/KynanLevel.tscn")
