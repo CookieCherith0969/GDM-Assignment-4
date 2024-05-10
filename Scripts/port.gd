@@ -5,7 +5,7 @@ extends Area2D
 var start_with_battery = false : set = set_start_battery
 var has_battery = false : set = set_battery
 @export
-var id := 0 : set = set_id
+var id := 1 : set = set_id
 
 var editor_power = 0
 
