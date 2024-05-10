@@ -5,4 +5,3 @@
 [node name="LightGate" type="Node2D"]
 z_index = -1
 script = ExtResource("1_0m3ob")
-gateSize = null
