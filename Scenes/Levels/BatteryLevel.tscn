@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="3_2u5ik"]
 [ext_resource type="PackedScene" uid="uid://xs0r1byb1prb" path="res://Scenes/ceiling_light.tscn" id="4_ftjt1"]
 [ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="5_g76yd"]
-[ext_resource type="PackedScene" path="res://Scenes/LevelExit.tscn" id="6_eic8u"]
+[ext_resource type="PackedScene" uid="uid://brq1akj3557e0" path="res://Scenes/LevelExit.tscn" id="6_eic8u"]
 [ext_resource type="PackedScene" uid="uid://fat1dmyvuygs" path="res://Scenes/power_gate.tscn" id="7_dvlgi"]
 [ext_resource type="Script" path="res://Scripts/HidingText.gd" id="8_rs7lm"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="9_jfuls"]

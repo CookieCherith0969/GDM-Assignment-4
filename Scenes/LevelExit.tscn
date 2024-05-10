@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2suve1qcxwg0"]
+[gd_scene load_steps=3 format=3 uid="uid://brq1akj3557e0"]
 
-[ext_resource type="Script" path="res://Scenes/LevelExit.gd" id="1_umx6i"]
+[ext_resource type="Script" path="res://Scripts/LevelExit.gd" id="1_3p8qk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbhc1"]
 
 [node name="LevelExit" type="Node2D"]
-script = ExtResource("1_umx6i")
+script = ExtResource("1_3p8qk")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
