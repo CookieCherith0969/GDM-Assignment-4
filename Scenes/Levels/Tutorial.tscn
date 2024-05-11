@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="10_tbqis"]
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="11_kqkg3"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="13_1tqma"]
-[ext_resource type="PackedScene" uid="uid://bq0pckeeocc3a" path="res://Scenes/elevator.tscn" id="15_0ms5w"]
+[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="15_0ms5w"]
 
 [node name="TutorialLevel" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_1usku")
