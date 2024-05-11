@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnyhshq586owy"]
+[gd_scene load_steps=4 format=3 uid="uid://bnyhshq586owy"]
 
 [ext_resource type="Texture2D" uid="uid://nssooic717td" path="res://Art/PlaceholderArt/Battery.png" id="1_7vdgb"]
 [ext_resource type="Script" path="res://Scripts/battery.gd" id="1_d417u"]
-[ext_resource type="AudioStream" uid="uid://cm32y45rs72qv" path="res://audio/pickUp.mp3" id="3_pph41"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr2no"]
 size = Vector2(8, 12)
@@ -17,8 +16,5 @@ shape = SubResource("RectangleShape2D_dr2no")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7vdgb")
-
-[node name="pickup" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_pph41")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

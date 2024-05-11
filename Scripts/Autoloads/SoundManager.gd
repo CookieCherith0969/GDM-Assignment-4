@@ -6,6 +6,8 @@ var background_music = $BGM
 var ambient = $Ambient
 @onready
 var death = $Death
+@onready
+var button = $menuButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,3 +28,5 @@ func start_ambient():
 	
 func play_death():
 	death.play()
+func menu_button():
+	button.play()

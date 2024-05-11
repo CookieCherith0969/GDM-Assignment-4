@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmk8rjcbeygcr"]
+[gd_scene load_steps=6 format=3 uid="uid://cmk8rjcbeygcr"]
 
 [ext_resource type="Script" path="res://Scripts/Autoloads/SoundManager.gd" id="1_x5gjj"]
 [ext_resource type="AudioStream" uid="uid://dr2t8yxsbkngm" path="res://audio/BGM.mp3" id="2_p58df"]
 [ext_resource type="AudioStream" uid="uid://cs53dnynbgtep" path="res://audio/damage.wav" id="3_tgffc"]
 [ext_resource type="AudioStream" uid="uid://dj4u0wxevhw2r" path="res://audio/ambient.mp3" id="4_c7vp5"]
+[ext_resource type="AudioStream" uid="uid://bq6ap3vewuhr7" path="res://audio/button.mp3" id="5_krqdj"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_x5gjj")
@@ -23,3 +24,6 @@ pitch_scale = 0.82
 stream = ExtResource("4_c7vp5")
 volume_db = -7.5
 autoplay = true
+
+[node name="menuButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_krqdj")

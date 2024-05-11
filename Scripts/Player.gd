@@ -17,6 +17,7 @@ var light_on = false : set = set_light_on
 @onready var light_off_audio = $LightOff
 @onready var walking = $Walking
 @onready var timer = $Timer
+@onready var pickup = $pickup
 
 @onready
 var robot_sprite = $RobotSprite
@@ -151,7 +152,7 @@ func is_corrupted():
 
 func set_battery(val : bool):
 	has_battery = val
-	
+	pickup.play()
 	battery_sprite.visible = has_battery
 
 func set_corrupted(val : bool):

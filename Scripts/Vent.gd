@@ -6,6 +6,7 @@ var target : Vent
 
 @onready
 var popup = $Popup
+@onready var vent = $vent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,3 +32,4 @@ func _on_body_exited(body):
 func on_interact(player):
 	if is_instance_valid(target):
 		player.position = target.position
+		vent.play()

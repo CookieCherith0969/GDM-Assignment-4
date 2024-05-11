@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://btdesxnsuaggv"]
+[gd_scene load_steps=13 format=3 uid="uid://btdesxnsuaggv"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_e58nx"]
 [ext_resource type="SpriteFrames" uid="uid://dv0xmmvbncr3l" path="res://Resources/playerAnimation.tres" id="2_c3d4i"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="7_ygosa"]
 [ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="8_haiom"]
 [ext_resource type="AudioStream" uid="uid://d2rt3cpks44l5" path="res://audio/Walking.mp3" id="8_y4dbu"]
+[ext_resource type="AudioStream" uid="uid://cm32y45rs72qv" path="res://audio/pickUp.mp3" id="11_vfj24"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvdvt"]
 radius = 9.0
@@ -91,6 +92,9 @@ volume_db = -10.895
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_vfj24")
 
 [connection signal="target_entered" from="GlowArea" to="." method="_on_glow_area_target_entered"]
 [connection signal="target_exited" from="GlowArea" to="." method="_on_glow_area_target_exited"]

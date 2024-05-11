@@ -9,6 +9,7 @@ var sprite = $AnimatedSprite2D
 var glowarea = $GlowArea
 @onready
 var glowlight = $GlowLight
+@onready var plantlight = $PlantLight
 
 func _ready():
 	sprite.play("off") # Start with lamp off -R
@@ -19,7 +20,7 @@ func _on_detection_area_body_entered(body):
 		return
 	sprite.play("on")
 	lampActive = true
-	
+	plantlight.play()
 	timer.stop()
 
 # When player leaves start timer -R
