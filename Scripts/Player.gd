@@ -17,7 +17,7 @@ var light_on = false : set = set_light_on
 @onready var light_off_audio = $LightOff
 @onready var walking = $Walking
 @onready var timer = $Timer
-@onready var pickup = $pickup
+#@onready var pickup = $pickup
 
 @onready
 var robot_sprite = $RobotSprite
@@ -47,16 +47,19 @@ var corrupted = false : set = set_corrupted
 var moving_up : bool = false
 var moving_left : bool = false
 
+func _ready():
+	PlayerManager.current_player = self
+
 func _input(event):
 	if event.is_action_pressed("Menu"):
-		LevelManager.load_level("StartMenu")
+		LevelManager.load_level("StartMenu", false)
 	if event.is_action_pressed("Light"):
 		if not light_on:
 			light_on = true
 		else:
 			light_on = false
 	if event.is_action_pressed("Reset"):
-		get_tree().change_scene_to_file("res://Scenes/Levels/StartMenu.tscn")
+		LevelManager.reload_level()
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
 	if event.is_action_pressed("Interact"):
@@ -152,7 +155,7 @@ func is_corrupted():
 
 func set_battery(val : bool):
 	has_battery = val
-	pickup.play()
+	#pickup.play()
 	battery_sprite.visible = has_battery
 
 func set_corrupted(val : bool):

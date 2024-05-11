@@ -16,8 +16,8 @@ func _ready():
 
 func set_size(val : Vector2i):
 	size = val
-	if size.x < 16:
-		size.x = 16
+	if size.x < 8:
+		size.x = 8
 	if size.y < 16:
 		size.y = 16
 	

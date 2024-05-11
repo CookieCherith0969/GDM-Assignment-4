@@ -142,5 +142,4 @@ func _on_kill_area_body_entered(body):
 		if body.is_corrupted():
 			return
 		SoundManager.play_death()
-		await get_tree().create_timer(0.05).timeout
 		LevelManager.reload_level()

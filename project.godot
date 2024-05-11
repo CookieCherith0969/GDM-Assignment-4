@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 PowerManager="*res://Scripts/Autoloads/power_manager.gd"
 SoundManager="*res://Scenes/sound_manager.tscn"
+PlayerManager="*res://Scripts/Autoloads/player_manager.gd"
 
 [display]
 

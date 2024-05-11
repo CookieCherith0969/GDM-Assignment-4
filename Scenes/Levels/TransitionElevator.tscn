@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3lodqfwdqr73"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_cgkpe"]
+[ext_resource type="PackedScene" uid="uid://bq0pckeeocc3a" path="res://Scenes/elevator.tscn" id="2_ffbtt"]
+[ext_resource type="Script" path="res://Scripts/ElevatorTimer.gd" id="3_1ijrn"]
+[ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="4_vu3jc"]
+
+[node name="TransitionElevator" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
+script = ExtResource("1_cgkpe")
+start_elevator = NodePath("Elevator")
+end_elevator = NodePath("Elevator")
+
+[node name="Elevator" parent="." instance=ExtResource("2_ffbtt")]
+rotation = 1.5708
+closed = true
+is_start = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+script = ExtResource("3_1ijrn")
+
+[node name="Darkness" parent="." instance=ExtResource("4_vu3jc")]
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

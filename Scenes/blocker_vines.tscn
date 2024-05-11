@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/BlockerVines.gd" id="1_phyax"]
 [ext_resource type="Texture2D" uid="uid://twdx2c0724ey" path="res://Art/Vines.png" id="2_fhrxf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o83dp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkuug"]
 size = Vector2(16, 16)
 
 [node name="BlockerVines" type="StaticBody2D"]
@@ -11,7 +11,7 @@ script = ExtResource("1_phyax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_o83dp")
+shape = SubResource("RectangleShape2D_tkuug")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 16.0

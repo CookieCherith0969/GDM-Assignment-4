@@ -14,5 +14,5 @@ func _process(delta):
 func _on_body_entered(body):
 	if is_instance_of(body, Player) and not body.has_battery:
 		body.has_battery = true
-		await get_tree().create_timer(0.1).timeout
+		SoundManager.play_pickup()
 		queue_free()

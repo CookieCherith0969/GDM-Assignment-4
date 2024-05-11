@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://nbrtq6ou3a05"]
+[gd_scene load_steps=16 format=3 uid="uid://nbrtq6ou3a05"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_kt8yj"]
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_ngyng"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="8_4paim"]
 [ext_resource type="PackedScene" uid="uid://cyi115ywj3ahm" path="res://Scenes/vent.tscn" id="8_rtkvb"]
 [ext_resource type="PackedScene" uid="uid://xs0r1byb1prb" path="res://Scenes/ceiling_light.tscn" id="9_jt1oc"]
+[ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="10_mpqw3"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="12_6514t"]
 [ext_resource type="PackedScene" uid="uid://bq0pckeeocc3a" path="res://Scenes/elevator.tscn" id="14_x6b2a"]
 [ext_resource type="PackedScene" uid="uid://ddg8hl14b8mda" path="res://Scenes/blocker_vines.tscn" id="16_71dkh"]
@@ -124,6 +125,8 @@ target = NodePath("../Vent7")
 position = Vector2(-181, -111)
 texture_scale = 1.79611
 radius = 80.825
+
+[node name="Player" parent="." instance=ExtResource("10_mpqw3")]
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("12_6514t")]
 position = Vector2(-80, -184)

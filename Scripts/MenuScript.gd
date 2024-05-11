@@ -4,15 +4,13 @@ extends Control
 
 func _on_credits_button_pressed():
 	SoundManager.menu_button()
-	get_tree().change_scene_to_file("res://Scenes/Levels/Credits.tscn")
+	LevelManager.load_level("Credits", false)
 
 func _on_play_button_pressed():
 	SoundManager.menu_button()
-	LevelManager.load_level("Tutorial")
-	
-
+	LevelManager.load_level("Tutorial", true)
 
 func _on_level_button_pressed():
 	SoundManager.menu_button()
-	get_tree().change_scene_to_file("res://Scenes/Levels/LevelSelect.tscn")
+	LevelManager.load_level("LevelSelect", false)
 	

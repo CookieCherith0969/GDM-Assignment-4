@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://bq0pckeeocc3a"]
+
+[ext_resource type="Script" path="res://Scripts/Elevator.gd" id="1_mo8dt"]
+[ext_resource type="Texture2D" uid="uid://c3wypktmwwvxe" path="res://Art/PlaceholderArt/ElevatorOpen.png" id="2_ao8a8"]
+[ext_resource type="AudioStream" uid="uid://powbloty6sld" path="res://audio/doorOpen.wav" id="3_aqdrt"]
+[ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="4_2igwr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73r4e"]
+size = Vector2(54, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68pts"]
+size = Vector2(36, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shlc5"]
+size = Vector2(32, 10)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0pxvr"]
+polygon = PackedVector2Array(-16, -30, 16, -30, 16, -32, -16, -32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_20niq"]
+polygon = PackedVector2Array(-32, 32, 32, 32, 32, -32, 16, -32, 16, -31, 31, -31, 31, 31, -31, 31, -31, -31, -16, -31, -16, -32, -32, -32)
+
+[node name="Elevator" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_mo8dt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("2_ao8a8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_73r4e")
+
+[node name="WallBody" type="StaticBody2D" parent="."]
+collision_layer = 17
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallBody"]
+polygon = PackedVector2Array(16, -27, 27, -27, 27, 27, -27, 27, -27, -27, -16, -27, -16, -32, -32, -32, -32, 32, 32, 32, 32, -32, 16, -32)
+
+[node name="DoorArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_68pts")
+
+[node name="DoorBody" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
+collision_layer = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorBody"]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_shlc5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="DoorBody"]
+occluder = SubResource("OccluderPolygon2D_0pxvr")
+
+[node name="Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aqdrt")
+volume_db = -30.0
+pitch_scale = 0.7
+
+[node name="Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aqdrt")
+volume_db = -30.0
+pitch_scale = 1.2
+
+[node name="InvertedDecoLight2" parent="." instance=ExtResource("4_2igwr")]
+position = Vector2(0, 1)
+color = Color(0.239216, 0.541176, 0.87451, 0.788235)
+texture_scale = 1.0
+radius = 45.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_20niq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]
