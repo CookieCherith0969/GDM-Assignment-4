@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq0pckeeocc3a"]
+[gd_scene load_steps=11 format=3 uid="uid://05h4phc5hc4p"]
 
 [ext_resource type="Script" path="res://Scripts/Elevator.gd" id="1_mo8dt"]
 [ext_resource type="Texture2D" uid="uid://c3wypktmwwvxe" path="res://Art/PlaceholderArt/ElevatorOpen.png" id="2_ao8a8"]
-[ext_resource type="AudioStream" uid="uid://powbloty6sld" path="res://audio/doorOpen.wav" id="3_aqdrt"]
+[ext_resource type="AudioStream" uid="uid://b5ccfqsfx58i0" path="res://audio/elevDoor.mp3" id="3_wrmqw"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="4_2igwr"]
+[ext_resource type="AudioStream" uid="uid://8nq7po05r2vc" path="res://audio/elevator.mp3" id="5_xq0jk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73r4e"]
 size = Vector2(54, 54)
@@ -59,13 +60,13 @@ shape = SubResource("RectangleShape2D_shlc5")
 occluder = SubResource("OccluderPolygon2D_0pxvr")
 
 [node name="Close" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_aqdrt")
-volume_db = -30.0
+stream = ExtResource("3_wrmqw")
+volume_db = -8.0
 pitch_scale = 0.7
 
 [node name="Open" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_aqdrt")
-volume_db = -30.0
+stream = ExtResource("3_wrmqw")
+volume_db = -8.0
 pitch_scale = 1.2
 
 [node name="InvertedDecoLight2" parent="." instance=ExtResource("4_2igwr")]
@@ -76,6 +77,9 @@ radius = 45.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_20niq")
+
+[node name="Hum" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xq0jk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

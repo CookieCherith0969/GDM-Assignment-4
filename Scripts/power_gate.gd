@@ -6,6 +6,7 @@ var power_id := 0
 @export
 var start_powered = false : set = set_start_powered
 @onready var gate_open = $gateOpen
+@onready var gate_close = $gateClose
 
 @onready
 var shape = $CollisionShape2D
@@ -55,5 +56,6 @@ func on_power():
 
 func on_depower():
 	shape.set_deferred("disabled", false)
+	gate_close.play()
 	sprite.show()
 	occluder.show()

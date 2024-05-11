@@ -26,6 +26,8 @@ var door_body = $DoorBody
 var close_sound = $Close
 @onready
 var open_sound = $Open
+@onready
+var elevHum = $Hum
 
 var player_inside = false
 
@@ -46,6 +48,8 @@ func set_closed(val : bool):
 	
 	if closed:
 		close_sound.play()
+		if(player_inside == true):
+			elevHum.play()
 		sprite.texture = closed_sprite
 		door_body.process_mode = Node.PROCESS_MODE_INHERIT
 		door_body.show()
