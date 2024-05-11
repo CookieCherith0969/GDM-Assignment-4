@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3lodqfwdqr73"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_cgkpe"]
-[ext_resource type="PackedScene" uid="uid://bq0pckeeocc3a" path="res://Scenes/elevator.tscn" id="2_ffbtt"]
+[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="2_ffbtt"]
 [ext_resource type="Script" path="res://Scripts/ElevatorTimer.gd" id="3_1ijrn"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="4_vu3jc"]
 

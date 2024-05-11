@@ -49,6 +49,7 @@ var moving_left : bool = false
 
 func _ready():
 	PlayerManager.current_player = self
+	PlayerManager.camera = $Camera2D
 
 func _input(event):
 	if event.is_action_pressed("Menu"):

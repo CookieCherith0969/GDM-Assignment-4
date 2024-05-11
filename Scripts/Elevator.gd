@@ -47,14 +47,16 @@ func set_closed(val : bool):
 		return
 	
 	if closed:
-		close_sound.play()
-		if(player_inside == true):
-			elevHum.play()
+		if !Engine.is_editor_hint():
+			close_sound.play()
+			if player_inside:
+				elevHum.play()
 		sprite.texture = closed_sprite
 		door_body.process_mode = Node.PROCESS_MODE_INHERIT
 		door_body.show()
 	else:
-		open_sound.play()
+		if !Engine.is_editor_hint():
+			open_sound.play()
 		sprite.texture = open_sprite
 		door_body.process_mode = Node.PROCESS_MODE_DISABLED
 		door_body.hide()
