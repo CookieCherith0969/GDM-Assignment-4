@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://das8ihaevwwm6"]
+[gd_scene load_steps=20 format=3 uid="uid://das8ihaevwwm6"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_hgajm"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_srqsi"]
@@ -15,8 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="12_nt2eq"]
 [ext_resource type="PackedScene" uid="uid://bl06qjen3kmub" path="res://Scenes/inverted_power_gate.tscn" id="13_1tg8b"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="15_3jseq"]
-[ext_resource type="PackedScene" uid="uid://bq0pckeeocc3a" path="res://Scenes/elevator.tscn" id="16_65oll"]
+[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="16_65oll"]
 [ext_resource type="PackedScene" uid="uid://ddg8hl14b8mda" path="res://Scenes/blocker_vines.tscn" id="16_n3qba"]
+[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="18_ertr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4faw"]
 size = Vector2(64, 5)
@@ -324,6 +325,8 @@ rotation = -1.5708
 next_level_name = "LampLevel"
 closed = true
 power_id = 5
+
+[node name="CanvasLayer" parent="." instance=ExtResource("18_ertr3")]
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]
