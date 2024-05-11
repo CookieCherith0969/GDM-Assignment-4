@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://87ekx1sn7glf"]
+[gd_scene load_steps=6 format=3 uid="uid://87ekx1sn7glf"]
 
 [ext_resource type="Script" path="res://Scripts/CreditsScript.gd" id="1_it5xr"]
+[ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="2_6vrae"]
 [ext_resource type="FontFile" uid="uid://dtswh15p1k3le" path="res://Art/Fonts/' Mono Regular.ttf" id="2_phj0r"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_umvvx"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_754no"]
@@ -26,6 +27,7 @@ grow_vertical = 2
 scale = Vector2(1, 0.973166)
 
 [node name="Title" type="Label" parent="VBoxContainer"]
+material = ExtResource("2_6vrae")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_umvvx")
