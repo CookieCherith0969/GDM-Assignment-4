@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_3mcah"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_26q07"]
+[ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="2_ex1wy"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_qb1js"]
 [ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="4_6p820"]
 
-[node name="StartMenu" type="Control"]
+[node name="LevelSelect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +18,7 @@ script = ExtResource("1_3mcah")
 [node name="CanvasLayer" parent="." instance=ExtResource("4_6p820")]
 
 [node name="Label" type="Label" parent="."]
+material = ExtResource("2_ex1wy")
 layout_mode = 2
 offset_left = 80.0
 offset_top = 88.0

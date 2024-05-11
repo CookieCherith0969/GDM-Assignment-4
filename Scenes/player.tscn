@@ -86,7 +86,7 @@ pitch_scale = 1.1
 
 [node name="Walking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_y4dbu")
-volume_db = -10.895
+volume_db = -14.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
