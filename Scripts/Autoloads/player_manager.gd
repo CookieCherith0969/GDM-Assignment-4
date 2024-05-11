@@ -30,13 +30,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if shake_time > 0:
-		print_debug("shaking")
 		if !is_instance_valid(camera):
-			print_debug("Ending shaking, no camera")
 			shake_time = 0.0
+			return
 		shake_time -= delta
 		if shake_time < 0:
-			print_debug("Ending shaking, time out")
 			camera.position = Vector2(0,0)
 			return
 		var progress = shake_dur - shake_time

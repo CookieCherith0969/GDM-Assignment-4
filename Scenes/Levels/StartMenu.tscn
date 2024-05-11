@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://04y4bflc7pt2"]
+[gd_scene load_steps=7 format=3 uid="uid://04y4bflc7pt2"]
 
 [ext_resource type="Script" path="res://Scripts/MenuScript.gd" id="1_1lehp"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_t0hf1"]
 [ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="2_yxmhk"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_kagrh"]
 [ext_resource type="AudioStream" uid="uid://bq6ap3vewuhr7" path="res://audio/button.mp3" id="4_vn32c"]
-[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="6_565s4"]
+[ext_resource type="PackedScene" path="res://Scenes/crtOverlay.tscn" id="6_565s4"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -17,7 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_1lehp")
 
 [node name="Label" type="Label" parent="."]
-material = SubResource("ShaderMaterial_8bw1k")
+material = ExtResource("2_yxmhk")
 layout_mode = 0
 offset_left = 82.0
 offset_top = 179.0

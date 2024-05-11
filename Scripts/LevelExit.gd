@@ -9,4 +9,4 @@ func _on_area_2d_body_entered(body):
 
 func load_next_level():
 	#print_debug("Load Level Called")
-	LevelManager.load_level(next_level_name)
+	LevelManager.load_level(next_level_name, false)
