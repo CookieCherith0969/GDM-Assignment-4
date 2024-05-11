@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4rc7u7dy5bjc"]
+[gd_scene load_steps=18 format=3 uid="uid://4rc7u7dy5bjc"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_1usku"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="1_165n0"]
@@ -14,6 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="11_kqkg3"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="13_1tqma"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="15_0ms5w"]
+[ext_resource type="Shader" path="res://Scenes/Levels/CRT.gdshader" id="15_k0yu3"]
+[ext_resource type="Texture2D" uid="uid://1y8pfj1bmkjf" path="res://Art/PlaceholderArt/glass.png" id="16_4x2ew"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fmtj6"]
+shader = ExtResource("15_k0yu3")
+shader_parameter/scan_line_count = 312.373
 
 [node name="TutorialLevel" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_1usku")
@@ -148,3 +154,21 @@ power_id = 1
 position = Vector2(-48, 64)
 rotation = 1.5708
 is_start = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_fmtj6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -379.0
+offset_top = -284.0
+offset_right = 318.0
+offset_bottom = -317.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("16_4x2ew")
