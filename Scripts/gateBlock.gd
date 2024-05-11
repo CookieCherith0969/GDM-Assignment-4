@@ -15,6 +15,11 @@ var lit : bool : set = set_lit
 var active_colour = Color("#ffffff")
 var inactive_colour = Color("#404040")
 
+@onready
+var plant_sound = $PlantSound
+var shrink_pitch = 0.7
+var grow_pitch = 1.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.texture = sprite.texture.duplicate()
@@ -48,8 +53,12 @@ func set_lit(val : bool):
 		modulate = inactive_colour
 		collision_layer -= 1
 		occluder.hide()
+		plant_sound.pitch_scale = shrink_pitch
+		plant_sound.play()
 	else:
 		modulate = active_colour
 		collision_layer += 1
 		occluder.show()
+		plant_sound.pitch_scale = grow_pitch
+		plant_sound.play()
 	
