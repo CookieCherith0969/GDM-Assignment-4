@@ -1,28 +1,28 @@
 [gd_scene load_steps=11 format=3 uid="uid://c042mnm23xyoo"]
 
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_8jvi5"]
-[ext_resource type="Texture2D" uid="uid://h02wf7c3vis2" path="res://Art/PlaceholderArt/Lamp.png" id="2_14hpv"]
+[ext_resource type="Texture2D" uid="uid://bx7nttu6o8xj" path="res://Art/lightplant-Sheet.png" id="2_ewsl8"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_u1hhc"]
 [ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_xqyf7"]
 [ext_resource type="AudioStream" uid="uid://c6ccj55a86nq6" path="res://audio/PlantLight.mp3" id="5_xrhj8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yersf"]
-atlas = ExtResource("2_14hpv")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuukq"]
-atlas = ExtResource("2_14hpv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpkvg"]
+atlas = ExtResource("2_ewsl8")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4ye2"]
-atlas = ExtResource("2_14hpv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jor4s"]
+atlas = ExtResource("2_ewsl8")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6yjj"]
+atlas = ExtResource("2_ewsl8")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7r2r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yersf")
+"texture": SubResource("AtlasTexture_vpkvg")
 }],
 "loop": true,
 "name": &"off",
@@ -30,10 +30,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xuukq")
+"texture": SubResource("AtlasTexture_jor4s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q4ye2")
+"texture": SubResource("AtlasTexture_k6yjj")
 }],
 "loop": true,
 "name": &"on",
