@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6awho03rjby4"]
+[gd_scene load_steps=13 format=3 uid="uid://c6awho03rjby4"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_iqkjp"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_m3yu8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://gcm8lbssgypr" path="res://Scenes/lightGate.tscn" id="7_w4vd4"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="9_iyiwd"]
 [ext_resource type="Script" path="res://Scripts/PowerTrigger.gd" id="10_ayq0u"]
+[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="11_s4i8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4faw"]
 size = Vector2(64, 5)
@@ -161,5 +162,7 @@ rotation = 3.14159
 next_level_name = "DavidLevel"
 closed = true
 power_id = 1
+
+[node name="CanvasLayer" parent="." instance=ExtResource("11_s4i8c")]
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
