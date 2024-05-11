@@ -25,7 +25,7 @@ var reaction_timer = 0
 #const desired_distance = 5
 
 func _ready():
-	sprite.play("placeHolderAnim")
+	sprite.play("mothAnim")
 #	call_deferred("nav_setup")
 	
 #func nav_setup():
@@ -91,9 +91,9 @@ func _physics_process(delta):
 	#velocity = global_position.direction_to(target_position)*speed
 	# Flip sprite horizontally to face player -R
 	if (velocity.x) < 0:
-		sprite.flip_h = true
-	else:
 		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 	move_and_slide()
 
 # If a plant in the scene is on, set activeLampPlant to true otherwise, false -R

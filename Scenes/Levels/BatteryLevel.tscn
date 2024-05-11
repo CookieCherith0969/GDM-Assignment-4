@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="15_3jseq"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="16_65oll"]
 [ext_resource type="PackedScene" uid="uid://ddg8hl14b8mda" path="res://Scenes/blocker_vines.tscn" id="16_n3qba"]
-[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="18_ertr3"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="18_ertr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4faw"]
 size = Vector2(64, 5)

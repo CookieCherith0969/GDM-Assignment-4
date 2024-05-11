@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://87ekx1sn7glf"]
+[gd_scene load_steps=7 format=3 uid="uid://87ekx1sn7glf"]
 
 [ext_resource type="Script" path="res://Scripts/CreditsScript.gd" id="1_it5xr"]
 [ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="2_6vrae"]
 [ext_resource type="FontFile" uid="uid://dtswh15p1k3le" path="res://Art/Fonts/' Mono Regular.ttf" id="2_phj0r"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_umvvx"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_754no"]
-[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="5_yfxyx"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="5_yfxyx"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
