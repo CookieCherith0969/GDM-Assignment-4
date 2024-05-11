@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnf3jhruvtvl2"]
+[gd_scene load_steps=4 format=3 uid="uid://cptggopdncbwu"]
 
 [ext_resource type="Shader" path="res://Scenes/Levels/CRT.gdshader" id="1_4bu83"]
 [ext_resource type="Texture2D" uid="uid://1y8pfj1bmkjf" path="res://Art/PlaceholderArt/glass.png" id="2_6ta8r"]
@@ -7,7 +7,7 @@
 shader = ExtResource("1_4bu83")
 shader_parameter/scan_line_count = 312.373
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CRTOverlay" type="CanvasLayer"]
 follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
