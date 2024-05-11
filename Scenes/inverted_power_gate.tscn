@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl06qjen3kmub"]
+[gd_scene load_steps=8 format=3 uid="uid://bl06qjen3kmub"]
 
 [ext_resource type="Script" path="res://Scripts/InvertedPowerGate.gd" id="1_k258l"]
 [ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_3mqin"]
+[ext_resource type="AudioStream" uid="uid://b5ccfqsfx58i0" path="res://audio/elevDoor.mp3" id="3_ytewj"]
+[ext_resource type="AudioStream" uid="uid://686wjra0vdvu" path="res://audio/doorClose.mp3" id="4_prx6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecso"]
 size = Vector2(16, 16)
@@ -29,3 +31,12 @@ texture = SubResource("AtlasTexture_dsvqv")
 visible = false
 position = Vector2(0, 6)
 occluder = SubResource("OccluderPolygon2D_3bqn1")
+
+[node name="gateOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ytewj")
+volume_db = -20.0
+pitch_scale = 1.39
+
+[node name="gateClose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_prx6s")
+volume_db = -20.0

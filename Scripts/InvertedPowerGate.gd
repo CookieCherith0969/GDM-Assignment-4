@@ -5,6 +5,8 @@ extends StaticBody2D
 var power_id := 0
 @export
 var start_powered = false : set = set_start_powered
+@onready var gate_open = $gateOpen
+@onready var gate_close = $gateClose
 
 @onready
 var shape = $CollisionShape2D
@@ -50,8 +52,10 @@ func on_power():
 	shape.set_deferred("disabled", false)
 	sprite.show()
 	occluder.show()
+	gate_close.play()
 
 func on_depower():
 	shape.set_deferred("disabled", true)
 	sprite.hide()
 	occluder.hide()
+	gate_open.play()
