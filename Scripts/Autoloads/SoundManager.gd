@@ -11,6 +11,9 @@ var button = $menuButton
 @onready
 var pickup = $pickup
 
+func _ready():
+	start_music()
+
 func start_music():
 	ambient.stop()
 	if !background_music.playing:
