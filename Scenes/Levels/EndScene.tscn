@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://u1tx8oljgaq5"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_r6tot"]
+[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="1_uly08"]
+[ext_resource type="Script" path="res://Scripts/EndTimer.gd" id="2_b25l7"]
+[ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="3_f4h7a"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="4_qjxn2"]
+
+[node name="EndScene" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
+script = ExtResource("1_r6tot")
+start_elevator = NodePath("Elevator")
+end_elevator = NodePath("Elevator")
+
+[node name="Elevator" parent="." instance=ExtResource("1_uly08")]
+rotation = 3.14159
+closed = true
+is_start = true
+do_transition = null
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+script = ExtResource("2_b25l7")
+
+[node name="Darkness" parent="." instance=ExtResource("3_f4h7a")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_qjxn2")]
+
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

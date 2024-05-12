@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://gcm8lbssgypr" path="res://Scenes/lightGate.tscn" id="6_yaysv"]
 [ext_resource type="PackedScene" uid="uid://c042mnm23xyoo" path="res://Scenes/lampPlant.tscn" id="7_3vj4v"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="12_b8ree"]
-[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="12_sitky"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="12_sitky"]
 
 [node name="KynanLevel" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_ki6mx")
@@ -320,7 +320,7 @@ position = Vector2(1190, 356)
 [node name="EndElevator" parent="." instance=ExtResource("12_b8ree")]
 position = Vector2(864, 528)
 rotation = -1.5708
-next_level_name = "StartMenu"
+next_level_name = "FinalLevel"
 
 [node name="StartElevator" parent="." instance=ExtResource("12_b8ree")]
 position = Vector2(32, 0)

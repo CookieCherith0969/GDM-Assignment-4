@@ -12,6 +12,8 @@ var is_start : bool = false : set = set_start
 var power_id : int = 0
 var id : int = 0 : set = set_id
 var registered = false
+@export
+var do_transition = true
 
 @onready
 var open_sprite = preload("res://Art/PlaceholderArt/ElevatorOpen.png")
@@ -73,7 +75,7 @@ func set_id(val : int):
 	PowerManager.register_powerable(self, id)
 
 func force_next():
-	LevelManager.load_level(next_level_name, false)
+	LevelManager.load_level(next_level_name, do_transition)
 
 func _on_door_area_body_exited(body):
 	if closed:
@@ -84,7 +86,7 @@ func _on_door_area_body_exited(body):
 		elif !is_start and player_inside:
 			closed = true
 			if next_level_name:
-				LevelManager.load_level(next_level_name, true)
+				LevelManager.load_level(next_level_name, do_transition)
 
 func _on_body_entered(body):
 	if is_instance_of(body, Player):

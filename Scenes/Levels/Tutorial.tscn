@@ -159,5 +159,6 @@ power_id = 1
 position = Vector2(-48, 64)
 rotation = 1.5708
 is_start = true
+do_transition = null
 
 [node name="CanvasLayer" parent="." instance=ExtResource("15_6becw")]

@@ -15,6 +15,7 @@ end_elevator = NodePath("Elevator")
 rotation = 1.5708
 closed = true
 is_start = true
+do_transition = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

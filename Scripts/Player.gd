@@ -36,6 +36,8 @@ var corrupted_spriteframes = preload("res://Resources/playerAnimationCorrupt.tre
 
 @onready
 var rotator = $Rotator
+@onready
+var glow_light = $GlowLight
 
 var num_lights = -1 : set = set_lights
 var lit = false
@@ -60,7 +62,7 @@ func _input(event):
 			exited.emit()
 		else:
 			LevelManager.load_level("StartMenu", false)
-	if event.is_action_pressed("Light") && !controls_locked:
+	if event.is_action_pressed("Light") && !controls_locked && !corrupted:
 		if not light_on:
 			light_on = true
 		else:
@@ -74,6 +76,7 @@ func _input(event):
 
 func _physics_process(_delta):
 	if controls_locked:
+		update_animation(false)
 		return
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -172,8 +175,12 @@ func set_corrupted(val : bool):
 	
 	if corrupted:
 		robot_sprite.sprite_frames = corrupted_spriteframes
+		glow_light.texture_scale = 1
+		glow_light.color = Color("e7b4f3")
 	else:
 		robot_sprite.sprite_frames = normal_spriteframes
+		glow_light.texture_scale = 0.5
+		glow_light.color = Color("ffb878")
 	update_animation(false)
 
 func free_controls():

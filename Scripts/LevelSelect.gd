@@ -30,3 +30,8 @@ func _on_lvl_3_pressed():
 func _on_lvl_4_pressed():
 	SoundManager.menu_button()
 	LevelManager.load_level("KynanLevel", true)
+
+
+func _on_final_lvl_pressed():
+	SoundManager.menu_button()
+	LevelManager.load_level("FinalLevel", true)

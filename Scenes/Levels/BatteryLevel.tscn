@@ -317,6 +317,7 @@ power_id = 4
 [node name="StartElevator" parent="." instance=ExtResource("16_65oll")]
 position = Vector2(0, -32)
 is_start = true
+do_transition = null
 
 [node name="EndElevator" parent="." instance=ExtResource("16_65oll")]
 position = Vector2(16, -992)
