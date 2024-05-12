@@ -343,6 +343,7 @@ position = Vector2(26, -999)
 contents = "TRANSMISSION
 [CORRUPTED]
 [END TRANSMISSION]"
+log_id = 8
 
 [connection signal="body_entered" from="SpecialLampPlant/DetectionArea" to="SpecialLampPlant" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="SpecialLampPlant/DetectionArea" to="SpecialLampPlant" method="_on_detection_area_body_exited"]

@@ -193,6 +193,7 @@ They insist they don't hear it. Liars.
 
 There are no rats this far down.
 [END LOG]"
+log_id = 4
 
 [node name="DataLog2" parent="." instance=ExtResource("17_ee388")]
 position = Vector2(185, -304)
@@ -208,6 +209,7 @@ I shouldn't worry.
 
 But they still creep me out.
 [END LOG]"
+log_id = 5
 
 [node name="Glass2" parent="." instance=ExtResource("16_e1arj")]
 position = Vector2(198, -288)

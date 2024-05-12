@@ -340,6 +340,7 @@ I always wanted to see one of them. Too bad they're all gone now...
 
 Anyway, onto the next experiment.
 [END LOG]"
+log_id = 2
 
 [node name="FailedRobot" parent="." instance=ExtResource("19_gi18c")]
 position = Vector2(82, -419)
@@ -358,6 +359,7 @@ Sadly, any attempt to shine a light within is met with the drones quickly coveri
 
 We'll investigate this behaviour further.
 [END LOG]"
+log_id = 1
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]

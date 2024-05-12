@@ -5,9 +5,17 @@ var current_name = null
 @onready
 var root = get_tree().root
 
-var prev_data_logs_read = 0
-var data_logs_read = 0
-var data_logs_read_current_level = 0
+var data_logs_read = [
+	false,
+	false,
+	false,
+	false,
+	false,
+	false,
+	false,
+	false,
+	false
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,10 +39,6 @@ func _deferred_load_level(level_name : String, transition : bool):
 	if current_name == level_name:
 		spawn_pos = Vector2(0,0)
 		PlayerManager.reset_player_state()
-		data_logs_read_current_level = 0
-	else:
-		data_logs_read += data_logs_read_current_level
-		data_logs_read_current_level = 0
 	if transition:
 		current_name = "TransitionElevator"
 		var elevator_scene = ResourceLoader.load("res://Scenes/Levels/TransitionElevator.tscn")
@@ -58,10 +62,6 @@ func _deferred_load_level(level_name : String, transition : bool):
 		PlayerManager.place_failed_robot()
 	else:
 		SoundManager.start_music()
-		if data_logs_read > prev_data_logs_read:
-			prev_data_logs_read = data_logs_read
-		data_logs_read = 0
-		data_logs_read_current_level = 0
 
 func reload_level():
 	PowerManager.clear_all()

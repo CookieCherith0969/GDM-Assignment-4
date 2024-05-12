@@ -205,6 +205,7 @@ Initial testing found the secretion to be caustic.
 
 Further analysis is required.
 [END LOG]"
+log_id = 3
 
 [node name="PowerTrigger" type="Area2D" parent="."]
 visible = false

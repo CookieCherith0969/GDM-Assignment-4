@@ -264,6 +264,7 @@ My flashlight is out of power.
 ...
 I don't remember which way I came from.
 [END LOG]"
+log_id = 7
 
 [node name="DataLog2" parent="." instance=ExtResource("15_qva4q")]
 position = Vector2(503, 156)
@@ -281,3 +282,4 @@ But.. What if I told you I was already doing something?
 [Pause]
 Tell me more.
 [END LOG]"
+log_id = 6
