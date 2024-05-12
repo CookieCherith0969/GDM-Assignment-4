@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cptggopdncbwu"]
+[gd_scene load_steps=5 format=3 uid="uid://cptggopdncbwu"]
 
 [ext_resource type="Shader" path="res://Scenes/Levels/CRT.gdshader" id="1_4bu83"]
+[ext_resource type="Script" path="res://Scripts/crtOverlay.gd" id="1_teyfa"]
 [ext_resource type="Texture2D" uid="uid://1y8pfj1bmkjf" path="res://Art/PlaceholderArt/glass.png" id="2_6ta8r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fmtj6"]
@@ -9,6 +10,7 @@ shader_parameter/scan_line_count = 312.373
 
 [node name="CRTOverlay" type="CanvasLayer"]
 follow_viewport_enabled = true
+script = ExtResource("1_teyfa")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_fmtj6")

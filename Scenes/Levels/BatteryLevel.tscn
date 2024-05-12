@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://das8ihaevwwm6"]
+[gd_scene load_steps=19 format=3 uid="uid://das8ihaevwwm6"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_hgajm"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_srqsi"]
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="2_grq21"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="2_mfle2"]
-[ext_resource type="PackedScene" uid="uid://btdesxnsuaggv" path="res://Scenes/player.tscn" id="3_2u5ik"]
 [ext_resource type="PackedScene" uid="uid://xs0r1byb1prb" path="res://Scenes/ceiling_light.tscn" id="4_ftjt1"]
 [ext_resource type="PackedScene" uid="uid://bnyhshq586owy" path="res://Scenes/battery.tscn" id="5_g76yd"]
 [ext_resource type="PackedScene" uid="uid://fat1dmyvuygs" path="res://Scenes/power_gate.tscn" id="7_dvlgi"]
@@ -196,8 +195,6 @@ power_id = 3
 position = Vector2(1, -543)
 power_id = 3
 
-[node name="Player" parent="." instance=ExtResource("3_2u5ik")]
-
 [node name="Label2" type="Label" parent="."]
 visible = false
 light_mask = 2
@@ -326,7 +323,8 @@ next_level_name = "LampLevel"
 closed = true
 power_id = 5
 
-[node name="CanvasLayer" parent="." instance=ExtResource("18_ertr3")]
+[node name="CRTOverlay" parent="." instance=ExtResource("18_ertr3")]
+visible = false
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]
