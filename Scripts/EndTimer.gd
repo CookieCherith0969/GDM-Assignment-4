@@ -14,4 +14,4 @@ func _on_timeout():
 	elevator.queue_free()
 	PlayerManager.current_player.queue_free()
 	await get_tree().create_timer(3).timeout
-	LevelManager.load_level("StartMenu",false)
+	LevelManager.load_level("Credits",false)

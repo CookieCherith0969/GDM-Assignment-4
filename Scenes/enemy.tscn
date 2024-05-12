@@ -1,14 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://2du4spxsavli"]
+[gd_scene load_steps=18 format=3 uid="uid://2du4spxsavli"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_j1bsw"]
 [ext_resource type="Texture2D" uid="uid://dog68fxas75h7" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="1_tbcp7"]
 [ext_resource type="Texture2D" uid="uid://1mgmc802kto8" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_2.png" id="2_n84ru"]
+[ext_resource type="Texture2D" uid="uid://bx1bdgrsx38ve" path="res://Art/enemyspritenew.png" id="2_nw03r"]
 [ext_resource type="Texture2D" uid="uid://dp1lkcyo6tl8g" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_3.png" id="3_vu1tf"]
 [ext_resource type="Texture2D" uid="uid://dx7v5ysfvwsgw" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_4.png" id="4_k8evh"]
 [ext_resource type="Texture2D" uid="uid://chfx6rmfdublk" path="res://Art/PlaceholderArt/SwarmSheet.png" id="6_vwcp1"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="7_oqs67"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="7_skyqf"]
 [ext_resource type="AudioStream" uid="uid://c4jt50lgmrwjy" path="res://audio/buzzing.wav" id="9_xwuan"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12f3i"]
+atlas = ExtResource("2_nw03r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mln7s"]
+atlas = ExtResource("2_nw03r")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8suf"]
 atlas = ExtResource("6_vwcp1")
@@ -20,6 +29,17 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rghix"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12f3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mln7s")
+}],
+"loop": true,
+"name": &"mothAnim",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_tbcp7")
@@ -63,8 +83,7 @@ script = ExtResource("1_j1bsw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rghix")
-animation = &"swarmAnim"
-frame_progress = 0.766246
+animation = &"mothAnim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_714ps")

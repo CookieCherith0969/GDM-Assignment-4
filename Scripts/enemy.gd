@@ -25,7 +25,7 @@ var reaction_timer = 0
 #const desired_distance = 5
 
 func _ready():
-	sprite.play("swarmAnim")
+	sprite.play("mothAnim")
 #	call_deferred("nav_setup")
 	
 #func nav_setup():

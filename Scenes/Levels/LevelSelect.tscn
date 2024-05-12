@@ -32,9 +32,9 @@ text = "LEVEL SELECT"
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
 offset_left = 280.0
-offset_top = 432.0
+offset_top = 512.0
 offset_right = 360.0
-offset_bottom = 474.0
+offset_bottom = 554.0
 theme_override_fonts/font = ExtResource("3_qb1js")
 theme_override_font_sizes/font_size = 28
 text = "BACK"
@@ -102,9 +102,9 @@ icon_alignment = 1
 [node name="FinalLvl" type="Button" parent="."]
 layout_mode = 0
 offset_left = 247.0
-offset_top = 514.0
+offset_top = 409.0
 offset_right = 329.0
-offset_bottom = 556.0
+offset_bottom = 451.0
 scale = Vector2(1.76, 1.76)
 theme_override_fonts/font = ExtResource("3_qb1js")
 theme_override_font_sizes/font_size = 28
