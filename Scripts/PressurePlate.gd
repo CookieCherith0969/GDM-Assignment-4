@@ -7,25 +7,17 @@ var id = 1
 var sprite = $AnimatedSprite2D
 @onready
 var button_down = $ButtonDown
-@onready
-var button_up = $ButtonUp
+
+var is_down = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.play("Up")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_body_entered(body):
-	sprite.play("Down")
-	button_down.play()
-	PowerManager.increase_power(id)
-
-
-func _on_body_exited(body):
-	sprite.play("Up")
-	button_up.play()
-	PowerManager.decrease_power(id)
+	if !is_down:
+		is_down = true
+		sprite.play("Down")
+		button_down.play()
+		PowerManager.increase_power(id)
