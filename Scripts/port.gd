@@ -13,6 +13,8 @@ var editor_power = 0
 var battery_sprite = $BatterySprite
 @onready
 var popup = $Popup
+@onready
+var need_battery = $NeedBattery
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -64,10 +66,8 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if is_instance_of(body, Player):
 		popup.hide()
+		need_battery.hide()
 		body.interacted.disconnect(on_interact)
-		popup.text = "E/X"
-		popup.position.x = -9
-		popup.size.x = 18
 	
 func on_interact(player):
 	if player.has_battery and not has_battery:
@@ -77,8 +77,7 @@ func on_interact(player):
 		player.has_battery = true
 		has_battery = false
 	elif not player.has_battery and not has_battery:
-		popup.text = "Need Battery"
-		popup.position.x = -36
-		popup.size.x = 71
+		popup.hide()
+		need_battery.show()
 
 

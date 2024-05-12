@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/port.tscn" id="11_kqkg3"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="13_1tqma"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="15_0ms5w"]
-[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="15_6becw"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="15_6becw"]
 
 [node name="TutorialLevel" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_1usku")
@@ -102,8 +102,8 @@ gateSize = Vector2i(6, 2)
 position = Vector2(263, 58)
 
 [node name="Glass11" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(420, 31)
-size = Vector2i(199, 16)
+position = Vector2(421, 32)
+size = Vector2i(198, 5)
 
 [node name="PowerGate" parent="Objects" instance=ExtResource("9_2jlnf")]
 position = Vector2(416, 72)

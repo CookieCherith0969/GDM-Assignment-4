@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b16qn8glxvmnc"]
+[gd_scene load_steps=11 format=3 uid="uid://b16qn8glxvmnc"]
 
 [ext_resource type="Script" path="res://Scripts/data_log.gd" id="1_tts6v"]
 [ext_resource type="Texture2D" uid="uid://d3jo3slndp1vh" path="res://Art/DataLogSheet.png" id="1_uid41"]
 [ext_resource type="Texture2D" uid="uid://b3ygryg0lmlex" path="res://Art/DataLogRead.png" id="3_23u6g"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="4_1a6pf"]
+[ext_resource type="Texture2D" uid="uid://c430luieavn0b" path="res://Art/InteractPopup.png" id="4_cjklq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ekif"]
 size = Vector2(12, 14)
@@ -54,18 +55,13 @@ shape = SubResource("RectangleShape2D_8ekif")
 sprite_frames = SubResource("SpriteFrames_2rg6k")
 frame_progress = 0.434915
 
-[node name="Popup" type="Label" parent="."]
+[node name="Popup" type="Sprite2D" parent="."]
 visible = false
 light_mask = 2
 z_index = 3
-offset_left = -9.0
-offset_top = -22.0
-offset_right = 9.0
-offset_bottom = -6.0
-theme_override_font_sizes/font_size = 11
-text = "E/X"
-horizontal_alignment = 1
-vertical_alignment = 1
+position = Vector2(0, -21)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cjklq")
 
 [node name="PointLight2D" type="PointLight2D" parent="Popup"]
 range_item_cull_mask = 2
