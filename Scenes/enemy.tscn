@@ -38,7 +38,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mothAnim",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,6 +84,7 @@ script = ExtResource("1_j1bsw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rghix")
 animation = &"mothAnim"
+frame_progress = 0.0768199
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_714ps")

@@ -1,12 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://iwok3rsta5hj"]
+[gd_scene load_steps=15 format=3 uid="uid://iwok3rsta5hj"]
 
 [ext_resource type="Texture2D" uid="uid://dog68fxas75h7" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="1_31aby"]
+[ext_resource type="Script" path="res://Scripts/fake_enemy.gd" id="1_fcrsb"]
+[ext_resource type="Texture2D" uid="uid://bx1bdgrsx38ve" path="res://Art/enemyspritenew.png" id="1_thft6"]
 [ext_resource type="Texture2D" uid="uid://1mgmc802kto8" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_2.png" id="2_5lfsp"]
 [ext_resource type="Texture2D" uid="uid://dp1lkcyo6tl8g" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_3.png" id="3_rb6q2"]
 [ext_resource type="Texture2D" uid="uid://dx7v5ysfvwsgw" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_4.png" id="4_fnnf3"]
 [ext_resource type="Texture2D" uid="uid://chfx6rmfdublk" path="res://Art/PlaceholderArt/SwarmSheet.png" id="5_7hk0l"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="6_vv4ay"]
 [ext_resource type="AudioStream" uid="uid://c4jt50lgmrwjy" path="res://audio/buzzing.wav" id="7_0j0ig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6g3i"]
+atlas = ExtResource("1_thft6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qli4q"]
+atlas = ExtResource("1_thft6")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8suf"]
 atlas = ExtResource("5_7hk0l")
@@ -18,6 +28,17 @@ region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rghix"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6g3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qli4q")
+}],
+"loop": true,
+"name": &"mothAnim",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_31aby")
@@ -48,15 +69,16 @@ animations = [{
 }]
 
 [node name="FakeEnemy" type="CharacterBody2D"]
-position = Vector2(-48, -645)
 collision_layer = 12
 motion_mode = 1
 platform_on_leave = 2
+script = ExtResource("1_fcrsb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rghix")
-animation = &"swarmAnim"
-frame_progress = 0.766246
+animation = &"mothAnim"
+frame = 1
+frame_progress = 0.22767
 
 [node name="HuntLight" type="PointLight2D" parent="."]
 color = Color(0.94902, 0, 0.270588, 1)
