@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://das8ihaevwwm6"]
+[gd_scene load_steps=20 format=3 uid="uid://das8ihaevwwm6"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_hgajm"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_srqsi"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="15_3jseq"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="16_65oll"]
 [ext_resource type="PackedScene" uid="uid://ddg8hl14b8mda" path="res://Scenes/blocker_vines.tscn" id="16_n3qba"]
+[ext_resource type="PackedScene" uid="uid://b16qn8glxvmnc" path="res://Scenes/data_log.tscn" id="18_cknw4"]
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="18_ertr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4faw"]
@@ -249,7 +250,6 @@ id = 4
 
 [node name="CeilingLight2" parent="." instance=ExtResource("4_ftjt1")]
 position = Vector2(-146, -919)
-lights_lightables = false
 power_id = 4
 
 [node name="BlockerVines" parent="." instance=ExtResource("16_n3qba")]
@@ -325,6 +325,13 @@ power_id = 5
 
 [node name="CRTOverlay" parent="." instance=ExtResource("18_ertr3")]
 visible = false
+
+[node name="DataLog" parent="." instance=ExtResource("18_cknw4")]
+position = Vector2(35, -110)
+contents = "They respond aggressively to light.
+Reminds me of those deep sea creatures I'd hear about when I was younger.
+I always wanted to see one of them. Too bad they're all gone now...
+Anyway, onto the next experiment."
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]

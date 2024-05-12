@@ -5,6 +5,7 @@ const SPEED = 100.0
 const CORRUPT_SPEED = 60.0
 
 signal interacted(player)
+signal exited
 
 @onready
 var flasharea = $Rotator/FlashArea
@@ -46,6 +47,7 @@ var corrupted = false : set = set_corrupted
 
 var moving_up : bool = false
 var moving_left : bool = false
+var controls_locked : bool = false
 
 func _ready():
 	PlayerManager.current_player = self
@@ -53,8 +55,12 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("Menu"):
-		LevelManager.load_level("StartMenu", false)
-	if event.is_action_pressed("Light"):
+		if controls_locked:
+			free_controls()
+			exited.emit()
+		else:
+			LevelManager.load_level("StartMenu", false)
+	if event.is_action_pressed("Light") && !controls_locked:
 		if not light_on:
 			light_on = true
 		else:
@@ -63,10 +69,12 @@ func _input(event):
 		LevelManager.reload_level()
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
-	if event.is_action_pressed("Interact"):
+	if event.is_action_pressed("Interact") && !controls_locked:
 		interacted.emit(self)
 
 func _physics_process(_delta):
+	if controls_locked:
+		return
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -167,3 +175,8 @@ func set_corrupted(val : bool):
 	else:
 		robot_sprite.sprite_frames = normal_spriteframes
 	update_animation(false)
+
+func free_controls():
+	controls_locked = false
+func lock_controls():
+	controls_locked = true

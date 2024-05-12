@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpl3ysjv0oeb2"]
+
+[ext_resource type="Texture2D" uid="uid://d1h5w1nm1mri" path="res://Art/PlaceholderArt/GlassRect.png" id="1_flr85"]
+[ext_resource type="Script" path="res://Scripts/text_window.gd" id="1_x7sv4"]
+
+[node name="TextWindow" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -324.0
+offset_right = -324.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 40
+script = ExtResource("1_x7sv4")
+
+[node name="Control" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_flr85")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = " X "
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

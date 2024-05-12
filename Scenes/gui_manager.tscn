@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://jy7getc1ajks"]
+
+[ext_resource type="PackedScene" uid="uid://cpl3ysjv0oeb2" path="res://Scenes/text_window.tscn" id="1_s1te7"]
+[ext_resource type="Script" path="res://Scripts/Autoloads/gui_manager.gd" id="1_ytcbd"]
+
+[node name="GUIManager" type="CanvasLayer"]
+script = ExtResource("1_ytcbd")
+
+[node name="TextWindow" parent="." instance=ExtResource("1_s1te7")]
+visible = false
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
