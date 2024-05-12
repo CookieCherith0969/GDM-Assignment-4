@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq6118n28m37k"]
+
+[ext_resource type="Texture2D" uid="uid://haqxq8ryef8b" path="res://Art/FailedRobot.png" id="1_gqen2"]
+
+[node name="FailedRobot" type="Sprite2D"]
+texture = ExtResource("1_gqen2")

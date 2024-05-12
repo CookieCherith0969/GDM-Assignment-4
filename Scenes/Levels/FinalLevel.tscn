@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://btmd1rnnkb725"]
+[gd_scene load_steps=30 format=3 uid="uid://btmd1rnnkb725"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_j7uh2"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="2_g0mad"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="15_i7pkf"]
 [ext_resource type="Script" path="res://Scripts/CorruptionTrigger.gd" id="16_gdrq6"]
 [ext_resource type="PackedScene" uid="uid://ct4mbup2rhftj" path="res://Scenes/hive.tscn" id="17_vlxuq"]
+[ext_resource type="PackedScene" uid="uid://dq6118n28m37k" path="res://Scenes/failed_robot.tscn" id="18_lqdp1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpkvg"]
 atlas = ExtResource("10_f1p3k")
@@ -272,6 +273,7 @@ collision_layer = 0
 size = Vector2i(16, 108)
 
 [node name="BlockerVines12" parent="." instance=ExtResource("5_4yyyx")]
+visible = false
 position = Vector2(-30, -449)
 rotation = -0.794125
 collision_layer = 0
@@ -292,6 +294,48 @@ position = Vector2(-45, -783)
 
 [node name="Hive2" parent="." instance=ExtResource("17_vlxuq")]
 position = Vector2(-18, -761)
+
+[node name="FailedRobot" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(54, -90)
+flip_h = true
+
+[node name="FailedRobot2" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(-61, -141)
+
+[node name="FailedRobot3" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(-50, -182)
+
+[node name="FailedRobot4" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(53, -156)
+flip_h = true
+
+[node name="FailedRobot5" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(-53, -65)
+
+[node name="FailedRobot6" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(44, -208)
+flip_h = true
+
+[node name="FailedRobot7" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(-37, -224)
+
+[node name="FailedRobot8" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(21, -251)
+flip_h = true
+
+[node name="FailedRobot9" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(-12, -274)
+
+[node name="FailedRobot10" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(-57, -647)
+
+[node name="FailedRobot11" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(19, -562)
+flip_h = true
+
+[node name="FailedRobot12" parent="." instance=ExtResource("18_lqdp1")]
+position = Vector2(68, -636)
+flip_h = true
 
 [connection signal="body_entered" from="SpecialLampPlant/DetectionArea" to="SpecialLampPlant" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="SpecialLampPlant/DetectionArea" to="SpecialLampPlant" method="_on_detection_area_body_exited"]
