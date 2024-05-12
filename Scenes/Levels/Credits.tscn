@@ -42,7 +42,7 @@ text = "LOST IN THE DARK"
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_phj0r")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 text = "Cookie Hudson - Lead Programmer
 Programming, Game Design, Level Design, Lighting
 
@@ -53,7 +53,10 @@ Kynan Abdul - Art Lead
 Art Direction, Sprites, Assistant Level Design
 
 Woo Suk Bae - Audio Lead
-SFX, Music, Assistant Level Design"
+SFX, Music, Assistant Level Design
+
+Key Icons sourced from 
+cazwolf.itch.io"
 horizontal_alignment = 1
 autowrap_mode = 3
 
