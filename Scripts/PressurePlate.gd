@@ -20,14 +20,12 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if is_instance_of(body, Player):
-		sprite.play("Down")
-		button_down.play()
-		PowerManager.increase_power(id)
+	sprite.play("Down")
+	button_down.play()
+	PowerManager.increase_power(id)
 
 
 func _on_body_exited(body):
-	if is_instance_of(body, Player):
-		sprite.play("Up")
-		button_up.play()
-		PowerManager.decrease_power(id)
+	sprite.play("Up")
+	button_up.play()
+	PowerManager.decrease_power(id)
