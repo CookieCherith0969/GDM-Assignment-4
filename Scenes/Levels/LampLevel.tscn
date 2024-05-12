@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6awho03rjby4"]
+[gd_scene load_steps=17 format=3 uid="uid://c6awho03rjby4"]
 
 [ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/tile_map.tscn" id="1_iqkjp"]
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_m3yu8"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dudk7d7ss8mki" path="res://Scenes/Glass.tscn" id="10_q1bk6"]
 [ext_resource type="PackedScene" uid="uid://b16qn8glxvmnc" path="res://Scenes/data_log.tscn" id="11_3wgpa"]
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="11_s4i8c"]
+[ext_resource type="PackedScene" uid="uid://dq6118n28m37k" path="res://Scenes/failed_robot.tscn" id="15_lqwdo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4faw"]
 size = Vector2(64, 5)
@@ -196,12 +197,14 @@ size = Vector2i(32, 5)
 [node name="DataLog" parent="Map" instance=ExtResource("11_3wgpa")]
 position = Vector2(-16, -643)
 contents = "LOG 18-8
-The specimen's reaction to stimuli has not deviated from previous observations. When exposed to light specimen continues to get agitated. 
+The specimen's reaction to stimuli has not deviated. Response is consistent across wavelengths.
+Any light produces an agitation within the creatures, and with enough intensity, aggression.
 
 After prolonged exposure to synthetic light followed by 3.5 hours of complete darkness specimen began to secrete foreign bio-matter.
 Initial testing found the secretion to be caustic.
 
-Further analysis is required."
+Further analysis is required.
+[END LOG]"
 
 [node name="PowerTrigger" type="Area2D" parent="."]
 visible = false
@@ -225,5 +228,21 @@ next_level_name = "DavidLevel"
 power_id = 1
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_s4i8c")]
+
+[node name="FailedRobot" parent="." instance=ExtResource("15_lqwdo")]
+position = Vector2(-75, -106)
+
+[node name="FailedRobot2" parent="." instance=ExtResource("15_lqwdo")]
+position = Vector2(-73, -281)
+
+[node name="FailedRobot3" parent="." instance=ExtResource("15_lqwdo")]
+position = Vector2(74, -208)
+flip_h = true
+
+[node name="FailedRobot4" parent="." instance=ExtResource("15_lqwdo")]
+position = Vector2(-66, -490)
+
+[node name="FailedRobot5" parent="." instance=ExtResource("15_lqwdo")]
+position = Vector2(-465, -780)
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]

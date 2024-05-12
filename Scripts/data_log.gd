@@ -40,6 +40,8 @@ func on_interact(player):
 	await get_tree().create_timer(0.15).timeout
 	GuiManager.show_window(contents)
 	player.lock_controls()
+	if !is_read:
+		LevelManager.data_logs_read_current_level += 1
 	is_read = true
 
 

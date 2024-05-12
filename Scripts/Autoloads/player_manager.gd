@@ -2,13 +2,17 @@ extends Node
 
 @onready
 var player_scene = preload("res://Scenes/player.tscn")
-
+@onready
+var failed_robot_scene = preload("res://Scenes/failed_robot.tscn")
 var current_player : Player = null
 var camera : Camera2D = null
 
 var was_light_on = false
 var had_battery = false
 var was_corrupted = false
+
+var last_player_pos = Vector2(0,0)
+var last_left_facing = false
 
 var shake_str = 0.0
 var shake_spd = 0.0
@@ -83,3 +87,18 @@ func shake_camera(strength : float, speed : float, duration : float, fade_in_tim
 	shake_fade_out = fade_out_time
 	shake_time = shake_dur
 	return true
+
+func save_player_pos():
+	if is_instance_valid(current_player):
+		last_player_pos = current_player.position
+		last_left_facing = current_player.moving_left
+	else:
+		last_player_pos = Vector2(0,0)
+
+func place_failed_robot():
+	if last_player_pos == Vector2(0,0):
+		return
+	var new_failed = failed_robot_scene.instantiate()
+	new_failed.position = last_player_pos
+	new_failed.flip_h = last_left_facing
+	LevelManager.current_level.add_child(new_failed)

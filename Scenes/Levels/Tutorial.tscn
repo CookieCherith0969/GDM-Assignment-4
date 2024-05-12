@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4rc7u7dy5bjc"]
+[gd_scene load_steps=18 format=3 uid="uid://4rc7u7dy5bjc"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_1usku"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="1_165n0"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="13_1tqma"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="15_0ms5w"]
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="15_6becw"]
+[ext_resource type="PackedScene" uid="uid://b16qn8glxvmnc" path="res://Scenes/data_log.tscn" id="17_oc764"]
 
 [node name="TutorialLevel" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_1usku")
@@ -74,7 +75,7 @@ layer_2/tile_data = PackedInt32Array(-65510, 262144, 1342177280, 26, 262144, 134
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Hive" parent="Enemies" instance=ExtResource("10_6yq8q")]
-position = Vector2(518, 20)
+position = Vector2(512, 20)
 scout_num = 2
 
 [node name="Hive2" parent="Enemies" instance=ExtResource("10_6yq8q")]
@@ -137,7 +138,7 @@ rotation = 1.5708
 gateSize = Vector2i(15, 8)
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("13_1tqma")]
-position = Vector2(489, 13)
+position = Vector2(484, 12)
 
 [node name="InvertedDecoLight3" parent="." instance=ExtResource("13_1tqma")]
 position = Vector2(428, 63)
@@ -162,3 +163,14 @@ is_start = true
 do_transition = null
 
 [node name="CanvasLayer" parent="." instance=ExtResource("15_6becw")]
+
+[node name="DataLog" parent="." instance=ExtResource("17_oc764")]
+position = Vector2(0, 93)
+contents = "TRANSMISSION
+Before you delve below radio range, here are your instructions:
+- Investigate cause of facility going dark
+- Discover nature of unknown lifeforms
+- Prevent further spread of lifeforms
+
+Safe return not mandatory
+[END TRANSMISSION]"

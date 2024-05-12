@@ -331,15 +331,33 @@ power_id = 5
 visible = false
 
 [node name="DataLog" parent="." instance=ExtResource("18_cknw4")]
-position = Vector2(-161, -818)
-contents = "They respond aggressively to light.
+position = Vector2(-158, -840)
+contents = "LOG 16-2
+They respond aggressively to light.
+
 Reminds me of those deep sea creatures I'd hear about when I was younger.
 I always wanted to see one of them. Too bad they're all gone now...
-Anyway, onto the next experiment."
+
+Anyway, onto the next experiment.
+[END LOG]"
 
 [node name="FailedRobot" parent="." instance=ExtResource("19_gi18c")]
 position = Vector2(82, -419)
 flip_h = true
+
+[node name="FailedRobot2" parent="." instance=ExtResource("19_gi18c")]
+position = Vector2(-169, -874)
+
+[node name="DataLog2" parent="." instance=ExtResource("18_cknw4")]
+position = Vector2(17, -604)
+contents = "LOG 15-1
+These creatures are fascinating.
+
+They appear to be eusocial. We'll need to figure out what they do in these hives of theirs.
+Sadly, any attempt to shine a light within is met with the drones quickly covering the entry ways...
+
+We'll investigate this behaviour further.
+[END LOG]"
 
 [connection signal="body_entered" from="PowerTrigger" to="PowerTrigger" method="_on_body_entered"]
 [connection signal="trigger" from="PowerTrigger" to="Label2" method="reveal"]
