@@ -30,7 +30,7 @@ frame_progress = 0.392429
 
 [node name="BatterySprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -15)
+position = Vector2(0, -13)
 rotation = 1.5708
 texture = ExtResource("3_bil8g")
 

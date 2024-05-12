@@ -28,8 +28,8 @@ func _deferred_load_level(level_name : String, transition : bool):
 	current_level.free()
 	if transition:
 		current_name = "TransitionElevator"
-		var level_scene = ResourceLoader.load("res://Scenes/Levels/"+"TransitionElevator"+".tscn")
-		current_level = level_scene.instantiate()
+		var elevator_scene = ResourceLoader.load("res://Scenes/Levels/TransitionElevator.tscn")
+		current_level = elevator_scene.instantiate()
 		get_tree().root.add_child(current_level)
 		get_tree().current_scene = current_level
 		SoundManager.start_ambient()

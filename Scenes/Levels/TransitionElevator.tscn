@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="2_ffbtt"]
 [ext_resource type="Script" path="res://Scripts/ElevatorTimer.gd" id="3_1ijrn"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="4_vu3jc"]
-[ext_resource type="PackedScene" uid="uid://dnf3jhruvtvl2" path="res://Scenes/crtOverlay.tscn" id="5_jhey1"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="5_jhey1"]
 
 [node name="TransitionElevator" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_cgkpe")

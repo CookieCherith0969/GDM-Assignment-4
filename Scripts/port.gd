@@ -23,11 +23,6 @@ func _ready():
 	else:
 		has_battery = start_with_battery
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func set_start_battery(val : bool):
 	start_with_battery = val
 	if not is_instance_valid(battery_sprite):
