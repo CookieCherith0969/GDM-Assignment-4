@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b16qn8glxvmnc"]
+[gd_scene load_steps=11 format=3 uid="uid://b16qn8glxvmnc"]
 
 [ext_resource type="Script" path="res://Scripts/data_log.gd" id="1_tts6v"]
 [ext_resource type="Texture2D" uid="uid://d3jo3slndp1vh" path="res://Art/DataLogSheet.png" id="1_uid41"]
 [ext_resource type="Texture2D" uid="uid://b3ygryg0lmlex" path="res://Art/DataLogRead.png" id="3_23u6g"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="4_1a6pf"]
+[ext_resource type="AudioStream" uid="uid://dxt1ihtblemlj" path="res://audio/paper.mp3" id="5_8lhnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ekif"]
 size = Vector2(12, 14)
@@ -70,6 +71,9 @@ vertical_alignment = 1
 [node name="PointLight2D" type="PointLight2D" parent="Popup"]
 range_item_cull_mask = 2
 texture = ExtResource("4_1a6pf")
+
+[node name="paperSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8lhnk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

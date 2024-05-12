@@ -4,6 +4,8 @@ extends Area2D
 var contents : String = "[CORRUPTED FILE]"
 
 @onready
+var paper = $paperSound
+@onready
 var popup = $Popup
 @onready
 var sprite = $Sprite2D
@@ -34,9 +36,12 @@ func _on_body_exited(body):
 		body.interacted.disconnect(on_interact)
 
 func on_interact(player):
+	paper.play()
+	await get_tree().create_timer(0.15).timeout
 	GuiManager.show_window(contents)
 	player.lock_controls()
 	is_read = true
+
 
 func set_read(val : bool):
 	is_read = val
