@@ -29,7 +29,8 @@ func increase_power(id):
 		return
 	if power_levels[id] > 0:
 		for powerable in powerables[id]:
-			powerable.on_power()
+			if is_instance_valid(powerable):
+				powerable.on_power()
 		#powerables[id].all(func(a): a.on_power())
 	
 func decrease_power(id):
