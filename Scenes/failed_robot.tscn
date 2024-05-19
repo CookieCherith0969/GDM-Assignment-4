@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://haqxq8ryef8b" path="res://Art/FailedRobot.png" id="1_gqen2"]
 
 [node name="FailedRobot" type="Sprite2D"]
+z_index = -1
 texture = ExtResource("1_gqen2")
