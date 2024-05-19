@@ -5,6 +5,21 @@ var current_name = null
 @onready
 var root = get_tree().root
 
+@onready
+var levels : Dictionary = {
+	"StartMenu": preload("res://Scenes/Levels/StartMenu.tscn"),
+	"LevelSelect": preload("res://Scenes/Levels/LevelSelect.tscn"),
+	"Credits": preload("res://Scenes/Levels/Credits.tscn"),
+	"TransitionElevator": preload("res://Scenes/Levels/TransitionElevator.tscn"),
+	"Tutorial": preload("res://Scenes/Levels/Tutorial.tscn"),
+	"BatteryLevel": preload("res://Scenes/Levels/BatteryLevel.tscn"),
+	"LampLevel": preload("res://Scenes/Levels/LampLevel.tscn"),
+	"DavidLevel": preload("res://Scenes/Levels/DavidLevel.tscn"),
+	"KynanLevel": preload("res://Scenes/Levels/KynanLevel.tscn"),
+	"FinalLevel": preload("res://Scenes/Levels/FinalLevel.tscn"),
+	"EndScene": preload("res://Scenes/Levels/EndScene.tscn")
+}
+
 var data_logs_read = [
 	false,
 	false,
@@ -20,7 +35,9 @@ var data_logs_read = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_level = root.get_child(root.get_child_count() - 1)
-	current_name = "Tutorial"
+	current_name = "StartMenu"
+	
+	
 
 func load_level(level_name : String, transition : bool):
 	PowerManager.clear_all()
@@ -41,7 +58,7 @@ func _deferred_load_level(level_name : String, transition : bool):
 		PlayerManager.reset_player_state()
 	if transition:
 		current_name = "TransitionElevator"
-		var elevator_scene = ResourceLoader.load("res://Scenes/Levels/TransitionElevator.tscn")
+		var elevator_scene = levels["TransitionElevator"]
 		current_level = elevator_scene.instantiate()
 		get_tree().root.add_child(current_level)
 		get_tree().current_scene = current_level
@@ -51,7 +68,7 @@ func _deferred_load_level(level_name : String, transition : bool):
 		current_level.get_end_elevator().rotation = elevator_rot
 		return
 	#get_tree().change_scene_to_file("res://Scenes/Levels/"+level_name+".tscn")
-	var level_scene = ResourceLoader.load("res://Scenes/Levels/"+level_name+".tscn")
+	var level_scene = levels[level_name]
 	current_level = level_scene.instantiate()
 	current_name = level_name
 	get_tree().root.add_child(current_level)

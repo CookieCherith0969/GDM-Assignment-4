@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/crtOverlay.gd" id="1_teyfa"]
 [ext_resource type="Texture2D" uid="uid://1y8pfj1bmkjf" path="res://Art/PlaceholderArt/glass.png" id="2_6ta8r"]
-[ext_resource type="Shader" path="res://Scenes/Levels/crtOverlay.gdshader" id="3_ifosl"]
+[ext_resource type="Shader" path="res://Shaders/crtOverlay.gdshader" id="3_ifosl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fmtj6"]
 shader = ExtResource("3_ifosl")
