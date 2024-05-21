@@ -71,8 +71,12 @@ func _input(event):
 		LevelManager.reload_level()
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
-	if event.is_action_pressed("Interact") && !controls_locked:
-		interacted.emit(self)
+	if event.is_action_pressed("Interact"):
+		if !controls_locked:
+			interacted.emit(self)
+		else:
+			free_controls()
+			exited.emit()
 
 func _physics_process(_delta):
 	if controls_locked:
