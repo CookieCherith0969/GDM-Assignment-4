@@ -38,7 +38,7 @@ layer_2/tile_data = PackedInt32Array(-1638398, 262144, 0, -1638397, 262144, 0, -
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Hive" parent="Enemies" instance=ExtResource("12_nt2eq")]
-position = Vector2(70, -407)
+position = Vector2(55, -407)
 scout_num = 3
 
 [node name="Hive2" parent="Enemies" instance=ExtResource("12_nt2eq")]
