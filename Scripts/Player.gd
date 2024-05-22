@@ -59,7 +59,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("Menu"):
 		if controls_locked:
-			free_controls()
+			#free_controls()
 			exited.emit()
 		else:
 			LevelManager.load_level("StartMenu", false)
@@ -70,7 +70,7 @@ func _input(event):
 			light_on = false
 	if event.is_action_pressed("Reset"):
 		if controls_locked:
-			free_controls()
+			#free_controls()
 			exited.emit()
 		else:
 			LevelManager.reload_level()
@@ -80,7 +80,7 @@ func _input(event):
 		if !controls_locked:
 			interacted.emit(self)
 		else:
-			free_controls()
+			#free_controls()
 			exited.emit()
 
 func _physics_process(_delta):
