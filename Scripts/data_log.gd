@@ -5,8 +5,8 @@ var contents : String = "[CORRUPTED FILE]"
 @export
 var log_id = 0
 
-@onready
-var paper = $paperSound
+#@onready
+#var paper = $paperSound
 @onready
 var popup = $Popup
 @onready
@@ -38,8 +38,8 @@ func _on_body_exited(body):
 		body.interacted.disconnect(on_interact)
 
 func on_interact(player):
-	paper.play()
-	await get_tree().create_timer(0.15).timeout
+	#paper.play()
+	#await get_tree().create_timer(0.15).timeout
 	GuiManager.show_window(contents)
 	player.lock_controls()
 	if !is_read:

@@ -69,7 +69,11 @@ func _input(event):
 		else:
 			light_on = false
 	if event.is_action_pressed("Reset"):
-		LevelManager.reload_level()
+		if controls_locked:
+			free_controls()
+			exited.emit()
+		else:
+			LevelManager.reload_level()
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
 	if event.is_action_pressed("Interact"):
