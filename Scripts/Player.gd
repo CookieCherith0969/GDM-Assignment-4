@@ -54,6 +54,7 @@ var controls_locked : bool = false
 func _ready():
 	PlayerManager.current_player = self
 	PlayerManager.camera = $Camera2D
+	update_animation(false)
 
 func _input(event):
 	if event.is_action_pressed("Menu"):

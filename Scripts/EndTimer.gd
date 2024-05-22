@@ -4,11 +4,18 @@ extends Timer
 var elevator = $"../Elevator"
 
 var shaking = false
+var corrupted = false
 
 func _process(_delta):
 	if not shaking:
 		if PlayerManager.shake_camera(6,15,wait_time,0.3,0):
 			shaking = true
+	if corrupted:
+		return
+	var player = PlayerManager.current_player
+	if is_instance_valid(player):
+		player.corrupted = true
+		corrupted = true
 
 func _on_timeout():
 	elevator.queue_free()

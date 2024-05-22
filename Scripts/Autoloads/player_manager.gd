@@ -9,7 +9,9 @@ var camera : Camera2D = null
 
 var was_light_on = false
 var had_battery = false
-var was_corrupted = false
+#var was_corrupted = false
+var was_moving_left = false
+var was_moving_up = false
 
 var last_player_pos = Vector2(0,0)
 var last_left_facing = false
@@ -56,7 +58,9 @@ func _process(delta):
 func save_player_state():
 	if is_instance_valid(current_player):
 		was_light_on = current_player.light_on
-		was_corrupted = current_player.corrupted
+		#was_corrupted = current_player.corrupted
+		was_moving_left = current_player.moving_left
+		was_moving_up = current_player.moving_up
 
 func place_player_at(pos : Vector2):
 	if is_instance_valid(current_player):
@@ -64,16 +68,20 @@ func place_player_at(pos : Vector2):
 	
 	var new_player = player_scene.instantiate()
 	new_player.position = pos
+	new_player.moving_left = was_moving_left
+	new_player.moving_up = was_moving_up
 	LevelManager.current_level.add_child(new_player)
 	new_player.light_on = was_light_on
-	new_player.corrupted = was_corrupted
+	#new_player.corrupted = was_corrupted
 
 func has_player():
 	return is_instance_valid(current_player)
 
 func reset_player_state():
 	was_light_on = false
-	was_corrupted = false
+	#was_corrupted = false
+	was_moving_left = false
+	was_moving_up = false
 	
 func shake_camera(strength : float, speed : float, duration : float, fade_in_time : float = 0.0, fade_out_time : float = 0.0):
 	if !is_instance_valid(camera):
