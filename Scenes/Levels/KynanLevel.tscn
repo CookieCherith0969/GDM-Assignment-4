@@ -45,9 +45,6 @@ scout_num = 3
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Battery" parent="Objects" instance=ExtResource("4_n7ybe")]
-position = Vector2(517, -18)
-
 [node name="Battery2" parent="Objects" instance=ExtResource("4_n7ybe")]
 position = Vector2(587, 368)
 
@@ -110,16 +107,6 @@ position = Vector2(560, 8)
 rotation = -1.57079
 power_id = 3
 
-[node name="PowerGate7" parent="Map" instance=ExtResource("3_s1a3d")]
-position = Vector2(583, 176)
-rotation = -3.14159
-power_id = 4
-
-[node name="PowerGate8" parent="Map" instance=ExtResource("3_s1a3d")]
-position = Vector2(599, 176)
-rotation = -3.14159
-power_id = 4
-
 [node name="PowerGate9" parent="Map" instance=ExtResource("3_s1a3d")]
 position = Vector2(584, 320)
 rotation = -3.14159
@@ -177,10 +164,6 @@ gateSize = Vector2i(19, 2)
 [node name="LightGate2" parent="Map" instance=ExtResource("6_yaysv")]
 position = Vector2(468, -24)
 gateSize = Vector2i(2, 25)
-
-[node name="Port" parent="Map" instance=ExtResource("5_teliy")]
-position = Vector2(591, -8)
-id = 4
 
 [node name="Glass2" parent="Map" instance=ExtResource("2_k06h0")]
 position = Vector2(436, 256)
