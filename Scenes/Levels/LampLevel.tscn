@@ -100,11 +100,13 @@ power_id = 1
 position = Vector2(51, -568)
 rotation = 1.5708
 power_id = 2
+start_powered = true
 
 [node name="PowerGate8" parent="Objects" instance=ExtResource("3_nufot")]
 position = Vector2(51, -584)
 rotation = 1.5708
 power_id = 2
+start_powered = true
 
 [node name="Port" parent="Objects" instance=ExtResource("5_8kcs4")]
 position = Vector2(-152, -568)
