@@ -51,7 +51,7 @@ position = Vector2(587, 368)
 [node name="Map" type="Node2D" parent="."]
 
 [node name="PowerGate" parent="Map" instance=ExtResource("3_s1a3d")]
-position = Vector2(176, -7)
+position = Vector2(176, -8)
 rotation = 1.57079
 power_id = 1
 
@@ -113,7 +113,7 @@ rotation = -3.14159
 power_id = 5
 
 [node name="PowerGate10" parent="Map" instance=ExtResource("3_s1a3d")]
-position = Vector2(601, 320)
+position = Vector2(600, 320)
 rotation = -3.14159
 power_id = 5
 
@@ -128,7 +128,7 @@ rotation = -4.71238
 power_id = 6
 
 [node name="PowerGate14" parent="Map" instance=ExtResource("3_s1a3d")]
-position = Vector2(490, 432)
+position = Vector2(488, 432)
 rotation = -6.28318
 power_id = 7
 
@@ -148,7 +148,7 @@ rotation = -6.28318
 power_id = 8
 
 [node name="PowerGate15" parent="Map" instance=ExtResource("3_s1a3d")]
-position = Vector2(505, 432)
+position = Vector2(504, 432)
 rotation = -6.28318
 power_id = 7
 
