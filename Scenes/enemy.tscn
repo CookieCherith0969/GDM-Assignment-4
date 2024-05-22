@@ -70,10 +70,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_714ps"]
-radius = 5.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4tsd"]
-radius = 6.0
+radius = 9.0
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 2
