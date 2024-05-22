@@ -14,8 +14,8 @@ var levels : Dictionary = {
 	"Tutorial": preload("res://Scenes/Levels/Tutorial.tscn"),
 	"BatteryLevel": preload("res://Scenes/Levels/BatteryLevel.tscn"),
 	"LampLevel": preload("res://Scenes/Levels/LampLevel.tscn"),
-	"DavidLevel": preload("res://Scenes/Levels/DavidLevel.tscn"),
-	"KynanLevel": preload("res://Scenes/Levels/KynanLevel.tscn"),
+	"VentLevel": preload("res://Scenes/Levels/VentLevel.tscn"),
+	"ButtonLevel": preload("res://Scenes/Levels/ButtonLevel.tscn"),
 	"FinalLevel": preload("res://Scenes/Levels/FinalLevel.tscn"),
 	"EndScene": preload("res://Scenes/Levels/EndScene.tscn")
 }

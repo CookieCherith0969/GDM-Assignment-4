@@ -227,7 +227,7 @@ is_start = true
 [node name="EndElevator" parent="." instance=ExtResource("9_iyiwd")]
 position = Vector2(-224, -704)
 rotation = 4.71238
-next_level_name = "DavidLevel"
+next_level_name = "VentLevel"
 power_id = 1
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_s4i8c")]
