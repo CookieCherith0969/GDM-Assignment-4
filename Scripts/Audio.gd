@@ -8,7 +8,7 @@ var sliders = [
 	$VBoxContainer/CreaturesSlider,
 	$VBoxContainer/PlantsSlider,
 	$VBoxContainer/MachinesSlider,
-	$VBoxContainer/AmbienceSlider
+	$VBoxContainer/MusicSlider
 ]
 
 func _ready():

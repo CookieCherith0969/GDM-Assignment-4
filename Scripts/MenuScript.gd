@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	PlayerManager.reset_player_state()
 
 func _on_credits_button_pressed():
 	SoundManager.menu_button()
