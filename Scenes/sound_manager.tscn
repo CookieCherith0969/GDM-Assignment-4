@@ -12,10 +12,10 @@ script = ExtResource("1_x5gjj")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_p58df")
-volume_db = -15.0
+volume_db = -2.0
 pitch_scale = 0.75
 autoplay = true
-bus = &"Ambience"
+bus = &"Music"
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tgffc")
@@ -25,14 +25,16 @@ bus = &"Player"
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c7vp5")
-volume_db = -7.5
+volume_db = 8.0
 autoplay = true
-bus = &"Ambience"
+bus = &"Music"
 
 [node name="menuButton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_krqdj")
+volume_db = 1.0
 bus = &"Player"
 
 [node name="pickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4bpmj")
+volume_db = -1.0
 bus = &"Player"

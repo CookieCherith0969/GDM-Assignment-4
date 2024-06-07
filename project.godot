@@ -22,6 +22,7 @@ PowerManager="*res://Scripts/Autoloads/power_manager.gd"
 SoundManager="*res://Scenes/sound_manager.tscn"
 PlayerManager="*res://Scripts/Autoloads/player_manager.gd"
 GuiManager="*res://Scenes/gui_manager.tscn"
+SaveManager="*res://Scripts/Autoloads/save_manager.gd"
 
 [display]
 

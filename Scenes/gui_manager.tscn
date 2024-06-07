@@ -16,4 +16,5 @@ offset_bottom = 0.0
 
 [node name="paperSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_cfglw")
+volume_db = 3.0
 bus = &"Player"

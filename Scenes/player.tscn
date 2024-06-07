@@ -78,17 +78,19 @@ lighter = NodePath("../..")
 
 [node name="LightOn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ygosa")
+volume_db = 3.0
 pitch_scale = 1.1
 bus = &"Player"
 
 [node name="LightOff" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_haiom")
+volume_db = 3.0
 pitch_scale = 1.1
 bus = &"Player"
 
 [node name="Walking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_y4dbu")
-volume_db = -14.0
+volume_db = -7.0
 bus = &"Player"
 
 [node name="Timer" type="Timer" parent="."]

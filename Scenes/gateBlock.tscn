@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2svja"]
 size = Vector2(8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pg5vj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr8ss"]
 atlas = ExtResource("1_k386k")
 region = Rect2(0, 0, 8, 8)
 
@@ -22,13 +22,13 @@ script = ExtResource("1_lnyf4")
 shape = SubResource("RectangleShape2D_2svja")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_pg5vj")
+texture = SubResource("AtlasTexture_vr8ss")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_jlmre")
 
 [node name="PlantSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_m5a0n")
-volume_db = -21.79
+volume_db = -5.0
 pitch_scale = 0.7
 bus = &"Plants"

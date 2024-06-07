@@ -26,10 +26,12 @@ texture = ExtResource("2_tpyeg")
 
 [node name="LightOff" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_rrvic")
+volume_db = 3.0
 bus = &"Machines"
 
 [node name="LightOn" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_nel3q")
+volume_db = 3.0
 bus = &"Machines"
 
 [connection signal="target_entered" from="LightArea" to="." method="_on_light_area_target_entered"]

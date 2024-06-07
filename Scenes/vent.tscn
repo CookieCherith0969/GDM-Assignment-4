@@ -35,7 +35,8 @@ texture = ExtResource("3_n7puw")
 
 [node name="vent" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3fwbf")
-volume_db = 15.0
+volume_db = 20.0
+bus = &"Player"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

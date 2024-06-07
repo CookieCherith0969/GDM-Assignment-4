@@ -115,9 +115,9 @@ shape = SubResource("CircleShape2D_s4tsd")
 
 [node name="buzzing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_xwuan")
-volume_db = -30.0
+volume_db = -10.0
 pitch_scale = 0.58
-attenuation = 11.7127
+attenuation = 5.85634
 bus = &"Creatures"
 
 [connection signal="target_entered" from="DetectionArea" to="." method="_on_detection_area_target_entered"]

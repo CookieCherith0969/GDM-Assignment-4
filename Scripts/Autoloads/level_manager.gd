@@ -9,6 +9,8 @@ var root = get_tree().root
 var levels : Dictionary = {
 	"StartMenu": preload("res://Scenes/Levels/StartMenu.tscn"),
 	"LevelSelect": preload("res://Scenes/Levels/LevelSelect.tscn"),
+	"Settings": preload("res://Scenes/Levels/Settings.tscn"),
+	"Audio": preload("res://Scenes/Levels/Audio.tscn"),
 	"Credits": preload("res://Scenes/Levels/Credits.tscn"),
 	"TransitionElevator": preload("res://Scenes/Levels/TransitionElevator.tscn"),
 	"Tutorial": preload("res://Scenes/Levels/Tutorial.tscn"),

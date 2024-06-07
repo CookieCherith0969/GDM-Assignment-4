@@ -36,7 +36,7 @@ layer_2/tile_data = PackedInt32Array(-720893, 262144, 1610612736, -655357, 26214
 position = Vector2(-4, -144)
 
 [node name="Hive2" parent="Enemies" instance=ExtResource("4_66j64")]
-position = Vector2(-64, -225)
+position = Vector2(-62, -220)
 
 [node name="Hive3" parent="Enemies" instance=ExtResource("4_66j64")]
 position = Vector2(-80, -256)

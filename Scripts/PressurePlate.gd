@@ -14,6 +14,8 @@ var button_up = $ButtonUp
 
 var stick_timer = 0
 
+var down = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.play("Up")
@@ -32,11 +34,17 @@ func _on_body_exited(_body):
 	stick_timer = stick_time
 
 func set_down():
-	sprite.play("Down")
 	button_down.play()
+	if down:
+		return
+	down = true
+	sprite.play("Down")
 	PowerManager.increase_power(id)
 
 func set_up():
+	if !down:
+		return
+	down = false
 	sprite.play("Up")
 	button_up.play()
 	PowerManager.decrease_power(id)

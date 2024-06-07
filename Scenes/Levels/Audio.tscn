@@ -1,0 +1,128 @@
+[gd_scene load_steps=6 format=3 uid="uid://cacvlxuhh0wph"]
+
+[ext_resource type="Script" path="res://Scripts/Audio.gd" id="1_tsm72"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="2_38c0f"]
+[ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="3_rf53a"]
+[ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="4_2778c"]
+[ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="5_4bua6"]
+
+[node name="Audio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tsm72")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_38c0f")]
+
+[node name="Label" type="Label" parent="."]
+material = ExtResource("3_rf53a")
+layout_mode = 2
+offset_left = 80.0
+offset_top = 88.0
+offset_right = 573.0
+offset_bottom = 160.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_2778c")
+theme_override_font_sizes/font_size = 58
+text = "AUDIO"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -136.5
+offset_right = -30.0
+offset_bottom = 136.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="PlayerLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Player"
+
+[node name="PlayerSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="CreaturesLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Creatures"
+
+[node name="CreaturesSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="PlantsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Plants"
+
+[node name="PlantsSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="MachinesLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Machines"
+
+[node name="MachinesSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 551.0
+offset_right = 360.0
+offset_bottom = 593.0
+theme_override_fonts/font = ExtResource("5_4bua6")
+theme_override_font_sizes/font_size = 28
+text = "BACK"
+
+[connection signal="value_changed" from="VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PlayerSlider" to="." method="_on_player_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/CreaturesSlider" to="." method="_on_creatures_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PlantsSlider" to="." method="_on_plants_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MachinesSlider" to="." method="_on_machines_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
