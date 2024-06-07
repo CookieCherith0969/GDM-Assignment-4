@@ -15,19 +15,24 @@ stream = ExtResource("2_p58df")
 volume_db = -15.0
 pitch_scale = 0.75
 autoplay = true
+bus = &"Ambience"
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tgffc")
 volume_db = -5.937
 pitch_scale = 0.82
+bus = &"Player"
 
 [node name="Ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c7vp5")
 volume_db = -7.5
 autoplay = true
+bus = &"Ambience"
 
 [node name="menuButton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_krqdj")
+bus = &"Player"
 
 [node name="pickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4bpmj")
+bus = &"Player"
