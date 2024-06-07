@@ -71,16 +71,14 @@ position = Vector2(-38, -147)
 position = Vector2(40, -144)
 
 [node name="Port" parent="Objects" instance=ExtResource("7_kl3vo")]
-position = Vector2(-96, -188)
+position = Vector2(-133, -156)
 
 [node name="PowerGate" parent="Objects" instance=ExtResource("8_splv8")]
-position = Vector2(-126, -184)
-rotation = 1.5708
+position = Vector2(-168, -174)
 power_id = 1
 
 [node name="PowerGate2" parent="Objects" instance=ExtResource("8_splv8")]
-position = Vector2(-126, -200)
-rotation = 1.5708
+position = Vector2(-152, -174)
 power_id = 1
 
 [node name="LightGate3" parent="Objects" instance=ExtResource("9_hj5kn")]
@@ -163,9 +161,9 @@ position = Vector2(-53, -310)
 size = Vector2i(8, 44)
 
 [node name="BlockerVines2" parent="." instance=ExtResource("14_e50sk")]
-position = Vector2(-182, -169)
-rotation = -1.5708
-size = Vector2i(8, 44)
+position = Vector2(-122, -174)
+rotation = 3.14159
+size = Vector2i(8, 43)
 
 [node name="BlockerVines3" parent="." instance=ExtResource("14_e50sk")]
 position = Vector2(6, -368)
