@@ -22,10 +22,6 @@ func _ready():
 	sprite.play("default")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_body_entered(body):
 	if is_instance_of(body, Player):

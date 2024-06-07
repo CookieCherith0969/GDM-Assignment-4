@@ -33,7 +33,9 @@ occluder = SubResource("OccluderPolygon2D_3bqn1")
 stream = ExtResource("3_w6yjc")
 volume_db = -20.0
 pitch_scale = 1.39
+bus = &"Machines"
 
 [node name="gateClose" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_qsebo")
 volume_db = -20.0
+bus = &"Machines"

@@ -92,3 +92,4 @@ volume_db = -30.0
 pitch_scale = 0.58
 autoplay = true
 attenuation = 11.7127
+bus = &"Creatures"

@@ -63,11 +63,13 @@ occluder = SubResource("OccluderPolygon2D_0pxvr")
 stream = ExtResource("3_wrmqw")
 volume_db = -8.0
 pitch_scale = 0.7
+bus = &"Machines"
 
 [node name="Open" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_wrmqw")
 volume_db = -8.0
 pitch_scale = 1.2
+bus = &"Machines"
 
 [node name="InvertedDecoLight2" parent="." instance=ExtResource("4_2igwr")]
 position = Vector2(0, 1)
@@ -80,6 +82,7 @@ occluder = SubResource("OccluderPolygon2D_20niq")
 
 [node name="Hum" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_xq0jk")
+bus = &"Machines"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -24,11 +24,11 @@ func _process(delta):
 		if stick_timer <= 0:
 			set_up()
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	set_down()
 
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	stick_timer = stick_time
 
 func set_down():

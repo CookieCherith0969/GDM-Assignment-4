@@ -12,14 +12,14 @@ func show_window(contents : String):
 	window.contents = contents
 	paper.pitch_scale = open_pitch
 	paper.play()
-	await paper.finished
-	AudioServer.set_bus_mute(0, true)
+	#await paper.finished
+	AudioServer.set_bus_mute(2, true)
 	PlayerManager.current_player.exited.connect(hide_window)
 	
 
 func hide_window():
 	window.hide()
-	AudioServer.set_bus_mute(0, false)
+	AudioServer.set_bus_mute(2, false)
 	paper.pitch_scale = close_pitch
 	paper.play()
 	PlayerManager.current_player.free_controls()

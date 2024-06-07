@@ -45,5 +45,6 @@ frame_progress = 0.460761
 
 [node name="pickUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_hmy35")
+bus = &"Player"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

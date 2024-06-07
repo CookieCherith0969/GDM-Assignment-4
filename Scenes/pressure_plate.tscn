@@ -44,11 +44,13 @@ animation = &"Up"
 stream = ExtResource("4_3f5sj")
 volume_db = -6.0
 pitch_scale = 0.5
+bus = &"Machines"
 
 [node name="ButtonUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_x7wf1")
 volume_db = -6.0
 pitch_scale = 0.5
+bus = &"Machines"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
