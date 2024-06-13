@@ -69,12 +69,16 @@ func set_gap(val : float):
 	blockable_area.max_gap = max_gap
 
 func _on_blockable_area_target_entered(target):
+	if not target.has_method("on_lit"):
+		return
 	if not lighter:
 		target.on_lit(self)
 	else:
 		target.on_lit(lighter)
 
 func _on_blockable_area_target_exited(target):
+	if not target.has_method("on_unlit"):
+		return
 	if not lighter:
 		target.on_unlit(self)
 	else:

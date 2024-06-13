@@ -19,9 +19,10 @@ var hit_from_inside = false : set = set_inside
 @export
 var ray_mask : int = 1 : set = set_mask
 
-var rays : Array
+var ray_rotations : Array
 var targets : Array
-var prev_targets : Array
+@onready
+var sweeping_ray = $SweepingRay
 
 var active_targets : Array
 
@@ -42,72 +43,69 @@ func _ready():
 func _physics_process(_delta):
 	if Engine.is_editor_hint():
 		return
-	
-	if rays.size() == 0:
+	if ray_rotations.size() == 0:
 		return
 	if not active:
 		return
-	prev_targets = targets.duplicate()
 	targets.clear()
 	
-	for ray in rays:
-		ray.clear_exceptions()
-		ray.force_raycast_update()
-		while ray.is_colliding():
-			var target = ray.get_collider()
-			if is_instance_of(target, TileMap):
+	sweeping_ray.clear_exceptions()
+	for rot in ray_rotations:
+		# Set the ray's target
+		sweeping_ray.rotation = rot
+		sweeping_ray.force_raycast_update()
+		var i = 0
+		# Stop if the ray hit nothing
+		while sweeping_ray.is_colliding():
+			var collider = sweeping_ray.get_collider()
+			# Stop if the ray hit a wall
+			if is_instance_of(collider, TileMap):
 				break
-			if (not target in targets) and (target.has_method(&"on_lit")):
-				targets.append(target)
-				if not target in prev_targets:
-					active_targets.append(target)
-					target_entered.emit(target)
-			if target.get_collision_layer_value(1):
-				break
-			else:
-				ray.add_exception(target)
-			ray.force_raycast_update()
+			#if collider.get_collision_layer_value(1):
+				#break
+			
+			# Exclude any non-wall object and cast again
+			#ray.exclude.append(result.rid)
+			sweeping_ray.add_exception(collider)
+			targets.append(collider)
+			sweeping_ray.force_raycast_update()
+			#if get_parent().get_parent().get_parent() == PlayerManager.current_player:
+				#print_debug(i)
+				#i += 1
+			
 	
-	for target in prev_targets:
-		if not target in targets:
+	for target in active_targets:
+		if target not in targets:
 			active_targets.erase(target)
 			target_exited.emit(target)
+	
+	for target in targets:
+		if target not in active_targets:
+			active_targets.append(target)
+			target_entered.emit(target)
 
 func set_angle(val : float):
 	angle = val
 	
 	max_gap = max_gap
-
-	var i : float = 0
-	for ray in rays:
-		ray.rotation_degrees = (i/(num_rays-1) * angle)-(angle/2)
-		i += 1
 	
 
 func set_rays(val : int):
 	num_rays = val
 	
-	rays.clear()
-	for child in get_children():
-		child.queue_free()
+	ray_rotations.clear()
 	
 	for i in range(num_rays):
-		var new_ray := RayCast2D.new()
-		new_ray.enabled = false
-		new_ray.set_collision_mask_value(4, true)
-		new_ray.target_position.y = -ray_range
-		new_ray.rotation_degrees = ((float(i)/(num_rays-1)) * angle)-(angle/2)
-		new_ray.hit_from_inside = hit_from_inside
-		rays.append(new_ray)
-		add_child(new_ray)
+		var rot = deg_to_rad(((float(i)/(num_rays-1)) * angle)-(angle/2))
+		ray_rotations.append(rot)
 	
 func set_range(val : float):
 	ray_range = val
+	if !is_instance_valid(sweeping_ray):
+		return
+	sweeping_ray.target_position = Vector2(0,-ray_range)
 	
 	max_gap = max_gap
-	
-	for ray in rays:
-		ray.target_position.y = -ray_range
 
 func set_active(val : bool):
 	active = val
@@ -117,19 +115,18 @@ func set_active(val : bool):
 			target_exited.emit(target)
 		active_targets.clear()
 		targets.clear()
-		prev_targets.clear()
 
 func set_inside(val : bool):
 	hit_from_inside = val
-	
-	for ray in rays:
-		ray.hit_from_inside = hit_from_inside
+	if !is_instance_valid(sweeping_ray):
+		return
+	sweeping_ray.hit_from_inside = hit_from_inside
 
 func set_mask(val : int):
 	ray_mask = val
-	
-	for ray in rays:
-		ray.collision_mask = ray_mask
+	if !is_instance_valid(sweeping_ray):
+		return
+	sweeping_ray.collision_mask = ray_mask
 
 func set_gap(val : float):
 	max_gap = val

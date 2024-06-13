@@ -36,31 +36,24 @@ layer_1/tile_data = PackedInt32Array(-3276790, 65536, 1, -3276791, 131072, 1, -3
 
 [node name="Hive" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(64, -448)
-scout_num = 3
 
 [node name="Hive2" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(64, -320)
-scout_num = 3
 
 [node name="Hive3" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(64, -192)
-scout_num = 3
 
 [node name="Hive4" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(-64, -128)
-scout_num = 3
 
 [node name="Hive5" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(-64, -256)
-scout_num = 3
 
 [node name="Hive6" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(-64, -384)
-scout_num = 3
 
 [node name="Hive7" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(-64, -512)
-scout_num = 3
 
 [node name="Hive8" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(-173, -863)
