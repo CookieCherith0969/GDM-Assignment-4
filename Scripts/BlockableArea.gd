@@ -54,24 +54,18 @@ func _physics_process(_delta):
 		# Set the ray's target
 		sweeping_ray.rotation = rot
 		sweeping_ray.force_raycast_update()
-		var i = 0
 		# Stop if the ray hit nothing
 		while sweeping_ray.is_colliding():
 			var collider = sweeping_ray.get_collider()
 			# Stop if the ray hit a wall
 			if is_instance_of(collider, TileMap):
 				break
-			#if collider.get_collision_layer_value(1):
-				#break
 			
 			# Exclude any non-wall object and cast again
 			#ray.exclude.append(result.rid)
 			sweeping_ray.add_exception(collider)
 			targets.append(collider)
 			sweeping_ray.force_raycast_update()
-			#if get_parent().get_parent().get_parent() == PlayerManager.current_player:
-				#print_debug(i)
-				#i += 1
 			
 	
 	for target in active_targets:
