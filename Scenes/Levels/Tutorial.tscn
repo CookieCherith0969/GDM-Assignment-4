@@ -28,6 +28,7 @@ end_elevator = NodePath("EndElevator")
 [node name="Light Prompt" type="Sprite2D" parent="."]
 light_mask = 2
 position = Vector2(50, -27)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_gth47")
 
 [node name="Label" type="Label" parent="."]
