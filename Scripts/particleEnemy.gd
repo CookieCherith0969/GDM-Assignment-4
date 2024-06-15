@@ -5,8 +5,6 @@ var player_in_range = false # If enemy is chasing player -R
 var player = null # Player object -R
 var lighters : Array = []
 @onready
-var sprite = $AnimatedSprite2D
-@onready
 var huntlight = $HuntLight
 @export
 var home_hive : Node2D = null
@@ -36,18 +34,12 @@ var on_screen = false
 var in_final_cutscene = false : set = set_final_cutscene
 
 func _ready():
-	sprite.play("redSwarmAnim")
-#	call_deferred("nav_setup")
 	for particle in $Particles.get_children():
 		particles.append(particle)
 		particle.position.x += randf_range(-2,2)
 		particle.position.y += randf_range(-2,2)
 		particle.speed = slow_particle_speed
-		#particle.flip_h = randf() < 0.5
-	
-#func nav_setup():
-#	await get_tree().physics_frame
-#	nav_ready = true
+
 
 func _physics_process(delta):
 	if not nav_ready:
@@ -84,7 +76,7 @@ func _physics_process(delta):
 	# No valid targets, but not at home. Return home.
 	elif not at_home:
 		nav_agent.target_position = home_hive.global_position
-		
+
 	# Cool down while at home
 	if at_home:
 		if reaction_timer > 0:
@@ -105,18 +97,13 @@ func _physics_process(delta):
 		reaction_timer += delta
 		if reaction_timer < reaction_time:
 			return
-	
+	var next_pos = nav_agent.get_next_path_position()
 	# Move towards target position
-	velocity = global_position.direction_to(nav_agent.get_next_path_position())*speed
+	velocity = global_position.direction_to(next_pos)*speed
 	
-	# Flip sprite horizontally to face player -R
-	if (velocity.x) < 0:
-		sprite.flip_h = false
-	else:
-		sprite.flip_h = true
-	#if velocity.length()*delta >= global_position.distance_to(nav):
-		#global_position = target_position
-		#velocity = Vector2.ZERO
+	#if get_parent().name == "Hive4":
+		#print_debug(str(velocity.normalized())+" Towards "+str(global_position.direction_to(nav_agent.target_position)))
+
 	move_and_slide()
 
 func update_particles(delta):

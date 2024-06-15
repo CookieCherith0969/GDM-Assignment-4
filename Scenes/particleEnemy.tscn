@@ -1,134 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://4ykwdgmbuqxg"]
+[gd_scene load_steps=8 format=3 uid="uid://4ykwdgmbuqxg"]
 
 [ext_resource type="Script" path="res://Scripts/particleEnemy.gd" id="1_avjly"]
-[ext_resource type="Texture2D" uid="uid://bcbth4lcnie76" path="res://Art/BigSwarmSheet.png" id="2_fb646"]
-[ext_resource type="Texture2D" uid="uid://bx1bdgrsx38ve" path="res://Art/enemyspritenew.png" id="3_e8pbg"]
-[ext_resource type="Texture2D" uid="uid://b2jtq4qftibgw" path="res://Art/NewSwarmSheet.png" id="4_ylxsk"]
-[ext_resource type="Texture2D" uid="uid://dog68fxas75h7" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_1.png" id="5_ksgkn"]
-[ext_resource type="Texture2D" uid="uid://1mgmc802kto8" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_2.png" id="6_qdx56"]
-[ext_resource type="Texture2D" uid="uid://dp1lkcyo6tl8g" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_3.png" id="7_hwwvj"]
-[ext_resource type="Texture2D" uid="uid://dx7v5ysfvwsgw" path="res://Art/2D Pixel Dungeon Asset Pack/Character_animation/monsters_idle/skull/v2/skull_v2_4.png" id="8_jucjg"]
-[ext_resource type="Texture2D" uid="uid://biu2qugkigq4q" path="res://Art/RedSwarmSheet.png" id="9_5iuka"]
-[ext_resource type="Texture2D" uid="uid://chfx6rmfdublk" path="res://Art/PlaceholderArt/SwarmSheet.png" id="10_nden4"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="11_mnrje"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="12_rabfj"]
 [ext_resource type="AudioStream" uid="uid://c4jt50lgmrwjy" path="res://audio/buzzing.wav" id="13_toy7f"]
 [ext_resource type="PackedScene" uid="uid://blpo7v224xhk1" path="res://Scenes/particle.tscn" id="14_55vaa"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apj70"]
-atlas = ExtResource("2_fb646")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdasm"]
-atlas = ExtResource("2_fb646")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_12f3i"]
-atlas = ExtResource("3_e8pbg")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mln7s"]
-atlas = ExtResource("3_e8pbg")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqfqp"]
-atlas = ExtResource("4_ylxsk")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hls6"]
-atlas = ExtResource("4_ylxsk")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4grwm"]
-atlas = ExtResource("9_5iuka")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f7xyq"]
-atlas = ExtResource("9_5iuka")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8suf"]
-atlas = ExtResource("10_nden4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_knfme"]
-atlas = ExtResource("10_nden4")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rghix"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apj70")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rdasm")
-}],
-"loop": true,
-"name": &"bigSwarmAnim",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_12f3i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mln7s")
-}],
-"loop": true,
-"name": &"mothAnim",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hqfqp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4hls6")
-}],
-"loop": true,
-"name": &"newSwarmAnim",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_ksgkn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_qdx56")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_hwwvj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_jucjg")
-}],
-"loop": true,
-"name": &"placeHolderAnim",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4grwm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f7xyq")
-}],
-"loop": true,
-"name": &"redSwarmAnim",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o8suf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_knfme")
-}],
-"loop": true,
-"name": &"swarmAnim",
-"speed": 3.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_714ps"]
 radius = 8.0
@@ -144,11 +20,6 @@ platform_on_leave = 2
 script = ExtResource("1_avjly")
 
 [node name="ParticleEnabler" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-sprite_frames = SubResource("SpriteFrames_rghix")
-animation = &"redSwarmAnim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_714ps")
