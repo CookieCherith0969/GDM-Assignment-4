@@ -50,7 +50,7 @@ texture = ExtResource("3_i58oj")
 texture_scale = 0.5
 
 [node name="GlowArea" parent="." instance=ExtResource("4_65slt")]
-max_gap = 3.0
+max_gap = 16.0
 hit_from_inside = true
 ray_mask = 20
 

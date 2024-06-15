@@ -132,9 +132,9 @@ position = Vector2(279, 43)
 position = Vector2(376, -6)
 
 [node name="LightGate" parent="." instance=ExtResource("3_ysgnm")]
-position = Vector2(532, 41)
+position = Vector2(556, 41)
 rotation = 1.5708
-gateSize = Vector2i(7, 8)
+gateSize = Vector2i(7, 12)
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("13_1tqma")]
 position = Vector2(510, 12)
