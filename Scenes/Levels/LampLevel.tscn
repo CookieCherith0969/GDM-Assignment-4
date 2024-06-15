@@ -57,15 +57,12 @@ position = Vector2(-64, -512)
 
 [node name="Hive8" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(-173, -863)
-scout_num = 3
 
 [node name="Hive9" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(67, -812)
-scout_num = 3
 
 [node name="Hive10" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(146, -868)
-scout_num = 3
 
 [node name="Hive11" parent="Enemies" instance=ExtResource("2_pf5n5")]
 position = Vector2(-344, -649)
