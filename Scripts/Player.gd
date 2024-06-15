@@ -165,13 +165,13 @@ func set_key(value: bool):
 func _on_glow_area_target_entered(target):
 	if target.has_method("on_lit"):
 		target.on_lit(self)
-		print_debug("Glow lit")
+		#print_debug("Glow lit")
 
 
 func _on_glow_area_target_exited(target):
 	if target.has_method("on_unlit"):
 		target.on_unlit(self)
-		print_debug("Glow unlit")
+		#print_debug("Glow unlit")
 
 func is_corrupted():
 	return corrupted
