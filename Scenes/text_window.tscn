@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpl3ysjv0oeb2"]
+[gd_scene load_steps=8 format=3 uid="uid://cpl3ysjv0oeb2"]
 
-[ext_resource type="Texture2D" uid="uid://d1h5w1nm1mri" path="res://Art/PlaceholderArt/GlassRect.png" id="1_flr85"]
 [ext_resource type="Script" path="res://Scripts/text_window.gd" id="1_x7sv4"]
+[ext_resource type="Texture2D" uid="uid://cm8j8gnshgev0" path="res://Art/TextRect.png" id="2_wpitb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qfbc"]
+bg_color = Color(0.298039, 0.0156863, 0.054902, 1)
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4m5f"]
+bg_color = Color(0.509804, 0.0470588, 0.121569, 1)
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyucv"]
+bg_color = Color(0.6, 0.0666667, 0.14902, 1)
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k216f"]
+bg_color = Color(0.6, 0.0666667, 0.14902, 1)
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_x5s1v"]
+Button/styles/focus = SubResource("StyleBoxFlat_5qfbc")
+Button/styles/hover = SubResource("StyleBoxFlat_w4m5f")
+Button/styles/normal = SubResource("StyleBoxFlat_cyucv")
+Button/styles/pressed = SubResource("StyleBoxFlat_k216f")
 
 [node name="TextWindow" type="MarginContainer"]
 anchors_preset = 15
@@ -21,7 +43,7 @@ script = ExtResource("1_x7sv4")
 
 [node name="Control" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_flr85")
+texture = ExtResource("2_wpitb")
 patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
@@ -41,12 +63,14 @@ theme_override_constants/margin_bottom = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.101961, 0.101961, 0.101961, 1)
 bbcode_enabled = true
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme = SubResource("Theme_x5s1v")
 text = " X "
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
