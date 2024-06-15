@@ -33,6 +33,8 @@ var max_light_energy = 0.5
 
 var on_screen = false
 
+var in_final_cutscene = false : set = set_final_cutscene
+
 func _ready():
 	sprite.play("redSwarmAnim")
 #	call_deferred("nav_setup")
@@ -51,6 +53,10 @@ func _ready():
 func _physics_process(delta):
 	if not nav_ready:
 		nav_ready = true
+		return
+	
+	if in_final_cutscene:
+		update_particles(delta)
 		return
 	
 	if on_screen:
@@ -127,6 +133,16 @@ func update_particles(delta):
 func set_particle_speed(particle_speed):
 	for particle in particles:
 		particle.speed = particle_speed
+
+func set_final_cutscene(val):
+	in_final_cutscene = val
+	
+	if in_final_cutscene:
+		reaction_timer = reaction_time
+		buzzing.play()
+	else:
+		reaction_timer = 0
+		buzzing.stop()
 
 func set_at_home(val : bool):
 	at_home = val

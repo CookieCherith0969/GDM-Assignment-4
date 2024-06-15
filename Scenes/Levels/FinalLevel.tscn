@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://btmd1rnnkb725"]
+[gd_scene load_steps=30 format=3 uid="uid://btmd1rnnkb725"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_j7uh2"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="2_g0mad"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://ddg8hl14b8mda" path="res://Scenes/blocker_vines.tscn" id="5_4yyyx"]
 [ext_resource type="PackedScene" uid="uid://dudk7d7ss8mki" path="res://Scenes/Glass.tscn" id="6_qo1qk"]
 [ext_resource type="PackedScene" uid="uid://cyi115ywj3ahm" path="res://Scenes/vent.tscn" id="7_pf5dd"]
-[ext_resource type="PackedScene" uid="uid://o4lnxtl7hme0" path="res://Scenes/fake_hive.tscn" id="8_lq2e5"]
 [ext_resource type="Script" path="res://Scripts/FakeLampPlant.gd" id="9_2y7sk"]
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="9_3fmul"]
 [ext_resource type="Texture2D" uid="uid://bx7nttu6o8xj" path="res://Art/lightplant-Sheet.png" id="10_f1p3k"]
@@ -176,15 +175,6 @@ target = NodePath("../Vent2")
 [node name="Vent2" parent="." instance=ExtResource("7_pf5dd")]
 position = Vector2(-1, -626)
 
-[node name="FakeHive" parent="." instance=ExtResource("8_lq2e5")]
-position = Vector2(-57, -663)
-
-[node name="FakeHive2" parent="." instance=ExtResource("8_lq2e5")]
-position = Vector2(61, -655)
-
-[node name="FakeHive3" parent="." instance=ExtResource("8_lq2e5")]
-position = Vector2(-1, -567)
-
 [node name="SpecialLampPlant" type="Node2D" parent="."]
 position = Vector2(-178, -615)
 script = ExtResource("9_3fmul")
@@ -224,11 +214,11 @@ lighter = NodePath("..")
 [node name="PlantLight" type="AudioStreamPlayer" parent="SpecialLampPlant"]
 stream = ExtResource("12_jf7dw")
 
-[node name="FakeLampPlant" type="Node2D" parent="." node_paths=PackedStringArray("removed_vent", "fake_hives", "special_lamp_plant")]
+[node name="FakeLampPlant" type="Node2D" parent="." node_paths=PackedStringArray("removed_vent", "hives", "special_lamp_plant")]
 position = Vector2(-1, -617)
 script = ExtResource("9_2y7sk")
 removed_vent = NodePath("../Vent2")
-fake_hives = [NodePath("../FakeHive"), NodePath("../FakeHive2"), NodePath("../FakeHive3")]
+hives = [NodePath("../Hive3"), NodePath("../Hive4"), NodePath("../Hive5")]
 special_lamp_plant = NodePath("../SpecialLampPlant")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FakeLampPlant"]
@@ -344,6 +334,15 @@ contents = "[TRANSMISSION]
 [CORRUPTED]
 [END TRANSMISSION]"
 log_id = 8
+
+[node name="Hive3" parent="." instance=ExtResource("17_vlxuq")]
+position = Vector2(-57, -663)
+
+[node name="Hive4" parent="." instance=ExtResource("17_vlxuq")]
+position = Vector2(61, -655)
+
+[node name="Hive5" parent="." instance=ExtResource("17_vlxuq")]
+position = Vector2(-1, -567)
 
 [connection signal="body_entered" from="SpecialLampPlant/DetectionArea" to="SpecialLampPlant" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="SpecialLampPlant/DetectionArea" to="SpecialLampPlant" method="_on_detection_area_body_exited"]

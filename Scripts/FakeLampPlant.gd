@@ -3,7 +3,7 @@ extends Node2D
 @export
 var removed_vent : Vent
 @export
-var fake_hives : Array[Node2D]
+var hives : Array[Node2D]
 @export
 var wait_time = 2.0
 @export
@@ -18,12 +18,13 @@ func _on_detection_area_body_entered(body):
 		body.lock_controls()
 		body.exited.connect(on_player_exited)
 		removed_vent.queue_free()
-		for hive in fake_hives:
-			hive.spawn_enemies(2)
+		for hive in hives:
+			for scout in hive.scouts:
+				scout.in_final_cutscene = true
 		await get_tree().create_timer(wait_time).timeout
-		for hive in fake_hives:
-			hive.remove_enemies()
-			hive.replace_with_real(2)
+		for hive in hives:
+			for scout in hive.scouts:
+				scout.in_final_cutscene = false
 		body.exited.disconnect(on_player_exited)
 		body.free_controls()
 		replace_with_real()
