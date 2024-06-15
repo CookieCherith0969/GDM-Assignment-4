@@ -6,7 +6,7 @@ signal target_exited(target)
 
 @export_range(0,360)
 var angle : float = 360 : set = set_angle
-@export_range(1,16)
+@export_range(0.1,16)
 var max_gap : float = 6 : set = set_gap
 #@export_range(2,1000)
 var num_rays : int = 5 : set = set_rays
