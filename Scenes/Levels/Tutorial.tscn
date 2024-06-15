@@ -75,10 +75,10 @@ layer_2/tile_data = PackedInt32Array(-65510, 262144, 1342177280, 26, 262144, 134
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Hive" parent="Enemies" instance=ExtResource("10_6yq8q")]
-position = Vector2(512, 20)
+position = Vector2(512, 15)
 
 [node name="Hive2" parent="Enemies" instance=ExtResource("10_6yq8q")]
-position = Vector2(457, 19)
+position = Vector2(457, 14)
 
 [node name="Gates" type="Node2D" parent="."]
 
@@ -111,8 +111,8 @@ gateSize = Vector2i(6, 2)
 position = Vector2(263, 58)
 
 [node name="Glass11" parent="Objects" instance=ExtResource("7_0eb6t")]
-position = Vector2(421, 32)
-size = Vector2i(198, 5)
+position = Vector2(421, 27)
+size = Vector2i(198, 10)
 
 [node name="PowerGate" parent="Objects" instance=ExtResource("9_2jlnf")]
 position = Vector2(416, 72)

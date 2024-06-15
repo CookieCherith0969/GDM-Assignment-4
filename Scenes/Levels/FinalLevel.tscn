@@ -166,10 +166,10 @@ size = Vector2i(32, 28)
 
 [node name="Glass" parent="." instance=ExtResource("6_qo1qk")]
 position = Vector2(-11, -533)
-size = Vector2i(22, 5)
+size = Vector2i(22, 10)
 
 [node name="Vent" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_pf5dd")]
-position = Vector2(0, -517)
+position = Vector2(0, -512)
 target = NodePath("../Vent2")
 
 [node name="Vent2" parent="." instance=ExtResource("7_pf5dd")]
