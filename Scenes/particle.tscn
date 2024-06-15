@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://blpo7v224xhk1"]
+
+[ext_resource type="Texture2D" uid="uid://cofs14r255snn" path="res://Art/ScoutSingle.png" id="1_saxd5"]
+[ext_resource type="Script" path="res://Scripts/Particle.gd" id="2_0gntp"]
+
+[node name="Particle" type="Sprite2D"]
+process_mode = 4
+z_index = 2
+texture = ExtResource("1_saxd5")
+script = ExtResource("2_0gntp")

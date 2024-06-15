@@ -181,7 +181,7 @@ position = Vector2(52, -158)
 
 [node name="DataLog" parent="." instance=ExtResource("17_ivi16")]
 position = Vector2(46, -224)
-contents = "LOG 19-3
+contents = "[LOG 19-3]
 I can hear something in the walls.
 I've tried to tell everyone. No one is listening.
 
@@ -195,7 +195,7 @@ log_id = 4
 
 [node name="DataLog2" parent="." instance=ExtResource("17_ivi16")]
 position = Vector2(185, -304)
-contents = "LOG 18-2
+contents = "[LOG 18-2]
 These things creep me out.
 The way we have to dim the lights around them..
 

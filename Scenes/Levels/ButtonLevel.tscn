@@ -234,7 +234,7 @@ flip_h = true
 
 [node name="DataLog" parent="." instance=ExtResource("15_qva4q")]
 position = Vector2(335, 418)
-contents = "LOG 20-1
+contents = "[LOG 20-1]
 I can hear them shifting around in the darkness.
 I've been terrified of turning on my light this whole time.
 Which way do I go?
@@ -251,7 +251,7 @@ log_id = 7
 
 [node name="DataLog2" parent="." instance=ExtResource("15_qva4q")]
 position = Vector2(503, 156)
-contents = "LOG 19-5
+contents = "[LOG 19-5]
 [Sounds of cutlery clinking]
 Do you ever think about the.. Morality, of all this?
 [Pause, then a second voice speaks up]

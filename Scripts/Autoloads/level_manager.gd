@@ -31,6 +31,7 @@ var data_logs_read = [
 	false,
 	false,
 	false,
+	false,
 	false
 ]
 

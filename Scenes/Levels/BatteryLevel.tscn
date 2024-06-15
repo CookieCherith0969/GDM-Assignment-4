@@ -329,7 +329,7 @@ visible = false
 
 [node name="DataLog" parent="." instance=ExtResource("18_cknw4")]
 position = Vector2(-158, -840)
-contents = "LOG 16-2
+contents = "[LOG 16-2]
 They respond aggressively to light.
 
 Reminds me of those deep sea creatures I'd hear about when I was younger.
@@ -348,7 +348,7 @@ position = Vector2(-169, -874)
 
 [node name="DataLog2" parent="." instance=ExtResource("18_cknw4")]
 position = Vector2(17, -604)
-contents = "LOG 15-1
+contents = "[LOG 15-1]
 These creatures are fascinating.
 
 They appear to be eusocial. We'll need to figure out what they do in these hives of theirs.

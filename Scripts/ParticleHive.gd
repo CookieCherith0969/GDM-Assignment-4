@@ -19,8 +19,8 @@ func set_scout_num(val : int):
 	while scout_num > scouts.size():
 		var new_scout = scout_scene.instantiate()
 		new_scout.home_hive = self
-		#new_scout.position.x = randf_range(-5,5)
-		#new_scout.position.y = randf_range(-5,5)
+		new_scout.position.x = randf_range(-5,5)
+		new_scout.position.y = randf_range(-5,5)
 		scouts.append(new_scout)
 		add_child(new_scout)
 	

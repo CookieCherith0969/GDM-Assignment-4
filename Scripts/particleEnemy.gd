@@ -16,36 +16,55 @@ var nav_ready = false
 var at_home = true : set = set_at_home
 @onready var buzzing = $buzzing
 
+var particles := []
+
 var shuffle_timer = 0
 var shuffle_frequency = 2
 var current_shuffle_frequency = 0
 var reaction_time = 0.5
-var reaction_timer = 0
-#var target_position = global_position
+var reaction_timer = 0 : set = set_reaction_timer
 #const desired_distance = 5
+
+var particle_push_force = 5
+var slow_particle_speed = 60
+var fast_particle_speed = 300
+
+var max_light_energy = 0.5
+
+var on_screen = false
 
 func _ready():
 	sprite.play("redSwarmAnim")
 #	call_deferred("nav_setup")
+	for particle in $Particles.get_children():
+		particles.append(particle)
+		particle.global_position = global_position
+		particle.global_position.x += randf_range(-2,2)
+		particle.global_position.y += randf_range(-2,2)
+		particle.speed = slow_particle_speed
+		#particle.flip_h = randf() < 0.5
 	
 #func nav_setup():
 #	await get_tree().physics_frame
 #	nav_ready = true
-	
+
 func _physics_process(delta):
 	if not nav_ready:
 		nav_ready = true
 		return
-	# Move towards player if in range and the players light is on OR a lamp plant is on -R
+	
+	if on_screen:
+		update_particles(delta)
+	
+	# If the player is a valid target, prioritise them
 	if player_in_range && player.lit && !player.is_corrupted():
 		at_home = false
-		current_shuffle_frequency = 0
-		huntlight.enabled = true
+		
 		nav_agent.target_position = player.global_position
+	
+	# If the player isn't a target, but there's something else casting light on the scout, target it
 	elif lighters.size() > 0:
 		at_home = false
-		current_shuffle_frequency = 0
-		huntlight.enabled = true
 		
 		var closest_lighter = lighters[0]
 		var shortest_distance = global_position.distance_to(closest_lighter.global_position)
@@ -56,55 +75,58 @@ func _physics_process(delta):
 				shortest_distance = distance
 		
 		nav_agent.target_position = closest_lighter.global_position
+	
+	# No valid targets, but not at home. Return home.
 	elif not at_home:
-		huntlight.enabled = false
-		if home_hive:
-			nav_agent.target_position = home_hive.global_position
-		else:
-			nav_agent.target_position = global_position
-	elif home_hive:
-		shuffle_timer += delta
-		if shuffle_timer > current_shuffle_frequency:
-			shuffle_timer -= current_shuffle_frequency
-			current_shuffle_frequency = randfn(shuffle_frequency, 0.5)
-			nav_agent.target_position = home_hive.global_position + Vector2.from_angle(randf_range(0,2*PI))*randfn(9,5)
-			while !nav_agent.is_target_reachable():
-				nav_agent.target_position = home_hive.global_position + Vector2.from_angle(randf_range(0,2*PI))*randfn(9,5)
+		nav_agent.target_position = home_hive.global_position
+		
+	# Cool down while at home
+	if at_home:
+		if reaction_timer > 0:
+			reaction_timer -= delta
+			if reaction_timer < 0:
+				reaction_timer = 0
 	
 	if nav_agent.is_navigation_finished():
 		if home_hive and nav_agent.target_position == home_hive.global_position:
 			at_home = true
-			reaction_timer = 0
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	
 	
-	#if global_position.distance_to(target_position) < desired_distance:
-	#	return
-	if not at_home:
+	# After finding a target, freeze until the reaction timer is finished
+	if not at_home and reaction_timer <= reaction_time:
 		reaction_timer += delta
 		if reaction_timer < reaction_time:
 			return
 	
+	# Move towards target position
 	velocity = global_position.direction_to(nav_agent.get_next_path_position())*speed
-	#velocity = global_position.direction_to(target_position)*speed
+	
 	# Flip sprite horizontally to face player -R
 	if (velocity.x) < 0:
 		sprite.flip_h = false
 	else:
 		sprite.flip_h = true
+	#if velocity.length()*delta >= global_position.distance_to(nav):
+		#global_position = target_position
+		#velocity = Vector2.ZERO
 	move_and_slide()
 
-# If a plant in the scene is on, set activeLampPlant to true otherwise, false -R
-"""func checkForActivePlants():
-	for x in lampPlantsInScene:
-		if x.lampActive:
-				activeLampPlant = true
-				return
+func update_particles(delta):
+	for particle in particles:
+		var dist = particle.global_position.distance_to(global_position)
+		if dist < 0.5:
+			particle.velocity += global_position.direction_to(particle.global_position)*delta*particle_push_force
+			pass
 		else:
-			activeLampPlant = false"""
-		
+			particle.velocity += particle.global_position.direction_to(global_position)*delta*dist
+		#particle.global_position = particle.global_position.move_toward(global_position, particle_chase_speed*delta)
+
+func set_particle_speed(particle_speed):
+	for particle in particles:
+		particle.speed = particle_speed
 
 func set_at_home(val : bool):
 	at_home = val
@@ -118,8 +140,13 @@ func _on_detection_area_target_entered(target):
 		return
 	player = target
 	player_in_range = true
-	
 
+func set_reaction_timer(val):
+	reaction_timer = val
+	
+	var aggravation = reaction_timer/reaction_time
+	huntlight.energy = aggravation*max_light_energy
+	set_particle_speed(lerp(slow_particle_speed,fast_particle_speed,aggravation))
 
 func _on_detection_area_target_exited(target):
 	if not is_instance_of(target, Player):
@@ -143,3 +170,14 @@ func _on_kill_area_body_entered(body):
 			return
 		SoundManager.play_death()
 		LevelManager.reload_level()
+
+
+func _on_particle_enabler_screen_entered():
+	for particle in particles:
+		particle.process_mode = PROCESS_MODE_INHERIT
+	on_screen = true
+
+func _on_particle_enabler_screen_exited():
+	for particle in particles:
+		particle.process_mode = PROCESS_MODE_DISABLED
+	on_screen = false

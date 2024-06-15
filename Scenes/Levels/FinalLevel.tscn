@@ -340,7 +340,7 @@ flip_h = true
 
 [node name="DataLog" parent="." instance=ExtResource("19_ub5ju")]
 position = Vector2(26, -999)
-contents = "TRANSMISSION
+contents = "[TRANSMISSION]
 [CORRUPTED]
 [END TRANSMISSION]"
 log_id = 8
