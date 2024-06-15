@@ -17,6 +17,8 @@ var occluder = $LightOccluder2D
 var id : int = 0 : set = set_id
 var registered = false
 
+var player_inside = false : set = set_player_inside
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Engine.is_editor_hint():
@@ -49,13 +51,35 @@ func set_start_powered(val : bool):
 		sprite.show()
 
 func on_power():
+	open_gate()
+
+func on_depower():
+	if not player_inside:
+		shut_gate()
+
+func open_gate():
 	shape.set_deferred("disabled", true)
 	gate_open.play()
 	sprite.hide()
 	occluder.hide()
 
-func on_depower():
+func shut_gate():
 	shape.set_deferred("disabled", false)
 	gate_close.play()
 	sprite.show()
 	occluder.show()
+
+func set_player_inside(val):
+	player_inside = val
+	
+	if not player_inside and not PowerManager.is_powered(id):
+		shut_gate()
+
+func _on_area_2d_body_entered(body):
+	if is_instance_of(body, Player):
+		player_inside = true
+
+
+func _on_area_2d_body_exited(body):
+	if is_instance_of(body, Player):
+		player_inside = false

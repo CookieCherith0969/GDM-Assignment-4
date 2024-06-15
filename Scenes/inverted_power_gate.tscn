@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bl06qjen3kmub"]
+[gd_scene load_steps=9 format=3 uid="uid://bl06qjen3kmub"]
 
 [ext_resource type="Script" path="res://Scripts/InvertedPowerGate.gd" id="1_k258l"]
 [ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_3mqin"]
@@ -14,6 +14,9 @@ region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3bqn1"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, -4, -8, -4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s03vm"]
+size = Vector2(16, 16)
 
 [node name="InvertedPowerGate" type="StaticBody2D"]
 collision_layer = 17
@@ -40,3 +43,13 @@ bus = &"Machines"
 [node name="gateClose" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_prx6s")
 bus = &"Machines"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_s03vm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
