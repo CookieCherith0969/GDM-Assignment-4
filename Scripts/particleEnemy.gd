@@ -40,9 +40,8 @@ func _ready():
 #	call_deferred("nav_setup")
 	for particle in $Particles.get_children():
 		particles.append(particle)
-		particle.global_position = global_position
-		particle.global_position.x += randf_range(-2,2)
-		particle.global_position.y += randf_range(-2,2)
+		particle.position.x += randf_range(-2,2)
+		particle.position.y += randf_range(-2,2)
 		particle.speed = slow_particle_speed
 		#particle.flip_h = randf() < 0.5
 	
@@ -122,12 +121,12 @@ func _physics_process(delta):
 
 func update_particles(delta):
 	for particle in particles:
-		var dist = particle.global_position.distance_to(global_position)
+		var dist = particle.position.length()
 		if dist < 0.5:
-			particle.velocity += global_position.direction_to(particle.global_position)*delta*particle_push_force
+			particle.velocity += particle.position.normalized()*delta*particle_push_force
 			pass
 		else:
-			particle.velocity += particle.global_position.direction_to(global_position)*delta*dist
+			particle.velocity += -particle.position*delta*dist
 		#particle.global_position = particle.global_position.move_toward(global_position, particle_chase_speed*delta)
 
 func set_particle_speed(particle_speed):

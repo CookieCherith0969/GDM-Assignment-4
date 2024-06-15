@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	global_position += velocity*speed*delta
 	velocity *= conservation
 	velocity += Vector2(randomness,0).rotated(randf_range(0,2*PI))*delta
