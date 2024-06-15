@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://u1tx8oljgaq5"]
+[gd_scene load_steps=10 format=3 uid="uid://u1tx8oljgaq5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_r6tot"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="1_uly08"]
@@ -13,6 +13,9 @@ region = Rect2(32, 96, 16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b75oo"]
 polygon = PackedVector2Array(-16.0001, -30.9999, -16.0001, -31.9999, 15.9999, -32.0001, 15.9999, -31.0001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k5cx"]
+size = Vector2(32, 5.00008)
 
 [node name="EndScene" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_r6tot")
@@ -36,6 +39,12 @@ texture = SubResource("AtlasTexture_3rfvn")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Elevator"]
 occluder = SubResource("OccluderPolygon2D_b75oo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elevator"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator/StaticBody2D"]
+position = Vector2(-0.000124433, -29.5)
+shape = SubResource("RectangleShape2D_1k5cx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
