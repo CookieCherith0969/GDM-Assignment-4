@@ -211,4 +211,4 @@ log_id = 5
 
 [node name="Glass2" parent="." instance=ExtResource("16_tdl51")]
 position = Vector2(198, -288)
-size = Vector2i(22, 5)
+size = Vector2i(22, 10)
