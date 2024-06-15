@@ -64,20 +64,19 @@ func reload_level():
 		return
 		#var next_name = current_level.get_end_elevator().next_level_name
 		#load_level(next_name, true)
-	PowerManager.clear_all()
 	PlayerManager.save_player_pos()
 	PlayerManager.reset_player_state()
 	call_deferred("_deferred_reload_level")
 
 func _deferred_reload_level():
 	current_level.free()
+	PowerManager.clear_all()
 	instantiate_new_level(current_name)
 	PlayerManager.place_player_at(current_level.get_start_elevator().global_position)
 	PlayerManager.place_failed_robot()
 
 
 func load_level(level_name : String, transition : bool):
-	PowerManager.clear_all()
 	PlayerManager.save_player_state()
 	call_deferred("_deferred_load_level", level_name, transition)
 
@@ -90,6 +89,7 @@ func _deferred_load_level(level_name : String, transition : bool):
 		spawn_pos = player_pos - end_pos
 		elevator_rot = current_level.get_end_elevator().rotation
 	current_level.free()
+	PowerManager.clear_all()
 	
 	if transition:
 		instantiate_new_level("TransitionElevator")
