@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3lodqfwdqr73"]
+[gd_scene load_steps=9 format=3 uid="uid://d3lodqfwdqr73"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_cgkpe"]
 [ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="2_ffbtt"]
 [ext_resource type="Script" path="res://Scripts/ElevatorTimer.gd" id="3_1ijrn"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="4_vu3jc"]
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="5_jhey1"]
+[ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="6_dfqkf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw6fg"]
+atlas = ExtResource("6_dfqkf")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ynj81"]
+polygon = PackedVector2Array(-16.0001, -30.9999, -16.0001, -31.9999, 15.9999, -32.0001, 15.9999, -31.0001)
 
 [node name="TransitionElevator" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator")]
 script = ExtResource("1_cgkpe")
@@ -13,9 +21,21 @@ end_elevator = NodePath("Elevator")
 
 [node name="Elevator" parent="." instance=ExtResource("2_ffbtt")]
 rotation = 1.5708
-closed = true
 is_start = true
 do_transition = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Elevator"]
+position = Vector2(-8.00009, -24)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_lw6fg")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Elevator"]
+position = Vector2(7.99991, -24)
+rotation = -1.5708
+texture = SubResource("AtlasTexture_lw6fg")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Elevator"]
+occluder = SubResource("OccluderPolygon2D_ynj81")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
