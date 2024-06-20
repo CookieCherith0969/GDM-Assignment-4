@@ -1,4 +1,5 @@
 extends Area2D
+class_name Battery
 
 func _on_body_entered(body):
 	if is_instance_of(body, Player) and not body.has_battery:

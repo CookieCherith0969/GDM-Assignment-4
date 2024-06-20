@@ -1,5 +1,6 @@
 @tool
 extends Area2D
+class_name Port
 
 @export
 var start_with_battery = false : set = set_start_battery

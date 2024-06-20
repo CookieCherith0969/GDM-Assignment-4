@@ -69,10 +69,16 @@ func reload_level():
 	call_deferred("_deferred_reload_level")
 
 func _deferred_reload_level():
+	var checkpoint_id = current_level.current_checkpoint
 	current_level.free()
 	PowerManager.clear_all()
 	instantiate_new_level(current_name)
-	PlayerManager.place_player_at(current_level.get_start_elevator().global_position)
+	if checkpoint_id < 0:
+		PlayerManager.place_player_at(current_level.get_start_elevator().global_position)
+	else:
+		var checkpoint = current_level.checkpoints[checkpoint_id]
+		checkpoint.reset_level()
+		PlayerManager.place_player_at(checkpoint.global_position)
 	PlayerManager.place_failed_robot()
 
 
@@ -108,7 +114,6 @@ func _deferred_load_level(level_name : String, transition : bool):
 	
 	SoundManager.start_ambient()
 	PlayerManager.place_player_at(current_level.get_start_elevator().global_position + spawn_pos)
-	PlayerManager.place_failed_robot()
 
 func instantiate_new_level(level_name : String):
 	var level_scene = levels[level_name]
