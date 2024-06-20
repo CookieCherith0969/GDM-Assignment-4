@@ -51,6 +51,7 @@ func set_id(val : int):
 	PowerManager.register_powerable(self, id)
 
 func reset_level():
+	AudioServer.set_bus_mute(2,true)
 	for battery in removed_batteries:
 		battery.queue_free()
 	for port in emptied_ports:
@@ -70,11 +71,13 @@ func on_depower():
 	#call_deferred("close_door")
 
 func open_door():
+	AudioServer.set_bus_mute(2,false)
 	gate_open.play()
 	door_sprite.hide()
 	door_collider.disabled = true
 
 func close_door():
+	AudioServer.set_bus_mute(2,false)
 	gate_close.play()
 	door_sprite.show()
 	door_collider.disabled = false

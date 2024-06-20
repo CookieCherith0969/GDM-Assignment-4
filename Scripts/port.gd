@@ -16,6 +16,13 @@ var battery_sprite = $BatterySprite
 var popup = $Popup
 @onready
 var need_battery = $NeedBattery
+@onready
+var sprite = $Sprite2D
+
+@onready
+var off_sprite = preload("res://Art/PlaceholderArt/PortOff.png")
+@onready
+var on_sprite = preload("res://Art/PlaceholderArt/PortOn.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,9 +45,11 @@ func set_battery(val : bool):
 	if has_battery != prev_val:
 		if has_battery:
 			battery_sprite.show()
+			sprite.texture = on_sprite
 			PowerManager.increase_power(id)
 		else:
 			battery_sprite.hide()
+			sprite.texture = off_sprite
 			PowerManager.decrease_power(id)
 
 func set_id(val : int):

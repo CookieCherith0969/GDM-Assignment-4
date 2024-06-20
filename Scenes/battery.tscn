@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnyhshq586owy"]
 
-[ext_resource type="Texture2D" uid="uid://nssooic717td" path="res://Art/PlaceholderArt/Battery.png" id="1_7vdgb"]
 [ext_resource type="Script" path="res://Scripts/battery.gd" id="1_d417u"]
+[ext_resource type="Texture2D" uid="uid://bmb4bna7lh3g5" path="res://Art/Interactables/Battery.png" id="2_hyqxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr2no"]
 size = Vector2(8, 12)
@@ -15,6 +15,6 @@ script = ExtResource("1_d417u")
 shape = SubResource("RectangleShape2D_dr2no")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7vdgb")
+texture = ExtResource("2_hyqxf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

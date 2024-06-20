@@ -8,3 +8,4 @@ script = ExtResource("1_bjmq3")
 [node name="SweepingRay" type="RayCast2D" parent="."]
 enabled = false
 exclude_parent = false
+target_position = Vector2(0, -20)
