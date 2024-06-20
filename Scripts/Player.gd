@@ -38,6 +38,8 @@ var corrupted_spriteframes = preload("res://Resources/playerAnimationCorrupt.tre
 var rotator = $Rotator
 @onready
 var glow_light = $GlowLight
+@onready
+var glow_area = $GlowArea
 
 var num_lights = -1 : set = set_lights
 var lit = false

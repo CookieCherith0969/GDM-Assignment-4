@@ -14,6 +14,9 @@ var nav_ready = false
 var at_home = true : set = set_at_home
 @onready var buzzing = $buzzing
 
+@onready
+var collider = $CollisionShape2D
+
 var particles := []
 
 var shuffle_timer = 0
@@ -32,6 +35,8 @@ var max_light_energy = 0.5
 var on_screen = false
 
 var in_final_cutscene = false : set = set_final_cutscene
+
+var prev_player_dist = 1000
 
 func _ready():
 	for particle in $Particles.get_children():
@@ -53,8 +58,17 @@ func _physics_process(delta):
 	if on_screen:
 		update_particles(delta)
 	
+	if not PlayerManager.has_player():
+		return
+	player = PlayerManager.current_player
+	var player_dist = global_position.distance_to(player.global_position) - collider.shape.radius
 	# If the player is a valid target, prioritise them
 	if player_in_range && player.lit && !player.is_corrupted():
+		at_home = false
+		
+		nav_agent.target_position = player.global_position
+	
+	elif player_dist <= player.glow_area.ray_range or prev_player_dist <= player.glow_area.ray_range:
 		at_home = false
 		
 		nav_agent.target_position = player.global_position
@@ -76,7 +90,9 @@ func _physics_process(delta):
 	# No valid targets, but not at home. Return home.
 	elif not at_home:
 		nav_agent.target_position = home_hive.global_position
-
+		
+	prev_player_dist = player_dist
+	
 	# Cool down while at home
 	if at_home:
 		if reaction_timer > 0:
@@ -140,7 +156,6 @@ func set_at_home(val : bool):
 func _on_detection_area_target_entered(target):
 	if not is_instance_of(target, Player):
 		return
-	player = target
 	player_in_range = true
 
 func set_reaction_timer(val):
@@ -153,7 +168,6 @@ func set_reaction_timer(val):
 func _on_detection_area_target_exited(target):
 	if not is_instance_of(target, Player):
 		return
-	player = null
 	player_in_range = false
 
 func on_lit(lighter):
