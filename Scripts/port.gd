@@ -23,6 +23,12 @@ var sprite = $Sprite2D
 var off_sprite = preload("res://Art/PlaceholderArt/PortOff.png")
 @onready
 var on_sprite = preload("res://Art/PlaceholderArt/PortOn.png")
+@onready
+var left_light = $LeftLight 
+@onready
+var right_light = $RightLight
+var off_color = Color("d22836")
+var on_color = Color("3dce32")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,10 +52,14 @@ func set_battery(val : bool):
 		if has_battery:
 			battery_sprite.show()
 			sprite.texture = on_sprite
+			left_light.color = on_color
+			right_light.color = on_color
 			PowerManager.increase_power(id)
 		else:
 			battery_sprite.hide()
 			sprite.texture = off_sprite
+			left_light.color = off_color
+			right_light.color = off_color
 			PowerManager.decrease_power(id)
 
 func set_id(val : int):

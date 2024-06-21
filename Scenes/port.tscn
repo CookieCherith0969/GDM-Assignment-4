@@ -57,5 +57,17 @@ range_item_cull_mask = 2
 texture = ExtResource("4_ujcum")
 texture_scale = 1.5
 
+[node name="LeftLight" type="PointLight2D" parent="."]
+position = Vector2(-8, 4)
+color = Color(0.823529, 0.156863, 0.211765, 1)
+texture = ExtResource("4_ujcum")
+texture_scale = 0.1
+
+[node name="RightLight" type="PointLight2D" parent="."]
+position = Vector2(8, 4)
+color = Color(0.822306, 0.157689, 0.210807, 1)
+texture = ExtResource("4_ujcum")
+texture_scale = 0.1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
