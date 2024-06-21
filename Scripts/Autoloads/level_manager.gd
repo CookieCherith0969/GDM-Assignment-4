@@ -1,24 +1,31 @@
 extends Node
 
+signal level_setup
+
 var current_level = null
 var current_name = null
 @onready
 var root = get_tree().root
+const num_menus = 5
+const num_levels = 6
 
 @onready
 var levels : Dictionary = {
+	#Menus
 	"StartMenu": preload("res://Scenes/Levels/StartMenu.tscn"),
 	"LevelSelect": preload("res://Scenes/Levels/LevelSelect.tscn"),
 	"Settings": preload("res://Scenes/Levels/Settings.tscn"),
 	"Audio": preload("res://Scenes/Levels/Audio.tscn"),
 	"Credits": preload("res://Scenes/Levels/Credits.tscn"),
-	"TransitionElevator": preload("res://Scenes/Levels/TransitionElevator.tscn"),
+	#Levels
 	"Tutorial": preload("res://Scenes/Levels/Tutorial.tscn"),
 	"BatteryLevel": preload("res://Scenes/Levels/BatteryLevel.tscn"),
 	"LampLevel": preload("res://Scenes/Levels/LampLevel.tscn"),
 	"VentLevel": preload("res://Scenes/Levels/VentLevel.tscn"),
 	"ButtonLevel": preload("res://Scenes/Levels/ButtonLevel.tscn"),
 	"FinalLevel": preload("res://Scenes/Levels/FinalLevel.tscn"),
+	#Transitions
+	"TransitionElevator": preload("res://Scenes/Levels/TransitionElevator.tscn"),
 	"EndScene": preload("res://Scenes/Levels/EndScene.tscn")
 }
 
@@ -40,24 +47,8 @@ func _ready():
 	current_level = root.get_child(root.get_child_count() - 1)
 	current_name = "StartMenu"
 	
-	
-
-#LOADING LEVEL TASKS
-#- Reset Power Manager
-#- Get Player position relative to previous elevator
-#- Remove Current Level
-#- Create new level
-
-#NEW LEVEL TASKS
-#- Save Player State
-#- Persist Player State
-
-#RELOAD LEVEL TASKS
-#- Reset Player State
-
-#TRANSITION TASKS
-#- Set next level
-#- Set elevator rotation
+func index_of_name(name : String):
+	return levels.keys().find(name)
 	
 func reload_level():
 	if current_name == "TransitionElevator":
@@ -80,6 +71,7 @@ func _deferred_reload_level():
 		checkpoint.reset_level()
 		PlayerManager.place_player_at(checkpoint.global_position)
 	PlayerManager.place_failed_robot()
+	level_setup.emit()
 
 
 func load_level(level_name : String, transition : bool):
@@ -103,6 +95,7 @@ func _deferred_load_level(level_name : String, transition : bool):
 		PlayerManager.place_player_at(spawn_pos)
 		current_level.get_end_elevator().next_level_name = level_name
 		current_level.get_end_elevator().rotation = elevator_rot
+		level_setup.emit()
 		return
 	
 	instantiate_new_level(level_name)
@@ -114,6 +107,7 @@ func _deferred_load_level(level_name : String, transition : bool):
 	
 	SoundManager.start_ambient()
 	PlayerManager.place_player_at(current_level.get_start_elevator().global_position + spawn_pos)
+	level_setup.emit()
 
 func instantiate_new_level(level_name : String):
 	var level_scene = levels[level_name]
