@@ -214,6 +214,12 @@ lighter = NodePath("..")
 [node name="PlantLight" type="AudioStreamPlayer" parent="SpecialLampPlant"]
 stream = ExtResource("12_jf7dw")
 
+[node name="ActiveSound" type="AudioStreamPlayer" parent="SpecialLampPlant"]
+stream = ExtResource("12_jf7dw")
+volume_db = -8.0
+pitch_scale = 0.1
+bus = &"Plants"
+
 [node name="FakeLampPlant" type="Node2D" parent="." node_paths=PackedStringArray("removed_vent", "hives", "special_lamp_plant")]
 position = Vector2(-1, -617)
 script = ExtResource("9_2y7sk")

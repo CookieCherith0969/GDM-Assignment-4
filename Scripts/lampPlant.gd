@@ -10,10 +10,20 @@ var glowarea = $GlowArea
 @onready
 var glowlight = $GlowLight
 @onready var plantlight = $PlantLight
+@onready
+var active_sound = $ActiveSound
 
 func _ready():
 	sprite.play("off") # Start with lamp off -R
-	
+
+func _process(delta):
+	if lampActive:
+		if not active_sound.playing:
+			active_sound.play()
+	else:
+		if active_sound.playing:
+			active_sound.stop()
+
 # When player enters range turn lamp on and stop any previous timer -R
 func _on_detection_area_body_entered(body):
 	if not is_instance_of(body, Player):
