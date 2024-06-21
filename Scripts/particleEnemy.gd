@@ -68,7 +68,7 @@ func _physics_process(delta):
 		
 		nav_agent.target_position = player.global_position
 	
-	elif player_dist <= player.glow_area.ray_range or prev_player_dist <= player.glow_area.ray_range:
+	elif (player_dist <= player.glow_area.ray_range or prev_player_dist <= player.glow_area.ray_range) and !player.is_corrupted():
 		at_home = false
 		
 		nav_agent.target_position = player.global_position
