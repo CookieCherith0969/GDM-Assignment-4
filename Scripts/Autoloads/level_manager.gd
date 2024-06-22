@@ -63,6 +63,7 @@ func _deferred_reload_level():
 	var checkpoint_id = current_level.current_checkpoint
 	current_level.free()
 	PowerManager.clear_all()
+	EnemyManager.reset()
 	instantiate_new_level(current_name)
 	if checkpoint_id < 0:
 		PlayerManager.place_player_at(current_level.get_start_elevator().global_position)
@@ -88,6 +89,7 @@ func _deferred_load_level(level_name : String, transition : bool):
 		elevator_rot = current_level.get_end_elevator().rotation
 	current_level.free()
 	PowerManager.clear_all()
+	EnemyManager.reset()
 	
 	if transition:
 		instantiate_new_level("TransitionElevator")

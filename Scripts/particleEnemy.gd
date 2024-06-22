@@ -64,28 +64,29 @@ func _physics_process(delta):
 	var player_dist = global_position.distance_to(player.global_position) - collider.shape.radius
 	# If the player is a valid target, prioritise them
 	if player_in_range && player.lit && !player.is_corrupted():
-		at_home = false
-		
-		nav_agent.target_position = player.global_position
+		if EnemyManager.try_register_active(self) or EnemyManager.is_active(self):
+			at_home = false
+			nav_agent.target_position = player.global_position
 	
 	elif (player_dist <= player.glow_area.ray_range or prev_player_dist <= player.glow_area.ray_range) and !player.is_corrupted():
-		at_home = false
-		
-		nav_agent.target_position = player.global_position
+		if EnemyManager.try_register_active(self) or EnemyManager.is_active(self):
+			at_home = false
+			nav_agent.target_position = player.global_position
 	
 	# If the player isn't a target, but there's something else casting light on the scout, target it
 	elif lighters.size() > 0:
-		at_home = false
+		if EnemyManager.try_register_active(self) or EnemyManager.is_active(self):
+			at_home = false
 		
-		var closest_lighter = lighters[0]
-		var shortest_distance = global_position.distance_to(closest_lighter.global_position)
-		for lighter in lighters:
-			var distance = global_position.distance_to(lighter.global_position)
-			if distance < shortest_distance:
-				closest_lighter = lighter
-				shortest_distance = distance
-		
-		nav_agent.target_position = closest_lighter.global_position
+			var closest_lighter = lighters[0]
+			var shortest_distance = global_position.distance_to(closest_lighter.global_position)
+			for lighter in lighters:
+				var distance = global_position.distance_to(lighter.global_position)
+				if distance < shortest_distance:
+					closest_lighter = lighter
+					shortest_distance = distance
+			
+			nav_agent.target_position = closest_lighter.global_position
 	
 	# No valid targets, but not at home. Return home.
 	elif not at_home:
@@ -102,6 +103,7 @@ func _physics_process(delta):
 	
 	if nav_agent.is_navigation_finished():
 		if home_hive and nav_agent.target_position == home_hive.global_position:
+			EnemyManager.deregister_active(self)
 			at_home = true
 		velocity = Vector2.ZERO
 		move_and_slide()
