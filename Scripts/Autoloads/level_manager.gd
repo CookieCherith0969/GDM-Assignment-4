@@ -75,7 +75,7 @@ func _deferred_reload_level():
 		var checkpoint = current_level.checkpoints[checkpoint_id]
 		checkpoint.reset_level()
 		PlayerManager.place_player_at(checkpoint.global_position)
-	PlayerManager.place_failed_robot()
+	PlayerManager.place_failed_robots()
 	level_setup.emit()
 	is_loading = false
 
@@ -85,6 +85,7 @@ func load_level(level_name : String, transition : bool):
 		return
 	is_loading = true
 	PlayerManager.save_player_state()
+	PlayerManager.clear_prev_positions()
 	call_deferred("_deferred_load_level", level_name, transition)
 
 func _deferred_load_level(level_name : String, transition : bool):

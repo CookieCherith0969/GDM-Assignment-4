@@ -13,8 +13,10 @@ var had_battery = false
 var was_moving_left = false
 var was_moving_up = false
 
-var last_player_pos = Vector2(0,0)
-var last_left_facing = false
+var prev_player_positions = []
+var prev_left_facings = []
+const max_failed_robots = 6
+
 
 var shake_str = 0.0
 var shake_spd = 0.0
@@ -98,15 +100,23 @@ func shake_camera(strength : float, speed : float, duration : float, fade_in_tim
 
 func save_player_pos():
 	if is_instance_valid(current_player):
-		last_player_pos = current_player.position
-		last_left_facing = current_player.moving_left
-	else:
-		last_player_pos = Vector2(0,0)
+		prev_player_positions.append(current_player.position)
+		prev_left_facings.append(current_player.moving_left)
+		
+		if prev_player_positions.size() >= max_failed_robots:
+			prev_player_positions.pop_front()
+			prev_left_facings.pop_front()
 
-func place_failed_robot():
-	if last_player_pos == Vector2(0,0):
-		return
-	var new_failed = failed_robot_scene.instantiate()
-	new_failed.position = last_player_pos
-	new_failed.flip_h = last_left_facing
-	LevelManager.current_level.add_child(new_failed)
+func clear_prev_positions():
+	prev_player_positions.clear()
+	prev_left_facings.clear()
+
+func place_failed_robots():
+	for i in range(prev_player_positions.size()):
+		var prev_pos = prev_player_positions[i]
+		var prev_left = prev_left_facings[i]
+		
+		var new_failed = failed_robot_scene.instantiate()
+		new_failed.position = prev_pos
+		new_failed.flip_h = prev_left
+		LevelManager.current_level.add_child(new_failed)

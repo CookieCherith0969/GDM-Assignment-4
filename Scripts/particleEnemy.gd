@@ -78,7 +78,7 @@ func _physics_process(delta):
 		player_loaded = true
 	
 	if player_was_lighter or player_was_was_lighter:
-		print_debug("light target override")
+		#print_debug("light target override")
 		target = player
 	else:
 		try_target_player()
@@ -156,7 +156,7 @@ func set_at_home(val : bool):
 
 func set_target(val):
 	target = val
-	print_debug(target)
+	#print_debug(target)
 	if not is_instance_valid(nav_agent):
 		return
 	nav_agent.target_position = target.global_position
