@@ -85,7 +85,6 @@ func _input(event):
 			LevelManager.reload_level()
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
-		corruption_toggled.emit(corrupted)
 	if event.is_action_pressed("Interact"):
 		if !controls_locked:
 			interacted.emit(self)
@@ -212,6 +211,7 @@ func set_corrupted(val : bool):
 		glow_light.color = Color("ffb878")
 		glow_area.active = true
 	update_animation(false)
+	corruption_toggled.emit(corrupted)
 
 func free_controls():
 	controls_locked = false

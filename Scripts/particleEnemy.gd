@@ -198,6 +198,7 @@ func set_player_corrupted(val):
 	try_target_player()
 
 func try_target_player():
+	print_debug(player_corrupted)
 	if player_lit and player_in_range and !player_corrupted:
 		target = player
 		#print_debug("Player targeted")
@@ -219,13 +220,13 @@ func set_reaction_timer(val):
 func on_lit(lighter):
 	if lighter == self:
 		return
-	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
-		return
+	#if lighter.has_method("is_corrupted") and lighter.is_corrupted():
+	#	return
 	lighters.push_back(lighter)
-	if lighter == player and !player_corrupted:
-		target = player
-		player_is_lighter = true
-		#print_debug("Player light Targeted")
+	if lighter == player:
+		if !player_corrupted:
+			target = player
+			player_is_lighter = true
 		return
 	
 	if target != player:
