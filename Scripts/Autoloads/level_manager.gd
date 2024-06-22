@@ -8,6 +8,7 @@ var current_name = null
 var root = get_tree().root
 const num_menus = 5
 const num_levels = 6
+var is_loading = false
 
 @onready
 var levels : Dictionary = {
@@ -51,6 +52,9 @@ func index_of_name(name : String):
 	return levels.keys().find(name)
 	
 func reload_level():
+	if is_loading:
+		return
+	is_loading = true
 	if current_name == "TransitionElevator":
 		return
 		#var next_name = current_level.get_end_elevator().next_level_name
@@ -73,9 +77,13 @@ func _deferred_reload_level():
 		PlayerManager.place_player_at(checkpoint.global_position)
 	PlayerManager.place_failed_robot()
 	level_setup.emit()
+	is_loading = false
 
 
 func load_level(level_name : String, transition : bool):
+	if is_loading:
+		return
+	is_loading = true
 	PlayerManager.save_player_state()
 	call_deferred("_deferred_load_level", level_name, transition)
 
@@ -98,6 +106,7 @@ func _deferred_load_level(level_name : String, transition : bool):
 		current_level.get_end_elevator().next_level_name = level_name
 		current_level.get_end_elevator().rotation = elevator_rot
 		level_setup.emit()
+		is_loading = false
 		return
 	
 	instantiate_new_level(level_name)
@@ -105,11 +114,13 @@ func _deferred_load_level(level_name : String, transition : bool):
 	#Menu scenes have no start elevator
 	if not current_level.has_method("get_start_elevator"):
 		SoundManager.start_music()
+		is_loading = false
 		return
 	
 	SoundManager.start_ambient()
 	PlayerManager.place_player_at(current_level.get_start_elevator().global_position + spawn_pos)
 	level_setup.emit()
+	is_loading = false
 
 func instantiate_new_level(level_name : String):
 	var level_scene = levels[level_name]
