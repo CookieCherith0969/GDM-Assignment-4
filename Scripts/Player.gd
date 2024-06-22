@@ -6,6 +6,8 @@ const CORRUPT_SPEED = 60.0
 
 signal interacted(player)
 signal exited
+signal light_toggled(light_on)
+signal corruption_toggled(corrupted)
 
 @onready
 var flasharea = $Rotator/FlashArea
@@ -53,10 +55,13 @@ var moving_up : bool = false
 var moving_left : bool = false
 var controls_locked : bool = false
 
+var glow_range = 20
+
 func _ready():
 	PlayerManager.current_player = self
 	PlayerManager.camera = $Camera2D
 	update_animation(false)
+	glow_area.ray_range = glow_range
 
 func _input(event):
 	if event.is_action_pressed("Menu"):
@@ -70,6 +75,7 @@ func _input(event):
 			light_on = true
 		else:
 			light_on = false
+		light_toggled.emit(light_on)
 	if event.is_action_pressed("Reset"):
 		if controls_locked:
 			#free_controls()
@@ -78,6 +84,7 @@ func _input(event):
 			LevelManager.reload_level()
 	if event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
+		corruption_toggled.emit(corrupted)
 	if event.is_action_pressed("Interact"):
 		if !controls_locked:
 			interacted.emit(self)

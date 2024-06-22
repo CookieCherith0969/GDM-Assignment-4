@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
 var speed = 150 # Enemy speed -R
-var player_in_range = false # If enemy is chasing player -R
-var player = null # Player object -R
+var player = null
+var player_in_range = false : set = set_player_in_range
+var player_lit = false : set = set_player_lit
+var player_corrupted = false : set = set_player_corrupted
+var target = null : set = set_target
+var hunting = false : set = set_hunting
 var lighters : Array = []
 @onready
 var huntlight = $HuntLight
 @export
-var home_hive : Node2D = null
+var home_hive : Node2D = null : set = set_hive
 @onready
 var nav_agent = $NavigationAgent2D
 var nav_ready = false
+var player_loaded = false
 var at_home = true : set = set_at_home
 @onready var buzzing = $buzzing
 
@@ -36,9 +41,12 @@ var on_screen = false
 
 var in_final_cutscene = false : set = set_final_cutscene
 
-var prev_player_dist = 1000
+const detection_range = 100
+var player_was_lighter = false
 
 func _ready():
+	EnemyManager.deregistered_active.connect(_on_deregistered_active)
+	$DetectionArea.ray_range = detection_range
 	for particle in $Particles.get_children():
 		particles.append(particle)
 		particle.position.x += randf_range(-2,2)
@@ -60,69 +68,47 @@ func _physics_process(delta):
 	
 	if not PlayerManager.has_player():
 		return
-	player = PlayerManager.current_player
-	var player_dist = global_position.distance_to(player.global_position) - collider.shape.radius
-	# If the player is a valid target, prioritise them
-	if player_in_range && player.lit && !player.is_corrupted():
-		if EnemyManager.try_register_active(self) or EnemyManager.is_active(self):
-			at_home = false
-			nav_agent.target_position = player.global_position
+	if not player_loaded:
+		player = PlayerManager.current_player
+		player.light_toggled.connect(_on_player_light_toggled)
+		player_lit = player.lit
+		player_loaded = true
 	
-	elif (player_dist <= player.glow_area.ray_range or prev_player_dist <= player.glow_area.ray_range) and !player.is_corrupted():
-		if EnemyManager.try_register_active(self) or EnemyManager.is_active(self):
-			at_home = false
-			nav_agent.target_position = player.global_position
+	if target.global_position != nav_agent.target_position:
+		nav_agent.target_position = target.global_position
 	
-	# If the player isn't a target, but there's something else casting light on the scout, target it
-	elif lighters.size() > 0:
-		if EnemyManager.try_register_active(self) or EnemyManager.is_active(self):
-			at_home = false
-		
-			var closest_lighter = lighters[0]
-			var shortest_distance = global_position.distance_to(closest_lighter.global_position)
-			for lighter in lighters:
-				var distance = global_position.distance_to(lighter.global_position)
-				if distance < shortest_distance:
-					closest_lighter = lighter
-					shortest_distance = distance
-			
-			nav_agent.target_position = closest_lighter.global_position
-	
-	# No valid targets, but not at home. Return home.
-	elif not at_home:
-		nav_agent.target_position = home_hive.global_position
-		
-	prev_player_dist = player_dist
-	
-	# Cool down while at home
-	if at_home:
-		if reaction_timer > 0:
-			reaction_timer -= delta
+	if !hunting:
+		# Cool down while at home
+		if at_home:
+			if reaction_timer > 0:
+				reaction_timer -= delta
 			if reaction_timer < 0:
 				reaction_timer = 0
-	
-	if nav_agent.is_navigation_finished():
-		if home_hive and nav_agent.target_position == home_hive.global_position:
+		elif nav_agent.is_navigation_finished():
 			EnemyManager.deregister_active(self)
 			at_home = true
-		velocity = Vector2.ZERO
-		move_and_slide()
-		return
+	else:
+		# After finding a target, freeze until the reaction timer is finished
+		if reaction_timer <= reaction_time:
+			reaction_timer += delta
+			if reaction_timer < reaction_time:
+				return
 	
-	
-	# After finding a target, freeze until the reaction timer is finished
-	if not at_home and reaction_timer <= reaction_time:
-		reaction_timer += delta
-		if reaction_timer < reaction_time:
-			return
 	var next_pos = nav_agent.get_next_path_position()
-	# Move towards target position
-	velocity = global_position.direction_to(next_pos)*speed
-	
-	#if get_parent().name == "Hive4":
-		#print_debug(str(velocity.normalized())+" Towards "+str(global_position.direction_to(nav_agent.target_position)))
+	if hunting or !at_home:
+		# Move towards target position
+		velocity = global_position.direction_to(next_pos)*speed
+		move_and_slide()
 
-	move_and_slide()
+func set_hive(val):
+	home_hive = val
+	if target == null:
+		target = home_hive
+
+func set_hunting(val):
+	hunting = val
+	if hunting:
+		at_home = false
 
 func update_particles(delta):
 	for particle in particles:
@@ -155,10 +141,53 @@ func set_at_home(val : bool):
 	elif at_home and buzzing.playing:
 		buzzing.stop()
 
+func set_target(val):
+	target = val
+	if not is_instance_valid(nav_agent):
+		return
+	nav_agent.target_position = target.global_position
+	if target == home_hive:
+		EnemyManager.deregister_active(self)
+		hunting = false
+	else:
+		hunting = EnemyManager.try_register_active(self)
+
+func _on_deregistered_active():
+	if target != home_hive:
+		hunting = EnemyManager.try_register_active(self)
+
 func _on_detection_area_target_entered(target):
 	if not is_instance_of(target, Player):
 		return
 	player_in_range = true
+
+func _on_detection_area_target_exited(target):
+	if not is_instance_of(target, Player):
+		return
+	player_in_range = false
+
+func _on_player_light_toggled(light_on):
+	player_lit = light_on
+
+func set_player_lit(val):
+	player_lit = val
+	try_target_player()
+
+func set_player_in_range(val):
+	player_in_range = val
+	try_target_player()
+
+func set_player_corrupted(val):
+	player_corrupted = val
+	try_target_player()
+
+func try_target_player():
+	if player_lit and player_in_range and !player_corrupted:
+		target = player
+		print_debug("Player targeted")
+	elif target == player and !lighters.has(player):
+		target = home_hive
+		print_debug("Player untargeted")
 
 func set_reaction_timer(val):
 	reaction_timer = val
@@ -167,20 +196,45 @@ func set_reaction_timer(val):
 	huntlight.energy = aggravation*max_light_energy
 	set_particle_speed(lerp(slow_particle_speed,fast_particle_speed,aggravation))
 
-func _on_detection_area_target_exited(target):
-	if not is_instance_of(target, Player):
-		return
-	player_in_range = false
-
 func on_lit(lighter):
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 		return
 	lighters.push_back(lighter)
+	
+	if target != player:
+		target_closest_lighter()
 
 func on_unlit(lighter):
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 		return
 	lighters.erase(lighter)
+	
+	if lighter == player:
+		if player_was_lighter:
+			target = player
+			player_was_lighter = false
+			return
+	if lighter == target:
+		target = home_hive
+		print_debug("Lighter untargeted")
+	if target != player:
+		target_closest_lighter()
+
+func target_closest_lighter():
+	if lighters.is_empty():
+		return
+	var closest_lighter = lighters[0]
+	var shortest_distance = global_position.distance_to(closest_lighter.global_position)
+	for lighter in lighters:
+		var distance = global_position.distance_to(lighter.global_position)
+		if distance < shortest_distance:
+			closest_lighter = lighter
+			shortest_distance = distance
+	
+	target = closest_lighter
+	if target == player:
+		player_was_lighter = true
+	print_debug("Lighter targeted")
 
 func _on_kill_area_body_entered(body):
 	if is_instance_of(body, Player):
