@@ -17,7 +17,7 @@ polygon = PackedVector2Array(-1, -11, -2, -11, -2, 11, -1, 11)
 size = Vector2(4, 22)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s2xpn"]
-polygon = PackedVector2Array(-1, -12, -1, -11, -25, -11, -25, 11, -1, 11, -1, 12, -26, 12, -26, -12)
+polygon = PackedVector2Array(2, -16, 2, -11, -25, -11, -25, 11, 2, 11, 2, 16, -30, 16, -30, -16)
 
 [node name="DropChute" type="StaticBody2D"]
 collision_layer = 17
