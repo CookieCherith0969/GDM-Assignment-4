@@ -7,7 +7,7 @@ var active_enemies = []
 
 func try_register_active(enemy):
 	if active_enemies.has(enemy):
-		return false
+		return true
 	if active_enemies.size() >= max_active:
 		return false
 	active_enemies.append(enemy)

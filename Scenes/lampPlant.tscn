@@ -75,6 +75,7 @@ texture_scale = 3.0
 ray_range = 120.0
 max_gap = 8.0
 active = false
+hit_from_inside = true
 lighter = NodePath("..")
 
 [node name="PlantLight" type="AudioStreamPlayer" parent="."]

@@ -16,7 +16,7 @@ var ray_range : float = 20 : set = set_range
 var active = true : set = set_active
 @export
 var hit_from_inside = false : set = set_inside
-@export
+@export_flags_2d_physics
 var ray_mask : int = 1 : set = set_mask
 
 var ray_rotations : Array

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://4ykwdgmbuqxg"]
+[gd_scene load_steps=9 format=3 uid="uid://4ykwdgmbuqxg"]
 
 [ext_resource type="Script" path="res://Scripts/particleEnemy.gd" id="1_avjly"]
+[ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_uxmcv"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="11_mnrje"]
 [ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="12_rabfj"]
 [ext_resource type="AudioStream" uid="uid://c4jt50lgmrwjy" path="res://audio/buzzing.wav" id="13_toy7f"]
@@ -34,11 +35,19 @@ texture_scale = 0.2
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 2.0
+path_max_distance = 20.0
+debug_enabled = true
 
 [node name="DetectionArea" parent="." instance=ExtResource("12_rabfj")]
 max_gap = 8.0
 ray_range = 100.0
 ray_mask = 18
+
+[node name="SelfArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_uxmcv")]
+ray_range = 8.0
+max_gap = 2.0
+hit_from_inside = true
+lighter = NodePath("..")
 
 [node name="KillArea" type="Area2D" parent="."]
 collision_layer = 0

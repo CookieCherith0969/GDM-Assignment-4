@@ -42,7 +42,9 @@ var on_screen = false
 var in_final_cutscene = false : set = set_final_cutscene
 
 const detection_range = 100
+var player_is_lighter = false
 var player_was_lighter = false
+var player_was_was_lighter = false
 
 func _ready():
 	EnemyManager.deregistered_active.connect(_on_deregistered_active)
@@ -70,9 +72,18 @@ func _physics_process(delta):
 		return
 	if not player_loaded:
 		player = PlayerManager.current_player
-		player.light_toggled.connect(_on_player_light_toggled)
+		player.lit_changed.connect(_on_player_lit_changed)
+		player.corruption_toggled.connect(_on_player_corruption_toggled)
 		player_lit = player.lit
 		player_loaded = true
+	
+	if player_was_lighter or player_was_was_lighter:
+		print_debug("light target override")
+		target = player
+	else:
+		try_target_player()
+	player_was_was_lighter = player_was_lighter
+	player_was_lighter = player_is_lighter
 	
 	if target.global_position != nav_agent.target_position:
 		nav_agent.target_position = target.global_position
@@ -94,10 +105,12 @@ func _physics_process(delta):
 			if reaction_timer < reaction_time:
 				return
 	
-	var next_pos = nav_agent.get_next_path_position()
-	if hunting or !at_home:
+	
+	if hunting or (!at_home and target == home_hive):
+		var next_pos = nav_agent.get_next_path_position()
 		# Move towards target position
 		velocity = global_position.direction_to(next_pos)*speed
+		#print_debug(velocity)
 		move_and_slide()
 
 func set_hive(val):
@@ -143,11 +156,11 @@ func set_at_home(val : bool):
 
 func set_target(val):
 	target = val
+	print_debug(target)
 	if not is_instance_valid(nav_agent):
 		return
 	nav_agent.target_position = target.global_position
 	if target == home_hive:
-		EnemyManager.deregister_active(self)
 		hunting = false
 	else:
 		hunting = EnemyManager.try_register_active(self)
@@ -166,8 +179,11 @@ func _on_detection_area_target_exited(target):
 		return
 	player_in_range = false
 
-func _on_player_light_toggled(light_on):
-	player_lit = light_on
+func _on_player_lit_changed(lit):
+	player_lit = lit
+
+func _on_player_corruption_toggled(corrupted):
+	player_corrupted = corrupted
 
 func set_player_lit(val):
 	player_lit = val
@@ -184,10 +200,14 @@ func set_player_corrupted(val):
 func try_target_player():
 	if player_lit and player_in_range and !player_corrupted:
 		target = player
-		print_debug("Player targeted")
-	elif target == player and !lighters.has(player):
+		#print_debug("Player targeted")
+	elif target == player:
+		#print_debug("Trying to untarget Player")
+		if lighters.has(player):
+			return
+		
 		target = home_hive
-		print_debug("Player untargeted")
+		#print_debug("Player untargeted")
 
 func set_reaction_timer(val):
 	reaction_timer = val
@@ -197,26 +217,32 @@ func set_reaction_timer(val):
 	set_particle_speed(lerp(slow_particle_speed,fast_particle_speed,aggravation))
 
 func on_lit(lighter):
+	if lighter == self:
+		return
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 		return
 	lighters.push_back(lighter)
+	if lighter == player and !player_corrupted:
+		target = player
+		player_is_lighter = true
+		#print_debug("Player light Targeted")
+		return
 	
 	if target != player:
 		target_closest_lighter()
 
 func on_unlit(lighter):
+	if lighter == self:
+		return
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 		return
 	lighters.erase(lighter)
 	
 	if lighter == player:
-		if player_was_lighter:
-			target = player
-			player_was_lighter = false
-			return
+		player_is_lighter = false
 	if lighter == target:
 		target = home_hive
-		print_debug("Lighter untargeted")
+		#print_debug("Lighter untargeted")
 	if target != player:
 		target_closest_lighter()
 
@@ -233,8 +259,8 @@ func target_closest_lighter():
 	
 	target = closest_lighter
 	if target == player:
-		player_was_lighter = true
-	print_debug("Lighter targeted")
+		player_is_lighter = true
+	#print_debug("Lighter targeted")
 
 func _on_kill_area_body_entered(body):
 	if is_instance_of(body, Player):

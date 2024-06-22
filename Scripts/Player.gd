@@ -6,7 +6,7 @@ const CORRUPT_SPEED = 60.0
 
 signal interacted(player)
 signal exited
-signal light_toggled(light_on)
+signal lit_changed(lit)
 signal corruption_toggled(corrupted)
 
 @onready
@@ -35,6 +35,8 @@ var corruption_sprite = $CorruptionSprite
 var normal_spriteframes = preload("res://Resources/playerAnimation.tres")
 @onready
 var corrupted_spriteframes = preload("res://Resources/playerAnimationCorrupt.tres")
+var normal_glow_scale = 0.5
+var corrupt_glow_scale = 1.0
 
 @onready
 var rotator = $Rotator
@@ -44,7 +46,7 @@ var glow_light = $GlowLight
 var glow_area = $GlowArea
 
 var num_lights = -1 : set = set_lights
-var lit = false
+var lit = false : set = set_lit
 
 var has_key = false
 var has_battery = false : set = set_battery
@@ -75,7 +77,6 @@ func _input(event):
 			light_on = true
 		else:
 			light_on = false
-		light_toggled.emit(light_on)
 	if event.is_action_pressed("Reset"):
 		if controls_locked:
 			#free_controls()
@@ -164,6 +165,13 @@ func set_light_on(val : bool):
 			flasharea.active = false
 			flashlight.enabled = false
 
+func set_lit(val):
+	if lit != val:
+		lit = val
+		lit_changed.emit(lit)
+		return
+	lit = val
+
 func check_has_key() -> bool:
 	return has_key
 
@@ -195,12 +203,14 @@ func set_corrupted(val : bool):
 	
 	if corrupted:
 		robot_sprite.sprite_frames = corrupted_spriteframes
-		glow_light.texture_scale = 1
+		glow_light.texture_scale = corrupt_glow_scale
 		glow_light.color = Color("e7b4f3")
+		glow_area.active = false
 	else:
 		robot_sprite.sprite_frames = normal_spriteframes
-		glow_light.texture_scale = 0.5
+		glow_light.texture_scale = normal_glow_scale
 		glow_light.color = Color("ffb878")
+		glow_area.active = true
 	update_animation(false)
 
 func free_controls():
