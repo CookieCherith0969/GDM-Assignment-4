@@ -1,6 +1,27 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://bmew6ri65g6ir"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://bmew6ri65g6ir"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_t3i64"]
+resource_name = "Compressor"
+threshold = -6.0
+ratio = 6.0
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_72q3x"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_ud83p"]
+resource_name = "Compressor"
+threshold = -3.0
+ratio = 12.0
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_7o4i8"]
+resource_name = "Compressor"
+ratio = 6.0
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectCompressor_t3i64")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectLimiter_72q3x")
+bus/0/effect/1/enabled = false
 bus/1/name = &"Player"
 bus/1/solo = false
 bus/1/mute = false
@@ -25,12 +46,16 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Mutable"
+bus/4/effect/0/effect = SubResource("AudioEffectCompressor_ud83p")
+bus/4/effect/0/enabled = true
 bus/5/name = &"Machines"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
 bus/5/send = &"Mutable"
+bus/5/effect/0/effect = SubResource("AudioEffectCompressor_7o4i8")
+bus/5/effect/0/enabled = true
 bus/6/name = &"Music"
 bus/6/solo = false
 bus/6/mute = false

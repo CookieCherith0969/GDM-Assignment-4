@@ -12,7 +12,7 @@ script = ExtResource("1_x5gjj")
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_p58df")
-volume_db = -2.0
+volume_db = -6.0
 pitch_scale = 0.75
 autoplay = true
 bus = &"Music"

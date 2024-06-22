@@ -54,13 +54,16 @@ position = Vector2(14, 0)
 occluder = SubResource("OccluderPolygon2D_s2xpn")
 
 [node name="gateOpen" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(14, 0)
 stream = ExtResource("4_qcoxa")
 volume_db = -10.0
 pitch_scale = 1.39
 bus = &"Machines"
 
 [node name="gateClose" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(14, 0)
 stream = ExtResource("5_tf2lb")
+volume_db = -10.0
 bus = &"Machines"
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("6_egft2")]
