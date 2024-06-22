@@ -194,7 +194,7 @@ size = Vector2i(32, 10)
 
 [node name="DataLog" parent="Map" instance=ExtResource("11_3wgpa")]
 position = Vector2(-16, -643)
-contents = "[LOG 18-8]
+contents = "[LOG 18-4]
 The specimen's reaction to stimuli has not deviated. Response is consistent across wavelengths.
 Any light produces an agitation within the creatures, and with enough intensity, aggression.
 
@@ -207,7 +207,7 @@ log_id = 3
 
 [node name="DataLog2" parent="Map" instance=ExtResource("11_3wgpa")]
 position = Vector2(-395, -771)
-contents = "[LOG 18-8]
+contents = "[LOG 18-7]
 Further testing of foreign secretion confirmed initial results.
 
 Secretion is highly caustic. Biological matter, even including bones, was dissolved within 12 hours of contact with secretion.

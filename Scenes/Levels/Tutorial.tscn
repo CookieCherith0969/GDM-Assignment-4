@@ -173,3 +173,17 @@ Before you delve below radio range, here are your instructions:
 
 Safe return not mandatory
 [END TRANSMISSION]"
+
+[node name="DataLog2" parent="." instance=ExtResource("17_oc764")]
+position = Vector2(328, -23)
+contents = "[LOG 17-6]
+What we at first thought was a loose floor panel has revealed something far more concerning.
+
+Growing beneath the panel is what appears to be a red vine. Incredibly solid.
+
+We lifted the panel to get a closer look, and suddenly the vine softened.
+It became pliable, all of its solidity disappeared.
+
+Replacing the panel, it became solid again in its new shape.
+We'll inform the research team. This is well beyond a maintenance job.
+[END LOG]"
