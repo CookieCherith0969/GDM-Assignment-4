@@ -27,7 +27,7 @@ bus = &"Player"
 stream = ExtResource("4_c7vp5")
 volume_db = 8.0
 autoplay = true
-bus = &"Music"
+bus = &"Ambience"
 
 [node name="menuButton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_krqdj")

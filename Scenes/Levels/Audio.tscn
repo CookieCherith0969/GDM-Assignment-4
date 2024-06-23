@@ -113,6 +113,17 @@ value = 50.0
 tick_count = 5
 ticks_on_borders = true
 
+[node name="AmbienceLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Ambience"
+
+[node name="AmbienceSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
 offset_left = 280.0
@@ -129,4 +140,5 @@ text = "BACK"
 [connection signal="value_changed" from="VBoxContainer/PlantsSlider" to="." method="_on_plants_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MachinesSlider" to="." method="_on_machines_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/AmbienceSlider" to="." method="_on_ambience_slider_value_changed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

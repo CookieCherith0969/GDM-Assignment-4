@@ -8,11 +8,12 @@ var sliders = [
 	$VBoxContainer/CreaturesSlider,
 	$VBoxContainer/PlantsSlider,
 	$VBoxContainer/MachinesSlider,
-	$VBoxContainer/MusicSlider
+	$VBoxContainer/MusicSlider,
+	$VBoxContainer/AmbienceSlider
 ]
 
 func _ready():
-	for i in range(7):
+	for i in range(AudioServer.bus_count):
 		if(i==2):
 			continue
 		sliders[i].value = db_to_linear(AudioServer.get_bus_volume_db(i))*100
@@ -40,3 +41,6 @@ func _on_machines_slider_value_changed(value):
 
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(6, linear_to_db(value/100))
+
+func _on_ambience_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(7, linear_to_db(value/100))
