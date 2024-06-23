@@ -12,3 +12,5 @@ exclude_parent = false
 target_position = Vector2(0, -20)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+visible = false
+rect = Rect2(-20, -20, 40, 40)

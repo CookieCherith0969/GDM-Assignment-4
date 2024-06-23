@@ -40,6 +40,8 @@ func _ready():
 	ray_range = ray_range
 	hit_from_inside = hit_from_inside
 	ray_mask = ray_mask
+	if !Engine.is_editor_hint():
+		visible_enabler.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):

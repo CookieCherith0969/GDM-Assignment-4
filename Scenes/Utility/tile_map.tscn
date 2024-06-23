@@ -640,5 +640,3 @@ layer_3/name = "Objects"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("3_8dtrv")
 metadata/_edit_lock_ = true
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

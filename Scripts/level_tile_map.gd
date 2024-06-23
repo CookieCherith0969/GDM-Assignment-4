@@ -5,13 +5,16 @@ extends TileMap
 var visibility_bounds : Rect2i = Rect2i(0,0,0,0) : set = set_bounds
 
 @onready
-var visible_notifier = $VisibleOnScreenNotifier2D
+var visible_notifier : VisibleOnScreenNotifier2D = null
 
 func _ready():
+	if !Engine.is_editor_hint():
+		visible_notifier = VisibleOnScreenNotifier2D.new()
+		get_parent().add_child.call_deferred(visible_notifier)
+		visible_notifier.global_position = global_position
+		visible_notifier.screen_entered.connect(_on_screen_entered)
+		visible_notifier.screen_exited.connect(_on_screen_exited)
 	visibility_bounds = visibility_bounds
-	visible_notifier.reparent.call_deferred(get_parent())
-	visible_notifier.screen_entered.connect(_on_screen_entered)
-	visible_notifier.screen_exited.connect(_on_screen_exited)
 
 func set_bounds(val):
 	visibility_bounds = val
