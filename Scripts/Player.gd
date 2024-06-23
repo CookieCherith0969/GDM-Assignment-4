@@ -52,6 +52,7 @@ var has_key = false
 var has_battery = false : set = set_battery
 
 var corrupted = false : set = set_corrupted
+const corrupt_debug_enabled = false
 
 var moving_up : bool = false
 var moving_left : bool = false
@@ -83,7 +84,7 @@ func _input(event):
 			exited.emit()
 		else:
 			LevelManager.reload_level()
-	if event.is_action_pressed("TempCorrupt"):
+	if corrupt_debug_enabled and event.is_action_pressed("TempCorrupt"):
 		corrupted = !corrupted
 	if event.is_action_pressed("Interact"):
 		if !controls_locked:
