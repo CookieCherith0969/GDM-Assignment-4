@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dtswh15p1k3le" path="res://Art/Fonts/' Mono Regular.ttf" id="2_phj0r"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_umvvx"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_754no"]
-[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="5_yfxyx"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="5_yfxyx"]
 [ext_resource type="Script" path="res://Scripts/LogCounter.gd" id="6_ohyxu"]
 
 [node name="Credits" type="Control"]

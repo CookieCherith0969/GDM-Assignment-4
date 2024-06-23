@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="1_3yo3l"]
 [ext_resource type="Script" path="res://Scripts/InvertedLight.gd" id="2_kceik"]
-[ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="3_4fr8u"]
+[ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/Utility/blockable_area.tscn" id="3_4fr8u"]
 [ext_resource type="Texture2D" uid="uid://ci43jde51dx1e" path="res://Art/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_4.png" id="4_dx0q3"]
-[ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="5_trohi"]
-[ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="6_3e8vl"]
+[ext_resource type="PackedScene" uid="uid://dmqxqsilglak" path="res://Scenes/Effects/light_off_sound.tscn" id="5_32qrb"]
+[ext_resource type="PackedScene" uid="uid://clc7yhlak1qhe" path="res://Scenes/Effects/light_on_sound.tscn" id="6_dpkhs"]
 
 [node name="InvertedLight" type="PointLight2D"]
 shadow_enabled = true
@@ -23,15 +23,9 @@ ray_mask = 26
 modulate = Color(1, 1, 1, 0.219608)
 texture = ExtResource("4_dx0q3")
 
-[node name="LightOff" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_trohi")
-volume_db = 3.0
-bus = &"Machines"
+[node name="LightOff" parent="." instance=ExtResource("5_32qrb")]
 
-[node name="LightOn" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_3e8vl")
-volume_db = 3.0
-bus = &"Machines"
+[node name="LightOn" parent="." instance=ExtResource("6_dpkhs")]
 
 [connection signal="target_entered" from="LightArea" to="." method="_on_light_area_target_entered"]
 [connection signal="target_exited" from="LightArea" to="." method="_on_light_area_target_exited"]

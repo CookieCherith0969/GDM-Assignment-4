@@ -1,9 +1,9 @@
 extends Node
 
 @onready
-var player_scene = preload("res://Scenes/player.tscn")
+var player_scene = preload("res://Scenes/Map/player.tscn")
 @onready
-var failed_robot_scene = preload("res://Scenes/failed_robot.tscn")
+var failed_robot_scene = preload("res://Scenes/Decorative/failed_robot.tscn")
 @onready
 var failed_robots_node = $FailedRobots
 var current_player : Player = null

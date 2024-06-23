@@ -1,21 +1,21 @@
 [gd_scene load_steps=11 format=3 uid="uid://c042mnm23xyoo"]
 
-[ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_8jvi5"]
-[ext_resource type="Texture2D" uid="uid://bx7nttu6o8xj" path="res://Art/lightplant-Sheet.png" id="2_ewsl8"]
-[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_u1hhc"]
-[ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_xqyf7"]
-[ext_resource type="AudioStream" uid="uid://c6ccj55a86nq6" path="res://audio/PlantLight.mp3" id="5_xrhj8"]
+[ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_jd74j"]
+[ext_resource type="Texture2D" uid="uid://bx7nttu6o8xj" path="res://Art/lightplant-Sheet.png" id="2_qgyoi"]
+[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="3_ur1gw"]
+[ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/Utility/light_area.tscn" id="4_cepx8"]
+[ext_resource type="AudioStream" uid="uid://c6ccj55a86nq6" path="res://audio/PlantLight.mp3" id="5_lqlc8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpkvg"]
-atlas = ExtResource("2_ewsl8")
+atlas = ExtResource("2_qgyoi")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jor4s"]
-atlas = ExtResource("2_ewsl8")
+atlas = ExtResource("2_qgyoi")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6yjj"]
-atlas = ExtResource("2_ewsl8")
+atlas = ExtResource("2_qgyoi")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7r2r"]
@@ -44,7 +44,7 @@ animations = [{
 size = Vector2(8, 8)
 
 [node name="LampPlant" type="Node2D"]
-script = ExtResource("1_8jvi5")
+script = ExtResource("1_jd74j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e7r2r")
@@ -68,10 +68,10 @@ color = Color(1, 0.635294, 1, 1)
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 1.0
-texture = ExtResource("3_u1hhc")
+texture = ExtResource("3_ur1gw")
 texture_scale = 3.0
 
-[node name="GlowArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_xqyf7")]
+[node name="GlowArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_cepx8")]
 ray_range = 120.0
 max_gap = 8.0
 active = false
@@ -79,12 +79,12 @@ hit_from_inside = true
 lighter = NodePath("..")
 
 [node name="PlantLight" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_xrhj8")
+stream = ExtResource("5_lqlc8")
 volume_db = 10.0
 bus = &"Plants"
 
 [node name="ActiveSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_xrhj8")
+stream = ExtResource("5_lqlc8")
 volume_db = -8.0
 pitch_scale = 0.1
 bus = &"Plants"

@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3lodqfwdqr73"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_cgkpe"]
-[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="2_ffbtt"]
+[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/Machines/elevator.tscn" id="2_ffbtt"]
 [ext_resource type="Script" path="res://Scripts/ElevatorTimer.gd" id="3_1ijrn"]
-[ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="4_vu3jc"]
-[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="5_jhey1"]
+[ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/Utility/darkness.tscn" id="4_vu3jc"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="5_jhey1"]
 [ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="6_dfqkf"]
 [ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="7_hc3x2"]
 

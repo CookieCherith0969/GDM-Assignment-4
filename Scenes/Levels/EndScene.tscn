@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://u1tx8oljgaq5"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_r6tot"]
-[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/elevator.tscn" id="1_uly08"]
+[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/Machines/elevator.tscn" id="1_uly08"]
 [ext_resource type="Script" path="res://Scripts/EndTimer.gd" id="2_b25l7"]
-[ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/darkness.tscn" id="3_f4h7a"]
+[ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/Utility/darkness.tscn" id="3_f4h7a"]
 [ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="3_f6wf6"]
-[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="4_qjxn2"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="4_qjxn2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rfvn"]
 atlas = ExtResource("3_f6wf6")

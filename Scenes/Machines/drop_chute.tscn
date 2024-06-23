@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0dt67fbsr2s" path="res://Art/DropChuteDoor.png" id="3_cek1g"]
 [ext_resource type="AudioStream" uid="uid://b5ccfqsfx58i0" path="res://audio/elevDoor.mp3" id="4_qcoxa"]
 [ext_resource type="AudioStream" uid="uid://686wjra0vdvu" path="res://audio/doorClose.mp3" id="5_tf2lb"]
-[ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="6_egft2"]
+[ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/Decorative/inverted_deco_light.tscn" id="6_egft2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fx1bp"]
 size = Vector2(27, 22)

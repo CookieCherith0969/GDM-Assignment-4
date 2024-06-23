@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://clc7yhlak1qhe"]
+
+[ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="1_tqu4h"]
+
+[node name="LightOn" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_tqu4h")
+volume_db = 3.0
+bus = &"Machines"

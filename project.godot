@@ -21,11 +21,11 @@ config/icon="res://Art/GameIcon.png"
 
 LevelManager="*res://Scripts/Autoloads/level_manager.gd"
 PowerManager="*res://Scripts/Autoloads/power_manager.gd"
-SoundManager="*res://Scenes/sound_manager.tscn"
-GuiManager="*res://Scenes/gui_manager.tscn"
+SoundManager="*res://Scenes/Autoloads/sound_manager.tscn"
+GuiManager="*res://Scenes/Autoloads/gui_manager.tscn"
 SaveManager="*res://Scripts/Autoloads/save_manager.gd"
 EnemyManager="*res://Scripts/Autoloads/enemy_manager.gd"
-PlayerManager="*res://Scenes/player_manager.tscn"
+PlayerManager="*res://Scenes/Autoloads/player_manager.tscn"
 
 [display]
 

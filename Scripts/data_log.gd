@@ -12,7 +12,7 @@ var popup = $Popup
 @onready
 var sprite = $Sprite2D
 @onready
-var window_scene = preload("res://Scenes/text_window.tscn")
+var window_scene = preload("res://Scenes/Utility/text_window.tscn")
 
 var is_read = false : set = set_read
 

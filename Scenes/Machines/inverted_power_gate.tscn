@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://bl06qjen3kmub"]
 
-[ext_resource type="Script" path="res://Scripts/InvertedPowerGate.gd" id="1_k258l"]
-[ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_3mqin"]
-[ext_resource type="AudioStream" uid="uid://b5ccfqsfx58i0" path="res://audio/elevDoor.mp3" id="3_ytewj"]
-[ext_resource type="AudioStream" uid="uid://686wjra0vdvu" path="res://audio/doorClose.mp3" id="4_prx6s"]
+[ext_resource type="Script" path="res://Scripts/InvertedPowerGate.gd" id="1_x483l"]
+[ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_t2e2g"]
+[ext_resource type="PackedScene" uid="uid://b2uwc8ksyo7hp" path="res://Scenes/Effects/gate_close_sound.tscn" id="3_127dh"]
+[ext_resource type="PackedScene" uid="uid://n6er8h7olg14" path="res://Scenes/Effects/gate_open_sound.tscn" id="4_jwhq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecso"]
 size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsvqv"]
-atlas = ExtResource("2_3mqin")
+atlas = ExtResource("2_t2e2g")
 region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3bqn1"]
@@ -20,7 +20,7 @@ size = Vector2(16, 16)
 
 [node name="InvertedPowerGate" type="StaticBody2D"]
 collision_layer = 17
-script = ExtResource("1_k258l")
+script = ExtResource("1_x483l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7ecso")
@@ -35,16 +35,9 @@ visible = false
 position = Vector2(0, 6)
 occluder = SubResource("OccluderPolygon2D_3bqn1")
 
-[node name="gateOpen" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ytewj")
-volume_db = -10.0
-pitch_scale = 1.39
-bus = &"Machines"
+[node name="gateClose" parent="." instance=ExtResource("3_127dh")]
 
-[node name="gateClose" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_prx6s")
-volume_db = -10.0
-bus = &"Machines"
+[node name="gateOpen" parent="." instance=ExtResource("4_jwhq6")]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

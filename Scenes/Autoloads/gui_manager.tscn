@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jy7getc1ajks"]
 
-[ext_resource type="PackedScene" uid="uid://cpl3ysjv0oeb2" path="res://Scenes/text_window.tscn" id="1_s1te7"]
+[ext_resource type="PackedScene" uid="uid://cpl3ysjv0oeb2" path="res://Scenes/Utility/text_window.tscn" id="1_s1te7"]
 [ext_resource type="Script" path="res://Scripts/Autoloads/gui_manager.gd" id="1_ytcbd"]
 [ext_resource type="AudioStream" uid="uid://dxt1ihtblemlj" path="res://audio/paper.mp3" id="3_cfglw"]
 

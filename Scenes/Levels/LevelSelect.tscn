@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_26q07"]
 [ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="2_ex1wy"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_qb1js"]
-[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="4_6p820"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="4_6p820"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3

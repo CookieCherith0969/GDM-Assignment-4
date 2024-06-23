@@ -4,7 +4,7 @@ extends Node2D
 @export var gateSize : Vector2i = Vector2i(6,4) : set = set_size
 
 @onready
-var block_scene = preload("res://Scenes/gateBlock.tscn")
+var block_scene = preload("res://Scenes/Wildlife/gateBlock.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

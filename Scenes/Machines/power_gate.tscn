@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/power_gate.gd" id="1_07x5r"]
 [ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_42jq6"]
-[ext_resource type="AudioStream" uid="uid://b5ccfqsfx58i0" path="res://audio/elevDoor.mp3" id="3_w6yjc"]
-[ext_resource type="AudioStream" uid="uid://686wjra0vdvu" path="res://audio/doorClose.mp3" id="4_qsebo"]
+[ext_resource type="PackedScene" uid="uid://n6er8h7olg14" path="res://Scenes/Effects/gate_open_sound.tscn" id="3_kelrc"]
+[ext_resource type="PackedScene" uid="uid://b2uwc8ksyo7hp" path="res://Scenes/Effects/gate_close_sound.tscn" id="4_nqnam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecso"]
 size = Vector2(16, 16)
@@ -29,16 +29,9 @@ texture = SubResource("AtlasTexture_uakde")
 position = Vector2(0, 6)
 occluder = SubResource("OccluderPolygon2D_3bqn1")
 
-[node name="gateOpen" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_w6yjc")
-volume_db = -10.0
-pitch_scale = 1.39
-bus = &"Machines"
+[node name="gateOpen" parent="." instance=ExtResource("3_kelrc")]
 
-[node name="gateClose" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_qsebo")
-volume_db = -10.0
-bus = &"Machines"
+[node name="gateClose" parent="." instance=ExtResource("4_nqnam")]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

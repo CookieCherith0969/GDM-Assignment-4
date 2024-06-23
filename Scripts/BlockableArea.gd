@@ -23,6 +23,8 @@ var ray_rotations : Array
 var targets : Array
 @onready
 var sweeping_ray = $SweepingRay
+@onready
+var visible_enabler = $VisibleOnScreenEnabler2D
 
 var active_targets : Array
 
@@ -98,6 +100,10 @@ func set_range(val : float):
 	if !is_instance_valid(sweeping_ray):
 		return
 	sweeping_ray.target_position = Vector2(0,-ray_range)
+	
+	visible_enabler.rect.position = Vector2(-ray_range,-ray_range)
+	visible_enabler.rect.size = Vector2(ray_range*2,ray_range*2)
+	
 	
 	max_gap = max_gap
 

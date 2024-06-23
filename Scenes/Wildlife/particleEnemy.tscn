@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://4ykwdgmbuqxg"]
+[gd_scene load_steps=8 format=3 uid="uid://4ykwdgmbuqxg"]
 
-[ext_resource type="Script" path="res://Scripts/particleEnemy.gd" id="1_avjly"]
-[ext_resource type="PackedScene" uid="uid://c6gqgh11is37s" path="res://Scenes/light_area.tscn" id="4_uxmcv"]
-[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="11_mnrje"]
-[ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/blockable_area.tscn" id="12_rabfj"]
-[ext_resource type="AudioStream" uid="uid://c4jt50lgmrwjy" path="res://audio/buzzing.wav" id="13_toy7f"]
-[ext_resource type="PackedScene" uid="uid://blpo7v224xhk1" path="res://Scenes/particle.tscn" id="14_55vaa"]
+[ext_resource type="Script" path="res://Scripts/particleEnemy.gd" id="1_q54ru"]
+[ext_resource type="Texture2D" uid="uid://pjmvuxj7cjlu" path="res://Art/PlaceholderArt/GlowLight.png" id="2_1cooo"]
+[ext_resource type="PackedScene" uid="uid://dnfv8l2scy5xo" path="res://Scenes/Utility/blockable_area.tscn" id="3_223ce"]
+[ext_resource type="AudioStream" uid="uid://c4jt50lgmrwjy" path="res://audio/buzzing.wav" id="4_bi3h7"]
+[ext_resource type="PackedScene" uid="uid://blpo7v224xhk1" path="res://Scenes/Wildlife/particle.tscn" id="5_lfesd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_714ps"]
 radius = 8.0
@@ -18,7 +17,7 @@ z_index = 2
 collision_layer = 12
 motion_mode = 1
 platform_on_leave = 2
-script = ExtResource("1_avjly")
+script = ExtResource("1_q54ru")
 
 [node name="ParticleEnabler" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -29,25 +28,18 @@ shape = SubResource("CircleShape2D_714ps")
 color = Color(0.94902, 0, 0.270588, 1)
 energy = 0.0
 shadow_enabled = true
-texture = ExtResource("11_mnrje")
+texture = ExtResource("2_1cooo")
 texture_scale = 0.2
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 2.0
 path_max_distance = 20.0
-debug_enabled = true
 
-[node name="DetectionArea" parent="." instance=ExtResource("12_rabfj")]
+[node name="DetectionArea" parent="." instance=ExtResource("3_223ce")]
 max_gap = 8.0
 ray_range = 100.0
 ray_mask = 18
-
-[node name="SelfArea" parent="." node_paths=PackedStringArray("lighter") instance=ExtResource("4_uxmcv")]
-ray_range = 8.0
-max_gap = 2.0
-hit_from_inside = true
-lighter = NodePath("..")
 
 [node name="KillArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -57,7 +49,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_s4tsd")
 
 [node name="buzzing" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_toy7f")
+stream = ExtResource("4_bi3h7")
 volume_db = -13.0
 pitch_scale = 0.58
 attenuation = 5.85634
@@ -65,19 +57,19 @@ bus = &"Creatures"
 
 [node name="Particles" type="Node2D" parent="."]
 
-[node name="Particle" parent="Particles" instance=ExtResource("14_55vaa")]
+[node name="Particle" parent="Particles" instance=ExtResource("5_lfesd")]
 
-[node name="Particle2" parent="Particles" instance=ExtResource("14_55vaa")]
+[node name="Particle2" parent="Particles" instance=ExtResource("5_lfesd")]
 
-[node name="Particle3" parent="Particles" instance=ExtResource("14_55vaa")]
+[node name="Particle3" parent="Particles" instance=ExtResource("5_lfesd")]
 
-[node name="Particle4" parent="Particles" instance=ExtResource("14_55vaa")]
+[node name="Particle4" parent="Particles" instance=ExtResource("5_lfesd")]
 
-[node name="Particle5" parent="Particles" instance=ExtResource("14_55vaa")]
+[node name="Particle5" parent="Particles" instance=ExtResource("5_lfesd")]
 
-[node name="Particle6" parent="Particles" instance=ExtResource("14_55vaa")]
+[node name="Particle6" parent="Particles" instance=ExtResource("5_lfesd")]
 
-[node name="Particle7" parent="Particles" instance=ExtResource("14_55vaa")]
+[node name="Particle7" parent="Particles" instance=ExtResource("5_lfesd")]
 
 [connection signal="screen_entered" from="ParticleEnabler" to="." method="_on_particle_enabler_screen_entered"]
 [connection signal="screen_exited" from="ParticleEnabler" to="." method="_on_particle_enabler_screen_exited"]

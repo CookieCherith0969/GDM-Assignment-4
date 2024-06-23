@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://n6er8h7olg14"]
+
+[ext_resource type="AudioStream" uid="uid://b5ccfqsfx58i0" path="res://audio/elevDoor.mp3" id="1_kuyad"]
+
+[node name="gateOpen" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_kuyad")
+volume_db = -10.0
+pitch_scale = 1.39
+bus = &"Machines"

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var scout_scene = preload("res://Scenes/particleEnemy.tscn")
+var scout_scene = preload("res://Scenes/Wildlife/particleEnemy.tscn")
 
 @export_range(0,5)
 var scout_num : int = 1 : set = set_scout_num

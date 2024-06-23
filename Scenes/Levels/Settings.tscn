@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://blaohthi36wth"]
 
 [ext_resource type="Script" path="res://Scripts/Settings.gd" id="1_jca1i"]
-[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/crtOverlay.tscn" id="2_hjb1f"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="2_hjb1f"]
 [ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="3_gyr8g"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="4_0g4t3"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="5_r1c5b"]

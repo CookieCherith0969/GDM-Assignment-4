@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://o4lnxtl7hme0"]
-
-[ext_resource type="Texture2D" uid="uid://orncykq1s8fg" path="res://Art/hive.png" id="1_umgv0"]
-[ext_resource type="Script" path="res://Scripts/FakeHive.gd" id="2_vao7v"]
-
-[node name="FakeHive" type="Sprite2D"]
-position = Vector2(-57, -664)
-texture = ExtResource("1_umgv0")
-script = ExtResource("2_vao7v")

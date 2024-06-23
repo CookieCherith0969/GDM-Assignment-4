@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2uwc8ksyo7hp"]
+
+[ext_resource type="AudioStream" uid="uid://686wjra0vdvu" path="res://audio/doorClose.mp3" id="1_8p8bh"]
+
+[node name="gateClose" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_8p8bh")
+volume_db = -10.0
+bus = &"Machines"
