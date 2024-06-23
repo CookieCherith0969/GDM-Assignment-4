@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_umvvx"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_754no"]
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="5_yfxyx"]
-[ext_resource type="Script" path="res://Scripts/LogCounter.gd" id="6_ohyxu"]
+[ext_resource type="PackedScene" uid="uid://cf76bjn87wn7b" path="res://Scenes/Utility/log_counter.tscn" id="6_ygpy6"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -22,14 +22,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 62.0
-offset_top = 29.0
-offset_right = 62.0
-offset_bottom = 98.0
+offset_left = 43.0
+offset_top = 28.0
+offset_right = 101.0
+offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.802207, 0.780681)
-theme_override_constants/separation = 34
+theme_override_constants/separation = 28
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 material = ExtResource("2_6vrae")
@@ -56,6 +56,8 @@ Art Direction, Sprites, Assistant Level Design
 Woo Suk Bae - Audio Lead
 SFX, Music, Assistant Level Design
 
+Evelyn Willow - Additional Assets
+
 Key Icons sourced from 
 cazwolf.itch.io"
 horizontal_alignment = 1
@@ -75,24 +77,19 @@ theme_override_font_sizes/font_size = 28
 text = "BACK TO MENU"
 flat = true
 
-[node name="LogCounter" type="Label" parent="."]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -248.0
-offset_top = -43.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_phj0r")
-theme_override_font_sizes/font_size = 30
-text = "Data Logs 0/9"
-horizontal_alignment = 1
-autowrap_mode = 3
-script = ExtResource("6_ohyxu")
+[node name="LogCounter" parent="." instance=ExtResource("6_ygpy6")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 400.0
+offset_top = 605.0
+offset_right = 648.0
+offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_yfxyx")]
 
