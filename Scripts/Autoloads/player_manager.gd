@@ -112,6 +112,8 @@ func save_player_pos():
 func clear_prev_positions():
 	prev_player_positions.clear()
 	prev_left_facings.clear()
+	for robot in failed_robots_node.get_children():
+		robot.queue_free()
 
 func place_failed_robots():
 	for robot in failed_robots_node.get_children():
