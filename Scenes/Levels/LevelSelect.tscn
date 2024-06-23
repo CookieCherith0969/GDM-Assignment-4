@@ -1,12 +1,49 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqtq35mmlmsky"]
+[gd_scene load_steps=13 format=3 uid="uid://dqtq35mmlmsky"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_3mcah"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_26q07"]
 [ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="2_ex1wy"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="3_qb1js"]
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="4_6p820"]
+[ext_resource type="PackedScene" uid="uid://o1r1u52wethe" path="res://Scenes/Utility/read_logs_indicator.tscn" id="6_vucuk"]
+[ext_resource type="Shader" path="res://Shaders/StartMenu.gdshader" id="7_u2p4u"]
 
-[node name="LevelSelect" type="Control"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mowst"]
+resource_local_to_scene = true
+shader = ExtResource("7_u2p4u")
+shader_parameter/height = 2.0
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7gdp"]
+resource_local_to_scene = true
+shader = ExtResource("7_u2p4u")
+shader_parameter/height = 2.0
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w03ws"]
+resource_local_to_scene = true
+shader = ExtResource("7_u2p4u")
+shader_parameter/height = 2.0
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wugkg"]
+resource_local_to_scene = true
+shader = ExtResource("7_u2p4u")
+shader_parameter/height = 2.0
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hyiw"]
+resource_local_to_scene = true
+shader = ExtResource("7_u2p4u")
+shader_parameter/height = 2.0
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+
+[node name="LevelSelect" type="Control" node_paths=PackedStringArray("log_labels")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +51,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3mcah")
+log_labels = [NodePath("Logs0"), NodePath("Logs1"), NodePath("Logs2"), NodePath("Logs3"), NodePath("Logs4"), NodePath("LogsFinal")]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("4_6p820")]
 
@@ -38,6 +76,54 @@ offset_bottom = 554.0
 theme_override_fonts/font = ExtResource("3_qb1js")
 theme_override_font_sizes/font_size = 28
 text = "BACK"
+
+[node name="Logs0" parent="." instance=ExtResource("6_vucuk")]
+material = SubResource("ShaderMaterial_mowst")
+layout_mode = 0
+offset_left = 120.0
+offset_top = 262.0
+offset_right = 160.0
+offset_bottom = 296.0
+
+[node name="Logs1" parent="." instance=ExtResource("6_vucuk")]
+material = SubResource("ShaderMaterial_mowst")
+layout_mode = 0
+offset_left = 208.0
+offset_top = 262.0
+offset_right = 248.0
+offset_bottom = 296.0
+
+[node name="Logs2" parent="." instance=ExtResource("6_vucuk")]
+material = SubResource("ShaderMaterial_j7gdp")
+layout_mode = 0
+offset_left = 296.0
+offset_top = 262.0
+offset_right = 336.0
+offset_bottom = 296.0
+
+[node name="Logs3" parent="." instance=ExtResource("6_vucuk")]
+material = SubResource("ShaderMaterial_w03ws")
+layout_mode = 0
+offset_left = 384.0
+offset_top = 262.0
+offset_right = 424.0
+offset_bottom = 296.0
+
+[node name="Logs4" parent="." instance=ExtResource("6_vucuk")]
+material = SubResource("ShaderMaterial_wugkg")
+layout_mode = 0
+offset_left = 472.0
+offset_top = 262.0
+offset_right = 512.0
+offset_bottom = 296.0
+
+[node name="LogsFinal" parent="." instance=ExtResource("6_vucuk")]
+material = SubResource("ShaderMaterial_1hyiw")
+layout_mode = 0
+offset_left = 296.0
+offset_top = 375.0
+offset_right = 336.0
+offset_bottom = 409.0
 
 [node name="Lvl0" type="Button" parent="."]
 layout_mode = 0

@@ -31,16 +31,21 @@ var levels : Dictionary = {
 }
 
 var data_logs_read = [
-	false,
-	false,
-	false,
-	false,
-	false,
-	false,
-	false,
-	false,
-	false,
-	false
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+]
+
+var max_data_logs = [
+	2, #Tutorial
+	2, #BatteryLevel
+	2, #LampLevel
+	2, #VentLevel
+	2, #ButtonLevel
+	1, #FinalLevel
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -66,7 +71,7 @@ func index_of_name(level_name : String):
 func reload_level():
 	if is_loading:
 		return
-	if current_name == "TransitionElevator":
+	if index_of_name(current_name) > num_menus+num_levels-1:
 		return
 	is_loading = true
 	print_debug("Reloading")
@@ -80,10 +85,18 @@ func reload_level():
 
 func _deferred_reload_level():
 	var checkpoint_id = current_level.current_checkpoint
+	var is_read_array = current_level.get_logs_read()
+	print_debug(is_read_array)
+	#var read_logs = num_read_logs(is_read_array)
+	var index = index_of_name(current_name)-num_menus
+	if index <= num_levels-1:
+		data_logs_read[index] = is_read_array
 	current_level.free()
 	PowerManager.clear_all()
 	EnemyManager.reset()
 	instantiate_new_level(current_name)
+	if index <= num_levels-1:
+		current_level.set_logs_read(data_logs_read[index])
 	if checkpoint_id < 0:
 		PlayerManager.place_player_at(current_level.get_start_elevator().global_position)
 	else:
@@ -128,11 +141,16 @@ func _deferred_load_level(level_name : String, transition : bool):
 	
 	instantiate_new_level(level_name)
 	
+	#We treat menu scenes differently
 	#Menu scenes have no start elevator
 	if not current_level.has_method("get_start_elevator"):
 		SoundManager.start_music()
 		is_loading = false
 		return
+	
+	var index = index_of_name(level_name)-num_menus
+	if index <= num_levels-1:
+		current_level.set_logs_read(data_logs_read[index])
 	
 	SoundManager.start_ambient()
 	PlayerManager.place_player_at(current_level.get_start_elevator().global_position + spawn_pos)
@@ -145,3 +163,22 @@ func instantiate_new_level(level_name : String):
 	current_name = level_name
 	root.add_child(current_level)
 	get_tree().current_scene = current_level
+
+func num_read_logs(is_read_array):
+	var count = 0
+	for is_read in is_read_array:
+		if is_read:
+			count += 1
+	return count
+
+func total_logs_read():
+	var total = 0
+	for is_read_array in data_logs_read:
+		total += num_read_logs(is_read_array)
+	return total
+
+func total_max_logs():
+	var total = 0
+	for max in max_data_logs:
+		total += max
+	return total

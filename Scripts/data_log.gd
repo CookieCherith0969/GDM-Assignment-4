@@ -2,8 +2,6 @@ extends Area2D
 
 @export_multiline
 var contents : String = "[CORRUPTED FILE]"
-@export
-var log_id = 0
 
 #@onready
 #var paper = $paperSound
@@ -31,8 +29,6 @@ func on_interact(player):
 	#await get_tree().create_timer(0.15).timeout
 	GuiManager.show_window(contents)
 	player.lock_controls()
-	if !is_read:
-		LevelManager.data_logs_read[log_id] = true
 	is_read = true
 
 

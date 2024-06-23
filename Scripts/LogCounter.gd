@@ -3,6 +3,7 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var logs =  LevelManager.data_logs_read.count(true)
-	text = "Data Logs "+str(logs)+"/"+str(LevelManager.data_logs_read.size())
+	var total_read = LevelManager.total_logs_read()
+	var max_logs = LevelManager.total_max_logs()
+	text = "Data Logs "+str(total_read)+"/"+str(max_logs)
 

@@ -1,6 +1,13 @@
 extends Control
 
+@export
+var log_labels : Array[Node]
 
+func _ready():
+	for i in range(log_labels.size()):
+		var logs_read = LevelManager.num_read_logs(LevelManager.data_logs_read[i])
+		var logs_unread = LevelManager.max_data_logs[i] - logs_read
+		log_labels[i].text = str(logs_unread)
 
 func _on_back_pressed():
 	SoundManager.menu_button()
