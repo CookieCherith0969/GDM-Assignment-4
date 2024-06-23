@@ -26,5 +26,5 @@ func _on_body_exited(body):
 
 func on_interact(player):
 	if is_instance_valid(target):
-		player.position = target.position
+		player.global_position = target.global_position
 		vent.play()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://05h4phc5hc4p"]
+[gd_scene load_steps=12 format=3 uid="uid://05h4phc5hc4p"]
 
 [ext_resource type="Script" path="res://Scripts/Elevator.gd" id="1_mo8dt"]
 [ext_resource type="Texture2D" uid="uid://c3wypktmwwvxe" path="res://Art/PlaceholderArt/ElevatorOpen.png" id="2_ao8a8"]
 [ext_resource type="AudioStream" uid="uid://b5ccfqsfx58i0" path="res://audio/elevDoor.mp3" id="3_wrmqw"]
 [ext_resource type="PackedScene" uid="uid://kgh665ni5kcx" path="res://Scenes/inverted_deco_light.tscn" id="4_2igwr"]
 [ext_resource type="AudioStream" uid="uid://8nq7po05r2vc" path="res://audio/elevator.mp3" id="5_xq0jk"]
+[ext_resource type="Texture2D" uid="uid://w1qedp2jieb" path="res://Art/PlaceholderArt/ElevatorDoor.png" id="6_wua3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73r4e"]
 size = Vector2(54, 54)
@@ -85,6 +86,12 @@ occluder = SubResource("OccluderPolygon2D_20niq")
 stream = ExtResource("5_xq0jk")
 volume_db = 5.0
 bus = &"Machines"
+
+[node name="DoorSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(0, -31)
+texture = ExtResource("6_wua3s")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

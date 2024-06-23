@@ -19,7 +19,8 @@ var do_transition = true
 var open_sprite = preload("res://Art/PlaceholderArt/ElevatorOpen.png")
 @onready
 var closed_sprite = preload("res://Art/PlaceholderArt/ElevatorClosed.png")
-
+@onready
+var door_sprite = $DoorSprite
 @onready
 var sprite = $Sprite2D
 @onready
@@ -53,13 +54,15 @@ func set_closed(val : bool):
 			close_sound.play()
 			if player_inside:
 				elevHum.play()
-		sprite.texture = closed_sprite
+		door_sprite.show()
+		#sprite.texture = closed_sprite
 		door_body.process_mode = Node.PROCESS_MODE_INHERIT
 		door_body.show()
 	else:
 		if !Engine.is_editor_hint():
 			open_sound.play()
-		sprite.texture = open_sprite
+		door_sprite.hide()
+		#sprite.texture = open_sprite
 		door_body.process_mode = Node.PROCESS_MODE_DISABLED
 		door_body.hide()
 

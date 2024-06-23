@@ -20,6 +20,7 @@ size = Vector2(4, 22)
 polygon = PackedVector2Array(2, -16, 2, -11, -25, -11, -25, 11, 2, 11, 2, 16, -30, 16, -30, -16)
 
 [node name="DropChute" type="StaticBody2D"]
+z_index = -5
 collision_layer = 17
 collision_mask = 0
 script = ExtResource("1_lbfpb")
@@ -39,6 +40,7 @@ position = Vector2(2.5, 0)
 shape = SubResource("RectangleShape2D_fx1bp")
 
 [node name="DoorSprite" type="Sprite2D" parent="."]
+z_index = 5
 position = Vector2(14, 0)
 texture = ExtResource("3_cek1g")
 
@@ -63,7 +65,7 @@ bus = &"Machines"
 [node name="gateClose" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(14, 0)
 stream = ExtResource("5_tf2lb")
-volume_db = -10.0
+volume_db = -6.0
 bus = &"Machines"
 
 [node name="InvertedDecoLight" parent="." instance=ExtResource("6_egft2")]
