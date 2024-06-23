@@ -117,6 +117,10 @@ Menu={
 2d_physics/layer_4="Lightable"
 2d_physics/layer_5="Light Blocker"
 
+[navigation]
+
+2d/default_edge_connection_margin=3.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
