@@ -6,7 +6,7 @@ var current_level = null
 var current_name = null
 @onready
 var root = get_tree().root
-const num_menus = 5
+const num_menus = 6
 const num_levels = 6
 var is_loading = false
 
@@ -17,6 +17,7 @@ var levels : Dictionary = {
 	"LevelSelect": preload("res://Scenes/Levels/LevelSelect.tscn"),
 	"Settings": preload("res://Scenes/Levels/Settings.tscn"),
 	"Audio": preload("res://Scenes/Levels/Audio.tscn"),
+	"Misc": preload("res://Scenes/Levels/Misc.tscn"),
 	"Credits": preload("res://Scenes/Levels/Credits.tscn"),
 	#Levels
 	"Tutorial": preload("res://Scenes/Levels/Tutorial.tscn"),
@@ -85,12 +86,10 @@ func reload_level():
 
 func _deferred_reload_level():
 	var checkpoint_id = current_level.current_checkpoint
-	var is_read_array = current_level.get_logs_read()
-	print_debug(is_read_array)
 	#var read_logs = num_read_logs(is_read_array)
 	var index = index_of_name(current_name)-num_menus
 	if index <= num_levels-1:
-		data_logs_read[index] = is_read_array
+		data_logs_read[index] = current_level.get_logs_read()
 	current_level.free()
 	PowerManager.clear_all()
 	EnemyManager.reset()
@@ -125,6 +124,10 @@ func _deferred_load_level(level_name : String, transition : bool):
 		var player_pos = PlayerManager.current_player.global_position
 		spawn_pos = player_pos - end_pos
 		elevator_rot = current_level.get_end_elevator().rotation
+		
+	var old_index = index_of_name(current_name)-num_menus
+	if old_index >= 0 and old_index <= num_levels-1:
+		data_logs_read[old_index] = current_level.get_logs_read()
 	current_level.free()
 	PowerManager.clear_all()
 	EnemyManager.reset()
@@ -182,3 +185,7 @@ func total_max_logs():
 	for max in max_data_logs:
 		total += max
 	return total
+
+func clear_data_logs():
+	for i in range(data_logs_read.size()):
+		data_logs_read[i] = []

@@ -19,11 +19,15 @@ script = ExtResource("1_jca1i")
 
 [node name="Label" type="Label" parent="."]
 material = ExtResource("3_gyr8g")
-layout_mode = 2
-offset_left = 80.0
-offset_top = 88.0
-offset_right = 573.0
-offset_bottom = 160.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -246.0
+offset_top = 80.0
+offset_right = 247.0
+offset_bottom = 152.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_0g4t3")
 theme_override_font_sizes/font_size = 58
@@ -42,6 +46,7 @@ offset_right = -60.0
 offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
 
 [node name="AudioButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -50,15 +55,31 @@ theme_override_font_sizes/font_size = 28
 text = "Audio"
 icon_alignment = 1
 
+[node name="MiscButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_r1c5b")
+theme_override_font_sizes/font_size = 28
+text = "Miscellaneous
+"
+icon_alignment = 1
+
 [node name="Back" type="Button" parent="."]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 512.0
-offset_right = 360.0
-offset_bottom = 554.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -91.0
+offset_right = 40.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_r1c5b")
 theme_override_font_sizes/font_size = 28
 text = "BACK"
 
 [connection signal="pressed" from="VBoxContainer/AudioButton" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MiscButton" to="." method="_on_misc_button_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

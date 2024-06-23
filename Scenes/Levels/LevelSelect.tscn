@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqtq35mmlmsky"]
+[gd_scene load_steps=14 format=3 uid="uid://dqtq35mmlmsky"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_3mcah"]
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="2_26q07"]
@@ -9,6 +9,13 @@
 [ext_resource type="Shader" path="res://Shaders/StartMenu.gdshader" id="7_u2p4u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mowst"]
+resource_local_to_scene = true
+shader = ExtResource("7_u2p4u")
+shader_parameter/height = 2.0
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2ydm"]
 resource_local_to_scene = true
 shader = ExtResource("7_u2p4u")
 shader_parameter/height = 2.0
@@ -86,7 +93,7 @@ offset_right = 160.0
 offset_bottom = 296.0
 
 [node name="Logs1" parent="." instance=ExtResource("6_vucuk")]
-material = SubResource("ShaderMaterial_mowst")
+material = SubResource("ShaderMaterial_b2ydm")
 layout_mode = 0
 offset_left = 208.0
 offset_top = 262.0

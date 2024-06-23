@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://dr08nsx63nuuy"]
+
+[ext_resource type="Script" path="res://Scripts/Misc.gd" id="1_18l4x"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="1_ykfns"]
+[ext_resource type="Material" uid="uid://bmer6jms7s2ag" path="res://Resources/TextBobbing.tres" id="2_bi6jg"]
+[ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="3_7l66i"]
+[ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="5_kwqo5"]
+[ext_resource type="Shader" path="res://Shaders/StartMenu.gdshader" id="5_wbdi2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_anwi7"]
+resource_local_to_scene = true
+shader = ExtResource("5_wbdi2")
+shader_parameter/height = 1.0
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+
+[node name="Misc" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_18l4x")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_ykfns")]
+
+[node name="Label" type="Label" parent="."]
+material = ExtResource("2_bi6jg")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -273.0
+offset_top = 80.0
+offset_right = 274.0
+offset_bottom = 152.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_7l66i")
+theme_override_font_sizes/font_size = 58
+text = "MISCELLANEOUS"
+horizontal_alignment = 1
+
+[node name="ClearText" type="Label" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_anwi7")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -61.0
+offset_right = 111.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.439049, 0.439049, 0.439049, 1)
+theme_override_fonts/font = ExtResource("5_kwqo5")
+theme_override_font_sizes/font_size = 24
+text = "Progress Cleared"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 227.0
+offset_right = 40.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_kwqo5")
+theme_override_font_sizes/font_size = 28
+text = "BACK"
+
+[node name="ClearButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.5
+offset_top = -21.0
+offset_right = 188.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_kwqo5")
+theme_override_font_sizes/font_size = 28
+text = "CLEAR DATA LOG PROGRESS"
+icon_alignment = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="ClearButton" to="." method="_on_clear_button_pressed"]
