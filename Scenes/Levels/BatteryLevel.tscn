@@ -128,7 +128,7 @@ position = Vector2(55, -407)
 position = Vector2(16, -642)
 
 [node name="Hive3" parent="Enemies" instance=ExtResource("12_nt2eq")]
-position = Vector2(-160, -735)
+position = Vector2(-160, -723)
 
 [node name="Hive4" parent="Enemies" instance=ExtResource("12_nt2eq")]
 position = Vector2(-101, -945)

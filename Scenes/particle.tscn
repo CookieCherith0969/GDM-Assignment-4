@@ -5,6 +5,5 @@
 
 [node name="Particle" type="Sprite2D"]
 process_mode = 4
-z_index = 2
 texture = ExtResource("1_saxd5")
 script = ExtResource("2_0gntp")
