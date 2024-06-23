@@ -60,8 +60,8 @@ func recursive_count(node):
 		count += recursive_count(child)
 	return count
 
-func index_of_name(name : String):
-	return levels.keys().find(name)
+func index_of_name(level_name : String):
+	return levels.keys().find(level_name)
 	
 func reload_level():
 	if is_loading:
@@ -71,6 +71,7 @@ func reload_level():
 		return
 		#var next_name = current_level.get_end_elevator().next_level_name
 		#load_level(next_name, true)
+	GuiManager.hide_window()
 	PlayerManager.save_player_pos()
 	PlayerManager.reset_player_state()
 	call_deferred("_deferred_reload_level")

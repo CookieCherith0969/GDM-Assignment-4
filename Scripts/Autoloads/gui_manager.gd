@@ -23,4 +23,5 @@ func hide_window():
 	paper.pitch_scale = close_pitch
 	paper.play()
 	PlayerManager.current_player.free_controls()
-	PlayerManager.current_player.exited.disconnect(hide_window)
+	if PlayerManager.current_player.exited.is_connected(hide_window):
+		PlayerManager.current_player.exited.disconnect(hide_window)
