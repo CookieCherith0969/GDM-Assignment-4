@@ -182,8 +182,8 @@ func total_logs_read():
 
 func total_max_logs():
 	var total = 0
-	for max in max_data_logs:
-		total += max
+	for max_logs in max_data_logs:
+		total += max_logs
 	return total
 
 func clear_data_logs():

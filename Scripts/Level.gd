@@ -28,6 +28,6 @@ func set_logs_read(is_read_array):
 
 func get_logs_read():
 	var is_read_array = []
-	for log in data_logs:
-		is_read_array.append(log.is_read)
+	for data_log in data_logs:
+		is_read_array.append(data_log.is_read)
 	return is_read_array
