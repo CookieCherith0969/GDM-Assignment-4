@@ -21,7 +21,7 @@ func hide_window():
 	window.hide()
 	AudioServer.set_bus_mute(2, false)
 	paper.pitch_scale = close_pitch
-	paper.play()
 	PlayerManager.current_player.free_controls()
 	if PlayerManager.current_player.exited.is_connected(hide_window):
 		PlayerManager.current_player.exited.disconnect(hide_window)
+		paper.play()

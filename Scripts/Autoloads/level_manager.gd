@@ -66,9 +66,10 @@ func index_of_name(level_name : String):
 func reload_level():
 	if is_loading:
 		return
-	is_loading = true
 	if current_name == "TransitionElevator":
 		return
+	is_loading = true
+	
 		#var next_name = current_level.get_end_elevator().next_level_name
 		#load_level(next_name, true)
 	GuiManager.hide_window()

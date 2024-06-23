@@ -170,13 +170,13 @@ func _on_deregistered_active():
 	if target != home_hive:
 		hunting = EnemyManager.try_register_active(self)
 
-func _on_detection_area_target_entered(target):
-	if not is_instance_of(target, Player):
+func _on_detection_area_target_entered(detection_target):
+	if not is_instance_of(detection_target, Player):
 		return
 	player_in_range = true
 
-func _on_detection_area_target_exited(target):
-	if not is_instance_of(target, Player):
+func _on_detection_area_target_exited(detection_target):
+	if not is_instance_of(detection_target, Player):
 		return
 	player_in_range = false
 

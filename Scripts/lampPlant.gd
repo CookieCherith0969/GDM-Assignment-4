@@ -16,7 +16,7 @@ var active_sound = $ActiveSound
 func _ready():
 	sprite.play("off") # Start with lamp off -R
 
-func _process(delta):
+func _process(_delta):
 	if lampActive:
 		if not active_sound.playing:
 			active_sound.play()
