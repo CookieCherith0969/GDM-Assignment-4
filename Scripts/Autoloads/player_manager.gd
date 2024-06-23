@@ -4,6 +4,8 @@ extends Node
 var player_scene = preload("res://Scenes/player.tscn")
 @onready
 var failed_robot_scene = preload("res://Scenes/failed_robot.tscn")
+@onready
+var failed_robots_node = $FailedRobots
 var current_player : Player = null
 var camera : Camera2D = null
 
@@ -112,6 +114,9 @@ func clear_prev_positions():
 	prev_left_facings.clear()
 
 func place_failed_robots():
+	for robot in failed_robots_node.get_children():
+		robot.queue_free()
+	
 	for i in range(prev_player_positions.size()):
 		var prev_pos = prev_player_positions[i]
 		var prev_left = prev_left_facings[i]
@@ -119,4 +124,4 @@ func place_failed_robots():
 		var new_failed = failed_robot_scene.instantiate()
 		new_failed.position = prev_pos
 		new_failed.flip_h = prev_left
-		LevelManager.current_level.add_child(new_failed)
+		failed_robots_node.add_child(new_failed)

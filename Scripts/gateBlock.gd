@@ -15,6 +15,9 @@ var lit : bool : set = set_lit
 var active_colour = Color("#ffffff")
 var inactive_colour = Color("#404040")
 
+var unlit_z = 0
+var lit_z = -2
+
 @onready
 var plant_sound = $PlantSound
 var shrink_pitch = 0.7
@@ -55,10 +58,11 @@ func set_lit(val : bool):
 		occluder.hide()
 		plant_sound.pitch_scale = shrink_pitch
 		plant_sound.play()
+		z_index = lit_z
 	else:
 		modulate = active_colour
 		collision_layer += 1
 		occluder.show()
 		plant_sound.pitch_scale = grow_pitch
 		plant_sound.play()
-	
+		z_index = unlit_z
