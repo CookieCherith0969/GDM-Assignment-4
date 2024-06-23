@@ -222,6 +222,7 @@ func set_reaction_timer(val):
 func on_lit(lighter):
 	if is_instance_of(lighter, ParticleEnemy):
 		return
+	print_debug("Enemy lit")
 	#if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 	#	return
 	lighters.push_back(lighter)
@@ -237,8 +238,7 @@ func on_lit(lighter):
 func on_unlit(lighter):
 	if is_instance_of(lighter, ParticleEnemy):
 		return
-	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
-		return
+	print_debug("Enemy unlit")
 	lighters.erase(lighter)
 	
 	if lighter == player:

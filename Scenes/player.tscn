@@ -75,6 +75,7 @@ rotation = 1.5708
 ray_range = 65.0
 max_gap = 4.0
 active = false
+hit_from_inside = true
 lighter = NodePath("../..")
 
 [node name="LightOn" type="AudioStreamPlayer" parent="."]
