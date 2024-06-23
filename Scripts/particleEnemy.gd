@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name ParticleEnemy
 
 var speed = 150 # Enemy speed -R
 var player = null
@@ -198,7 +199,7 @@ func set_player_corrupted(val):
 	try_target_player()
 
 func try_target_player():
-	print_debug(player_corrupted)
+	#print_debug(player_corrupted)
 	if player_lit and player_in_range and !player_corrupted:
 		target = player
 		#print_debug("Player targeted")
@@ -206,8 +207,9 @@ func try_target_player():
 		#print_debug("Trying to untarget Player")
 		if lighters.has(player):
 			return
-		
 		target = home_hive
+		target_closest_lighter()
+		
 		#print_debug("Player untargeted")
 
 func set_reaction_timer(val):
@@ -218,7 +220,7 @@ func set_reaction_timer(val):
 	set_particle_speed(lerp(slow_particle_speed,fast_particle_speed,aggravation))
 
 func on_lit(lighter):
-	if lighter == self:
+	if is_instance_of(lighter, ParticleEnemy):
 		return
 	#if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 	#	return
@@ -233,7 +235,7 @@ func on_lit(lighter):
 		target_closest_lighter()
 
 func on_unlit(lighter):
-	if lighter == self:
+	if is_instance_of(lighter, ParticleEnemy):
 		return
 	if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 		return
