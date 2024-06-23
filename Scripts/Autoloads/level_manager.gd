@@ -47,7 +47,19 @@ var data_logs_read = [
 func _ready():
 	current_level = root.get_child(root.get_child_count() - 1)
 	current_name = "StartMenu"
-	
+	#debug_counter()
+
+func debug_counter():
+	while true:
+		await get_tree().create_timer(1.0).timeout
+		print_debug(recursive_count(root))
+
+func recursive_count(node):
+	var count = 1
+	for child in node.get_children():
+		count += recursive_count(child)
+	return count
+
 func index_of_name(name : String):
 	return levels.keys().find(name)
 	
@@ -127,5 +139,5 @@ func instantiate_new_level(level_name : String):
 	var level_scene = levels[level_name]
 	current_level = level_scene.instantiate()
 	current_name = level_name
-	get_tree().root.add_child(current_level)
+	root.add_child(current_level)
 	get_tree().current_scene = current_level

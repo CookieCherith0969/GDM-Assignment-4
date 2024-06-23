@@ -15,12 +15,13 @@ var registered = false
 @export
 var do_transition = true
 
-@onready
-var open_sprite = preload("res://Art/PlaceholderArt/ElevatorOpen.png")
-@onready
-var closed_sprite = preload("res://Art/PlaceholderArt/ElevatorClosed.png")
+#@onready
+#var open_sprite = preload("res://Art/PlaceholderArt/ElevatorOpen.png")
+#@onready
+#var closed_sprite = preload("res://Art/PlaceholderArt/ElevatorClosed.png")
 @onready
 var door_sprite = $DoorSprite
+
 @onready
 var sprite = $Sprite2D
 @onready
