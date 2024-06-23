@@ -16,13 +16,6 @@ var window_scene = preload("res://Scenes/text_window.tscn")
 
 var is_read = false : set = set_read
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	sprite.play("default")
-
-
-
 func _on_body_entered(body):
 	if is_instance_of(body, Player):
 		popup.show()
@@ -47,6 +40,6 @@ func set_read(val : bool):
 	is_read = val
 	
 	if is_read:
-		sprite.play("read")
+		sprite.play("Off")
 	else:
-		sprite.play("default")
+		sprite.play("On")

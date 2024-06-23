@@ -1,13 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://blpd1tfg3r2pt"]
+[gd_scene load_steps=14 format=3 uid="uid://blpd1tfg3r2pt"]
 
 [ext_resource type="Script" path="res://Scripts/PressurePlate.gd" id="1_2qpq2"]
 [ext_resource type="Texture2D" uid="uid://c0kabm4uidj5p" path="res://Art/PressurePlateDown.png" id="2_wfol1"]
+[ext_resource type="Texture2D" uid="uid://ck0nfgxh8qmae" path="res://Art/PressurePlateTimerDown.png" id="3_7765l"]
 [ext_resource type="Texture2D" uid="uid://djikgs0p3hrtl" path="res://Art/PressurePlateUp.png" id="3_mdxms"]
 [ext_resource type="AudioStream" uid="uid://bbp3qyhu70jd6" path="res://audio/Light On.mp3" id="4_3f5sj"]
+[ext_resource type="Texture2D" uid="uid://dfe5jd7vicml5" path="res://Art/PressurePlateTimerUp.png" id="4_qe2se"]
 [ext_resource type="AudioStream" uid="uid://d3kfiyp72cam8" path="res://audio/Light Off.mp3" id="5_x7wf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6m66"]
 size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsmul"]
+atlas = ExtResource("3_7765l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpis2"]
+atlas = ExtResource("3_7765l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur2vb"]
+atlas = ExtResource("3_7765l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld3lt"]
+atlas = ExtResource("4_qe2se")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_st5m7"]
 animations = [{
@@ -21,6 +39,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nsmul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpis2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur2vb")
+}],
+"loop": true,
+"name": &"TimerDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld3lt")
+}],
+"loop": true,
+"name": &"TimerUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_mdxms")
 }],
 "loop": true,
@@ -29,6 +69,7 @@ animations = [{
 }]
 
 [node name="PressurePlate" type="Area2D"]
+z_index = -3
 collision_layer = 0
 collision_mask = 6
 script = ExtResource("1_2qpq2")
@@ -38,7 +79,8 @@ shape = SubResource("RectangleShape2D_b6m66")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_st5m7")
-animation = &"Up"
+animation = &"TimerDown"
+autoplay = "TimerUp"
 
 [node name="ButtonDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3f5sj")
