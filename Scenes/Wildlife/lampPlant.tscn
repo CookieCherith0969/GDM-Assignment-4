@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c042mnm23xyoo"]
+[gd_scene load_steps=15 format=3 uid="uid://c042mnm23xyoo"]
 
 [ext_resource type="Script" path="res://Scripts/lampPlant.gd" id="1_jd74j"]
 [ext_resource type="Texture2D" uid="uid://bx7nttu6o8xj" path="res://Art/lightplant-Sheet.png" id="2_qgyoi"]
@@ -18,6 +18,22 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("2_qgyoi")
 region = Rect2(32, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t77ll"]
+atlas = ExtResource("2_qgyoi")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tj0r"]
+atlas = ExtResource("2_qgyoi")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnmxi"]
+atlas = ExtResource("2_qgyoi")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa05k"]
+atlas = ExtResource("2_qgyoi")
+region = Rect2(32, 32, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7r2r"]
 animations = [{
 "frames": [{
@@ -36,8 +52,30 @@ animations = [{
 "texture": SubResource("AtlasTexture_k6yjj")
 }],
 "loop": true,
-"name": &"on",
-"speed": 5.0
+"name": &"on0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t77ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tj0r")
+}],
+"loop": true,
+"name": &"on1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnmxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa05k")
+}],
+"loop": true,
+"name": &"on2",
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbqjf"]
@@ -48,7 +86,8 @@ script = ExtResource("1_jd74j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e7r2r")
-animation = &"on"
+animation = &"off"
+autoplay = "off"
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 2
