@@ -12,7 +12,7 @@ func _on_body_entered(body):
 		for i in range(5):
 			await get_tree().create_timer(1.3).timeout
 			body.light_on = !body.light_on
-			activated_vines[int(i)/2].show()
+			activated_vines[int(i/2.0)].show()
 		await get_tree().create_timer(1.3).timeout
 		body.light_on = false
 		body.glow_light.enabled = false

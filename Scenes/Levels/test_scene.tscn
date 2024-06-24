@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://eetcf0eal5f6"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_b8jrh"]
+[ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/Utility/darkness.tscn" id="1_rfmqu"]
+[ext_resource type="PackedScene" uid="uid://cast1lupeqmo" path="res://Scenes/Utility/tile_map.tscn" id="2_ummtc"]
+[ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="3_ydm7x"]
+[ext_resource type="PackedScene" uid="uid://gcm8lbssgypr" path="res://Scenes/Wildlife/lightGate.tscn" id="4_m1idb"]
+[ext_resource type="PackedScene" uid="uid://d158e8mjutn7v" path="res://Scenes/Machines/port.tscn" id="5_58qm1"]
+[ext_resource type="PackedScene" uid="uid://05h4phc5hc4p" path="res://Scenes/Machines/elevator.tscn" id="6_fh8b6"]
+[ext_resource type="PackedScene" uid="uid://ddg8hl14b8mda" path="res://Scenes/Wildlife/blocker_vines.tscn" id="8_1lhfh"]
+
+[node name="TestScene" type="Node2D" node_paths=PackedStringArray("start_elevator")]
+script = ExtResource("1_b8jrh")
+start_elevator = NodePath("Elevator")
+
+[node name="Darkness" parent="." instance=ExtResource("1_rfmqu")]
+
+[node name="TileMap" parent="." instance=ExtResource("2_ummtc")]
+layer_0/tile_data = PackedInt32Array(-65536, 131076, 9, -65535, 131076, 9, -65534, 131076, 9, -65533, 131076, 9, -65532, 131076, 9, -65531, 131076, 9, -65530, 131076, 9, -65529, 131076, 9, -65528, 262148, 8, 8, 131076, 8, 65544, 131076, 8, 65543, 65540, 2, 131079, 65540, 8, 131078, 65540, 8, 131077, 65540, 8, 131076, 65540, 8, 131075, 65540, 8, 65539, 65540, 2, 65538, 65540, 2, 65537, 65540, 2, 65536, 65540, 2, 131071, 65540, 2, 65535, 65540, 2, 0, 65540, 2, 1, 65540, 2, 131072, 65540, 8, 131073, 65540, 8, 131074, 65540, 8, 131080, 196612, 8, 65542, 65540, 2, 65541, 65540, 2, 65540, 65540, 2, 2, 65540, 2, 3, 65540, 2, 4, 65540, 2, 5, 65540, 2, 6, 65540, 2, 196606, 65540, 8, 131070, 65540, 2, -1, 393220, 8, -2, 65540, 2, 65534, 65540, 2, 196607, 65540, 8, 7, 65540, 2, -131074, 65540, 2, -65538, 65540, 2, -131073, 131076, 8, -65537, 131076, 8, -131076, 65540, 9, -65540, 65540, 9, -4, 65540, 9, 65532, 65540, 9, 131068, 65540, 9, 196604, 196612, 9, -131075, 65540, 2, -65539, 65540, 2, -3, 65540, 2, 65533, 65540, 2, 131069, 65540, 2, 196605, 65540, 8)
+visibility_bounds = Rect2i(-4, -3, 13, 6)
+
+[node name="CRTOverlay" parent="." instance=ExtResource("3_ydm7x")]
+
+[node name="LightGate" parent="." instance=ExtResource("4_m1idb")]
+position = Vector2(64, -8)
+gateSize = Vector2i(10, 7)
+
+[node name="Port" parent="." instance=ExtResource("5_58qm1")]
+position = Vector2(-36, 27)
+start_with_battery = true
+
+[node name="Elevator" parent="." instance=ExtResource("6_fh8b6")]
+position = Vector2(-32, -80)
+rotation = 3.14159
+is_start = true
+power_id = 1
+
+[node name="BlockerVines" parent="." instance=ExtResource("8_1lhfh")]
+position = Vector2(-0.999999, -12)
+rotation = -1.48353
+size = Vector2i(8, 142)
+
+[node name="BlockerVines2" parent="." instance=ExtResource("8_1lhfh")]
+position = Vector2(6, 52)
+rotation = -1.8326
+size = Vector2i(8, 142)

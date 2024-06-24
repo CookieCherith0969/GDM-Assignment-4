@@ -85,11 +85,11 @@ position = Vector2(-95, -85)
 
 [node name="LampPlants" type="Node2D" parent="."]
 
-[node name="LampPlant2" parent="LampPlants" instance=ExtResource("7_6g7k4")]
+[node name="EvilPlant" parent="LampPlants" instance=ExtResource("7_6g7k4")]
 position = Vector2(1, -383)
 
 [node name="LampPlant3" parent="LampPlants" instance=ExtResource("7_6g7k4")]
-position = Vector2(-13, -155)
+position = Vector2(-43, -152)
 
 [node name="LampPlant" parent="LampPlants" instance=ExtResource("7_6g7k4")]
 position = Vector2(-102, -294)
@@ -97,7 +97,7 @@ position = Vector2(-102, -294)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Hive" parent="Enemies" instance=ExtResource("8_nyn8w")]
-position = Vector2(-45, -153)
+position = Vector2(-11, -150)
 
 [node name="Hive2" parent="Enemies" instance=ExtResource("8_nyn8w")]
 position = Vector2(-62, -220)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=62 format=3 uid="uid://cast1lupeqmo"]
+[gd_scene load_steps=63 format=3 uid="uid://cast1lupeqmo"]
 
 [ext_resource type="Texture2D" uid="uid://d025ubfqf3vhi" path="res://Art/CosmeticMap.png" id="1_8ac2f"]
 [ext_resource type="Texture2D" uid="uid://djqma3w6qjmhv" path="res://Art/tilemap1.png" id="2_mqaq6"]
 [ext_resource type="Script" path="res://Scripts/level_tile_map.gd" id="3_8dtrv"]
+[ext_resource type="Texture2D" uid="uid://cm8j8gnshgev0" path="res://Art/TextRect.png" id="4_3owkn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jkdnd"]
 resource_name = "Corruption"
@@ -640,3 +641,9 @@ layer_3/name = "Objects"
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("3_8dtrv")
 metadata/_edit_lock_ = true
+
+[node name="DebugBounds" type="TextureRect" parent="."]
+visible = false
+offset_right = 3.0
+offset_bottom = 3.0
+texture = ExtResource("4_3owkn")

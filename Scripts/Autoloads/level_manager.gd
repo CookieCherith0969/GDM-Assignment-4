@@ -21,6 +21,7 @@ var levels : Dictionary = {
 	"Credits": preload("res://Scenes/Levels/Credits.tscn"),
 	#Levels
 	"Tutorial": preload("res://Scenes/Levels/Tutorial.tscn"),
+	#"Tutorial": preload("res://Scenes/Levels/test_scene.tscn"),
 	"BatteryLevel": preload("res://Scenes/Levels/BatteryLevel.tscn"),
 	"LampLevel": preload("res://Scenes/Levels/LampLevel.tscn"),
 	"VentLevel": preload("res://Scenes/Levels/VentLevel.tscn"),
