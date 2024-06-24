@@ -11,6 +11,7 @@ var max_gap : float = 6.0 : set = set_gap
 var active = true : set = set_active
 @export
 var hit_from_inside = false : set = set_inside
+const ray_mask = 24
 
 @export
 var lighter : Node
@@ -26,7 +27,8 @@ func _ready():
 	hit_from_inside = hit_from_inside
 	max_gap = max_gap
 	
-	blockable_area.ray_mask = 24
+	blockable_area.ray_mask = ray_mask
+	print_debug("set "+str(blockable_area.ray_mask)+" to "+str(ray_mask))
 
 func set_angle(val : float):
 	angle = val

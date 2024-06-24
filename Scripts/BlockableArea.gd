@@ -25,6 +25,7 @@ var targets : Array
 var sweeping_ray = $SweepingRay
 @onready
 var visible_enabler = $VisibleOnScreenEnabler2D
+var on_screen = false
 
 var active_targets : Array
 
@@ -51,6 +52,8 @@ func _physics_process(_delta):
 		return
 	if not active:
 		return
+	if not on_screen:
+		return
 	targets.clear()
 	
 	sweeping_ray.clear_exceptions()
@@ -61,8 +64,10 @@ func _physics_process(_delta):
 		# Stop if the ray hit nothing
 		while sweeping_ray.is_colliding():
 			var collider = sweeping_ray.get_collider()
-			# Stop if the ray hit a wall
+			# Stop if the ray hit a wall or light blocker
 			if is_instance_of(collider, TileMap):
+				break
+			if collider.get_collision_layer_value(5):
 				break
 			
 			# Exclude any non-wall object and cast again
@@ -139,4 +144,9 @@ func set_gap(val : float):
 		min_rays = 2
 	
 	num_rays = min_rays
-	
+
+func _on_visible_on_screen_enabler_2d_screen_entered():
+	on_screen = true
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	on_screen = false
