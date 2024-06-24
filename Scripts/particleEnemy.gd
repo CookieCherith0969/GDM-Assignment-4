@@ -220,7 +220,6 @@ func set_reaction_timer(val):
 	set_particle_speed(lerp(slow_particle_speed,fast_particle_speed,aggravation))
 
 func on_lit(lighter):
-	print_debug("Enemy lit")
 	#if lighter.has_method("is_corrupted") and lighter.is_corrupted():
 	#	return
 	lighters.push_back(lighter)
@@ -234,7 +233,6 @@ func on_lit(lighter):
 		target_closest_lighter()
 
 func on_unlit(lighter):
-	print_debug("Enemy unlit")
 	lighters.erase(lighter)
 	
 	if lighter == player:

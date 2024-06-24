@@ -28,7 +28,6 @@ func _ready():
 	max_gap = max_gap
 	
 	blockable_area.ray_mask = ray_mask
-	print_debug("set "+str(blockable_area.ray_mask)+" to "+str(ray_mask))
 
 func set_angle(val : float):
 	angle = val

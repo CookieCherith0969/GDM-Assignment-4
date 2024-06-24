@@ -25,7 +25,6 @@ func set_bounds(val):
 	
 	if !is_instance_valid(debug_bounds):
 		return
-	print("set bound")
 	debug_bounds.position = visibility_bounds.position*16
 	debug_bounds.size = (visibility_bounds.size*16)
 	
@@ -47,8 +46,6 @@ func set_visibility(val):
 
 func _on_screen_entered():
 	show()
-	print_debug("Entered screen")
 
 func _on_screen_exited():
 	hide()
-	print_debug("Exited screen")

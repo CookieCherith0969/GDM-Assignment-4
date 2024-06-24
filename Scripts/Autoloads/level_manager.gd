@@ -76,7 +76,6 @@ func reload_level():
 	if index_of_name(current_name) > num_menus+num_levels-1:
 		return
 	is_loading = true
-	print_debug("Reloading")
 	
 		#var next_name = current_level.get_end_elevator().next_level_name
 		#load_level(next_name, true)
@@ -112,7 +111,6 @@ func load_level(level_name : String, transition : bool):
 	if is_loading:
 		return
 	is_loading = true
-	print_debug("Loading")
 	PlayerManager.save_player_state()
 	PlayerManager.clear_prev_positions()
 	call_deferred("_deferred_load_level", level_name, transition)
