@@ -15,7 +15,7 @@ func _ready():
 	index -= LevelManager.num_menus
 	var remaining_floors = LevelManager.num_levels - index - 1
 	
-	var floor_text = "Floor" if remaining_floors == 1 else "Floors"
+	var floor_text = "floor" if remaining_floors == 1 else "floors"
 	floors_label.text = str(remaining_floors)+" "+floor_text+" to Anomaly"
 
 func _process(_delta):
