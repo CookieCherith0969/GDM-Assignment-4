@@ -207,7 +207,6 @@ icon_alignment = 1
 
 [node name="LogCounter" parent="." instance=ExtResource("8_rjjoc")]
 layout_mode = 1
-text = "Data Logs 0/11"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Lvl0" to="." method="_on_lvl_0_pressed"]
