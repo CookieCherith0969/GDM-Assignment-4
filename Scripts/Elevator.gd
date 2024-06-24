@@ -15,6 +15,9 @@ var registered = false
 @export
 var do_transition = true
 
+@export
+var force_stay_open = false
+
 #@onready
 #var open_sprite = preload("res://Art/PlaceholderArt/ElevatorOpen.png")
 #@onready
@@ -49,7 +52,8 @@ func set_closed(val : bool):
 	
 	if not is_instance_valid(sprite):
 		return
-	
+	if force_stay_open:
+		return
 	if closed:
 		if !Engine.is_editor_hint():
 			close_sound.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://btmd1rnnkb725"]
+[gd_scene load_steps=36 format=3 uid="uid://btmd1rnnkb725"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_j7uh2"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/Utility/darkness.tscn" id="2_u7wtq"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Scripts/CorruptionTrigger.gd" id="16_gdrq6"]
 [ext_resource type="PackedScene" uid="uid://dq6118n28m37k" path="res://Scenes/Decorative/failed_robot.tscn" id="17_6o070"]
 [ext_resource type="PackedScene" uid="uid://b16qn8glxvmnc" path="res://Scenes/Machines/data_log.tscn" id="18_qjgh1"]
+[ext_resource type="Script" path="res://Scripts/FinalElevatorHandler.gd" id="19_xgcqs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4n7a7"]
 atlas = ExtResource("10_f1p3k")
@@ -133,6 +134,9 @@ radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msdxc"]
 size = Vector2(74.25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv3gl"]
+size = Vector2(54, 26.5562)
 
 [node name="FinalLevel" type="Node2D" node_paths=PackedStringArray("start_elevator", "end_elevator", "data_logs")]
 script = ExtResource("1_j7uh2")
@@ -259,12 +263,15 @@ position = Vector2(-18, -761)
 [node name="StartElevator" parent="Power" instance=ExtResource("3_fqw7k")]
 is_start = true
 do_transition = false
+force_stay_open = null
 
 [node name="EndElevator" parent="Power" instance=ExtResource("3_fqw7k")]
 position = Vector2(0, -1280)
 rotation = 3.14159
 next_level_name = "EndScene"
+is_start = true
 do_transition = false
+force_stay_open = true
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -311,10 +318,18 @@ position = Vector2(68, -636)
 flip_h = true
 
 [node name="DataLog" parent="Map" instance=ExtResource("18_qjgh1")]
-position = Vector2(26, -999)
-contents = "[TRANSMISSION]
-[CORRUPTED]
-[END TRANSMISSION]"
+position = Vector2(0, -1296)
+contents = "[LOG 21-1]
+If you're reading this, then you've managed to reach the evacuation lift.
+
+I've left this here as an urgent reminder.
+Before you leave the facility, thoroughly decontaminate yourself and any items you intend to bring with you.
+
+If a drop of secretion - or a lone fly, or even a single seed pod - reaches the surface, then there will be no hope of containing it.
+This is a matter of life or death for the entire planet.
+
+Please.
+[END LOG]"
 
 [node name="CorruptionTrigger" type="Area2D" parent="Map" node_paths=PackedStringArray("activated_vines")]
 position = Vector2(-1, -384)
@@ -445,8 +460,20 @@ size = Vector2i(12, 28)
 position = Vector2(-11, -533)
 size = Vector2i(22, 10)
 
+[node name="FinalElevatorHandler" type="Area2D" parent="." node_paths=PackedStringArray("final_elevator")]
+position = Vector2(-9.65948, -1239.44)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("19_xgcqs")
+final_elevator = NodePath("../Power/EndElevator")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalElevatorHandler"]
+position = Vector2(9.65948, -3.27808)
+shape = SubResource("RectangleShape2D_sv3gl")
+
 [connection signal="body_entered" from="LampPlants/FakeLampPlant/DetectionArea" to="LampPlants/FakeLampPlant" method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="LampPlants/SpecialLampPlant/DetectionArea" to="LampPlants/SpecialLampPlant" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="LampPlants/SpecialLampPlant/DetectionArea" to="LampPlants/SpecialLampPlant" method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="LampPlants/SpecialLampPlant/Timer" to="LampPlants/SpecialLampPlant" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Map/CorruptionTrigger" to="Map/CorruptionTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="FinalElevatorHandler" to="FinalElevatorHandler" method="_on_body_entered"]

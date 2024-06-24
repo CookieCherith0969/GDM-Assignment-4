@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal window_closed
+
 @onready
 var window = $TextWindow
 @onready
@@ -25,3 +27,4 @@ func hide_window():
 	if PlayerManager.current_player.exited.is_connected(hide_window):
 		PlayerManager.current_player.exited.disconnect(hide_window)
 		paper.play()
+		window_closed.emit()
