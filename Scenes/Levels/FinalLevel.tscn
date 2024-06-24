@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://btmd1rnnkb725"]
+[gd_scene load_steps=34 format=3 uid="uid://btmd1rnnkb725"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_j7uh2"]
 [ext_resource type="PackedScene" uid="uid://c5vdoogs4nd0r" path="res://Scenes/Utility/darkness.tscn" id="2_u7wtq"]
@@ -68,7 +68,23 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("10_f1p3k")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e7r2r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t77ll"]
+atlas = ExtResource("10_f1p3k")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tj0r"]
+atlas = ExtResource("10_f1p3k")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnmxi"]
+atlas = ExtResource("10_f1p3k")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa05k"]
+atlas = ExtResource("10_f1p3k")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd4qu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -86,8 +102,30 @@ animations = [{
 "texture": SubResource("AtlasTexture_k6yjj")
 }],
 "loop": true,
-"name": &"on",
-"speed": 5.0
+"name": &"on0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t77ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tj0r")
+}],
+"loop": true,
+"name": &"on1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnmxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa05k")
+}],
+"loop": true,
+"name": &"on2",
+"speed": 1.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_40tec"]
@@ -158,8 +196,9 @@ position = Vector2(-178, -615)
 script = ExtResource("9_3fmul")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LampPlants/SpecialLampPlant"]
-sprite_frames = SubResource("SpriteFrames_e7r2r")
-animation = &"on"
+sprite_frames = SubResource("SpriteFrames_rd4qu")
+animation = &"off"
+autoplay = "off"
 
 [node name="DetectionArea" type="Area2D" parent="LampPlants/SpecialLampPlant"]
 collision_layer = 2
@@ -307,18 +346,20 @@ size = Vector2i(18, 64)
 
 [node name="BlockerVines10" parent="Map" instance=ExtResource("5_3jwyn")]
 visible = false
-position = Vector2(17, -436)
-rotation = 0.0523599
+z_index = 3
+position = Vector2(51, -400)
+rotation = 1.10828
 collision_layer = 0
-size = Vector2i(18, 108)
+size = Vector2i(30, 108)
 
 [node name="BlockerVines11" parent="Map" instance=ExtResource("5_3jwyn")]
 visible = false
-position = Vector2(-31, -436)
-rotation = 0.0436332
+z_index = 3
+position = Vector2(-55, -386)
+rotation = -1.07338
 scale = Vector2(1, 1)
 collision_layer = 0
-size = Vector2i(18, 108)
+size = Vector2i(30, 108)
 
 [node name="Vent" parent="Map" node_paths=PackedStringArray("target") instance=ExtResource("7_wjlse")]
 position = Vector2(0, -512)

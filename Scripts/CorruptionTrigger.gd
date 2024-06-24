@@ -12,12 +12,17 @@ func _on_body_entered(body):
 		for i in range(5):
 			await get_tree().create_timer(1.3).timeout
 			body.light_on = !body.light_on
-			activated_vines[int(i/2)].show()
+			activated_vines[int(i)/2].show()
 		await get_tree().create_timer(1.3).timeout
-		body.light_on = !body.light_on
-		await get_tree().create_timer(1.3).timeout
+		body.light_on = false
+		body.glow_light.enabled = false
+		await get_tree().create_timer(2).timeout
 		body.light_on = true
 		body.corrupted = true
+		body.glow_light.enabled = true
+		body.moving_up = false
+		activated_vines[1].z_index = 0
+		activated_vines[2].z_index = 0
 		await get_tree().create_timer(3).timeout
 		body.light_on = false
 		body.free_controls()
