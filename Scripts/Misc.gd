@@ -3,6 +3,11 @@ extends Control
 @onready
 var clear_text = $ClearText
 
+func _input(event):
+	if event.is_action_pressed("Menu"):
+		SoundManager.menu_button()
+		LevelManager.load_level("Settings",false)
+
 func _on_back_pressed():
 	SoundManager.menu_button()
 	LevelManager.load_level("Settings", false)

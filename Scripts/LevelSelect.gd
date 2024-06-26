@@ -9,6 +9,11 @@ func _ready():
 		var max_logs = LevelManager.max_data_logs[i]
 		log_labels[i].text = str(logs_read)+"/"+str(max_logs)
 
+func _input(event):
+	if event.is_action_pressed("Menu"):
+		SoundManager.menu_button()
+		LevelManager.load_level("StartMenu",false)
+
 func _on_back_pressed():
 	SoundManager.menu_button()
 	LevelManager.load_level("StartMenu", false)

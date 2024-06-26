@@ -18,6 +18,11 @@ func _ready():
 			continue
 		sliders[i].value = db_to_linear(AudioServer.get_bus_volume_db(i))*100
 
+func _input(event):
+	if event.is_action_pressed("Menu"):
+		SoundManager.menu_button()
+		LevelManager.load_level("Settings",false)
+
 func _on_back_pressed():
 	SaveManager.save_settings()
 	SoundManager.menu_button()

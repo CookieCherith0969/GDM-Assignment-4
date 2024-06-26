@@ -1,5 +1,11 @@
 extends Control
 
+func _input(event):
+	if event.is_action_pressed("Menu"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		elif !OS.has_feature("Web"):
+			get_tree().quit()
 func _ready():
 	PlayerManager.reset_player_state()
 

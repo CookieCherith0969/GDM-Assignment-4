@@ -6,7 +6,7 @@ var current_level = null
 var current_name = null
 @onready
 var root = get_tree().root
-const num_menus = 6
+const num_menus = 7
 const num_levels = 6
 var is_loading = false
 
@@ -18,6 +18,7 @@ var levels : Dictionary = {
 	"Settings": preload("res://Scenes/Levels/Settings.tscn"),
 	"Audio": preload("res://Scenes/Levels/Audio.tscn"),
 	"Misc": preload("res://Scenes/Levels/Misc.tscn"),
+	"Video": preload("res://Scenes/Levels/video.tscn"),
 	"Credits": preload("res://Scenes/Levels/Credits.tscn"),
 	#Levels
 	"Tutorial": preload("res://Scenes/Levels/Tutorial.tscn"),
