@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvu3y6ae54p1d"]
+[gd_scene load_steps=10 format=3 uid="uid://dvu3y6ae54p1d"]
 
 [ext_resource type="Script" path="res://Scripts/Video.gd" id="1_byv3s"]
 [ext_resource type="PackedScene" uid="uid://cptggopdncbwu" path="res://Scenes/Utility/crtOverlay.tscn" id="2_6tpex"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://btve8ngv4mvnd" path="res://Art/Fonts/Crang.ttf" id="4_vbebs"]
 [ext_resource type="Shader" path="res://Shaders/StartMenu.gdshader" id="5_fi22k"]
 [ext_resource type="FontFile" uid="uid://ceyy4deiq2wlb" path="res://Art/Fonts/' Mono Bold.ttf" id="6_6ms53"]
+[ext_resource type="Texture2D" uid="uid://k87m7iusx0y7" path="res://Art/CheckboxChecked.png" id="7_f3bch"]
+[ext_resource type="Texture2D" uid="uid://nckdiok5jmnj" path="res://Art/CheckboxUnchecked.png" id="8_2ebl2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n3s8l"]
 resource_local_to_scene = true
@@ -23,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_byv3s")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("2_6tpex")]
+[node name="CRTOverlay" parent="." instance=ExtResource("2_6tpex")]
 
 [node name="Label" type="Label" parent="."]
 material = ExtResource("3_qnnw2")
@@ -99,5 +101,35 @@ theme_override_font_sizes/font_size = 28
 text = "TOGGLE FULLSCREEN"
 icon_alignment = 1
 
+[node name="CRTToggleButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = 35.0
+offset_right = 139.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_6ms53")
+theme_override_font_sizes/font_size = 28
+text = "CRT OVERLAY"
+icon_alignment = 1
+
+[node name="CRTCheckbox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 360.0
+offset_right = 511.0
+offset_bottom = 400.0
+theme_override_icons/checked = ExtResource("7_f3bch")
+theme_override_icons/unchecked = ExtResource("8_2ebl2")
+button_pressed = true
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="CRTToggleButton" to="." method="_on_crt_toggle_button_pressed"]
+[connection signal="pressed" from="CRTCheckbox" to="." method="_on_crt_toggle_button_pressed"]
