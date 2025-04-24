@@ -76,11 +76,13 @@ func set_id(val : int):
 func _on_body_entered(body):
 	if is_instance_of(body, Player):
 		popup.show()
+		GuiManager.show_interact_button()
 		body.interacted.connect(on_interact)
 		
 func _on_body_exited(body):
 	if is_instance_of(body, Player):
 		popup.hide()
+		GuiManager.hide_interact_button()
 		need_battery.hide()
 		body.interacted.disconnect(on_interact)
 	

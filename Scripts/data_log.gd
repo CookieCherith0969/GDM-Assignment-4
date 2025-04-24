@@ -17,11 +17,13 @@ var is_read = false : set = set_read
 func _on_body_entered(body):
 	if is_instance_of(body, Player):
 		popup.show()
+		GuiManager.show_interact_button()
 		body.interacted.connect(on_interact)
 		
 func _on_body_exited(body):
 	if is_instance_of(body, Player):
 		popup.hide()
+		GuiManager.hide_interact_button()
 		body.interacted.disconnect(on_interact)
 
 func on_interact(player):

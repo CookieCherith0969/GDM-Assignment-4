@@ -149,8 +149,10 @@ func _deferred_load_level(level_name : String, transition : bool):
 	if not current_level.has_method("get_start_elevator"):
 		SoundManager.start_music()
 		is_loading = false
+		GuiManager.hide_in_level_contents()
 		return
 	
+	GuiManager.show_in_level_contents()
 	var index = index_of_name(level_name)-num_menus
 	if index <= num_levels-1:
 		current_level.set_logs_read(data_logs_read[index])

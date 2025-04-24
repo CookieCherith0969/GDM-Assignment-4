@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b32ry8bxqdiir"]
+
+[ext_resource type="Script" path="res://Touchscreen/virtual_joystick.gd" id="1_kkvai"]
+[ext_resource type="Script" path="res://Touchscreen/virtual_joystick_head.gd" id="2_fn8j3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8klkl"]
+radius = 20.0
+
+[node name="JoystickAnchor" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kkvai")
+x_negative = &"TestLeft"
+x_positive = &"TestRight"
+y_negative = &"TestUp"
+y_positive = &"TestDown"
+max_distance = 40.0
+base_color = Color(0.560955, 0.560955, 0.560955, 0.435294)
+head_radius = 10.0
+head_color = Color(0.258992, 0.167928, 0.338016, 1)
+
+[node name="JoystickHead" type="TouchScreenButton" parent="."]
+shape = SubResource("CircleShape2D_8klkl")
+script = ExtResource("2_fn8j3")
+
+[connection signal="pressed" from="JoystickHead" to="." method="_on_joystick_pressed"]
+[connection signal="released" from="JoystickHead" to="." method="_on_joystick_released"]

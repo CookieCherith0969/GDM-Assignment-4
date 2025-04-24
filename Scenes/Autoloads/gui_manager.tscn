@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://jy7getc1ajks"]
+[gd_scene load_steps=7 format=3 uid="uid://jy7getc1ajks"]
 
 [ext_resource type="PackedScene" uid="uid://cpl3ysjv0oeb2" path="res://Scenes/Utility/text_window.tscn" id="1_s1te7"]
 [ext_resource type="Script" path="res://Scripts/Autoloads/gui_manager.gd" id="1_ytcbd"]
 [ext_resource type="AudioStream" uid="uid://dxt1ihtblemlj" path="res://audio/paper.mp3" id="3_cfglw"]
+[ext_resource type="PackedScene" uid="uid://b32ry8bxqdiir" path="res://Touchscreen/virtual_joystick.tscn" id="4_5ey8o"]
+[ext_resource type="Texture2D" uid="uid://b2dep524nii28" path="res://Touchscreen/LightTouchButton.png" id="5_4gbiu"]
+[ext_resource type="Texture2D" uid="uid://d4hdiy8xgnvp8" path="res://Touchscreen/InteractTouchButton.png" id="6_oe4qt"]
 
 [node name="GUIManager" type="CanvasLayer"]
 script = ExtResource("1_ytcbd")
@@ -18,3 +21,44 @@ offset_bottom = 0.0
 stream = ExtResource("3_cfglw")
 volume_db = 3.0
 bus = &"Player"
+
+[node name="InLevel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TouchControls" type="Control" parent="InLevel"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="JoystickAnchor" parent="InLevel/TouchControls" instance=ExtResource("4_5ey8o")]
+offset_left = 80.0
+offset_top = 568.0
+offset_right = 80.0
+offset_bottom = 568.0
+x_negative = &"Left"
+x_positive = &"Right"
+y_negative = &"Up"
+y_positive = &"Down"
+max_distance = 60.0
+base_color = Color(0.560784, 0.560784, 0.560784, 0.211765)
+head_radius = 20.0
+head_color = Color(0.258824, 0.168627, 0.337255, 0.827451)
+
+[node name="LightButton" type="TouchScreenButton" parent="InLevel/TouchControls"]
+modulate = Color(0.581033, 0.581033, 0.581033, 0.521569)
+position = Vector2(544, 547)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_4gbiu")
+action = "Light"
+
+[node name="InteractButton" type="TouchScreenButton" parent="InLevel/TouchControls"]
+modulate = Color(0.580392, 0.580392, 0.580392, 0.521569)
+position = Vector2(462, 547)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("6_oe4qt")
+action = "Interact"
